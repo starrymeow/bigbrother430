@@ -9,10 +9,10 @@
  * (see <http://www.gnu.org/licenses/ for more information).
  * 
  */
-
+use PHPUnit\Framework\TestCase;
 include_once(dirname(__FILE__).'/../domain/SCL.php');
-class testSCL extends UnitTestCase {
-      function testSCLModule() {
+class SCLTest extends TestCase {
+      function testSCL() {
          $p=array();
          $p[] = array("max123","max","palmer","123","456","1/1/08","LM","true");
          $p[] = array("oliver345","oliver","radwan","123","456","1/1/08","LM","false");
@@ -24,7 +24,6 @@ class testSCL extends UnitTestCase {
 	     $s->set_persons($p2);
 //	     echo count($s->get_persons());
          $this->assertTrue(count($s->get_persons())==3);
-		 echo ("testSCL complete");
   	  }
 }
 

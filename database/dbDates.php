@@ -16,10 +16,10 @@
  * @version February 10, 2015
  * @author Phuong Le andMaxwell Palmer
  */
-include_once('domain/RMHdate.php');
-include_once('dbShifts.php');
-include_once('domain/Shift.php');
-include_once('dbinfo.php');
+include_once(dirname(__FILE__).'/../domain/RMHdate.php');
+include_once(dirname(__FILE__).'/dbShifts.php');
+include_once(dirname(__FILE__).'/../domain/Shift.php');
+include_once(dirname(__FILE__).'/dbinfo.php');
 
 /**
  * reformats dbDates table from 2013 format to 2015 format 
@@ -166,7 +166,7 @@ function select_dbDates($id) {
 }
 
 /**
- * @return a * delimited list of the ids of the shifts for the specified day
+ * @return *-delimited list of the ids of the shifts for the specified day
  */
 function get_shifts_text($d) {
     $shifts = $d->get_shifts();

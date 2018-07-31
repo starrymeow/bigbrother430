@@ -64,7 +64,7 @@ function delete_log_entry($id) {
 
 /**
  * deletes log entries with ids specified in array $ids
- * @param $ids an array of log ids
+ * @param array of log ids
  */
 function delete_log_entries($ids) {
     $con=connect();
@@ -79,7 +79,7 @@ function delete_log_entries($ids) {
 
 /**
  * returns all entries in the log, sorted by timestamp
- * @return returns array of id, time, and text
+ * @return array of id, time, and text
  */
 function get_full_log() {
     $con=connect();

@@ -14,10 +14,11 @@
  * Created on Feb 24, 2008
  * @author max
  */
+use PHPUnit\Framework\TestCase;
 include_once(dirname(__FILE__).'/../database/dbShifts.php');
 include_once(dirname(__FILE__).'/../database/dbDates.php');
-class testdbShifts extends UnitTestCase {
-  function testdbShiftsModule() {
+class dbShiftsTest extends TestCase {
+  function testdbShifts() {
 	$s1=new Shift("08-02-25:1-5","house", 3, array(), array(), "", "");
 	$this->assertTrue(insert_dbShifts($s1));
 	$this->assertTrue(delete_dbShifts($s1));
@@ -27,7 +28,7 @@ class testdbShifts extends UnitTestCase {
 	$this->assertTrue(update_dbShifts($s2));
 	$shifts[] = $s2;
 	$this->assertTrue(delete_dbShifts($s2));
-	echo ("testdbShifts complete");
+	echo ("testdbShifts complete\n");
   }
 }
 ?>

@@ -16,7 +16,7 @@
  */
 
 function connect() {
-    $host = "localhost";
+    $host = "127.0.0.1";
     $database = "homebasedemo2017";
     $user = "homebasedemo2017";
     $pass = "foodyWr1";

@@ -16,12 +16,12 @@
 * @author Johnny Coster
 * @version February 21, 2012
 */
-
+use PHPUnit\Framework\TestCase;
 include_once(dirname(__FILE__).'/../domain/MasterScheduleEntry.php');
 include_once(dirname(__FILE__).'/../database/dbMasterSchedule.php');
 
-class testdbMasterSchedule extends UnitTestCase {
-	function testdbMasterScheduleModule() {
+class dbMasterScheduleTest extends TestCase {
+	function testdbMasterSchedule() {
 		
 		//creates MasterScheduleEntries to insert to database
 		$entry1 = new MasterScheduleEntry("house","Wed", "odd", "1-5", 2,
@@ -40,17 +40,17 @@ class testdbMasterSchedule extends UnitTestCase {
 		$this->assertTrue(insert_dbMasterSchedule($entry4));
 		
 		//tests the retrieve function
-		$this->assertEqual(retrieve_dbMasterSchedule($entry2->get_id())->get_day(), $entry2->get_day());
-		$this->assertEqual(retrieve_dbMasterSchedule($entry2->get_id())->get_hours(), $entry2->get_hours());
-		$this->assertEqual(retrieve_dbMasterSchedule($entry2->get_id())->get_venue(), $entry2->get_venue());
-		$this->assertEqual(retrieve_dbMasterSchedule($entry2->get_id())->get_week_no(), $entry2->get_week_no());
-		$this->assertEqual(retrieve_dbMasterSchedule($entry2->get_id())->get_slots(), $entry2->get_slots());
-		$this->assertEqual(retrieve_dbMasterSchedule($entry2->get_id())->get_id(), $entry2->get_id());
+		$this->assertEquals(retrieve_dbMasterSchedule($entry2->get_id())->get_day(), $entry2->get_day());
+		$this->assertEquals(retrieve_dbMasterSchedule($entry2->get_id())->get_hours(), $entry2->get_hours());
+		$this->assertEquals(retrieve_dbMasterSchedule($entry2->get_id())->get_venue(), $entry2->get_venue());
+		$this->assertEquals(retrieve_dbMasterSchedule($entry2->get_id())->get_week_no(), $entry2->get_week_no());
+		$this->assertEquals(retrieve_dbMasterSchedule($entry2->get_id())->get_slots(), $entry2->get_slots());
+		$this->assertEquals(retrieve_dbMasterSchedule($entry2->get_id())->get_id(), $entry2->get_id());
 		
 		//tests the update function
 		$entry3->set_notes("This is a new note");
 		$this->assertTrue(update_dbMasterSchedule($entry3));
-		$this->assertEqual(retrieve_dbMasterSchedule($entry3->get_id())->get_notes(), "This is a new note");
+		$this->assertEquals(retrieve_dbMasterSchedule($entry3->get_id())->get_notes(), "This is a new note");
 		
 		//tests the delete function
 		$this->assertTrue(delete_dbMasterSchedule($entry1->get_id()));
@@ -58,7 +58,7 @@ class testdbMasterSchedule extends UnitTestCase {
 		$this->assertTrue(delete_dbMasterSchedule($entry3->get_id()));
 		$this->assertTrue(delete_dbMasterSchedule($entry4->get_id()));
 		
-		echo ("testdbMasterSchedule complete");
+		echo ("testdbMasterSchedule complete\n");
 	}
 }
 

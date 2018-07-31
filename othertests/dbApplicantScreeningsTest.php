@@ -14,11 +14,11 @@
  * created February 23, 2012
  * @Jackson Moniaga
  */
-
+use PHPUnit\Framework\TestCase;
 include_once(dirname(__FILE__).'/../domain/ApplicantScreening.php');
 include_once(dirname(__FILE__).'/../database/dbApplicantScreenings.php');
 
-class testdbApplicantScreenings extends UnitTestCase {
+class dbApplicantScreeningsTest extends TestCase {
       function testdbApplicantScreeningsModule() {
 		
 		//create empty dbApplicantScreenings table
@@ -39,19 +39,15 @@ class testdbApplicantScreenings extends UnitTestCase {
 		$this->assertTrue(insert_dbApplicantScreenings($screening4));
 		
 		//tests the retrieve function
-		$this->assertEqual(retrieve_dbApplicantScreenings($screening1->get_type())->get_type(), "guestchef");
-		$this->assertEqual(retrieve_dbApplicantScreenings($screening1->get_type())->get_creator(), "Gabrielle1111234567");
-		$this->assertEqual(retrieve_dbApplicantScreenings($screening1->get_type())->get_steps(), array("complete application", "background check", "complete interview"));
-		$this->assertEqual(retrieve_dbApplicantScreenings($screening1->get_type())->get_status(), "unpublished");
+		$this->assertEquals(retrieve_dbApplicantScreenings($screening1->get_type())->get_type(), "guestchef");
+		$this->assertEquals(retrieve_dbApplicantScreenings($screening1->get_type())->get_creator(), "Gabrielle1111234567");
+		$this->assertEquals(retrieve_dbApplicantScreenings($screening1->get_type())->get_steps(), array("complete application", "background check", "complete interview"));
+		$this->assertEquals(retrieve_dbApplicantScreenings($screening1->get_type())->get_status(), "unpublished");
 		
 		//tests the update function
 		$screening1->set_status("published");
 		$this->assertTrue(update_dbApplicantScreenings($screening1));
-		$this->assertEqual(retrieve_dbApplicantScreenings($screening1->get_type())->get_status(), "published");
-		
-		// tests get_all function
-		$allscreenings = getall_ApplicantScreenings();
-		$this->assertTrue($allscreenings);
+		$this->assertEquals(retrieve_dbApplicantScreenings($screening1->get_type())->get_status(), "published");
 		
 		// tests delete function
 		$this->assertTrue(delete_dbApplicantScreenings($screening1->get_type()));
@@ -59,7 +55,7 @@ class testdbApplicantScreenings extends UnitTestCase {
 		$this->assertTrue(delete_dbApplicantScreenings($screening3->get_type()));
 		$this->assertTrue(delete_dbApplicantScreenings($screening4->get_type()));
    	  	
-		echo "testdbApplicantScreenings complete";
+		echo "testdbApplicantScreenings complete\n";
       } 
 	
 }

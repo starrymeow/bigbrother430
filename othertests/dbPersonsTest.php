@@ -14,11 +14,12 @@
  * Modified March 2012
  * @Author Taylor and Allen
  */
+use PHPUnit\Framework\TestCase;
 include_once(dirname(__FILE__).'/../database/dbPersons.php');
 include_once(dirname(__FILE__).'/../domain/Person.php');
 
-class testdbPersons extends UnitTestCase {
-      function testdbPersonsModule() {
+class dbPersonsTest extends TestCase {
+      function testdbPersons() {
       	// add two people to the database
 		$myPerson = new Person("Susan","L","portland","928 SU","Portland", "ME",04011,
       2074415902,"home",2072654046,"cell", "susanl@aol.com", "volunteer",
@@ -43,16 +44,16 @@ class testdbPersons extends UnitTestCase {
 		$this->assertTrue($p!==false);
 		$this->assertTrue($p->get_status() == "active");
 		$this->assertTrue($p->get_email() == "ted@bowdoin.edu");
-		$this->assertEqual($p->get_type(), array("volunteer"));
-		$this->assertEqual($p->get_hours(), array("15-01-05:0930-1300:bangor:3.5"));
+		$this->assertEquals($p->get_type(), array("volunteer"));
+		$this->assertEquals($p->get_hours(), array("15-01-05:0930-1300:bangor:3.5"));
 		$this->assertTrue($p->get_birthday() == "89-02-19");
 		
 		$p2 = retrieve_person("Fred5093456789");
 		$this->assertTrue($p2!==false);
 		$this->assertTrue($p2->get_status() == "active");
 		$this->assertTrue($p2->get_email() == "alfred@whitman.edu");
-		$this->assertEqual($p2->get_type(), array("volunteer"));
-		$this->assertEqual($p2->get_hours(), array("15-02-27:1730-2100:portland:3.5"));
+		$this->assertEquals($p2->get_type(), array("volunteer"));
+		$this->assertEquals($p2->get_hours(), array("15-02-27:1730-2100:portland:3.5"));
 		$this->assertTrue($p2->get_birthday() == "91-09-25");
 		
 		// remove the person
@@ -60,7 +61,7 @@ class testdbPersons extends UnitTestCase {
 		$this->assertTrue(remove_person("Fred5093456789"));
 		
 		
-		echo("testdbPersons complete");
+		echo("testdbPersons complete\n");
 
       }
 }

@@ -13,10 +13,11 @@
  * Created on Feb 24, 2008
  * @author max
  */
-//include_once(dirname(__FILE__).'/../database/dbDates.php');
-//include_once(dirname(__FILE__).'/../domain/Shift.php');
-//include_once(dirname(__FILE__).'/../domain/RMHDate.php');
-class testdbDates extends UnitTestCase {
+use PHPUnit\Framework\TestCase;
+include_once(dirname(__FILE__).'/../database/dbDates.php');
+include_once(dirname(__FILE__).'/../domain/Shift.php');
+include_once(dirname(__FILE__).'/../domain/RMHDate.php');
+class dbDatesTest extends TestCase {
     function testdbDatesModule() {
 		$my_shifts = array();
 		$my_shifts[] = new Shift("10-02-28:9-1", "house", 1, array(), array(), null ,"");

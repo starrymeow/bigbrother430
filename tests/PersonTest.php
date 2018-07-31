@@ -13,10 +13,10 @@
  * @version on Feb 27, 2008 (v1), Jan 30, 2015 (v2), and Mar 3, 2015 (v3, last modified)
  */
 
-  //first I include the php file I'm testing
+ use PHPUnit\Framework\TestCase;
  include_once(dirname(__FILE__).'/../domain/Person.php');
- class testPerson extends UnitTestCase {
-      function testPersonModule() {
+ class PersonTest extends TestCase {
+      function testPerson() {
 
  $myPerson = new Person("Susan","L","portland","928 SU","Portland", "ME",04011,
       2074415902,"home",2072654046,"cell", "susanl@aol.com", "volunteer",
@@ -24,19 +24,17 @@
       "Mon:9-12:portland,Sun:evening:portland", "", "", "89-02-19", "08-03-14", "internet",
       "this is a note","");
  
- //first assertion - check that a getter is working from the superconstructor's initialized data
  $this->assertTrue($myPerson->get_first_name()=="Susan");
  $this->assertTrue($myPerson->get_type()==array("volunteer"));
  $this->assertTrue($myPerson->get_status()=="active");
  $this->assertTrue($myPerson->get_city()=="Portland");
  $this->assertTrue($myPerson->get_phone1()==2074415902);
  $this->assertTrue($myPerson->get_employer()=="USM");
- $this->assertEqual($myPerson->get_availability(),array("Mon:9-12:portland","Sun:evening:portland"));
+ $this->assertEquals($myPerson->get_availability(),array("Mon:9-12:portland","Sun:evening:portland"));
  $this->assertTrue($myPerson->get_last_name() !== "notMyLastName");
  $this->assertTrue($myPerson->get_phone1type()!=="work");
  $this->assertTrue($myPerson->get_howdidyouhear()=="internet");
  $this->assertTrue($myPerson->get_birthday()=="89-02-19");
- echo("testPerson complete");
       }
  }
 

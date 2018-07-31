@@ -9,15 +9,14 @@
  */
 
 /**
-* Test suite for MasterScheduleEntry
+* Unit test for MasterScheduleEntry
 * Created on January 7, 2015
 * @author Allen Tucker
 */
 
-//first I include the php file I'm testing
+use PHPUnit\Framework\TestCase;
 include_once(dirname(__FILE__).'/../domain/MasterScheduleEntry.php');
-
-class testMasterScheduleEntry extends UnitTestCase {
+class MasterScheduleEntryTest extends TestCase {
 	
 	function testMasterScheduleEntryModule() {
 		
@@ -28,13 +27,11 @@ class testMasterScheduleEntry extends UnitTestCase {
 		$this->assertTrue($new_MasterScheduleEntry->get_day()=="Wed");
 		
 		$this->assertTrue($new_MasterScheduleEntry->get_hours()=="1-5");
-		$this->assertTrue($new_MasterScheduleEntry->get_week_no(), "1st");
+		$this->assertEquals($new_MasterScheduleEntry->get_week_no(), "1st");
 		$this->assertTrue($new_MasterScheduleEntry->get_slots()==2);
 		$this->assertTrue($new_MasterScheduleEntry->get_persons()==array("joe2071234567","sue2079876543"));
 		$this->assertTrue($new_MasterScheduleEntry->get_notes()=="This is a super fun shift.");
 		$this->assertTrue($new_MasterScheduleEntry->get_id()=="1st:Wed:1-5:house");
-		
-		echo("testMasterScheduleEntry complete");
 	}
 }
 

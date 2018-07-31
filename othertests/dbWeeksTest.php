@@ -12,14 +12,14 @@
  * Created on Feb 24, 2008, modified February 14 2015
  * @author Adrienne Beebe, max
  */
+use PHPUnit\Framework\TestCase;
 include_once(dirname(__FILE__).'/../database/dbWeeks.php');
 include_once(dirname(__FILE__).'/../domain/Week.php');
 include_once(dirname(__FILE__).'/../domain/RMHdate.php.php');
 include_once(dirname(__FILE__).'/../database/dbDates.php');
 
-
-class testdbWeeks extends UnitTestCase {
-  function testdbWeeksModule() {
+class dbWeeksTest extends TestCase {
+  function testdbWeeks() {
 		//Create two weeks and add them to the database
 		$days1 = array();
       	for($i=9;$i<16;$i++) {
@@ -44,15 +44,15 @@ class testdbWeeks extends UnitTestCase {
   		$this->assertEqual($a[0], $w1);
   		
   		//update the second Week by a change of status
-  	//	$w2 = new Week($days2,"fam","published");
-  	//	$this->assertTrue(update_dbWeeks($w2));
-  	//	$this->assertEqual(get_dbWeeks($w2->get_id())->get_status(),"published");
+  		$w2 = new Week($days2,"fam","published");
+  		$this->assertTrue(update_dbWeeks($w2));
+  		$this->assertEquals(get_dbWeeks($w2->get_id())->get_status(),"published");
   		
   		//Remove the Weeks from the database
   		$this->assertTrue(delete_dbWeeks($w1));
   		$this->assertTrue(delete_dbWeeks($w2));
   	
-	echo "testdbWeeks complete";
+	echo "testdbWeeks complete\n";
   }
 }
 ?>

@@ -10,9 +10,10 @@
  * @author Max Palmer, Yonah Biers-Ariel
  * @version June 2008, modified February 5, 2015 
  */
+use PHPUnit\Framework\TestCase;
 include_once(dirname(__FILE__).'/../domain/RMHdate.php');
-class testRMHdate extends UnitTestCase {
-      function testRMHdateModule() {
+class RMHdateTest extends TestCase {
+      function testRMHdate() {
       	$my_shifts = array();
         $my_shifts[] = new Shift("10-02-28:9-1", "house", 1, array(), array(), null ,"");
  		$my_shifts[] = new Shift("10-02-28:1-5", "house", 1, array(), array(), null ,"");
@@ -27,8 +28,6 @@ class testRMHdate extends UnitTestCase {
  		$this->assertTrue($my_date->get_year() == 2010);
  		$this->assertTrue($my_date->get_week_of_month()==4);
  		$this->assertTrue($my_date->get_week_of_year()=="even");
-
- 		echo("testRMHdate complete");
       }
 }
 ?>

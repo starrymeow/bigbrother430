@@ -15,15 +15,15 @@
  * @version Feb 12, 2015
  * @author Xun Wang
  */
-include_once('domain/Shift.php');
-include_once('dbPersons.php');
-include_once('dbDates.php');
-include_once('dbSCL.php');
-include_once('dbinfo.php');
+include_once(dirname(__FILE__).'/../domain/Shift.php');
+include_once(dirname(__FILE__).'/dbPersons.php');
+include_once(dirname(__FILE__).'/dbDates.php');
+include_once(dirname(__FILE__).'/dbSCL.php');
+include_once(dirname(__FILE__).'/dbinfo.php');
 
 /**
  * Inserts a shift into the db
- * @param $s the shift to insert
+ * @param shift to insert
  */
 function insert_dbShifts($s) {
     if (!$s instanceof Shift) {
@@ -53,7 +53,7 @@ function insert_dbShifts($s) {
 
 /**
  * Deletes a shift from the db
- * @param $s the shift to delete
+ * @param shift to delete
  */
 function delete_dbShifts($s) {
     if (!$s instanceof Shift)
@@ -72,7 +72,7 @@ function delete_dbShifts($s) {
 
 /**
  * Updates a shift in the db by deleting it (if it exists) and then replacing it
- * @param $s the shift to update
+ * @param shift to update
  */
 function update_dbShifts($s) {
 	error_log("updating shift in database");
@@ -85,8 +85,8 @@ function update_dbShifts($s) {
 
 /**
  * Selects a shift from the database
- * @param $id a shift id
- * @return Shift or null
+ * @param shift id
+ * @return Shift with that id, or null
  */
 function select_dbShifts($id) {
     $con=connect();
@@ -115,8 +115,8 @@ function select_dbShifts($id) {
 
 /**
  * Selects all shifts from the database for a given date and venue
- * @param $id is a shift id
- * @return a result set or false (if there are no shifts for that date and venue)
+ * @param shift id
+ * @return array of shifts, or null (if there are no shifts for that date and venue)
  */
 function selectDateVenue_dbShifts($date, $venue) {
     $con=connect();

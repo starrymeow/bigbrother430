@@ -10,18 +10,18 @@
  * 
  */
 
-
+use PHPUnit\Framework\TestCase;
 include_once(dirname(__FILE__).'/../domain/Shift.php');
-class testShift extends UnitTestCase {
-      function testShiftModule() {
+class ShiftTest extends TestCase {
+      function testShift() {
          $noonshift = new Shift("08-03-28:1-5", "house", 3, array(), array(), "", "");
-         $this->assertEqual($noonshift->get_hours(), "1-5");
+         $this->assertEquals($noonshift->get_hours(), "1-5");
          $this->assertTrue($noonshift->get_id() == "08-03-28:1-5:house");
-         $this->assertEqual($noonshift->get_yy_mm_dd(), "08-03-28");
+         $this->assertEquals($noonshift->get_yy_mm_dd(), "08-03-28");
          
 // Test new function for resetting shift's start/end time
 		 $this->assertTrue($noonshift->get_start_time()==13);
-		 $this->assertEqual($noonshift->get_end_time(),17);
+		 $this->assertEquals($noonshift->get_end_time(),17);
 		 
 // Be sure that invalid times are caught.
 		 $this->assertFalse($noonshift->set_start_end_time(13,12));
@@ -51,7 +51,6 @@ class testShift extends UnitTestCase {
 
          $noonshift->set_notes("Hello 1-5 shift!");
          $this->assertTrue($noonshift->get_notes() == "Hello 1-5 shift!");
- 		 echo ("testShift complete");
   	  }
 }
 

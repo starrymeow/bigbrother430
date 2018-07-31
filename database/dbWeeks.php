@@ -16,15 +16,15 @@
  * @version May 1, 2008, modifications September 15, 2008, February 10, 2015
  * @author Adrienne Beebe, Maxwell Palmer and Allen Tucker
  */
-include_once('domain/Week.php');
+ include_once(dirname(__FILE__).'/../domain/Week.php');
 include_once('dbinfo.php');
 include_once('dbDates.php');
 include_once('dbShifts.php');
-include_once('domain/Shift.php');
+include_once(dirname(__FILE__).'/../domain/Shift.php');
 
 /**
  * Inserts a week into the db
- * @param $w the week to insert
+ * @param week to insert
  */
 function insert_dbWeeks($w) {
     if (!$w instanceof Week) {
@@ -57,7 +57,7 @@ function insert_dbWeeks($w) {
 
 /**
  * Deletes a week from the db
- * @param $w the week to delete
+ * @param week to delete
  */
 function delete_dbWeeks($w) {
     if (!$w instanceof Week)
@@ -78,7 +78,7 @@ function delete_dbWeeks($w) {
 
 /**
  * Updates a week in the db by deleting it and re-inserting it
- * @param $w the week to update
+ * @param week to update
  */
 function update_dbWeeks($w) {
     if (!$w instanceof Week)
@@ -91,8 +91,8 @@ function update_dbWeeks($w) {
 
 /**
  * Selects a week from the database
- * @param $id week id --
- * @return mysql entry corresponding to id
+ * @param week id
+ * @return week corresponding to that id
  */
 function select_dbWeeks($id) {
 
@@ -129,7 +129,7 @@ function select_dbWeeks($id) {
 /**
  * retrieves a Week from the database
  * @param $id = mm-dd-yy of the week to retrieve
- * @return the desired week, or null
+ * @return week with that id, or null
  */
 function get_dbWeeks($id) {
     $result_row = select_dbWeeks($id);
@@ -150,8 +150,8 @@ function get_dbWeeks($id) {
 }
 
 /**
- * the full contents of dbWeeks, used by addWeek to list all scheduld weeks
- * @return mysql result array of weeks
+ * the full contents of dbWeeks, used by addWeek to list all scheduled weeks
+ * @return $weeks -- all weeks in the database
  */
 function get_all_dbWeeks($venue) {
 	$con=connect();

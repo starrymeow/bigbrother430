@@ -13,10 +13,11 @@
 /*
  * @author max
  */
+use PHPUnit\Framework\TestCase;
 include_once(dirname(__FILE__).'/../domain/SCL.php');
 include_once(dirname(__FILE__).'/../database/dbSCL.php');
-class testdbSCL extends UnitTestCase {
-  function testdbSCLModule() {
+class dbSCLTest extends TestCase {
+  function testdbSCL() {
 	$p=array();
     $p[] = array("max123","max","palmer","123","456","1/1/08","LM","true");
     $p[] = array("oliver345","oliver","radwan","123","456","1/1/08","LM","false");
@@ -33,7 +34,7 @@ class testdbSCL extends UnitTestCase {
 //	print_r(select_dbSCL("01-01-08-9-12"));
     $this -> assertTrue(delete_dbSCL($s));
 
-	echo ("testdbSCL complete");
+	echo ("testdbSCL complete\n");
   }
 }
 ?>

@@ -16,7 +16,7 @@
  * @author Maxwell Palmer
  */
 include_once('dbinfo.php');
-include_once('domain/SCL.php');
+include_once(dirname(__FILE__).'/../domain/SCL.php');
 
 /**
  * adds a SCL to the table
@@ -79,7 +79,7 @@ function update_dbSCL($scl) {
 }
 
 /**
- * @return returns a SCL object, or an error string if the SubCallList is not in the database
+ * @return SCL object, or null if the SubCallList is not in the database
  */
 function select_dbSCL($id) {
     $con=connect();
