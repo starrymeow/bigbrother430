@@ -15,13 +15,13 @@ include_once(dirname(__FILE__).'/../domain/RMHdate.php');
 class RMHdateTest extends TestCase {
       function testRMHdate() {
       	$my_shifts = array();
-        $my_shifts[] = new Shift("10-02-28:9-1", "house", 1, array(), array(), null ,"");
- 		$my_shifts[] = new Shift("10-02-28:1-5", "house", 1, array(), array(), null ,"");
- 		$my_date = new RMHdate("10-02-28","house",$my_shifts,"");
+        $my_shifts[] = new Shift("10-02-28:9-1", "portland", 1, array(), array(), null ,"");
+ 		$my_shifts[] = new Shift("10-02-28:1-5", "portland", 1, array(), array(), null ,"");
+ 		$my_date = new RMHdate("10-02-28","portland",$my_shifts,"");
 		$my_shifts = $my_date->get_shifts();
         foreach ($my_shifts as $value)
 	        $this->assertTrue($value instanceof Shift);
- 		$this->assertTrue($my_date->get_id() == "10-02-28:house");
+ 		$this->assertTrue($my_date->get_id() == "10-02-28:portland");
  		$this->assertTrue($my_date->get_day() == "Sun");
  		$this->assertTrue($my_date->get_day_of_week() == 7);
  		$this->assertTrue($my_date->get_day_of_year() == 59);

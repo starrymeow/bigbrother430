@@ -16,16 +16,17 @@
  */
 
 function connect() {
-    $host = "127.0.0.1";
+    $host = "127.0.0.1";    // this is needed for unit testing.  Use localhost for running
     $database = "homebasedemo2017";
     $user = "homebasedemo2017";
     $pass = "foodyWr1";
 
-    $connected = mysqli_connect($host,$user,$pass,$database);
-    if (!$connected) { echo "not connected"; return mysqli_error($connected);}
-    $selected = mysqli_select_db($connected,$database);
-    if (!$selected) { echo "not selected"; return mysqli_error($connected); }
-    else return $connected;
+    $con = mysqli_connect($host,$user,$pass,$database);
+    if (!$con) { echo "not connected to server"; return mysqli_error($con);}
+    $selected = mysqli_select_db($con,$database);
+    if (!$selected) { echo "database not selected"; return mysqli_error($con); }
+    else return $con;
+    
 }
 
 ?>

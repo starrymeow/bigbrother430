@@ -9,26 +9,24 @@
  * (see <http://www.gnu.org/licenses/ for more information).
  * 
  */
-
 /*
  * Created on Feb 24, 2008
  * @author max
  */
 use PHPUnit\Framework\TestCase;
-include_once(dirname(__FILE__).'/../database/dbShifts.php');
 include_once(dirname(__FILE__).'/../database/dbDates.php');
-class dbShiftsTest extends TestCase {
-  function testdbShifts() {
-	$s1=new Shift("08-02-25:1-5","house", 3, array(), array(), "", "");
-	$this->assertTrue(insert_dbShifts($s1));
-	$this->assertTrue(delete_dbShifts($s1));
-	$s2=new Shift("08-02-25:9-1","house",3, array(), array(), "", "");
-	$this->assertTrue(insert_dbShifts($s2));
-	$s2=new Shift("08-02-25:9-1","house",2, array(), array(), "", "");
-	$this->assertTrue(update_dbShifts($s2));
-	$shifts[] = $s2;
-	$this->assertTrue(delete_dbShifts($s2));
-	echo ("testdbShifts complete\n");
-  }
+include_once(dirname(__FILE__).'/../domain/Shift.php');
+include_once(dirname(__FILE__).'/../domain/RMHDate.php');
+class dbDatesTest extends TestCase {
+    function testdbDatesModule() {
+		$my_shifts = array();
+		$my_shifts[] = new Shift("10-02-28:9-1", "portland", 1, array(), array(), null ,"");
+		$my_shifts[] = new Shift("10-02-28:1-5", "portland", 1, array(), array(), null ,"");
+		$my_date = new RMHdate("10-02-28","house",$my_shifts,"");
+		$this->assertTrue(insert_dbDates($my_date));
+		$this->assertTrue(delete_dbDates($my_date));
+		
+		echo("testdbDates complete");
+      }
 }
 ?>

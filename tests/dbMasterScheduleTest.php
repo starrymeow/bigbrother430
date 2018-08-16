@@ -24,13 +24,13 @@ class dbMasterScheduleTest extends TestCase {
 	function testdbMasterSchedule() {
 		
 		//creates MasterScheduleEntries to insert to database
-		$entry1 = new MasterScheduleEntry("house","Wed", "odd", "1-5", 2,
+		$entry1 = new MasterScheduleEntry("portland","Wed", "odd", "1-5", 2,
 												  "", "I do not know what Lin means");
-		$entry2 = new MasterScheduleEntry("house","Tue", "even", "1-5", 3, 
+		$entry2 = new MasterScheduleEntry("portland","Tue", "even", "1-5", 3, 
 										  "", "Yay kitchen shift!");
-		$entry3 = new MasterScheduleEntry("house","Wed", "even", "1-5", 2,
+		$entry3 = new MasterScheduleEntry("portland","Wed", "even", "1-5", 2,
 												  "", "");
-		$entry4 = new MasterScheduleEntry("house","Fri", "odd", "1-5", 4,
+		$entry4 = new MasterScheduleEntry("portland","Fri", "odd", "1-5", 4,
 										  "", "Best job ever.");
 		
 		//tests the insert function

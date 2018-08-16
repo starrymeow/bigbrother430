@@ -58,7 +58,7 @@ class RMHdate {
             $this->week_of_year= "odd";
         else 
         	$this->week_of_year= "even";	
-  
+        $this->venue = $venue;
         $this->month_num = date("m", $my_date);
         if (sizeof($shifts) !== 0)
             $this->shifts = $shifts;
@@ -75,7 +75,7 @@ class RMHdate {
     function generate_shifts($day,$venue) {
         $days = array(1 => "Mon", 2 => "Tue", 3 => "Wed", 4 => "Thu", 5 => "Fri", 6 => "Sat", 7 => "Sun");
         $this->shifts = array();
-        
+        echo "day, venue, wom, woy = ".$day." ".$venue. " " . $this->week_of_month . " " . $this->week_of_year;
         $master1 = get_master_shifts($venue, $this->week_of_month, $days[$day]);
         $master2 = get_master_shifts($venue, $this->week_of_year, $days[$day]);
         $master = array_merge($master1,$master2);

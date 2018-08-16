@@ -21,13 +21,8 @@ include_once(dirname(__FILE__).'/../domain/Person.php');
 class dbPersonsTest extends TestCase {
       function testdbPersons() {
       	// add two people to the database
-		$myPerson = new Person("Susan","L","portland","928 SU","Portland", "ME",04011,
-      2074415902,"home",2072654046,"cell", "susanl@aol.com", "volunteer",
-      "","","active", "USM","student",3,"semester","I like helping out","cooking","",
-      "Mon:9-12:portland,Sun:evening:portland", "", "", "89-02-19", "08-03-14", "internet",
-      "this is a note","");
       
-      $m = new Person("Gabrielle","Booth", "bangor","14 Way St", "Harpswell", "ME", 04079,
+        $m = new Person("Gabrielle","Booth", "bangor","14 Way St", "Harpswell", "ME", 04079,
 		1112345679, "cell",7778889999,"work","ted@bowdoin.edu","volunteer","","","active", 
 		"National Semiconductor","VP","","year","a motivation","a specialty", "",
 		"Mon:9-12:bangor,Sun:morning:bangor","","15-01-05:0930-1300:bangor:3.5","89-02-19", "08-03-14","friend","Some notes","");

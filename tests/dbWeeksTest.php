@@ -29,22 +29,22 @@ class dbWeeksTest extends TestCase {
       	for($i=16;$i<23;$i++) {
       		$days2[] = new RMHDate(date('y-m-d',mktime(0,0,0,2,$i,2015)),"fam",array(),"");
       	}
-        $w1 = new Week($days1,"house","archived");
-        $w2 = new Week($days2,"fam","unpublished");
+        $w1 = new Week($days1,"portland","archived");
+        $w2 = new Week($days2,"bangor","unpublished");
   		$this->assertTrue(insert_dbWeeks($w1));
   		$this->assertTrue(insert_dbWeeks($w2));
   		
   		//retrieve the first Week and check its fields
-  		$w = get_dbWeeks("02-09-15:house");
+  		$w = get_dbWeeks("02-09-15:portland");
   		$this->assertTrue($w!==false);
   		$this->assertTrue($w->get_status()=="archived");
-  		$this->assertTrue($w->get_venue()=="house");
+  		$this->assertTrue($w->get_venue()=="portland");
   		
-  		$a = get_all_dbWeeks("house");
+  		$a = get_all_dbWeeks("portland");
   		$this->assertEqual($a[0], $w1);
   		
   		//update the second Week by a change of status
-  		$w2 = new Week($days2,"fam","published");
+  		$w2 = new Week($days2,"bangor","published");
   		$this->assertTrue(update_dbWeeks($w2));
   		$this->assertEquals(get_dbWeeks($w2->get_id())->get_status(),"published");
   		

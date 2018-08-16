@@ -5,7 +5,7 @@
  * software.  It comes with absolutely no warranty. You can redistribute and/or 
  * modify it under the terms of the GNU General Public License as published by the 
  * Free Software Foundation (see <http://www.gnu.org/licenses/ for more information).
- * Error: week-day-time-venue not valid:see get_person_ids
+ * Error: week-day-time-venue not valid:see get_person_ids mysqli_error
  */
 /**
  * Functions to create, update, and retrieve information from the
