@@ -188,8 +188,8 @@ include_once('database/dbLog.php');
 		}
 		return false;
 	}
-    function process_move_shift($post,$shift) {
-    	if(!array_key_exists('_submit_move_shift',$post))
+    function process_move_shift($post,$shift,$venue) {
+        if(!array_key_exists('_submit_move_shift',$post))
     	    return false;
     	echo "<br><br><table align=\"center\" border=\"1px\" style=\"width: 330px\"><tr><td align=\"center\"><b>"
 			.get_shift_name_from_id($shift->get_id())."</b></td></tr>
@@ -209,27 +209,9 @@ include_once('database/dbLog.php');
 		echo "</table>";
 		echo "<table align=\"center\"><tr><td align=\"center\" width=\"400\">
 		<br><a href=\"editShift.php?shift=".$shift->get_yy_mm_dd().":".$shift->get_hours().
+		          "&venue=".$venue.
 		           "\">Back to Shift</a><br></td></tr></table>";
 		return true;
-    }
-    function process_delete_shift($post,$shift) {
-    	if(!array_key_exists('_submit_delete_shift',$post))
-    	    return false;
-    	else if ($shift->num_slots()==0){
-			delete_dbShifts($shift);
-			fix_SCL($shift);
-			add_log_entry('<a href=\"personEdit.php?id='.$_SESSION['_id'].'\">'.$_SESSION['f_name'].' '.
-			    $_SESSION['l_name'].'</a> deleted the shift: <a href=\"editShift.php?shift='.$shift->get_id().'\">'.
-			    get_shift_name_from_id($shift->get_id()).'</a>.');
-			echo "<p>Shift ".get_shift_name_from_id($shift->get_id())." deleted.";
-			echo "<p><a href=\"calendar.php?id=".substr($shiftid,0,8)."&edit=true&venue=house"."\">
-									Back to Calendar</a>";
-			return true;
-		}
-		else {
-			echo "<p>Shift ".get_shift_name_from_id($shift->get_id())." not deleted (because it has more than 0 slots).";
-			return false;
-		}
     }
     
     function get_all_times(){

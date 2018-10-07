@@ -70,7 +70,12 @@ session_cache_expire(30);
                         //        $edit = false;
                             echo '<form method="POST">';
                             show_week($days, $week, $edit, $year, $doy, $venue);
-                            if ($edit == true && !($days[6]->get_year() < $year || ($days[6]->get_year() == $year && $days[6]->get_day_of_year() < $doy) ) && $_SESSION['access_level'] >= 1.5)
+                            if ($edit==true &&
+                                ! ($days[6]->get_year()<$year ||
+                                    ($days[6]->get_year()==$year &&
+                                        $days[6]->get_day_of_year()<$doy)
+                                    ) &&
+                                $_SESSION['access_level']>=2)
                                 echo "<p align=\"center\"><input type=\"submit\" value=\"Save changes to all notes\" name=\"submit\">";
                             echo '</form>';
                         }
