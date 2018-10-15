@@ -185,11 +185,11 @@ session_cache_expire(30);
 		</b></td></tr>
 		<tr><td><form method=\"POST\" style=\"margin-bottom:0;\">
 			<select name=\"scheduled_vol\">
-			<option value=\"0\" style=\"width: 371px;\">Select a volunteer with this availability</option>"
+			<option value=\"0\" style=\"width: 371px;\">Select an active volunteer with this availability</option>"
                     . get_available_volunteer_options($msentry, get_persons($msentry->get_id())) .
                     "</select><br><br>
 			<select name=\"all_vol\">
-			<option value=\"0\" style=\"width: 371px;\">Select from all volunteers</option>"
+			<option value=\"0\" style=\"width: 371px;\">Select from all active volunteers</option>"
                     . get_all_volunteer_options(get_persons($msentry->get_id()), $msentry->get_venue()) .
                     "</select><br><br>
 			<input type=\"hidden\" name=\"_submit_add_volunteer\" value=\"1\">

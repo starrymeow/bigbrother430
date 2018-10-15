@@ -69,12 +69,12 @@ include_once('database/dbLog.php');
 			.get_shift_name_from_id($shiftid)."</b></td></tr>
 		<tr><td><form method=\"POST\" style=\"margin-bottom:0;\">
 			<select name=\"scheduled_vol\">
-			<option value=\"0\" style=\"width: 371px;\">Select a volunteer with this availability</option>"
+			<option value=\"0\" style=\"width: 371px;\">Select an active volunteer with this availability</option>"
 			.get_available_volunteer_options($shifttime,$shift->get_day(),$shift->get_persons(),$venue).
 			"</select><br>
 			<br>or<br><br>
 			<select name=\"all_vol\">
-			<option value=\"0\" style=\"width: 371px;\">Select from all volunteers for this venue</option>"
+			<option value=\"0\" style=\"width: 371px;\">Select from all active volunteers for this venue</option>"
 			.get_all_volunteer_options("","",$shift->get_persons(),$venue).
 			"</select><br><br>
 			<input type=\"hidden\" name=\"_submit_add_volunteer\" value=\"1\">

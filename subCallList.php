@@ -76,15 +76,12 @@
 		$shift_persons=$shift->get_persons();  		
 		if(!$shift_persons[0])
 			array_shift($shift_persons);
-		$con=connect();
-		$query="SELECT * FROM dbPersons WHERE (status = 'active' AND type LIKE '%sub%' AND availability LIKE '%".$day.":".$time.":".$venue."%') ORDER BY last_name,first_name";
-		$persons_result=mysqli_query($con,$query);		
-		mysqli_close($con); 
-		for($i=0;$i<mysqli_num_rows($persons_result);++$i) {
-			$row=mysqli_fetch_row($persons_result);
-			$id_and_name=$row[0]."+".$row[3]."+".$row[4];	
+		$activepersons = getonlythose_dbPersons('sub', 'active', '', $day, $time, $venue);
+		foreach($activepersons as $p) {
+		    $id_and_name=$p->get_id()."+".$p->get_first_name()."+".$p->get_last_name();	
 			if (!in_array($id_and_name, $shift_persons) && !in_array($id_and_name, $shift->get_removed_persons())) {
-				$persons[]=array($row[0], $row[3], $row[4], $row[9]." ".$row[10], $row[11]." ".$row[12], "", "", "?");
+			    $persons[]=array($p->get_id(), $p->get_first_name(), $p->get_last_name(), 
+			        $p->get_phone1()." ".$p->get_phone1type(), $p->get_phone2()." ".$p->get_phone2type(), "", "", "?");
 			}	
 		}
 		$new_scl=new SCL($id, $persons, "open", $vacancies, get_sub_call_list_timestamp($id));   
