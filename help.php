@@ -24,14 +24,8 @@
 				<div align="center"><p><a href="?">Help Home</a></p></div>
 
 				<?PHP
-					//This array associates pages a person might be viewing
-					//with the help page we assume they want. Note: it might be important
-					//for each page to include within it a link to the 'home help' website
-					//to allow us to get them to material somewhere else they might want.
-					//you can guarantee a link to the home site by simply linking to
-					//help.php with no variable passed through the GET method.
-//developer templage
-$assocHelp['helpPageTemplate.php']='helpPageTemplate.inc.php';
+					//The array $assocHelp associates the page a person is viewing
+					//with the help page for that view. 
 					
 					//basic pages
 					$assocHelp['login.php']='login.inc.php';
@@ -62,22 +56,16 @@ $assocHelp['helpPageTemplate.php']='helpPageTemplate.inc.php';
 					$assocHelp['reports.php']='reportsHelp.inc.php';
 					$assocHelp['dataExport.inc.php']='dataExportHelp.inc.php';
 
-					//personal home page
-					$assocHelp['index.php']='indexHelp.inc.php';
-
-
-					//Now if we have an undefined array value for the key they've passed us
-					//what happens? This means that the page they're looking for help on doesn't have a
-					//specific help page we defined above. So we pass them to the index page to see if they can find help from there.
+					// Now if we have an undefined array value for the key they've passed us, 
+					// the page they're looking for help on doesn't have an associated help page.
+					// So we pass them to the help index page to see if they can find help from there.
 					$loc = substr($_GET['helpPage'],strpos($_GET['helpPage'],"/")+1);
 					if(!$assocHelp[$loc])
 						$assocHelp[$loc]='index.inc.php';
-
+					
 					//now this line actually snags the tutorial data they're requesting and displays it.
 					include('tutorial/'.$assocHelp[$loc]);
 				?>
-
-				
 			</div>
 		</div>
 		<?PHP include('footer.inc');?>

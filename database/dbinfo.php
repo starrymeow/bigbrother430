@@ -16,7 +16,7 @@
  */
 
 function connect() {
-    $host = "127.0.0.1";    // this is needed for unit testing.  Use localhost for running
+    $host = "localhost";    // this is needed for unit testing.  Use localhost for running
     $database = "homebasedemo2017";
     $user = "homebasedemo2017";
     $pass = "foodyWr1";

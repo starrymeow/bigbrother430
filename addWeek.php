@@ -81,14 +81,12 @@ session_cache_expire(45);
                 else if (!array_key_exists('_submit_check_newweek', $_POST)) {
                     include('addWeek_newweek.inc');
                 } else {
-                    process_form($firstweek, $venue);
+                    process_form($firstweek, $venue, $_POST['_new_week_timestamp']);
                     include('addWeek_newweek.inc');
                 }
                 
-                // must be a manager
-                function process_form($firstweek, $venue) {
-                	
-                	if ($_SESSION['access_level'] < 2)
+                function process_form($firstweek, $venue, $timestamp) {
+                    if ($_SESSION['access_level'] < 2)
                         return null;
                     if ($firstweek == true) {
                         //find the beginning of the current week
@@ -97,12 +95,25 @@ session_cache_expire(45);
                         $d = date("d",$dow);
                         $y = date("y",$dow);
                         generate_populate_and_save_new_week($m, $d, $y, $venue);
-                    } else {
-                        $timestamp = $_POST['_new_week_timestamp'];
-                        $m = date("m", $timestamp);
-                        $d = date("d", $timestamp);  
-                        $y = date("y", $timestamp);
-                        generate_populate_and_save_new_week($m, $d, $y, $venue);
+                    } 
+                    else {                     
+                        // populate new weeks from last generated to 4 weeks from now
+                        $limit = strtotime("+4 weeks");
+                        $timestamp = $timestamp;
+                        while ($timestamp < $limit) {
+                            $m = date("m", $timestamp);
+                            $d = date("d", $timestamp);  
+                            $y = date("y", $timestamp);
+                            generate_populate_and_save_new_week($m, $d, $y, $venue);
+                            $timestamp = strtotime("+1 week", $timestamp); 
+                        }
+                        // delete all archived weeks prior to 4 weeks ago
+                        $result = get_all_dbWeeks($venue);
+                        $limit = strtotime("-4 weeks");
+                        foreach ($result as $old_week) {
+                            if ($old_week->get_end() < $limit)
+                                delete_dbWeeks($old_week);
+                        }
                     }
                 }
 
@@ -156,7 +167,7 @@ session_cache_expire(45);
                         $day_id = date("y-m-d", mktime(0, 0, 0, $m, $d, $y));
                     }
                      // creates a new week from the dates
-                    $newweek = new Week($dates, $venue, "unpublished");
+                    $newweek = new Week($dates, $venue, "published");
                     insert_dbWeeks($newweek);
                     add_log_entry('<a href=\"personEdit.php?id=' . $_SESSION['_id'] . '\">' . $_SESSION['f_name'] . ' ' . $_SESSION['l_name'] . '</a> generated a new week: <a href=\"calendar.php?id=' . $newweek->get_id() . '&edit=true\">' . $newweek->get_name() . '</a>.');        
                 }

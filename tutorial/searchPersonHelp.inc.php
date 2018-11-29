@@ -33,26 +33,24 @@
 		href="tutorial/screenshots/searchpersonstep1.png" class="image"
 		title="searchpersonstep1.png"
 		target="tutorial/screenshots/searchpersonstep1.png">
-		&nbsp&nbsp&nbsp&nbsp<img
+		&nbsp;&nbsp;&nbsp;&nbsp;<img
 		src="tutorial/screenshots/searchpersonstep1.png" width="10%"
 		rel="popover" data-img="tutorial/screenshots/searchpersonstep1.png"
 		border="1px" align="middle"> </a>
-</p>
 <p>
 	<B>Step 2:</B> You can enter any part of a person's first name or last
 	name as a search criterion. For example, a search for "ann" would
 	return <B>Ann</B>, <B>Ann</B>a, Di<B>ann</B>e, etc.
 <p>
 	You can also search for all persons with a particular status, like
-	"Active" or "on Applicant".<BR> <BR> <a
+	"Active" or "Applicant".<BR> <BR> <a
 		href="tutorial/screenshots/searchpersonstep2.png" class="image"
-		title="searchpersonstep2.png" horizontalalign="center"
+		title="searchpersonstep2.png" 
 		target="tutorial/screenshots/searchpersonstep2.png">
-		&nbsp&nbsp&nbsp&nbsp<img
+		&nbsp;&nbsp;&nbsp;&nbsp;<img
 		src="tutorial/screenshots/searchpersonstep2.png" width="10%"
 		rel="popover" data-img="tutorial/screenshots/searchpersonstep2.png"
 		border="1px" align="middle"> </a>
-</p>
 <p>
 	Another option is to search for a particular type of people, like "Manager"
 	or "Meal Prep".<BR> <BR> <a
