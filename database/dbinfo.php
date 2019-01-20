@@ -16,10 +16,10 @@
  */
 
 function connect() {
-    $host = "localhost";    // this is needed for unit testing.  Use localhost for running
+    $host = "localhost"; 
     $database = "homebasedemo2017";
     $user = "homebasedemo2017";
-    $pass = "foodyWr1";
+    $pass = "homebawedemo2017";
 
     $con = mysqli_connect($host,$user,$pass,$database);
     if (!$con) { echo "not connected to server"; return mysqli_error($con);}
