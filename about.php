@@ -31,9 +31,7 @@
 				
 				<p>The original version of <i>Homebase</i></a> was developed in 2008 by <a href="http://www.bowdoin.edu/computer-science" target="_blank">
 	            Bowdoin College</a> students and an instructor for the <a href="http://www.rmhcmaine.org/" target="_blank">Ronald McDonald House in 
-	            Portland, Maine</a>.  It was later revised and enhanced in 2011, 2013, and 2015 by other groups of students and RMH staff members.  
-	            More information about the original <i>Homebase</i> project can be found 
-	            in <a href="http://www.bowdoin.edu/news/archives/1bowdoincampus/005118.shtml" target="_BLANK"> this article</a>.      
+	            Portland, Maine</a>.  It was later revised and enhanced in 2011, 2013, and 2015 by other groups of students and RMH staff members.      
  
 				<p>This project is supported by <a href="http://npfi.org" target="_blank">
 				The Non-Profit FOSS Institute (NPFI)</a>, which "aims to build communities that develop and support customized 
@@ -46,12 +44,10 @@
 				Because <i>Homebase</i> must protect the privacy of individual RMH volunteers and staff, outside access to the system is
 				restricted.  If you are an RMH staff member or volunteer and have forgotten your Username or Password, please contact the Volunteer Coordinator.
                 </p>
-				<p> <i>Homebase</i> is free and open source software, so its source code can be freely downloaded and adapted
-				 to fit the volunteer scheduling needs of other non-profits.  
-				 For more information about the capabilities or adaptability of <i>Homebase</i></i> to other settings, please 
-				 contact either <a href="mailto:allen@npfi.org">Allen Tucker</a> or visit the website 
-				 <a href="https://npfi.org" target="_blank">https://npfi.org</a>.
-				</p> 
+				<p> <i>Homebase</i> is free and open source software. Its source code can be freely downloaded and adapted to support the volunteer scheduling needs of other nonprofit organizations  
+				(see <a href="https://github.com/megandalster/homebasedemo2017/wiki" TARGET="_BLANK">https://github.com/megandalster/homebasedemo2017/wiki</a>).  
+				For more information about <i>Homebase</i>, please visit the website <a href="https://npfi.org/the-homebase-project" TARGET="_BLANK">https://npfi.org/the-homebase-project</a>.
+				</p>
 				
 			</div>
 		<?PHP include('footer.inc');?>
