@@ -43,21 +43,27 @@
         $permission_array['apply.php'] = 0;
         //pages volunteers can view
         $permission_array['help.php'] = 1;
-        $permission_array['view.php'] = 1;
-        $permission_array['personSearch.php'] = 1;
-        $permission_array['personEdit.php'] = 1;
         $permission_array['calendar.php'] = 1;
         //pages only managers can view
-        $permission_array['personEdit.php'] = 2;
-        $permission_array['viewSchedule.php'] = 2;
-        $permission_array['addWeek.php'] = 2;
-        $permission_array['rmh.php'] = 2;
+        $permission_array['personsearch.php'] = 2;
+        $permission_array['personedit.php'] = 2;
+        $permission_array['viewschedule.php'] = 2;
+        $permission_array['addweek.php'] = 2;
         $permission_array['log.php'] = 2;
-        $permission_array['dataSearch.php'] = 2;
         $permission_array['reports.php'] = 2;
 
         //Check if they're at a valid page for their access level.
-        $current_page = substr($_SERVER['PHP_SELF'], 1);
+        $current_page = strtolower(substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'],"/")+1));
+        $current_page = substr($current_page, strpos($current_page,"/")+1);
+        
+        if($permission_array[$current_page]>$_SESSION['access_level']){
+            //in this case, the user doesn't have permission to view this page.
+            //we redirect them to the index page.
+            echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
+            //note: if javascript is disabled for a user's browser, it would still show the page.
+            //so we die().
+            die();
+        }
         //This line gives us the path to the html pages in question, useful if the server isn't installed @ root.
         $path = strrev(substr(strrev($_SERVER['SCRIPT_NAME']), strpos(strrev($_SERVER['SCRIPT_NAME']), '/')));
 		$venues = array("portland"=>"RMH Portland","bangor"=>"RMH Bangor");
@@ -75,13 +81,6 @@
 	            echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
 	            echo(' | calendars: <a href="' . $path . 'calendar.php?venue='.$_SESSION['venue'].'">house, </a>');
 	            echo('<a href="' . $path . 'calendar.php?venue='.$_SESSION['venue'].'guestchef">guest chef</a>');
-	            if ($_SESSION['venue']=="portland") {
-		            echo(', <a href="' . $path . 'calendar.php?venue='.$_SESSION['venue'].'activities">activity </a>');
-		            echo(' | <a href="https://sites.google.com/site/rmhvolunteersite"  target="_BLANK">around the house </a>');
-	            }
-	            else {
-	            	echo(' | <a href="https://sites.google.com/site/aroundthehousebangor/home"  target="_BLANK">around the house </a>');
-	            }
 	        }
 	        if ($_SESSION['access_level'] >= 2) {
 	            echo('<br><a href="' . $path . 'viewSchedule.php?venue='.$_SESSION['venue'].'">master schedule</a>');
