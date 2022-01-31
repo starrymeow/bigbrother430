@@ -2,5 +2,4 @@
 <buildpath>
 	<buildpathentry kind="src" path=""/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
-	<buildpathentry external="true" kind="lib" path="/Applications/MAMP/htdocs/phpunit.phar"/>
 </buildpath>

@@ -167,32 +167,6 @@ session_cache_expire(30);
                                 }
                                 echo('</ul></p></div><br>');
                             }
-                         
-                        // active volunteers who haven't worked recently
-                            $everyone = getall_names("active", "volunteer",$_SESSION['venue']);
-                            if ($everyone && mysqli_num_rows($everyone) > 0) {
-                                //active volunteers who haven't worked for the last two months
-                                $two_months_ago = $today - 60 * 86400;
-                                echo('<div class="inactiveBox">');
-                                echo('<p><strong>Unscheduled active house volunteers who haven\'t worked during the last two months:</strong>');
-                                echo('<table class="searchResults"><tr><td class="searchResults"><u>Name</u></td><td class="searchResults"><u>Date Last Worked</u></td></tr>');
-                                while ($thisRow = mysqli_fetch_array($everyone, MYSQLI_ASSOC)) {
-                                    if (!preg_match("/manager/", $thisRow['type'])) {
-                                        $shifts = selectScheduled_dbShifts($thisRow['id']);
-                                        $havent_worked = true;
-                                        $last_worked = "";
-                                        for ($i = 0; $i < count($shifts) && $havent_worked; $i++) {
-                                            $date_worked = mktime(0, 0, 0, get_shift_month($shifts[$i]), get_shift_day($shifts[$i]), get_shift_year($shifts[$i]));
-                                            $last_worked = substr($shifts[$i], 0, 8);
-                                            if ($date_worked > $two_months_ago) 
-                                                $havent_worked = false;
-                                        }
-                                        if ($havent_worked)
-                                            echo('<tr><td class="searchResults"><a href="personEdit.php?id=' . $thisRow['id'] . '">' . $thisRow['first_name'] . ' ' . $thisRow['last_name'] . '</a></td><td class="searchResults">' . $last_worked . '</td></tr>');
-                                    }
-                                }
-                                echo('</table></p></div><br>');
-                            } 
                         }
                         //DEFAULT PASSWORD CHECK
                         if (md5($person->get_id()) == $person->get_password()) {
