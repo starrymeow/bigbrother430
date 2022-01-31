@@ -143,30 +143,6 @@ session_cache_expire(30);
                                 '<td class="searchResults">' . $lo[2] . '</td></tr>');
                             }
                             echo ('</table><br><a href="' . $path . 'log.php">View full log</a></p></div><br>');
-
-                            //beginning of vacancy box
-                            //For checking time
-                            $today = mktime(0, 0, 0, date('m'), date('d'), date('y'));
-                            $two_weeks = $today + 14 * 86400;
-
-                            $con=connect();
-                            $vacancy_query = "SELECT id,vacancies FROM dbShifts " .
-                                    "WHERE venue='".$_SESSION['venue']."' AND vacancies > 0 ORDER BY id;";
-                            $vacancy_list = mysqli_query($con,$vacancy_query);
-                            if (!$vacancy_list)
-                                echo mysqli_error($con);
-                            //upcoming vacancies
-                            if (mysqli_num_rows($vacancy_list) > 0) {
-                                echo('<div class="vacancyBox">');
-                                echo('<p><strong>Upcoming Vacancies:</strong><ul>');
-                                while ($thisRow = mysqli_fetch_array($vacancy_list, MYSQLI_ASSOC)) {
-                                    $shift_date = mktime(0, 0, 0, substr($thisRow['id'], 0, 2), substr($thisRow['id'], 3, 2), substr($thisRow['id'], 6, 2));
-                                    if ($shift_date > $today && $shift_date < $two_weeks) {
-                                        echo('<li type="circle"><a href="' . $path . 'editShift.php?shift=' . $thisRow['id'] . '">' . get_shift_name_from_id($thisRow['id']) . '</a></li>');
-                                    }
-                                }
-                                echo('</ul></p></div><br>');
-                            }
                         }
                         //DEFAULT PASSWORD CHECK
                         if (md5($person->get_id()) == $person->get_password()) {
