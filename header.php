@@ -45,8 +45,8 @@
         $permission_array['help.php'] = 1;
         $permission_array['calendar.php'] = 1;
         //pages only managers can view
-        $permission_array['personsearch.php'] = 2;
-        $permission_array['personedit.php'] = 2;
+        $permission_array['accountsearch.php'] = 2;
+        $permission_array['accountedit.php'] = 2;
         $permission_array['viewschedule.php'] = 2;
         $permission_array['addweek.php'] = 2;
         $permission_array['log.php'] = 2;
@@ -70,7 +70,7 @@
         
         //they're logged in and session variables are set.
         if ($_SESSION['venue'] =="") { 
-        	echo(' <a href="' . $path . 'personEdit.php?id=' . 'new' . '">apply</a>');
+        	echo(' <a href="' . $path . 'accountEdit.php?id=' . 'new' . '">apply</a>');
         	echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
         }
         else {
@@ -85,8 +85,8 @@
 	        if ($_SESSION['access_level'] >= 2) {
 	            echo('<br>master schedules: <a href="' . $path . 'viewSchedule.php?venue=portland'."".'">Portland, </a>');
 	            echo('<a href="' . $path . 'viewSchedule.php?venue=bangor'."".'">Bangor</a>');
-	            echo(' | volunteers: <a href="' . $path . 'personSearch.php">search</a>, 
-				        <a href="personEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
+	            echo(' | volunteers: <a href="' . $path . 'accountSearch.php">search</a>, 
+				        <a href="accountEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
 	            echo(' | <a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
 	        }
 	        echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
