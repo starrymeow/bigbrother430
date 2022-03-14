@@ -17,8 +17,8 @@
 	private $email;   // email address as a string
 	private $password;     // password for account access: default = $email
 	private $applications;     // array of applications acosiated with this account: key=id
-	private $first_name;
-	private $last_name;
+	private $first_name;       //first name of account holder as a string
+	private $last_name;        //last name of account holder as a string
 	private $status;     // a person may be an "applicant", "active", "LOA", or "former"
 
 
