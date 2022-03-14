@@ -99,7 +99,7 @@ session_cache_expire(30);
                                     echo('<li type="circle">' . get_shift_name_from_id($tableId)) . '</li>';
                                 }
                                 echo('</ul><p>If you need to cancel an upcoming shift, please contact the <a href="mailto:allen@npfi.org">House Manager</a>.</p></div>');
-                          */}
+                            }*/
                             
                             // link to personal profile for editing
                             echo('<br><div class="scheduleBox"><p><strong>Your Personal Profile:</strong><br /></p><ul>');  
