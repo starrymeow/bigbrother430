@@ -42,7 +42,6 @@
         if ($_POST['user'] == "guest" && $_POST['pass'] == "") {
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 0;
-            $_SESSION['venue'] = "";
             $_SESSION['type'] = "";
             $_SESSION['_id'] = "guest";
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
@@ -64,9 +63,8 @@
                         $_SESSION['access_level'] = 1;
                     $_SESSION['f_name'] = $person->get_first_name();
                     $_SESSION['l_name'] = $person->get_last_name();
-                    $_SESSION['venue'] = $person->get_venue();
                     $_SESSION['type'] = $person->get_type();
-                    $_SESSION['_id'] = $_POST['user'];
+                    $_SESSION['_id'] = $_POST['user'];              //email
                     echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
                 }
                 else {

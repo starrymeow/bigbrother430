@@ -17,6 +17,8 @@
 	private $email;   // email address as a string
 	private $password;     // password for account access: default = $email
 	private $applications;     // array of applications acosiated with this account: key=id
+	private $first_name;
+	private $last_name;
 
 
 	function __construct($e, $pass) {
@@ -38,6 +40,14 @@
 	
 	function add_application($id, $application) {
 	    $this->applications[$id] = $application;
+	}
+	
+	function get_first_name() {
+	    return $this->first_name;
+	}
+	
+	function get_last_name() {
+	    return $this->last_name;
 	}
 }
 ?>

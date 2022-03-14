@@ -25,16 +25,16 @@ session_cache_expire(30);
             <?PHP include('header.php'); ?>
             <div id="content">
                 <?PHP
-                include_once('database/dbPersons.php');
-                include_once('domain/Person.php');
+                include_once('database/dbAccounts.php');
+                include_once('domain/Account.php');
                 include_once('database/dbLog.php');
                 include_once('domain/Shift.php');
                 include_once('database/dbShifts.php');
                 date_default_timezone_set('America/New_York');
             //    fix_all_birthdays();
                 if ($_SESSION['_id'] != "guest") {
-                    $person = retrieve_person($_SESSION['_id']);
-                    echo "<p>Welcome, " . $person->get_first_name() . ", to Homebase!";
+                    $account = retrieve_account($_SESSION['_id']);
+                    echo "<p>Welcome, " . $account->get_first_name() . ", to Homebase!";
                 }
                 else 
                     echo "<p>Welcome!";
