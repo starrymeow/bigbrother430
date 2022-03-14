@@ -22,7 +22,9 @@
 	private $status;     // a person may be an "applicant", "active", "LOA", or "former"
 
 
-	function __construct($e, $pass) {
+	function __construct($first, $last, $e, $pass) {
+	    $this->first_name = $first;
+	    $this->last_name = $last;
 		$this->email = $e;
 		if ($pass == "")
 			$this->password = md5($this->email);
