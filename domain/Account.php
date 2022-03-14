@@ -19,6 +19,7 @@
 	private $applications;     // array of applications acosiated with this account: key=id
 	private $first_name;
 	private $last_name;
+	private $status;     // a person may be an "applicant", "active", "LOA", or "former"
 
 
 	function __construct($e, $pass) {
@@ -48,6 +49,10 @@
 	
 	function get_last_name() {
 	    return $this->last_name;
+	}
+	
+	function get_status() {
+	    return $this->status;
 	}
 }
 ?>
