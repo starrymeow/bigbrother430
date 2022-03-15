@@ -34,7 +34,7 @@ namespace domain;
 			$this->password = $pass;  // default password == md5($email)
 		$this->applications = array();
 	}
-
+	
 	function get_email() {
 		return $this->email;
 	}
