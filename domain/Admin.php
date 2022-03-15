@@ -1,30 +1,20 @@
 <?php
 namespace domain;
 
-class Admin extends Account
-{
-    private $is_super; // Value is 1 if admin is a super admin, otherwise 0
+Class Admin extends Account {
+    private $is_super;
     
-    // Creates an admin object
-    function __construct($e, $p, $s){
-        $this->email = e;
-        $this->password = $p;
+    function __construct($first, $last, $e, $pass, $s) {
+        Account::construct($first, $last, $e, $pass);
         $this->is_super = $s;
     }
     
-    // Returns if the admin is a super admin
-    function get_is_super(){
+    function get_is_super() {
         return $this->is_super;
     }
     
-    // Promotes an admin to a super admin, or demotes them to regular admin
-    function update_super($s){
-        if ($s == 1 || $s == 0) {
-            $this->is_super = $s;
-        }
+    function set_is_super($s) {
+        $this->is_super = $s;
     }
-    
-    
-    
 }
 ?>
