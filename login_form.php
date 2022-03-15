@@ -24,7 +24,8 @@
         echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
     }
     if (!array_key_exists('_submit_check', $_POST)) {
-        echo('<div align="left"><p>Access to Homebase requires a Username and a Password. ' .
+        echo('<div align="left"><p>Access to Homebase requires a Username and a Password. Username
+            and Password is Admin7037806282 ' .
         '<ul>'
         );
         echo('<li>If you are applying for a volunteer position, enter the Username \'guest\' and a blank Password. ');
