@@ -41,6 +41,10 @@
 		return $this->password;
 	}
 	
+	function set_password($pass) {
+	    $this->password = $pass;
+	}
+	
 	function add_application($id, $application) {
 	    $this->applications[$id] = $application;
 	}
