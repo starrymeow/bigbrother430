@@ -65,4 +65,12 @@ function retrieve_account($email) {
     //    mysqli_close($con);
     return $theAccount;
 }
+
+function change_password($email, $newPass) {
+    $con=connect();
+    $query = 'UPDATE dbPersons SET password = "' . $newPass . '" WHERE email = "' . $email . '"';
+    $result = mysqli_query($con,$query);
+    mysqli_close($con);
+    return $result;
+}
 ?>
