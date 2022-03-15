@@ -46,8 +46,7 @@ function add_person($person) {
                 $person->get_birthday() . '","' .
                 $person->get_email() . '","' .
                 $person->get_employer() . '","' . 
-                $person->get_position() . '","' . 
-                $person->get_credithours() . '","' . 
+                $person->get_position() . '","' .  
                 $person->get_howdidyouhear() . '","' . 
                 $person->get_commitment() . '","' . 
                 $person->get_motivation() . '","' . 
@@ -363,30 +362,4 @@ function get_birthdays($name_from, $name_to, $venue) {
    	return $thePersons;
 }
 
-//return an array of "last_name;first_name;hours", which is "last_name;first_name;date:start_time-end_time:venue:totalhours"
-// and sorted alphabetically
-function get_logged_hours($from, $to, $name_from, $name_to, $venue) {
-	$con=connect();
-   	$query = "SELECT first_name,last_name,hours,venue FROM dbPersons "; 
-   	$query.= " WHERE venue = '" .$venue. "'";
-   	$query.= " AND last_name BETWEEN '" .$name_from. "' AND '" .$name_to. "'";
-   	$query.= " ORDER BY last_name,first_name";
-	$result = mysqli_query($con,$query);
-	$thePersons = array();
-	while ($result_row = mysqli_fetch_assoc($result)) {
-		if ($result_row['hours']!="") {
-			$shifts = explode(',',$result_row['hours']);
-			$goodshifts = array();
-			foreach ($shifts as $shift) 
-			    if (($from == "" || substr($shift,0,8) >= $from) && ($to =="" || substr($shift,0,8) <= $to))
-			    	$goodshifts[] = $shift;
-			if (count($goodshifts)>0) {
-				$newshifts = implode(",",$goodshifts);
-				array_push($thePersons,$result_row['last_name'].";".$result_row['first_name'].";".$newshifts);
-			}   // we've just selected those shifts that follow within a date range for the given venue
-		}
-	}
-   	mysqli_close($con);
-   	return $thePersons;
-}
 ?>
