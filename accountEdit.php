@@ -29,7 +29,7 @@ if ($email == 'new') {
         $email = str_replace(" ","_",$_GET["id"]);
         $account = retrieve_account($email);
         if (!$account) {
-            echo('<p id="error">Error: there\'s no account with this id (email) in the database</p>' . $id);
+            echo('<p id="error">Error: there\'s no account with this id (email) in the database</p>' . $email);
             die();
         }
     }
@@ -74,7 +74,7 @@ if ($email == 'new') {
                     }
                     // this was a successful form submission; update the database and exit
                     else
-                        process_form($id,$account);
+                        process_form($email,$account);
                         echo "</div>";
                     include('footer.inc');
                     echo('</div></body></html>');
@@ -105,7 +105,7 @@ if ($email == 'new') {
                             if (retrieve_admin($result->email)) {
                                 //They're a manager, we need to check that they can be deleted
                                 $managers = get_all_admins();
-                                if (!$managers || mysqli_num_rows($managers) <= 1 || $email==$defaultAdmin || $email==$_SESSION['id'] || retrieve_admin($email)->get_is_super())
+                                if (!$managers || mysqli_num_rows($managers) <= 1 || $email==$defaultAdmin || $email==$_SESSION['_id'] || retrieve_admin($email)->get_is_super() )
                                     echo('<p class="error">You cannot remove this manager from the database.</p>');
                                 else {
                                     remove_account($email);
