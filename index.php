@@ -25,10 +25,6 @@ session_cache_expire(30);
             <?PHP include('header.php'); ?>
             <div id="content">
                 <?PHP
-                if (!isset($_SESSION['logged_in'])) {
-                    include('login_form.php');
-                    die();
-                }
                 include_once('database/dbPersons.php');
                 include_once('domain/Person.php');
                 include_once('database/dbLog.php');
