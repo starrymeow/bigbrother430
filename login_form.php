@@ -16,7 +16,8 @@
 ?>
 
 <div id="content">
-    <?PHP
+    <?php
+
     include_once('database/dbAccounts.php');
     include_once('domain/Account.php');
     if (($_SERVER['PHP_SELF']) == "/logout.php") {
@@ -92,7 +93,7 @@
         }
     }
     ?>
-    <?PHP include('footer.inc'); ?>
+    <?php include('footer.inc'); ?>
 </div>
 </div>
 </body>

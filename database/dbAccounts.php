@@ -1,7 +1,5 @@
 <?php
-namespace database;
 
-use domain\Account;
 
 include_once('dbinfo.php');
 include_once(dirname(__FILE__).'/../domain/Account.php');
@@ -73,5 +71,15 @@ function change_password($email, $newPass) {
     $result = mysqli_query($con,$query);
     mysqli_close($con);
     return $result;
+}
+
+function make_an_account($results_row) {
+    $theAccount = new Account(
+        $result_row['first_name'],
+        $result_row['last_name'],
+        $result_row['email'],
+        $result_row['status'],
+        $result_row['password']);
+    return $theAccount;
 }
 ?>

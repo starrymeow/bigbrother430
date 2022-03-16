@@ -1,5 +1,4 @@
 <?php
-namespace domain;
 
 /*
  * Created on Mar 8, 2022
@@ -11,7 +10,7 @@ namespace domain;
 	//private $applications;     // array of applications acosiated with this account: key=id
 	private $first_name;       //first name of account holder as a string
 	private $last_name;        //last name of account holder as a string
-	private $status;     // a person may be an "applicant", "active", "LOA", or "former"
+	private $status;     // an account may be ...
 
 
 	function __construct($first, $last, $e, $s, $pass) {
