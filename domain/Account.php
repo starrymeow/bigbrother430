@@ -2,12 +2,12 @@
 namespace domain;
 
 /*
- * Copyright 2013 by Allen Tucker. 
- * This program is part of RMHC-Homebase, which is free software.  It comes with 
- * absolutely no warranty. You can redistribute and/or modify it under the terms 
+ * Copyright 2013 by Allen Tucker.
+ * This program is part of RMHC-Homebase, which is free software.  It comes with
+ * absolutely no warranty. You can redistribute and/or modify it under the terms
  * of the GNU General Public License as published by the Free Software Foundation
  * (see <http://www.gnu.org/licenses/ for more information).
- * 
+ *
  */
 
 /*
@@ -34,7 +34,7 @@ namespace domain;
 			$this->password = $pass;  // default password == md5($email)
 		$this->applications = array();
 	}
-	
+
 	function get_email() {
 		return $this->email;
 	}
@@ -42,23 +42,27 @@ namespace domain;
 	function get_password() {
 		return $this->password;
 	}
-	
+
 	function set_password($pass) {
 	    $this->password = $pass;
 	}
-	
+
 	function add_application($id, $application) {
 	    $this->applications[$id] = $application;
 	}
-	
+
+	function get_applications() {
+	    return $this->applications;
+	}
+
 	function get_first_name() {
 	    return $this->first_name;
 	}
-	
+
 	function get_last_name() {
 	    return $this->last_name;
 	}
-	
+
 	function get_status() {
 	    return $this->status;
 	}
