@@ -66,6 +66,7 @@ function retrieve_account($email) {
     return $theAccount;
 }
 
+
 function change_password($email, $newPass) {
     $con=connect();
     $query = 'UPDATE dbPersons SET password = "' . $newPass . '" WHERE email = "' . $email . '"';

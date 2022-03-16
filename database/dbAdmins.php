@@ -30,6 +30,49 @@ function add_admin($admin) {
         return false;
 }
 
+// remove an admin by email. Return false if there's no admin matching the email
+function remove_admin($email) {
+    $con=connect();
+    $query = 'SELECT * FROM dbAdmins WHERE email = "' . $email. '"';
+    $result = mysqli_query($con,$query);
+    if ($result == null || mysqli_num_rows($result) == 0) {
+        mysqli_close($con);
+        return false;
+    }
+    $query = 'DELETE FROM dbAdmins WHERE email = "' . $email . '"';
+    $result = mysqli_query($con,$query);
+    mysqli_close($con);
+    return true;
+}
+
+
+/*
+ * @return a Person from dbPersons table matching a particular id.
+ * if not in table, return false
+ */
+function retrieve_admin($email) {
+    $con=connect();
+    $query = "SELECT * FROM dbAdmins WHERE email = '" . $email . "'";
+    $result = mysqli_query($con,$query);
+    if (mysqli_num_rows($result) !== 1) {
+        mysqli_close($con);
+        return false;
+    }
+    $result_row = mysqli_fetch_assoc($result);
+    // var_dump($result_row);
+    $theAdmin = make_a_person($result_row);
+    //    mysqli_close($con);
+    return $theAdmin;
+}
+
+function change_password($email, $newPass) {
+    $con=connect();
+    $query = 'UPDATE dbAdmins SET password = "' . $newPass . '" WHERE email = "' . $email . '"';
+    $result = mysqli_query($con,$query);
+    mysqli_close($con);
+    return $result;
+}
+
 function make_an_admin($result_row) {
     /*
      ($f, $l, $v, $a, $c, $s, $z, $p1, $p1t, $p2, $p2t, $e, $t,
