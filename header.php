@@ -20,11 +20,8 @@
     <?PHP
     //Log-in security
     //If they aren't logged in, display our log-in form.
-    if (!isset($_SESSION['logged_in'])) {
-    	
-        include('login_form.php');
-        die();
-    } else if ($_SESSION['logged_in']) {
+    
+    if ($_SESSION['logged_in']) {
 
         /*         * Set our permission array.
          * anything a guest can do, a volunteer and manager can also do
