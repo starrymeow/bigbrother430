@@ -1,11 +1,11 @@
 <?php
 /*
- * Copyright 2013 by Allen Tucker. 
- * This program is part of RMHP-Homebase, which is free software.  It comes with 
- * absolutely no warranty. You can redistribute and/or modify it under the terms 
+ * Copyright 2013 by Allen Tucker.
+ * This program is part of RMHP-Homebase, which is free software.  It comes with
+ * absolutely no warranty. You can redistribute and/or modify it under the terms
  * of the GNU General Public License as published by the Free Software Foundation
  * (see <http://www.gnu.org/licenses/ for more information).
- * 
+ *
  */
 ?>
 <!-- Begin Header -->
@@ -24,7 +24,7 @@
     //Log-in security
     //If they aren't logged in, display our log-in form.
     if (!isset($_SESSION['logged_in'])) {
-    	
+
         include('login_form.php');
         die();
     } else if ($_SESSION['logged_in']) {
@@ -55,7 +55,7 @@
         //Check if they're at a valid page for their access level.
         $current_page = strtolower(substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'],"/")+1));
         $current_page = substr($current_page, strpos($current_page,"/")+1);
-        
+
         if($permission_array[$current_page]>$_SESSION['access_level']){
             //in this case, the user doesn't have permission to view this page.
             //we redirect them to the index page.
@@ -66,10 +66,9 @@
         }
         //This line gives us the path to the html pages in question, useful if the server isn't installed @ root.
         $path = strrev(substr(strrev($_SERVER['SCRIPT_NAME']), strpos(strrev($_SERVER['SCRIPT_NAME']), '/')));
-		$venues = array("portland"=>"RMH Portland","bangor"=>"RMH Bangor");
-        
+
         //they're logged in and session variables are set.
-        if ($_SESSION['venue'] =="") { 
+        if ($_SESSION['venue'] =="") {
         	echo(' <a href="' . $path . 'accountEdit.php?id=' . 'new' . '">apply</a>');
         	echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
         }
@@ -79,19 +78,14 @@
 	        	echo('<a href="' . $path . 'index.php">home</a>');
 	        	echo(' | <a href="' . $path . 'about.php">about</a>');
 	            echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
-	            echo(' | calendars: <a href="' . $path . 'calendar.php?venue=portland'.''.'">Portland, </a>');
-	            echo(' <a href="' . $path . 'calendar.php?venue=bangor'.''.'">Bangor</a>');
 	        }
 	        if ($_SESSION['access_level'] >= 2) {
-	            echo('<br>master schedules: <a href="' . $path . 'viewSchedule.php?venue=portland'."".'">Portland, </a>');
-	            echo('<a href="' . $path . 'viewSchedule.php?venue=bangor'."".'">Bangor</a>');
-	            echo(' | volunteers: <a href="' . $path . 'accountSearch.php">search</a>, 
+	            echo(' | volunteers: <a href="' . $path . 'accountSearch.php">search</a>,
 				        <a href="accountEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
-	            echo(' | <a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
 	        }
 	        echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
         }
-        
+
     }
     ?>
 </div>
