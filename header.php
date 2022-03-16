@@ -68,7 +68,7 @@
         $path = strrev(substr(strrev($_SERVER['SCRIPT_NAME']), strpos(strrev($_SERVER['SCRIPT_NAME']), '/')));
 
         //they're logged in and session variables are set.
-        if ($_SESSION['venue'] =="") {
+        if ($_SESSION['user'] =="guest") {
         	echo(' <a href="' . $path . 'accountEdit.php?id=' . 'new' . '">apply</a>');
         	echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
         }
