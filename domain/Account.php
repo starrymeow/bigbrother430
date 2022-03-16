@@ -1,4 +1,6 @@
 <?php
+namespace domain;
+
 /*
  * Copyright 2013 by Allen Tucker. 
  * This program is part of RMHC-Homebase, which is free software.  It comes with 
@@ -32,7 +34,7 @@
 			$this->password = $pass;  // default password == md5($email)
 		$this->applications = array();
 	}
-
+	
 	function get_email() {
 		return $this->email;
 	}
@@ -62,3 +64,4 @@
 	}
 }
 ?>
+

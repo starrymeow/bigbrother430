@@ -20,23 +20,23 @@ class Application {
     private $life_changes;      //recent major life changes
     
     function __construct ($i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life) {
-        $this->$id = $i;
-        $this->$firstname = $f; 
-        $this->$lastname = $l;
-        $this->$languages = $langs;
-        $this->$primary_language = $prime;
-        $this->$perfered_name = $name;
-        $this->$date_of_birth = $dob;
-        $this->$cell_phone = $cell;
-        $this->$can_text_cell = $text;
-        $this->$home_phone = $home;
-        $this->$gender = $g;
-        $this->$address = $a;
-        $this->$city = $c;
-        $this->$zip = $z;
-        $this->$race = $r;
-        $this->$apply_reason = $apply;
-        $this->$life_changes = $life;
+        $this->id = $i;
+        $this->firstname = $f; 
+        $this->lastname = $l;
+        $this->languages = $langs;
+        $this->primary_language = $prime;
+        $this->perfered_name = $name;
+        $this->date_of_birth = $dob;
+        $this->cell_phone = $cell;
+        $this->can_text_cell = $text;
+        $this->home_phone = $home;
+        $this->gender = $g;
+        $this->address = $a;
+        $this->city = $c;
+        $this->zip = $z;
+        $this->race = $r;
+        $this->apply_reason = $apply;
+        $this->life_changes = $life;
     }
 }
 ?>
