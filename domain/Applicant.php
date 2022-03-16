@@ -21,7 +21,6 @@ class Applicant extends Account
     var $birthday;     // format: 64-03-12
     var $gender; // applicants gender
     var $employer;    // current employer or school attending
-    var $how_did_you_hear;  // about RMH; internet, family, friend, volunteer, other (explain)
     var $motivation;   // App: why interested in RMH?
     var $specialties;  // App: special interests and hobbies related to RMH
     var $convictions;  // App: ever convicted of a felony?  "yes" or blank

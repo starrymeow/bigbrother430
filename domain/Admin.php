@@ -10,7 +10,6 @@ Class Admin extends Account {
     }
     
     
-    
     function get_is_super() {
         return $this->is_super;
     }

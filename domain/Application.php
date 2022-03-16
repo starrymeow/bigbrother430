@@ -38,5 +38,9 @@ class Application {
         $this->apply_reason = $apply;
         $this->life_changes = $life;
     }
+    
+    function get_id() {
+        return $this->id;
+    }
 }
 ?>

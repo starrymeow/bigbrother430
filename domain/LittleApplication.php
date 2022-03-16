@@ -11,6 +11,7 @@ class LittleApplication extends Application {
     private $grade_level; // what grade is the child currently in (ex. 5th grade)
     private $studentID; // the identification number for the child at their school
     private $nationality; // what nation do they have a citizenship
+    private $how_did_you_hear;  // about RMH; internet, family, friend, volunteer, other (explain)
     
     // create construction fucntion and get functions
     

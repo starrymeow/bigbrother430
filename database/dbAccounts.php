@@ -20,7 +20,11 @@ function add_account($account) {
         if ($result == null || mysqli_num_rows($result) == 0) {
             mysqli_query($con,'INSERT INTO dbAccounts VALUES("' .
                 $account->get_email() . '","' .
-                $account->get_password() .
+                $account->get_password() . '","' .
+                $account->get_applications() . '","' .
+                $account->get_first_name() . '","' .
+                $account->get_last_name() . '","' .
+                $account->get_status() .
                 '");');
                 mysqli_close($con);
                 return true;
