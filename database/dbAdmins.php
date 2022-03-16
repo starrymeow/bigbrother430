@@ -1,6 +1,6 @@
 <?php
 
-use domain\Admin;
+//use domain\Admin;
 
 include_once('dbinfo.php');
 include_once(dirname(__FILE__).'/../domain/Admin.php');
@@ -87,5 +87,13 @@ function make_an_admin($result_row) {
         $result_row['password'],
         $result_row['is_super']);
     return $theAdmin;
+}
+
+function get_all_admins() {
+    $con=connect();
+    $query = 'SELECT * FROM dbAdmins NATURAL JOIN dbAccounts';
+    $result = mysqli_query($con,$query);
+    mysqli_close($con);
+    return $result;
 }
 ?>

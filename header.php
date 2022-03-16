@@ -73,7 +73,7 @@
         	echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
         }
         else {
-        	echo " <br><b>"."Homebase"."</b> ";
+        	echo " <br><b>"."BBBS"."</b> ";
 	        if ($_SESSION['access_level'] >= 1) {
 	        	echo('<a href="' . $path . 'index.php">home</a>');
 	        	echo(' | <a href="' . $path . 'about.php">about</a>');
@@ -81,7 +81,8 @@
 	        }
 	        if ($_SESSION['access_level'] >= 2) {
 	            echo(' | volunteers: <a href="' . $path . 'accountSearch.php">search</a>,
-				        <a href="accountEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
+				        <a href="accountEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>'
+	                );
 	        }
 	        echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
         }
