@@ -24,10 +24,11 @@ namespace domain;
 	private $status;     // a person may be an "applicant", "active", "LOA", or "former"
 
 
-	function __construct($first, $last, $e, $pass) {
+	function __construct($first, $last, $e, $s, $pass) {
 	    $this->first_name = $first;
 	    $this->last_name = $last;
 		$this->email = $e;
+		$this->status = $s;
 		if ($pass == "")
 			$this->password = md5($this->email);
 		else
@@ -65,6 +66,10 @@ namespace domain;
 
 	function get_status() {
 	    return $this->status;
+	}
+
+	function set_status($s) {
+	   $this->status = $s;
 	}
 }
 ?>
