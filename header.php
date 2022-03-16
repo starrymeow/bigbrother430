@@ -12,14 +12,11 @@
 <style type="text/css">
     h1 {padding-left: 0px; padding-right:165px;}
 </style>
-<div id="header">
-<!--<br><br><img src="images/rmhHeader.gif" align="center"><br>
-<h1><br><br>Homebase <br></h1>-->
 
-</div>
-
-<div align="center" id="navigationLinks">
-
+<div id="navigationLinks">
+		<a href="http://www.bbbsfred.org/" id="logo">
+			<img src="http://www.bbbsfred.org/wp-content/uploads/sites/17/2018/10/cropped-RGB_Alternate-76-602x124-medium.png"/>
+		</a>
     <?PHP
     //Log-in security
     //If they aren't logged in, display our log-in form.
@@ -70,26 +67,25 @@
         
         //they're logged in and session variables are set.
         if ($_SESSION['venue'] =="") { 
-        	echo(' <a href="' . $path . 'accountEdit.php?id=' . 'new' . '">apply</a>');
-        	echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
+        	echo('<a href="' . $path . 'accountEdit.php?id=' . 'new' . '">apply</a>');
+        	echo('<a href="' . $path . 'logout.php">Logout</a><br>');
         }
         else {
-        	echo " <br><b>"."Homebase"."</b> ";
 	        if ($_SESSION['access_level'] >= 1) {
-	        	echo('<a href="' . $path . 'index.php">home</a>');
-	        	echo(' | <a href="' . $path . 'about.php">about</a>');
-	            echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
-	            echo(' | calendars: <a href="' . $path . 'calendar.php?venue=portland'.''.'">Portland, </a>');
-	            echo(' <a href="' . $path . 'calendar.php?venue=bangor'.''.'">Bangor</a>');
+	        	echo('<a href="' . $path . 'index.php">Home</a>');
+	        	echo('<a href="' . $path . 'about.php">*About*</a>');
+	            echo('<a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">*Help*</a>');
+	            //echo('calendars: <a href="' . $path . 'calendar.php?venue=portland'.''.'">Portland, </a>');
+	            //echo('<a href="' . $path . 'calendar.php?venue=bangor'.''.'">Bangor</a>');
 	        }
 	        if ($_SESSION['access_level'] >= 2) {
 	            echo('<br>master schedules: <a href="' . $path . 'viewSchedule.php?venue=portland'."".'">Portland, </a>');
 	            echo('<a href="' . $path . 'viewSchedule.php?venue=bangor'."".'">Bangor</a>');
-	            echo(' | volunteers: <a href="' . $path . 'accountSearch.php">search</a>, 
+	            echo('volunteers: <a href="' . $path . 'accountSearch.php">search</a>, 
 				        <a href="accountEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
-	            echo(' | <a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
+	            echo('<a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
 	        }
-	        echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
+	        echo('<div id="logout"><a href="' . $path . 'logout.php">Logout</a></div><br>');
         }
         
     }
