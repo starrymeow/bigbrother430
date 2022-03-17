@@ -1,4 +1,5 @@
 <!-- Begin Footer -->
+<?php goto skipfooter;?>
 <br />
 <br />
 <div id="footer">
@@ -8,4 +9,5 @@
 		540-371-7444&nbsp;&nbsp;&nbsp;&nbsp;Email: info@bbbsfred.org
 	</p>
 </div>
+<?php skipfooter:?>
 <!-- End Footer -->
