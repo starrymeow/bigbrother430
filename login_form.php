@@ -16,7 +16,7 @@
  */
 ?>
 <div id="loginform">
-    <?php
+    <?PHP
     include_once ('database/dbAccounts.php');
     include_once ('domain/Account.php');
     if (($_SERVER['PHP_SELF']) == "/logout.php") {
@@ -44,45 +44,49 @@
         if ($_POST['user'] == "guest" && $_POST['pass'] == "") {
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 0;
+            $_SESSION['type'] = "";
             $_SESSION['_id'] = "guest";
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
-        } 
+        } // otherwise authenticate their password
         elseif ($_POST['user'] == "user" && $_POST['pass'] == "") {
             // TODO Delete, test only
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 1;
+            $_SESSION['type'] = "volunteer";
             $_SESSION['f_name'] = "User V";
             $_SESSION['l_name'] = "Test";
-            $_SESSION['_id'] = $_POST['user'];
+            $_SESSION['_id'] = "Sonia7037298510";
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
         }
         elseif ($_POST['user'] == "admin" && $_POST['pass'] == "") {
             // TODO Delete, test only
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 2;
+            $_SESSION['type'] = "manager";
             $_SESSION['f_name'] = "Admin";
             $_SESSION['l_name'] = "Test";
-            $_SESSION['_id'] = $_POST['user'];
+            $_SESSION['_id'] = "Whitney703942900";
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
-        } // otherwise authenticate their password
+        }
         else {
             // TODO
             $db_pass = md5($_POST['pass']);
-            $db_email = $_POST['user'];
-            $account = retrieve_account($db_email);
-            if ($account) { //avoids null results
-                if ($account->get_password() == $db_pass) { //if the passwords match, login
+            $db_id = $_POST['user'];
+            $account = retrieve_account($db_id);
+            if ($account) { // avoids null results
+                if ($account->get_password() == $db_pass) { // if the passwords match, login
                     $_SESSION['logged_in'] = 1;
                     date_default_timezone_set("America/New_York");
                     if ($account->get_status() == "applicant")
                         $_SESSION['access_level'] = 0;
-                    else if (get_class($account) == 'admin')
+                    else if (in_array('manager', $account->get_type()))
                         $_SESSION['access_level'] = 2;
                     else
                         $_SESSION['access_level'] = 1;
                     $_SESSION['f_name'] = $account->get_first_name();
                     $_SESSION['l_name'] = $account->get_last_name();
-                    $_SESSION['_id'] = $_POST['user'];              //email
+                    $_SESSION['type'] = $account->get_type();
+                    $_SESSION['_id'] = $_POST['user']; // email
                     echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
                 } 
                 else {
@@ -115,5 +119,4 @@
         }
     }
     ?>
-    <?php include('footer.inc'); ?>
 </div>
