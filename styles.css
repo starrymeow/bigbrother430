@@ -1,5 +1,6 @@
 body {
 	margin: 0px;
+	background-color: #C8C8C8;
 }
 
 #footer {
@@ -15,6 +16,54 @@ body {
 	text-align: center;
 }
 
+#loginform {
+	background-color: black;
+	margin: auto;
+	margin-top: 40px;
+	max-width: 50%;
+	padding: 20px;
+	width: 900px;
+}
+
+#loginform h1 {
+	color: #00FC87;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 50px;
+	margin: 0px;
+	margin-bottom: 25px;
+	padding: 0px;
+	text-align: center;
+}
+
+#loginform label {
+	color: white;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 25px;
+	margin: 20px;
+}
+
+#loginform form {
+	display: block;
+    text-align: center;
+}
+
+#loginform input[type="text"], input[type="password"] {
+	font-size: 24px;
+	margin: 10px;
+	padding: 5px;
+}
+
+#loginform input[type="submit"] {
+	background-color: #00FC87;
+	border: none;
+	border-radius: 5px;
+	color: black;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 25px;
+	margin: 10px;
+	padding: 6px 18px;
+	width: 150px;
+}
 
 #logout {
 	float: right;
@@ -28,11 +77,15 @@ body {
 #navigationLinks a:not(#logo) {
 	color: #00FC87;
 	float: left;
-	font-family: "Verdana", sans-serif, monospace;
-	font-size: 30px;
-	padding: 15px 10px 15px 10px;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 25px;
+	padding: 20px 10px 20px 10px;
 	text-align: center;
 	text-decoration: none;
+}
+
+#navigationLinks a:not(#logo):hover {
+	background-color: #323232;
 }
 
 #navigationLinks a img {
