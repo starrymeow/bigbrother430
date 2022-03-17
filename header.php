@@ -12,14 +12,11 @@
 <style type="text/css">
     h1 {padding-left: 0px; padding-right:165px;}
 </style>
-<div id="header">
-<!--<br><br><img src="images/rmhHeader.gif" align="center"><br>
-<h1><br><br>Homebase <br></h1>-->
 
-</div>
-
-<div align="center" id="navigationLinks">
-
+<div id="navigationLinks">
+		<a href="http://www.bbbsfred.org/" id="logo">
+			<img src="http://www.bbbsfred.org/wp-content/uploads/sites/17/2018/10/cropped-RGB_Alternate-76-602x124-medium.png"/>
+		</a>
     <?PHP
     //Log-in security
     //If they aren't logged in, display our log-in form.
@@ -67,27 +64,29 @@
         //This line gives us the path to the html pages in question, useful if the server isn't installed @ root.
         $path = strrev(substr(strrev($_SERVER['SCRIPT_NAME']), strpos(strrev($_SERVER['SCRIPT_NAME']), '/')));
 
-        //they're logged in and session variables are set.
-        if ($_SESSION['_id'] =="guest") {
-        	echo(' <a href="' . $path . 'accountEdit.php?id=' . 'new' . '">apply</a>');
-        	echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
-        }
-        else {
-        	echo " <br><b>"."BBBS"."</b> ";
-	        if ($_SESSION['access_level'] >= 1) {
-	        	echo('<a href="' . $path . 'index.php">home</a>');
-	        	echo(' | <a href="' . $path . 'about.php">about</a>');
-	            echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
-	        }
-	        if ($_SESSION['access_level'] >= 2) {
-	            echo(' | volunteers: <a href="' . $path . 'accountSearch.php">search</a>,
-				        <a href="accountEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>'
-	                );
-	        }
-	        echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
-        }
 
+        //they're logged in and session variables are set.
+        if ($_SESSION['access_level'] == 0) { 
+        	  echo(' <a href="' . $path . 'accountEdit.php?id=' . 'new' . '">apply</a>');
+        } else {
+        	  echo " <br><b>"."BBBS"."</b> ";
+	          if ($_SESSION['access_level'] >= 1) {
+	        	    echo('<a href="' . $path . 'index.php">home</a>');
+	        	    echo(' | <a href="' . $path . 'about.php">about</a>');
+	              echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
+	          }
+
+//          if ($_SESSION['access_level'] >= 2) {
+//              echo('<br>master schedules: <a href="' . $path . 'viewSchedule.php?venue=portland'."".'">Portland, </a>');
+//              echo('<a href="' . $path . 'viewSchedule.php?venue=bangor'."".'">Bangor</a>');
+//              echo('volunteers: <a href="' . $path . 'accountSearch.php">search</a>, 
+// 			          <a href="accountEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
+//              echo('<a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
+//          }
+        }
+        echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
     }
+           
     ?>
 </div>
 <!-- End Header -->
