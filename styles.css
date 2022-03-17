@@ -16,6 +16,22 @@ body {
 	text-align: center;
 }
 
+#homeoptions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#homeoptions a {
+	background-color: #00FC87;
+	color: black;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 25px;
+	margin: 15px;
+	padding: 20px 50px 20px 50px;
+	text-decoration: none;
+}
+
 #loginform {
 	background-color: black;
 	margin: auto;

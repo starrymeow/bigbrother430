@@ -15,11 +15,6 @@ session_cache_expire(30);
         </title>
         <link rel="icon" href="http://www.bbbsfred.org/wp-content/uploads/sites/17/2018/12/cropped-10.25.18-Favico-512x512-white-background-192x192.jpg" sizes="192x192" />
         <link rel="stylesheet" href="styles.css" type="text/css" />
-        <style>
-        	#appLink:visited {
-        		color: gray; 
-        	}
-        </style> 
     </head>
     <body>
         <div id="container">
@@ -39,14 +34,34 @@ session_cache_expire(30);
             //    fix_all_birthdays();
                 
                 if ($_SESSION['_id'] != "guest") {
-                    $person = retrieve_person($_SESSION['_id']);
-                    echo "<p>Welcome, " . $person->get_first_name() . ", to Homebase!";
+                    //$person = retrieve_person($_SESSION['_id']); TODO
+                    //echo "<p>Welcome, " . $person->get_first_name() . ", to Homebase!"; TODO
                 }
                 else 
                     echo "<p>Welcome!";
                 echo "   Today is " . date('l F j, Y') . ".<p>";
                 ?>
-
+				<!-- BBBS Code -->
+				<div id="homeoptions">
+				<?php 
+				if ($_SESSION['access_level'] == 0) {
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Apply</a>'); // TODO
+				}
+				if ($_SESSION['access_level'] >= 1) {
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Account Details</a>'); // TODO
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Check Match Status</a>'); // TODO
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Submit Application</a>'); // TODO
+				}
+				if ($_SESSION['access_level'] >= 2) {
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Create New Admin</a>'); // TODO
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Checklist</a>'); // TODO
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Person Search</a>'); // TODO
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Submissions</a>'); // TODO
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Generate Matches</a>'); // TODO
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Generate Report</a>'); // TODO
+				}
+				?>			
+				</div>
                 <!-- your main page data goes here. This is the place to enter content -->
                 <p>
                     <?PHP
