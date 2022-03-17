@@ -33,6 +33,11 @@
         echo ('<input type="password" name="pass" tabindex="2" placeholder="**********"><br>');
         echo ('<input type="submit" name="Login" value="Log In">');
         echo ('</form>');
+        
+        echo ('<form method="post">');
+        echo ('<br><label for="register">Don\'t have an account yet?</label><br>');
+        echo ('<input type="submit" name="register" value="Create Account">');
+        echo ('</form>');
     } 
     else {
         // check if they logged in as a guest:
