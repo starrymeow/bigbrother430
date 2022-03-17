@@ -1,6 +1,4 @@
 <?php
-namespace domain;
-
 Class Admin extends Account {
     private $is_super;
     
@@ -8,8 +6,6 @@ Class Admin extends Account {
         Account::construct($first, $last, $e, $pass);
         $this->is_super = $s;
     }
-    
-    
     
     function get_is_super() {
         return $this->is_super;
