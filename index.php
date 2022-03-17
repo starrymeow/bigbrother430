@@ -32,14 +32,6 @@ session_cache_expire(30);
                 include_once('database/dbShifts.php');
                 date_default_timezone_set('America/New_York');
             //    fix_all_birthdays();
-                
-                if ($_SESSION['_id'] != "guest") {
-                    //$person = retrieve_person($_SESSION['_id']); TODO
-                    //echo "<p>Welcome, " . $person->get_first_name() . ", to Homebase!"; TODO
-                }
-                else 
-                    echo "<p>Welcome!";
-                echo "   Today is " . date('l F j, Y') . ".<p>";
                 ?>
 				<!-- BBBS Code -->
 				<div id="homeoptions">
@@ -47,19 +39,23 @@ session_cache_expire(30);
 				if ($_SESSION['access_level'] == 0) {
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Apply</a>'); // TODO
 				}
-				if ($_SESSION['access_level'] >= 1) {
-				    echo ('<a href="http://localhost/bigbrother430/index.php">Account Details</a>'); // TODO
+				if ($_SESSION['access_level'] == 1) {
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Check Match Status</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Submit Application</a>'); // TODO
 				}
+				if ($_SESSION['access_level'] >= 1) {
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Account Details</a>'); // TODO
+				    
+				}
 				if ($_SESSION['access_level'] >= 2) {
-				    echo ('<a href="http://localhost/bigbrother430/index.php">Create New Admin</a>'); // TODO
-				    echo ('<a href="http://localhost/bigbrother430/index.php">Checklist</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Person Search</a>'); // TODO
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Checklist</a>'); // TODO   
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Submissions</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Generate Matches</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Generate Report</a>'); // TODO
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Create New Admin</a>'); // TODO
 				}
+				goto end;
 				?>			
 				</div>
                 <!-- your main page data goes here. This is the place to enter content -->
