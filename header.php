@@ -60,32 +60,29 @@
         }
         //This line gives us the path to the html pages in question, useful if the server isn't installed @ root.
         $path = strrev(substr(strrev($_SERVER['SCRIPT_NAME']), strpos(strrev($_SERVER['SCRIPT_NAME']), '/')));
-		$venues = array("portland"=>"RMH Portland","bangor"=>"RMH Bangor");
+		//$venues = array("portland"=>"RMH Portland","bangor"=>"RMH Bangor");
         
         //they're logged in and session variables are set.
-        if ($_SESSION['venue'] =="") { 
-        	echo('<a href="' . $path . 'accountEdit.php?id=' . 'new' . '">apply</a>');
-        	echo('<a href="' . $path . 'logout.php">Logout</a><br>');
+        if ($_SESSION['access_level'] == 0) { 
+        	echo('<a href="' . $path . 'accountEdit.php?id=' . 'new' . '">Apply</a>');
         }
-        else {
-	        if ($_SESSION['access_level'] >= 1) {
-	        	echo('<a href="' . $path . 'index.php">Home</a>');
-	        	echo('<a href="' . $path . 'about.php">*About*</a>');
-	            echo('<a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">*Help*</a>');
-	            //echo('calendars: <a href="' . $path . 'calendar.php?venue=portland'.''.'">Portland, </a>');
-	            //echo('<a href="' . $path . 'calendar.php?venue=bangor'.''.'">Bangor</a>');
-	        }
-	        if ($_SESSION['access_level'] >= 2) {
-	            echo('<br>master schedules: <a href="' . $path . 'viewSchedule.php?venue=portland'."".'">Portland, </a>');
-	            echo('<a href="' . $path . 'viewSchedule.php?venue=bangor'."".'">Bangor</a>');
-	            echo('volunteers: <a href="' . $path . 'accountSearch.php">search</a>, 
-				        <a href="accountEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
-	            echo('<a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
-	        }
-	        echo('<div id="logout"><a href="' . $path . 'logout.php">Logout</a></div><br>');
+        elseif ($_SESSION['access_level'] >= 1) {
+        	echo('<a href="' . $path . 'index.php">Home</a>');
+        	echo('<a href="' . $path . 'about.php">*About*</a>');
+            echo('<a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">*Help*</a>');
+            //echo('calendars: <a href="' . $path . 'calendar.php?venue=portland'.''.'">Portland, </a>');
+            //echo('<a href="' . $path . 'calendar.php?venue=bangor'.''.'">Bangor</a>');
         }
-        
+//         if ($_SESSION['access_level'] >= 2) {
+//             echo('<br>master schedules: <a href="' . $path . 'viewSchedule.php?venue=portland'."".'">Portland, </a>');
+//             echo('<a href="' . $path . 'viewSchedule.php?venue=bangor'."".'">Bangor</a>');
+//             echo('volunteers: <a href="' . $path . 'accountSearch.php">search</a>, 
+// 			        <a href="accountEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
+//             echo('<a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
+//         }
+         echo('<div id="logout"><a href="' . $path . 'logout.php">Logout</a></div><br>'); 
     }
+           
     ?>
 </div>
 <!-- End Header -->

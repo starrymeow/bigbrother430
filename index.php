@@ -11,8 +11,9 @@ session_cache_expire(30);
 <html>
     <head>
         <title>
-            RMH Homebase
+            BBBS Fredericksburg
         </title>
+        <link rel="icon" href="http://www.bbbsfred.org/wp-content/uploads/sites/17/2018/12/cropped-10.25.18-Favico-512x512-white-background-192x192.jpg" sizes="192x192" />
         <link rel="stylesheet" href="styles.css" type="text/css" />
         <style>
         	#appLink:visited {
@@ -27,7 +28,7 @@ session_cache_expire(30);
                 <?PHP
                 if (!isset($_SESSION['logged_in'])) {
                     include('login_form.php');
-                    die();
+                    goto end;
                 }
                 include_once('database/dbPersons.php');
                 include_once('domain/Person.php');
@@ -167,6 +168,7 @@ session_cache_expire(30);
                             echo('<br clear="all">');
                         }
                     }
+                    end:
                     ?>
                     </div>
                     <?PHP include('footer.inc'); ?>
