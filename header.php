@@ -63,7 +63,7 @@
 
         //they're logged in and session variables are set.
         if ($_SESSION['access_level'] == 0) { 
-        	  echo(' <a href="' . $path . 'accountEdit.php?id=' . 'new' . '">apply</a>');
+        	  echo(' <a href="' . $path . 'accountEdit.php?id=' . 'new' . '">Apply</a>');
         }
         if ($_SESSION['access_level'] >= 1) {
             echo('<a href="' . $path . 'index.php">Home</a>');

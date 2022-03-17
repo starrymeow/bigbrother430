@@ -37,14 +37,14 @@ session_cache_expire(30);
 				<div id="homeoptions">
 				<?php 
 				if ($_SESSION['access_level'] == 0) {
-				    echo ('<a href="http://localhost/bigbrother430/index.php">Apply</a>'); // TODO
+				    echo ('<a href="' . $path . 'accountEdit.php?id=' . 'new' . '">Apply</a>'); // TODO
 				}
 				if ($_SESSION['access_level'] == 1) {
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Check Match Status</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Submit Application</a>'); // TODO
 				}
 				if ($_SESSION['access_level'] >= 1) {
-				    echo ('<a href="http://localhost/bigbrother430/index.php">Account Details</a>'); // TODO
+				    echo ('<a href="' . $path . 'accountDetails.php">Account Details</a>'); // TODO
 				    
 				}
 				if ($_SESSION['access_level'] >= 2) {
