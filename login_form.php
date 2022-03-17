@@ -46,9 +46,19 @@
         elseif ($_POST['user'] == "user" && $_POST['pass'] == "") {
             // TODO Delete, test only
             $_SESSION['logged_in'] = 1;
+            $_SESSION['access_level'] = 1;
+            $_SESSION['type'] = "volunteer";
+            $_SESSION['f_name'] = "User V";
+            $_SESSION['l_name'] = "Test";
+            $_SESSION['_id'] = "Sonia7037298510";
+            echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
+        }
+        elseif ($_POST['user'] == "admin" && $_POST['pass'] == "") {
+            // TODO Delete, test only
+            $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 2;
-            $_SESSION['type'] = "user";
-            $_SESSION['f_name'] = "User";
+            $_SESSION['type'] = "manager";
+            $_SESSION['f_name'] = "Admin";
             $_SESSION['l_name'] = "Test";
             $_SESSION['_id'] = "Whitney703942900";
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
