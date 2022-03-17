@@ -33,13 +33,13 @@
         //pages guests are allowed to view
         $permission_array['index.php'] = 0;
         $permission_array['about.php'] = 0;
-        $permission_array['apply.php'] = 0;
+        $permission_array['apply.php'] = 0;		//doesn't exist
         //pages volunteers can view
         $permission_array['help.php'] = 1;
         $permission_array['calendar.php'] = 1;
         //pages only managers can view
         $permission_array['accountsearch.php'] = 2;
-        $permission_array['accountedit.php'] = 0;
+        $permission_array['accountedit.php'] = 0;	//create account as well, needed for guests
         $permission_array['viewschedule.php'] = 2;
         $permission_array['addweek.php'] = 2;
         $permission_array['log.php'] = 2;
