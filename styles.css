@@ -20,17 +20,21 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	margin: 100px;
 }
 
 #homeoptions a {
 	background-color: #00FC87;
+	border: 5px solid black;
+	border-radius: 20px;
 	color: black;
 	font-family: "Helvetica", sans-serif, monospace;
 	font-size: 25px;
-	margin: 15px;
+	margin: 7px;
 	padding: 20px 50px 20px 50px;
 	text-decoration: none;
 }
+
 
 #loginform {
 	background-color: black;
@@ -79,6 +83,10 @@ body {
 	margin: 10px;
 	padding: 6px 18px;
 	width: 150px;
+}
+
+#loginform input[name="register"] {
+	width: 210px;
 }
 
 #logout {
