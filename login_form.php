@@ -34,7 +34,7 @@
         echo ('<input type="submit" name="Login" value="Log In">');
         echo ('</form>');
         
-        echo ('<form method="post">');
+        echo ('<form method="post" action="' . $path . 'accountEdit.php?id=' . 'new' . '">');
         echo ('<br><label for="register">Don\'t have an account yet?</label><br>');
         echo ('<input type="submit" name="register" value="Create Account">');
         echo ('</form>');
