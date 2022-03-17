@@ -20,11 +20,7 @@
     <?PHP
     //Log-in security
     //If they aren't logged in, display our log-in form.
-    if (!isset($_SESSION['logged_in'])) {
-
-        include('login_form.php');
-        die();
-    } else if ($_SESSION['logged_in']) {
+    if ($_SESSION['logged_in']) {
 
         /*         * Set our permission array.
          * anything a guest can do, a volunteer and manager can also do
@@ -68,13 +64,12 @@
         //they're logged in and session variables are set.
         if ($_SESSION['access_level'] == 0) { 
         	  echo(' <a href="' . $path . 'accountEdit.php?id=' . 'new' . '">apply</a>');
-        } else {
-        	  echo " <br><b>"."BBBS"."</b> ";
-	          if ($_SESSION['access_level'] >= 1) {
-	        	    echo('<a href="' . $path . 'index.php">home</a>');
-	        	    echo(' | <a href="' . $path . 'about.php">about</a>');
-	              echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
-	          }
+        }
+        if ($_SESSION['access_level'] >= 1) {
+            echo('<a href="' . $path . 'index.php">Home</a>');
+            echo('<a href="' . $path . 'about.php">*About*</a>');
+            echo('<a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">*Help*</a>');
+        }
 
 //          if ($_SESSION['access_level'] >= 2) {
 //              echo('<br>master schedules: <a href="' . $path . 'viewSchedule.php?venue=portland'."".'">Portland, </a>');
@@ -83,9 +78,9 @@
 // 			          <a href="accountEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
 //              echo('<a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
 //          }
-        }
-        echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
+        echo('<div id="logout"><a href="' . $path . 'logout.php">Logout</a></div><br>');
     }
+         
            
     ?>
 </div>
