@@ -33,9 +33,7 @@
 			<?PHP include('header.php');?>
 			<div id="content">
 				<div id="accountDetails">
-					<?php
-				    echo ($_SESSION['access_level']);
-				    ?>
+					<h1>Account Details</h1>
 				</div>
 			</div>
 		<?PHP include('footer.inc');?>
