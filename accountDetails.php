@@ -55,7 +55,7 @@
 					</form>
 				</div>
 			</div>
-		<?PHP //include('footer.inc');?>
+		<?PHP include('footer.inc');?>
 		</div>
 	</body>
 </html>
