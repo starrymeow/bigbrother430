@@ -25,6 +25,8 @@ function validate_form($account) {
         $_POST['status'] = 'applicant';
     if (!valid_email($_POST['email']) && $_POST['email'] != null)
         $errors[] = "Please enter a valid email";
+    if ($_POST['pass'] == "")
+        $errors[] = 'Please enter a password';
     return $errors;
 }
 

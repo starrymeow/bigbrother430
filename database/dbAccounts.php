@@ -11,20 +11,23 @@ include_once(dirname(__FILE__).'/../domain/Account.php');
 function add_account($account) {
     if (!$account instanceof Account)
         die("Error: add_account type mismatch");
-        $con=connect();
-        $query = "SELECT * FROM dbAccounts WHERE email = '" . $account->get_email() . "'";
-        $result = mysqli_query($con,$query);
-        //if there's no entry for this id, add it
-        if ($result == null || mysqli_num_rows($result) == 0) {
-            mysqli_query($con,'INSERT INTO dbAccounts VALUES("' .
-                $account->get_email() . '","' .
-                $account->get_password() .
-                '");');
-                mysqli_close($con);
-                return true;
-        }
-        mysqli_close($con);
-        return false;
+    $con=connect();
+    $query = "SELECT * FROM dbAccounts WHERE email = '" . $account->get_email() . "'";
+    $result = mysqli_query($con,$query);
+    //if there's no entry for this id, add it
+    if ($result == null || mysqli_num_rows($result) == 0) {
+        mysqli_query($con,'INSERT INTO dbAccounts VALUES("' .
+            $account->get_email() . '","' .
+            $account->get_password() . '","' .
+            $account->get_first_name() . '","' .
+            $account->get_last_name() . '","' .
+            $account->get_status() .
+            '");');
+            mysqli_close($con);
+            return true;
+    }
+    mysqli_close($con);
+    return false;
 }
 
 /*

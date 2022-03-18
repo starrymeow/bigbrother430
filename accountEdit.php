@@ -19,19 +19,20 @@ include_once('database/dbApplicantScreenings.php');
 include_once('domain/ApplicantScreening.php');
 include_once('database/dbLog.php');
 $defaultAdmin = "example@example.com";
-$email = str_replace("_"," ",$_GET["id"]);
+//$email = str_replace("_"," ",$_GET["id"]);
+$email = $_GET["id"];
 
 if ($email == 'new') {
     $account = new Account('new', 'applicant', "new", null, "");
 } else {
     $account = retrieve_account($email);
     if (!$account) { // try again by changing blanks to _ in id
-        $email = str_replace(" ","_",$_GET["id"]);
-        $account = retrieve_account($email);
-        if (!$account) {
+        //$email = str_replace(" ","_",$_GET["id"]);
+        //$account = retrieve_account($email);
+        //if (!$account) {
             echo('<p id="error">Error: there\'s no account with this id (email) in the database</p>' . $email);
             die();
-        }
+        //}
     }
 }
 ?>
@@ -69,7 +70,7 @@ if ($email == 'new') {
                     if ($errors) {
                         // display the errors and the form to fix
                         show_errors($errors);
-                        $account = new Account($_POST['first_name'], $_POST['last_name'], $account->get_email(), null, $_POST['old_pass']);
+                        $account = new Account($_POST['first_name'], $_POST['last_name'], $account->get_email(), null, $_POST['pass']);
                         include('accountForm.inc');
                     }
                     // this was a successful form submission; update the database and exit
@@ -85,7 +86,7 @@ if ($email == 'new') {
                  * process_form sanitizes data, concatenates needed data, and enters it all into a database
                  */
                 function process_form($email,$account) {
-                    //echo($_POST['first_name']);
+                    //echo($account->get_email() == "new");
                     //step one: sanitize data by replacing HTML entities and escaping the ' character
                     if ($account->get_first_name()=="new")
                    		$first_name = trim(str_replace('\\\'', '', htmlentities(str_replace('&', 'and', $_POST['first_name']))));
@@ -129,7 +130,7 @@ if ($email == 'new') {
 
                     // try to reset the account's password
                     else if ($_POST['reset_pass'] == "RESET") {
-                        $email = $_POST['old_id'];
+                        $email = $_POST['email'];
                         $result = remove_account($email);
                         $pass = $first_name . $last_name;
                         $newaccount = new Account($first_name, $last_name, $email, $status, $pass);
@@ -141,27 +142,29 @@ if ($email == 'new') {
                     }
 
                     // try to add a new account to the database
-                    else if ($_POST['old_id'] == 'new') {
+                    else if ($account->get_email() == "new") {
                         //check if there's already an entry
+                        //TODO email verification
+                        //TODO enter old password to change to a new one
                         $dup = retrieve_account($email);
-                        if ($dup)
+                        if ($dup) {
                             echo('<p class="error">Unable to add ' . $first_name . ' ' . $last_name . ' to the database. <br>An account with the same email already exists.');
-                        else {
-                        	$newaccount = new Account($first_name, $last_name, $email, $status, $_POST['old_pass']);
+                        } else {
+                        	$newaccount = new Account($first_name, $last_name, $email, $status, md5($_POST['pass']));
                             $result = add_account($newaccount);
                             if (!$result)
                                 echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the House Manager.');
-                            else if ($_SESSION['access_level'] == 0)
+                            else if ($_SESSION['access_level'] == 0) {
                                 echo("<p>Your account has been successfully created.<br>");
-                            else
+                            } else
                                 echo('<p>You have successfully added <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> to the database.</p>');
                         }
                     }
 
                     // try to replace an existing account in the database by removing and adding
                     else {
-                        $email = $_POST['old_id'];
-                        $pass = $_POST['old_pass'];
+                        $email = $_POST['email'];
+                        $pass = $_POST['pass'];
                         $result = remove_account($email);
                         if (!$result)
                             echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the House Manager.');

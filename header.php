@@ -62,7 +62,7 @@
 
 
         //they're logged in and session variables are set.
-        if ($_SESSION['access_level'] == 0) { 
+        if ($_SESSION['access_level'] == 0) {
         	  echo(' <a href="' . $path . 'accountEdit.php?id=' . 'new' . '">Apply</a>');
         }
         if ($_SESSION['access_level'] >= 1) {
@@ -74,14 +74,13 @@
 //          if ($_SESSION['access_level'] >= 2) {
 //              echo('<br>master schedules: <a href="' . $path . 'viewSchedule.php?venue=portland'."".'">Portland, </a>');
 //              echo('<a href="' . $path . 'viewSchedule.php?venue=bangor'."".'">Bangor</a>');
-//              echo('volunteers: <a href="' . $path . 'accountSearch.php">search</a>, 
+//              echo('volunteers: <a href="' . $path . 'accountSearch.php">search</a>,
 // 			          <a href="accountEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
 //              echo('<a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
 //          }
-        echo('<div id="logout"><a href="' . $path . 'logout.php">Logout</a></div><br>');
     }
-         
-           
+    echo('<div id="logout"><a href="' . $path . 'logout.php">Logout</a></div><br>');
+
     ?>
 </div>
 <!-- End Header -->
