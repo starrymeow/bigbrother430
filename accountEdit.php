@@ -14,7 +14,7 @@ session_start();
 session_cache_expire(30);
 include_once('database/dbAccounts.php');
 include_once('domain/Account.php');
-include_once('database/dbAdmins');
+include_once('database/dbAdmins.php');
 include_once('database/dbApplicantScreenings.php');
 include_once('domain/ApplicantScreening.php');
 include_once('database/dbLog.php');

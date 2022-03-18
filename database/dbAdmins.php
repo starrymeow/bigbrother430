@@ -65,7 +65,7 @@ function retrieve_admin($email) {
     return $theAdmin;
 }
 
-function change_password($email, $newPass) {
+function change_admin_password($email, $newPass) {
     $con=connect();
     $query = 'UPDATE dbAdmins SET password = "' . $newPass . '" WHERE email = "' . $email . '"';
     $result = mysqli_query($con,$query);

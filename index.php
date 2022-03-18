@@ -25,17 +25,17 @@ session_cache_expire(30);
                     include('login_form.php');
                     goto end;
                 }
-                include_once('database/dbPersons.php');
-                include_once('domain/Person.php');
+                include_once('database/dbAccounts.php');
+                include_once('domain/Account.php');
                 include_once('database/dbLog.php');
-                include_once('domain/Shift.php');
-                include_once('database/dbShifts.php');
+                //include_once('domain/Shift.php');
+                //include_once('database/dbShifts.php');
                 date_default_timezone_set('America/New_York');
             //    fix_all_birthdays();
                 ?>
 				<!-- BBBS Code -->
 				<div id="homeoptions">
-				<?php 
+				<?php
 				if ($_SESSION['access_level'] == 0) {
 				    echo ('<a href="' . $path . 'accountEdit.php?id=' . 'new' . '">Apply</a>'); // TODO
 				}
@@ -45,18 +45,18 @@ session_cache_expire(30);
 				}
 				if ($_SESSION['access_level'] >= 1) {
 				    echo ('<a href="' . $path . 'accountDetails.php">Account Details</a>'); // TODO
-				    
+
 				}
 				if ($_SESSION['access_level'] >= 2) {
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Person Search</a>'); // TODO
-				    echo ('<a href="http://localhost/bigbrother430/index.php">Checklist</a>'); // TODO   
+				    echo ('<a href="http://localhost/bigbrother430/index.php">Checklist</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Submissions</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Generate Matches</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Generate Report</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php">Create New Admin</a>'); // TODO
 				}
 				goto end;
-				?>			
+				?>
 				</div>
                 <!-- your main page data goes here. This is the place to enter content -->
                 <p>
@@ -82,7 +82,7 @@ session_cache_expire(30);
 
                         //VOLUNTEER CHECK
                         if ($_SESSION['access_level'] == 1) {
-                        	
+
                         	// display upcoming schedule
                             $shifts = selectScheduled_dbShifts($person->get_id());
 
@@ -118,21 +118,21 @@ session_cache_expire(30);
                                 }
                                 echo('</ul><p>If you need to cancel an upcoming shift, please contact the <a href="mailto:allen@npfi.org">House Manager</a>.</p></div>');
                             }
-                            
+
                             // link to personal profile for editing
-                            echo('<br><div class="scheduleBox"><p><strong>Your Personal Profile:</strong><br /></p><ul>');  
+                            echo('<br><div class="scheduleBox"><p><strong>Your Personal Profile:</strong><br /></p><ul>');
                                 echo('</ul><p>Go <strong><a href="personEdit.php?id='.$person->get_id()
                         	   .'">here</a></strong> to view or update your contact information.</p></div>');
                             // link to personal log sheet
                             echo('<br><div class="scheduleBox"><p><strong>Your Log Sheet:</strong><br /></p><ul>');
                                 echo('</ul><p>Go <strong><a href="volunteerLog.php?id='.$person->get_id()
                         	   .'">here</a></strong> to view or enter your recent volunteering hours.</p></div>');
-              
+
                         }
-                        
+
                         if ($_SESSION['access_level'] == 2) {
                             //We have a manager authenticated
-                            
+
                         	//active applicants box
                         	$con=connect();
                         	$app_query = "SELECT first_name,last_name,id,start_date FROM dbPersons WHERE status LIKE '%applicant%'  AND venue='".
@@ -149,7 +149,7 @@ session_cache_expire(30);
                         	echo('</ul></p></div><br>');
                         	//    }
                         	mysqli_close($con);
-                        	
+
                             //log box
                             echo('<div class="logBox"><p><strong>Recent Schedule Changes:</strong><br />');
                             echo('<table class="searchResults">');
