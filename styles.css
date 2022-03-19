@@ -1,159 +1,171 @@
-/* 	RMH DASHBOARD CSS */
-
-
-/* GENERAL STYLES */
-body{
-    /* background:#001460; */
-    background:#00FC87;
-    font-family:verdana, arial, sans-serif;
-    font-size:12px;
-    color: 	#000000;
+html, body {
+	margin: 0px;
+	background-color: #C8C8C8;
 }
 
-p {padding-left: 15px; padding-right:15px;}
-p.notes {padding-left:20px;}
-h3 {padding-left: 20px}
-
-
-/* TABLE STYLES */
-table { border-collapse:collapse; font-family:verdana, arial, sans-serif;}
-td {border: none; font-size:12px; padding:3px; }
-
-table.searchResults{ border-collapse:collapse;vertical-align:middle; font-family:verdana, arial, sans-serif; padding-left:15px;}
-td.searchResults {border: none; font-size:12px; padding-top:3px; padding-bottom:3px; padding-left:6px; padding-right:6px;}
-
-table.warningTable{border-collapse:collapse; font-family:verdana, arial, sans-serif; padding-left:0px;}
-td.warningTable{border: none; font-size:12px; padding-top:3px; padding-bottom:3px; padding-left:6px; padding-right:6px;}
-
-table#areport{
-	border-collapse:collapse;
-	vertical-align:middle;
-	font-family:verdana, arial, sans-serif;
-	padding-left:0px;
-}
-table#areport td{
-	border:none;
-	text-align:center;
-	font-size:12px;
-	padding-top:8x;
-	padding-bottom:8px;
-	padding-left:6px;
-	padding-right:6px;
+#accountDetails {
+	
 }
 
-table#spacedRowTable td{
-	padding-top:12px;
+#accountDetails h1 {
+	color: Black;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 50px;
+	padding: 0px;
+	text-align: center;
 }
 
-/* LINK STYLES */
-A			{ color: #001460; text-decoration: none; img-decoration: none; }
-A:link		{ color: #018AFEE; text-decoration: none; img-decoration: none; }
-A:visited	{ color: #001460; text-decoration: none; img-decoration: none; }
-A:active	{ color: #BE0000;  }
-A:hover		{ color: #BE0000;  }
-
-/*INFO BOXES*/
-.infobox{
-    border:1px solid #264576;
-    background: #00FC87;
-    margin-left:15px;
-    margin-right:15px;
-    padding: 4px;
+#accountDetails form {
+	display: block;
+    text-align: center;
 }
 
-.vacancyBox{
-    border:1px solid #264576;
-    background: #00FC87;
-    margin-left: 15px;
-    margin-right: 15px;
-    padding: 4px;
+#accountDetails label {
+	color: Black;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 35px;
+	padding: 0px;
+	text-align: center;
 }
 
-.scheduleBox{
-    border:1px solid #264576;
-    background: #00fc87;
-    margin-left: 15px;
-    margin-right: 15px;
-    padding: 4px;
+#accountDetails input[type="text"], input[type="password"] {
+	border: none;
+	color: gray;
+	font-size: 20px;
+	height: 45px;
+	margin: 10px;
+	padding: 10px;
+	width: 400px;
 }
 
-.applicantsBox{
-    border:1px solid #264576;
-    background: #00fc87;
-    margin-left:15px;
-    margin-right:15px;
-    padding: 4px;
+#accountDetails input[name="namel"] {
+	margin-top: -5px;
 }
 
-.logBox{
-    border:1px solid #264576;
-    background: #00fc87;
-    margin-left:15px;
-    margin-right:15px;
-    padding: 4px;
+#accountDetails input[type="submit"] {
+	background-color: #00FC87;
+	border: none;
+	border-radius: 5px;
+	color: black;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 25px;
+	margin: 10px;
+	padding: 6px 18px;
+	width: 250px;
 }
 
-.anniversaryBox{
-    border:1px solid #264576;
-    background: #00fc87;
-    padding: 4px;
-    margin-left: 15px;
-    margin-right:15px;
+#footer {
+	background-color: black;
+	bottom: 0;
+	position: fixed;
+	width: 100%;
 }
 
-.inactiveBox{
-    border:1px solid #264576;
-    background: #00fc87;
-    padding: 4px;
-    margin-left: 15px;
-    margin-right:15px;
+#footer p {
+	color: white;
+	font-size: xx-small;
+	text-align: center;
 }
 
-/*WARNINGS AND ERRORS*/
-.warning{
-    border:1px solid #264576;
-    background:#00fc87;
-    padding:4px;
-    margin-left: 15px;
-    margin-right: 15px;
+#homeoptions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 100px;
 }
 
-p.error {color: #FF0000;}
-
-
-/* LAYOUT CONTROL IDS */
-
-#container{
-    align:center;
-    margin-right : auto;
-    margin-left : auto;
+#homeoptions a {
+	background-color: #00FC87;
+	border: 5px solid black;
+	border-radius: 20px;
+	color: black;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 25px;
+	margin: 7px;
+	padding: 20px 50px 20px 50px;
+	text-decoration: none;
 }
 
-#header{
-    height: 0px;
-    border-left:2px solid #264576;
-    border-top:2px solid #264576;
-    border-right:2px solid #264576;
-    padding: 0px;
-/*    background:url("images/rmhHeader.gif") #FCFCFC; */
-    background-repeat:no-repeat;
-    background-position:top left;
-    overflow:hidden;
+
+#loginform {
+	background-color: black;
+	margin: auto;
+	margin-top: 40px;
+	max-width: 50%;
+	padding: 20px;
+	width: 900px;
 }
 
-#navigationLinks{
-    font-size:11pt;
-    border-left:2px solid #264576;
-    border-right:2px solid #264576;
-    background:#FCFCFC;
+#loginform h1 {
+	color: #00FC87;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 50px;
+	margin: 0px;
+	margin-bottom: 25px;
+	padding: 0px;
+	text-align: center;
 }
 
-#content{
-    border-left:2px solid #264576;
-    border-bottom:2px solid #264576;
-    border-right:2px solid #264576;
-    align:center;
-    padding: 10px;
-    background: #00FC87;
-    overflow:hidden;
+#loginform label {
+	color: white;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 25px;
+	margin: 20px;
+}
+
+#loginform form {
+	display: block;
+    text-align: center;
+}
+
+#loginform input[type="text"], input[type="password"] {
+	font-size: 20px;
+	margin: 10px;
+	padding: 5px;
+}
+
+#loginform input[type="submit"] {
+	background-color: #00FC87;
+	border: none;
+	border-radius: 5px;
+	color: black;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 25px;
+	margin: 10px;
+	padding: 6px 18px;
+	width: 150px;
+}
+
+#loginform input[name="register"] {
+	width: 210px;
+}
+
+#logout {
+	float: right;
+}
+
+#navigationLinks {
+	background-color: black;
+	overflow: hidden;
+}
+
+#navigationLinks a:not(#logo) {
+	color: #00FC87;
+	float: left;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 25px;
+	padding: 20px 10px 20px 10px;
+	text-align: center;
+	text-decoration: none;
+}
+
+#navigationLinks a:not(#logo):hover {
+	background-color: #323232;
+}
+
+#navigationLinks a img {
+	float: left;
+	height: 50px;
+	padding: 10px;
+	width: auto;
 }

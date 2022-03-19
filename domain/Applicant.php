@@ -1,5 +1,4 @@
 <?php
-namespace domain;
 
 class Applicant extends Account
 {
@@ -32,7 +31,7 @@ class Applicant extends Account
     
     function __construct($e, $p, $fn, $ln, $pl, $al, $pn, $ad, $c, $st, $z, $p1, $p1t, $p1c, $p2, $p2t, 
                 $p2c, $bd, $g, $em, $hdyh, $mot, $spec, $con, $scrt, $scrs, $stat, $ava, $lc) {
-        Applicant::construct($e, $p, $e, $fn, $ln);
+        Account::construct($e, $p, $e, $fn, $ln);
         $this->primary_language = $pl;
         if ($al != "")
             $this->additional_languages = explode(',', $ad);
