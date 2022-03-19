@@ -1,7 +1,5 @@
 <?php
-//namespace database;
 
-// use domain\BigApplication;
 
 include_once('dbinfo.php');
 include_once(dirname(__FILE__).'/../domain/BigApplication.php');

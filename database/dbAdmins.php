@@ -1,6 +1,5 @@
 <?php
 
-//use domain\Admin;
 
 include_once('dbinfo.php');
 include_once(dirname(__FILE__).'/../domain/Admin.php');

@@ -1,5 +1,4 @@
 <?php
-namespace database;
 
 
 include_once('dbinfo.php');

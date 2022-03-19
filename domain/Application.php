@@ -1,10 +1,10 @@
 <?php
 class Application {
     private $id;        //unique id for each application
-    private $firstname;     //first name of the big or little
-    private $lastname;      //last name of the big or little
+    private $first_name;     //first name of the big or little
+    private $last_name;      //last name of the big or little
     private $languages;     //array of strings that are the names of the known languages
-    private $primarylanguage;
+    private $primary_language;
     private $prefered_name;      //nick name if applicable as a string
     private $birthday;
     private $cell_phone;      //cell phone number
@@ -21,8 +21,8 @@ class Application {
 
     function __construct ($i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life) {
         $this->id = $i;
-        $this->firstname = $f;
-        $this->lastname = $l;
+        $this->first_name = $f;
+        $this->last_name = $l;
         $this->languages = $langs;
         $this->primary_language = $prime;
         $this->perfered_name = $name;

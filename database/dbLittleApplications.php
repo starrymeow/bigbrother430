@@ -1,7 +1,5 @@
 <?php
-namespace database;
 
-use LittleApplication;
 
 include_once('dbinfo.php');
 include_once(dirname(__FILE__).'/../domain/LittleApplication.php');
