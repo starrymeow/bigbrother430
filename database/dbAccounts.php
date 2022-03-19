@@ -11,20 +11,23 @@ include_once(dirname(__FILE__).'/../domain/Account.php');
 function add_account($account) {
     if (!$account instanceof Account)
         die("Error: add_account type mismatch");
-        $con=connect();
-        $query = "SELECT * FROM dbAccounts WHERE email = '" . $account->get_email() . "'";
-        $result = mysqli_query($con,$query);
-        //if there's no entry for this id, add it
-        if ($result == null || mysqli_num_rows($result) == 0) {
-            mysqli_query($con,'INSERT INTO dbAccounts VALUES("' .
-                $account->get_email() . '","' .
-                $account->get_password() .
-                '");');
-                mysqli_close($con);
-                return true;
-        }
-        mysqli_close($con);
-        return false;
+    $con=connect();
+    $query = "SELECT * FROM dbAccounts WHERE email = '" . $account->get_email() . "'";
+    $result = mysqli_query($con,$query);
+    //if there's no entry for this id, add it
+    if ($result == null || mysqli_num_rows($result) == 0) {
+        mysqli_query($con,'INSERT INTO dbAccounts VALUES("' .
+            $account->get_email() . '","' .
+            $account->get_password() . '","' .
+            $account->get_first_name() . '","' .
+            $account->get_last_name() . '","' .
+            $account->get_status() .
+            '");');
+            mysqli_close($con);
+            return true;
+    }
+    mysqli_close($con);
+    return false;
 }
 
 /*
@@ -58,8 +61,9 @@ function retrieve_account($email) {
         return false;
     }
     $result_row = mysqli_fetch_assoc($result);
-    // var_dump($result_row);
+    //var_dump($result_row);
     $theAccount = make_an_account($result_row);
+    //var_dump($theAccount);
     //    mysqli_close($con);
     return $theAccount;
 }
@@ -67,19 +71,19 @@ function retrieve_account($email) {
 
 function change_accout_password($email, $newPass) {
     $con=connect();
-    $query = 'UPDATE dbPersons SET password = "' . $newPass . '" WHERE email = "' . $email . '"';
+    $query = 'UPDATE dbAccounts SET password = "' . $newPass . '" WHERE email = "' . $email . '"';
     $result = mysqli_query($con,$query);
     mysqli_close($con);
     return $result;
 }
 
-function make_an_account($results_row) {
+function make_an_account($result_row) {
     $theAccount = new Account(
-        $result_row['first_name'],
-        $result_row['last_name'],
-        $result_row['email'],
-        $result_row['status'],
-        $result_row['password']);
+        $result_row["first_name"],
+        $result_row["last_name"],
+        $result_row["email"],
+        $result_row["status"],
+        $result_row["password"]);
     return $theAccount;
 }
 ?>
