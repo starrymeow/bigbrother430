@@ -62,11 +62,11 @@ function remove_application($id) {
 }
 
 /*
- * @return an Application from dbApplications table matching a particular email.
+ * @return an Application from dbApplications table matching a particular id.
  * if not in table, return false
  */
 
-function retrieve_application($email) {
+function retrieve_application($id) {
     $con=connect();
     $query = "SELECT * FROM dbApplications WHERE id = '" . $id . "'";
     $result = mysqli_query($con,$query);
@@ -80,6 +80,27 @@ function retrieve_application($email) {
     //var_dump($theApplication);
     //    mysqli_close($con);
     return $theApplication;
+}
+
+/*
+ * @return a list of application ids from dbApplications table matching a particular email.
+ * if none in table, return false
+ */
+
+function retrieve_application_ids($email) {
+    $con=connect();
+    $query = "SELECT * FROM dbApplications WHERE id = '" . $email . "'";
+    $result = mysqli_query($con,$query);
+    if (mysqli_num_rows($result) !== 1) {
+        mysqli_close($con);
+        return false;
+    }
+    //TODO fetch ids from rows
+    $theIds = ($result);
+    //var_dump($result);
+    //var_dump($theIds);
+    //    mysqli_close($con);
+    return $theIds;
 }
 
 function make_an_application($result_row) {
