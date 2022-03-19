@@ -1,5 +1,6 @@
 <?php
 class Application {
+    private $email;     //email; of the account that created the applicatino
     private $id;        //unique id for each application
     private $firstname;     //first name of the big or little
     private $lastname;      //last name of the big or little
@@ -19,7 +20,8 @@ class Application {
     private $apply_reason;      //reason for applying
     private $life_changes;      //recent major life changes
 
-    function __construct ($i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life) {
+    function __construct ($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life) {
+        $this->$email = $e;
         $this->id = $i;
         $this->firstname = $f;
         $this->lastname = $l;
