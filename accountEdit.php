@@ -156,6 +156,7 @@ if ($email == 'new') {
                                 echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the House Manager.');
                             else if ($_SESSION['access_level'] == 0) {
                                 echo("<p>Your account has been successfully created.<br>");
+                                echo("password: "  . $_POST[pass]);
                             } else
                                 echo('<p>You have successfully added <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> to the database.</p>');
                         }

@@ -61,8 +61,9 @@ function retrieve_account($email) {
         return false;
     }
     $result_row = mysqli_fetch_assoc($result);
-    // var_dump($result_row);
+    //var_dump($result_row);
     $theAccount = make_an_account($result_row);
+    //var_dump($theAccount);
     //    mysqli_close($con);
     return $theAccount;
 }
@@ -70,19 +71,19 @@ function retrieve_account($email) {
 
 function change_accout_password($email, $newPass) {
     $con=connect();
-    $query = 'UPDATE dbPersons SET password = "' . $newPass . '" WHERE email = "' . $email . '"';
+    $query = 'UPDATE dbAccounts SET password = "' . $newPass . '" WHERE email = "' . $email . '"';
     $result = mysqli_query($con,$query);
     mysqli_close($con);
     return $result;
 }
 
-function make_an_account($results_row) {
+function make_an_account($result_row) {
     $theAccount = new Account(
-        $result_row['first_name'],
-        $result_row['last_name'],
-        $result_row['email'],
-        $result_row['status'],
-        $result_row['password']);
+        $result_row["first_name"],
+        $result_row["last_name"],
+        $result_row["email"],
+        $result_row["status"],
+        $result_row["password"]);
     return $theAccount;
 }
 ?>
