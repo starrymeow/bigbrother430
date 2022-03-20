@@ -102,7 +102,6 @@
                 }
             } else {
                 // At this point, they failed to authenticate
-                echo($_POST['user']);
                 echo ('<div align="left"><p class="error">Error: invalid username/password<br />if you cannot remember your password, ask the House Manager to reset it for you.</p><p>Access to Homebase requires a Username and a Password. <p>For guest access, enter Username <strong>guest</strong> and no Password.</p>');
                 echo ('<h1>Log In</h1>');
                 echo ('<form method="post">');
