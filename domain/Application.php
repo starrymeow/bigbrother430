@@ -1,5 +1,6 @@
 <?php
 class Application {
+    private $email;     //email; of the account that created the applicatino
     private $id;        //unique id for each application
     private $firstname;     //first name of the big or little
     private $lastname;      //last name of the big or little
@@ -19,7 +20,8 @@ class Application {
     private $apply_reason;      //reason for applying
     private $life_changes;      //recent major life changes
 
-    function __construct ($i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life) {
+    function __construct ($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life) {
+        $this->email = $e;
         $this->id = $i;
         $this->firstname = $f;
         $this->lastname = $l;
@@ -37,6 +39,142 @@ class Application {
         $this->race = $r;
         $this->apply_reason = $apply;
         $this->life_changes = $life;
+    }
+
+    function get_email () {
+        return $this->email;
+    }
+
+    function get_id () {
+        return $this->id;
+    }
+
+    function get_firstname() {
+        return $this->firstname;
+    }
+
+    function get_lastname () {
+        return $this->lastname;
+    }
+
+    function get_languages () {
+        return $this->languages;
+    }
+
+    function get_primary_language () {
+        return $this->id;
+    }
+
+    function get_perfered_name () {
+        return $this->perfered_name;
+    }
+
+    function get_birthday () {
+        return $this->birthday;
+    }
+
+    function get_cell_phone () {
+        return $this->cell_phone;
+    }
+
+    function get_can_text_cell () {
+        return $this->can_text_cell;
+    }
+
+    function get_home_phone () {
+        return $this->home_phone;
+    }
+
+    function get_gender() {
+        return $this->gender;
+    }
+
+    function get_address () {
+        return $this->address;
+    }
+
+    function get_city () {
+        return $this->city;
+    }
+
+    function get_zip () {
+        return $this->zip;
+    }
+
+    function get_race () {
+        return $this->race;
+    }
+
+    function get_apply_reason () {
+        return $this->apply_reason;
+    }
+
+    function get_life_changes () {
+        return $this->life_changes;
+    }
+
+    function set_firstname($v) {
+        $this->firstname = $v;
+    }
+
+    function set_lastname($v) {
+        $this->lastname = $v;
+    }
+
+    function set_languages($v) {
+        $this->languages = $v;
+    }
+
+    function set_primary_language($v) {
+        $this->primary_language = $v;
+    }
+
+    function set_perfered_name($v) {
+        $this->perfered_name = $v;
+    }
+
+    function set_birthday($v) {
+        $this->birthday = $v;
+    }
+
+    function set_cell_phone($v) {
+        $this->cell_phone = $v;
+    }
+
+    function set_can_text_cell($v) {
+        $this->firstname = $v;
+    }
+
+    function set_home_phone($v) {
+        $this->home_phone = $v;
+    }
+
+    function set_gender($v) {
+        $this->gender = $v;
+    }
+
+    function set_address($v) {
+        $this->address = $v;
+    }
+
+    function set_city($v) {
+        $this->city = $v;
+    }
+
+    function set_zip($v) {
+        $this->zip = $v;
+    }
+
+    function set_race($v) {
+        $this->race = $v;
+    }
+
+    function set_apply_reason($v) {
+        $this->apply_reason = $v;
+    }
+
+    function set_life_changes($v) {
+        $this->life_changes = $v;
     }
 }
 ?>
