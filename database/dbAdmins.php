@@ -17,10 +17,10 @@ function add_admin($admin) {
         //if there's no entry for this id, add it
         if ($result == null || mysqli_num_rows($result) == 0) {
             mysqli_query($con,'INSERT INTO dbAdmins VALUES("' .
-                $admin->get_first_name() . '","' .
-                $admin->get_last_name() . '","' .
+                //$admin->get_first_name() . '","' .
+                //$admin->get_last_name() . '","' .
                 $admin->get_email() . '","' .
-                $admin->get_is_super() . '","' .
+                //$admin->get_is_super() . '","' .
                 $admin->get_password() . '","' .
                 '");');
             mysqli_close($con);
@@ -74,17 +74,13 @@ function change_admin_password($email, $newPass) {
 }
 
 function make_an_admin($result_row) {
-    /*
-     ($f, $l, $v, $a, $c, $s, $z, $p1, $p1t, $p2, $p2t, $e, $t,
-     $screening_type, $screening_status, $st, $emp, $pos, $hours, $comm, $mot, $spe,
-     $convictions, $av, $sch, $hrs, $bd, $sd, $hdyh, $notes, $pass)
-     */
+    $account = retrieve_account($result_row['email']);
     $theAdmin = new Admin(
-        $result_row['first_name'],
-        $result_row['last_name'],
+        $account->get_firstname(),
+        $account->get_lastname(),
         $result_row['email'],
-        $result_row['status'],
-        $result_row['password'],
+        $account->get_status(),
+        $account->get_password(),
         $result_row['is_super']);
     return $theAdmin;
 }
