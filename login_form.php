@@ -56,7 +56,7 @@
             $_SESSION['access_level'] = 1;
             $_SESSION['f_name'] = "User V";
             $_SESSION['l_name'] = "Test";
-            $_SESSION['_id'] = $_POST['user'];
+            $_SESSION['_id'] = $user;
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
         }
         elseif ($user == "admin" && $_POST['pass'] == "") {
@@ -65,7 +65,7 @@
             $_SESSION['access_level'] = 2;
             $_SESSION['f_name'] = "Admin";
             $_SESSION['l_name'] = "Test";
-            $_SESSION['_id'] = $_POST['user'];
+            $_SESSION['_id'] = $user;
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
         } // otherwise authenticate their password
         else {

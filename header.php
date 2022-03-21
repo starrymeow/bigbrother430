@@ -78,8 +78,9 @@
 // 			          <a href="accountEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
 //              echo('<a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
 //          }
+        echo('<div id="logout"><a href="' . $path . 'logout.php">Logout</a></div><br>');
     }
-    echo('<div id="logout"><a href="' . $path . 'logout.php">Logout</a></div><br>');
+    
 
     ?>
 </div>
