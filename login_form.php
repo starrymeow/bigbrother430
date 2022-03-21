@@ -69,10 +69,11 @@
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
         } // otherwise authenticate their password
         else {
-            // TODO
+            // TODO 
             $db_email = $user;
             $account = retrieve_account($db_email);
             if ($account) { //avoids null results
+                echo ('Good');
                 if (password_verify($_SESSION['pass'], $account->get_password())) { //if the passwords match, login
                     $_SESSION['logged_in'] = 1;
                     date_default_timezone_set("America/New_York");
