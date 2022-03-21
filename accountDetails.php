@@ -32,7 +32,7 @@
 		<div id="container">
 			<?PHP include('header.php');?>
 			<div id="content">
-				<div id="accountDetails">
+				<div class="infoform">
 					<h1>Account Details</h1>
 					<form method="post">
 					<?php //TODO Fill in default name?>
