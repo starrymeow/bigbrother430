@@ -150,7 +150,7 @@ if ($email == 'new') {
                         if ($dup) {
                             echo('<p class="error">Unable to add ' . $first_name . ' ' . $last_name . ' to the database. <br>An account with the same email already exists.');
                         } else {
-                        	$newaccount = new Account($first_name, $last_name, $email, $status, md5($_POST['pass']));
+                        	$newaccount = new Account($first_name, $last_name, $email, $status, password_hash($_POST['pass'], PASSWORD_DEFAULT));
                             $result = add_account($newaccount);
                             if (!$result)
                                 echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the House Manager.');
