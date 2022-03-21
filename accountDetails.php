@@ -41,7 +41,7 @@
 						<label for="namef">Name</label><br>
 						<input type="text" name="namef" value="First Test"/><br>
 						<input type="text" name="namel" value="Last Test"/><br>
-						<input type="submit" name="changedata" value="Confirm Changes"><br>
+						<input type="submit" name="changedata" value="Confirm Changes" class="greenButton"><br>
 					</form>
 					
 					<form method="post">
@@ -51,7 +51,7 @@
 						<input type="password" name="newpass" placeholder="**********"/><br>
 						<label for="passcheck">Re-Enter New Pass</label><br>
 						<input type="password" name="passcheck" placeholder="**********"/><br>
-						<input type="submit" name="changepass" value="Change Password"><br>
+						<input type="submit" name="changepass" value="Change Password" class="greenButton"><br>
 					</form>
 				</div>
 			</div>
