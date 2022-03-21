@@ -28,7 +28,8 @@ html, body {
 	text-align: center;
 }
 
-#accountDetails input[type="text"], input[type="password"] {
+#accountDetails input[type="text"], 
+#accountDetails input[type="password"] {
 	border: none;
 	color: gray;
 	font-size: 20px;
@@ -43,7 +44,6 @@ html, body {
 }
 
 #accountDetails input[type="submit"] {
-	background-color: #00FC87;
 	border: none;
 	border-radius: 5px;
 	color: black;
@@ -71,11 +71,12 @@ html, body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin: 100px;
+	width: 80%;
+	max-width: 1200px;
+	margin: 10% auto 10% auto;
 }
 
 #homeoptions a {
-	background-color: #00FC87;
 	border: 5px solid black;
 	border-radius: 20px;
 	color: black;
@@ -85,7 +86,6 @@ html, body {
 	padding: 20px 50px 20px 50px;
 	text-decoration: none;
 }
-
 
 #loginform {
 	background-color: black;
@@ -106,6 +106,16 @@ html, body {
 	text-align: center;
 }
 
+#loginform h2 {
+	color: white;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 20px;
+	margin: 0px;
+	margin-bottom: 25px;
+	padding: 0px;
+	text-align: center;
+}
+
 #loginform label {
 	color: white;
 	font-family: "Helvetica", sans-serif, monospace;
@@ -118,14 +128,14 @@ html, body {
     text-align: center;
 }
 
-#loginform input[type="text"], input[type="password"] {
+#loginform input[type="text"], 
+#loginform input[type="password"] {
 	font-size: 20px;
 	margin: 10px;
 	padding: 5px;
 }
 
 #loginform input[type="submit"] {
-	background-color: #00FC87;
 	border: none;
 	border-radius: 5px;
 	color: black;
@@ -168,4 +178,12 @@ html, body {
 	height: 50px;
 	padding: 10px;
 	width: auto;
+}
+
+.greenButton {
+	background-color: #00FC87 !important;
+}
+
+.greenButton:hover {
+	background-color: #99FFCF !important;
 }

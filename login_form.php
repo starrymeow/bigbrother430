@@ -31,12 +31,12 @@
         echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
         echo ('<label for="pass">Password</label><br>');
         echo ('<input type="password" name="pass" tabindex="2" placeholder="**********"><br>');
-        echo ('<input type="submit" name="Login" value="Log In">');
+        echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
         echo ('</form>');
-
+        
         echo ('<form method="post" action="' . $path . 'accountEdit.php?id=' . 'new' . '">');
         echo ('<br><label for="register">Don\'t have an account yet?</label><br>');
-        echo ('<input type="submit" name="register" value="Create Account">');
+        echo ('<input type="submit" name="register" value="Create Account" class="greenButton">');
         echo ('</form>');
     }
     else {
@@ -89,31 +89,39 @@
                     echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
                 }
                 else {
-                    //TODO fix this error's css
-                    echo ('<div align="left"><p class="error">Error: invalid username/password<br />if you cannot remember your password, ask either the
-        		<a href="mailto:allen@npfi.org"><i>Portland House Manager</i></a>
-        		or the <a href="mailto:allen@npfi.org"><i>Bangor House Manager</i></a>. to reset it for you.</p><p>Access to Homebase requires a Username and a Password. <p>For guest access, enter Username <strong>guest</strong> and no Password.</p>');
                     echo ('<h1>Log In</h1>');
+                    echo ('<h2>Error: Invalid Username or Password,<br>Please Try Again.</h2>');
                     echo ('<form method="post">');
                     echo ('<input type="hidden" name="_submit_check" value="true">');
                     echo ('<label for="user">Email</label><br>');
                     echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
                     echo ('<label for="pass">Password</label><br>');
                     echo ('<input type="password" name="pass" tabindex="2" placeholder="**********"><br>');
-                    echo ('<input type="submit" name="Login" value="Log In">');
+                    echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
+                    echo ('</form>');
+                    
+                    echo ('<form method="post" action="' . $path . 'accountEdit.php?id=' . 'new' . '">');
+                    echo ('<br><label for="register">Don\'t have an account yet?</label><br>');
+                    echo ('<input type="submit" name="register" value="Create Account" class="greenButton">');
                     echo ('</form>');
                 }
-            } else {
+            } 
+            else {
                 // At this point, they failed to authenticate
-                echo ('<div align="left"><p class="error">Error: invalid username/password<br />if you cannot remember your password, ask the House Manager to reset it for you.</p><p>Access to Homebase requires a Username and a Password. <p>For guest access, enter Username <strong>guest</strong> and no Password.</p>');
                 echo ('<h1>Log In</h1>');
+                echo ('<h2>Error: Invalid Username or Password,<br>Please Try Again.</h2>');
                 echo ('<form method="post">');
                 echo ('<input type="hidden" name="_submit_check" value="true">');
                 echo ('<label for="user">Email</label><br>');
                 echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
                 echo ('<label for="pass">Password</label><br>');
                 echo ('<input type="password" name="pass" tabindex="2" placeholder="**********"><br>');
-                echo ('<input type="submit" name="Login" value="Log In">');
+                echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
+                echo ('</form>');
+                
+                echo ('<form method="post" action="' . $path . 'accountEdit.php?id=' . 'new' . '">');
+                echo ('<br><label for="register">Don\'t have an account yet?</label><br>');
+                echo ('<input type="submit" name="register" value="Create Account" class="greenButton">');
                 echo ('</form>');
             }
         }
