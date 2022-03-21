@@ -18,10 +18,7 @@
 	    $this->last_name = $last;
 		$this->email = $e;
 		$this->status = $s;
-		if ($pass == "")
-			$this->password = md5($e);
-		else
-			$this->password = $pass;  // default password == md5($email)
+		$this->password = password_hash($e, PASSWORD_DEFAULT);  // default password == md5($email)
 		//$this->applications = array();
 	}
 
