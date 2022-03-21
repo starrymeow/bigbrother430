@@ -15,7 +15,7 @@
  * @version 3/28/2008, revised 7/1/2015
  */
 ?>
-<div id="loginform">
+<div class="infoform">
     <?php
     include_once ('database/dbAccounts.php');
     include_once ('domain/Account.php');

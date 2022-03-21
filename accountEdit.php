@@ -58,8 +58,9 @@ if ($email == 'new') {
         <div id="container">
             <?php include('header.php'); ?>
             <div id="content">
-            <div id="accountEdit">
+            <div class="infoform">
                     <?php
+                    echo('<h1>Create Account</h1>');
                     include('accountValidate.inc');
                     if ($_POST['_form_submit'] != 1)
                     //in this case, the form has not been submitted, so show it

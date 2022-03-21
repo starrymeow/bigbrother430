@@ -14,7 +14,7 @@
  */
 
 if ($_SESSION['access_level'] == 0) {
-    echo('<h1>Create Account</h1>');
+    
 } else if ($_SESSION['access_level'] == 1) {
     if ($_SESSION['_id'] != $account->get_id()) {
         echo("<p id=\"error\">You do not have sufficient permissions to edit this user.</p>");
