@@ -1,4 +1,4 @@
-<?php 
+<?php
 class LittleApplication extends Application {
 
     private $adult_name; // name of adult responsible for the child
@@ -11,55 +11,66 @@ class LittleApplication extends Application {
     private $grade_level; // what grade is the child currently in (ex. 5th grade)
     private $studentID; // the identification number for the child at their school
     private $nationality; // what nation do they have a citizenship
-    private $how_did_you_hear;  // about RMH; internet, family, friend, volunteer, other (explain)
-    
-    // create construction fucntion and get functions
-    
+
+    function __construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life,
+            $adult_name, $relation, $legal_custody, $share_custody, $other_supports_enrollment, $living_situation, $child_email, $grade_level, $student_id, $nationality) {
+        Application::construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life);
+        $this->adult_name = $adult_name;
+        $this->relation = $relation;
+        $this->legal_custody = $legal_custody;
+        $this->share_custody = $share_custody;
+        $this->other_supports_enrollment = $other_supports_enrollment;
+        $this->living_situation = $living_situation;
+        $this->child_email = $child_email;
+        $this->grade_level = $grade_level;
+        $this->studentID = $student_id;
+        $this->nationality = $nationality;
+    }
     // returns their adult's name
     function get_adult_name() {
         return $this->adult_name;
     }
-    
+
     // return the relationship between the adult and applicant
     function get_relation() {
         return $this->relation;
     }
-    
+
     // returns whether the adult has legal custody of the applicant
     function get_legal_custody() {
         return $this->legal_custody;
     }
-    
+
     // returns whether the adult shares custody of the applicant
     function get_share_custody() {
         return $this->share_custody;
     }
-    
+
     // returns whether the other adult supports the applicant's enrollment
     function get_other_support() {
         return $this->other_supports_enrollment;
     }
-    
+
     // returns the living situation of the applicant
     function get_lving_situation() {
         return $this->living_situation;
     }
-    
+
     // returns the child's email (if they have one)
     function get_child_email() {
         return $this->child_email;
     }
-    
+
     // returns the grade level of the applicant
     function get_grade_level() {
         return $this->grade_level;
     }
-    
+
     // returns the student ID of the applicant
     function get_ID() {
         return $this->studentID;
     }
-    
+
     // returns the nationality of the applicant
     function get_nationality() {
         return $this->nationality;

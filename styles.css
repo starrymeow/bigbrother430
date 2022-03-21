@@ -1,57 +1,7 @@
 html, body {
 	margin: 0px;
 	background-color: #C8C8C8;
-}
-
-#accountDetails {
-	
-}
-
-#accountDetails h1 {
-	color: Black;
 	font-family: "Helvetica", sans-serif, monospace;
-	font-size: 50px;
-	padding: 0px;
-	text-align: center;
-}
-
-#accountDetails form {
-	display: block;
-    text-align: center;
-}
-
-#accountDetails label {
-	color: Black;
-	font-family: "Helvetica", sans-serif, monospace;
-	font-size: 35px;
-	padding: 0px;
-	text-align: center;
-}
-
-#accountDetails input[type="text"], input[type="password"] {
-	border: none;
-	color: gray;
-	font-size: 20px;
-	height: 45px;
-	margin: 10px;
-	padding: 10px;
-	width: 400px;
-}
-
-#accountDetails input[name="namel"] {
-	margin-top: -5px;
-}
-
-#accountDetails input[type="submit"] {
-	background-color: #00FC87;
-	border: none;
-	border-radius: 5px;
-	color: black;
-	font-family: "Helvetica", sans-serif, monospace;
-	font-size: 25px;
-	margin: 10px;
-	padding: 6px 18px;
-	width: 250px;
 }
 
 #footer {
@@ -71,23 +21,22 @@ html, body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin: 100px;
+	width: 80%;
+	max-width: 1200px;
+	margin: 10% auto 10% auto;
 }
 
 #homeoptions a {
-	background-color: #00FC87;
 	border: 5px solid black;
 	border-radius: 20px;
 	color: black;
-	font-family: "Helvetica", sans-serif, monospace;
 	font-size: 25px;
 	margin: 7px;
 	padding: 20px 50px 20px 50px;
 	text-decoration: none;
 }
 
-
-#loginform {
+.infoform {
 	background-color: black;
 	margin: auto;
 	margin-top: 40px;
@@ -96,9 +45,8 @@ html, body {
 	width: 900px;
 }
 
-#loginform h1 {
+.infoform h1 {
 	color: #00FC87;
-	font-family: "Helvetica", sans-serif, monospace;
 	font-size: 50px;
 	margin: 0px;
 	margin-bottom: 25px;
@@ -106,37 +54,45 @@ html, body {
 	text-align: center;
 }
 
-#loginform label {
+.infoform h2 {
 	color: white;
-	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 20px;
+	margin: 0px;
+	margin-bottom: 25px;
+	padding: 0px;
+	text-align: center;
+}
+
+.infoform label {
+	color: white;
 	font-size: 25px;
 	margin: 20px;
 }
 
-#loginform form {
+.infoform form {
 	display: block;
     text-align: center;
 }
 
-#loginform input[type="text"], input[type="password"] {
+.infoform input[type="text"], 
+.infoform input[type="password"] {
 	font-size: 20px;
 	margin: 10px;
 	padding: 5px;
 }
 
-#loginform input[type="submit"] {
-	background-color: #00FC87;
+.infoform input[type="submit"] {
 	border: none;
 	border-radius: 5px;
 	color: black;
-	font-family: "Helvetica", sans-serif, monospace;
 	font-size: 25px;
 	margin: 10px;
 	padding: 6px 18px;
-	width: 150px;
+	min-width: 150px;
+	max-width: fit-content;
 }
 
-#loginform input[name="register"] {
+.infoform input[name="register"] {
 	width: 210px;
 }
 
@@ -150,9 +106,9 @@ html, body {
 }
 
 #navigationLinks a:not(#logo) {
+	cursor: pointer;
 	color: #00FC87;
 	float: left;
-	font-family: "Helvetica", sans-serif, monospace;
 	font-size: 25px;
 	padding: 20px 10px 20px 10px;
 	text-align: center;
@@ -168,4 +124,13 @@ html, body {
 	height: 50px;
 	padding: 10px;
 	width: auto;
+}
+
+.greenButton {
+	cursor: pointer;
+	background-color: #00FC87 !important;
+}
+
+.greenButton:hover {
+	background-color: #99FFCF !important;
 }
