@@ -54,7 +54,7 @@ function remove_account($email) {
 
 function retrieve_account($email) {
     $con=connect();
-    $query = "SELECT * FROM dbAccounts WHERE email = '" . $email . "'";
+    $query = "SELECT * FROM dbAccounts WHERE lower(email) = '" . strtolower($email) . "'";
     $result = mysqli_query($con,$query);
     if (mysqli_num_rows($result) !== 1) {
         mysqli_close($con);
