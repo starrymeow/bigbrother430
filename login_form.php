@@ -40,14 +40,17 @@
         echo ('</form>');
     }
     else {
-        // check if they logged in as a guest:
-        if ($_POST['user'] == "guest" && $_POST['pass'] == "") {
+        // Puts the user input as lowercase
+        // This makes the username case insensitive
+        $user = strtolower($_POST['user']); 
+        // check if they logged in
+        if ($user == "guest" && $_POST['pass'] == "") {
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 0;
             $_SESSION['_id'] = "guest";
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
         }
-        elseif ($_POST['user'] == "user" && $_POST['pass'] == "") {
+        elseif ($user == "user" && $_POST['pass'] == "") {
             // TODO Delete, test only
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 1;
@@ -56,7 +59,7 @@
             $_SESSION['_id'] = $_POST['user'];
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
         }
-        elseif ($_POST['user'] == "admin" && $_POST['pass'] == "") {
+        elseif ($user == "admin" && $_POST['pass'] == "") {
             // TODO Delete, test only
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 2;
@@ -68,7 +71,7 @@
         else {
             // TODO
             $db_pass = md5($_POST['pass']);
-            $db_email = $_POST['user'];
+            $db_email = $user;
             $account = retrieve_account($db_email);
             if ($account) { //avoids null results
                 if ($account->get_password() == $db_pass) { //if the passwords match, login
@@ -82,7 +85,7 @@
                         $_SESSION['access_level'] = 1;
                     $_SESSION['f_name'] = $account->get_first_name();
                     $_SESSION['l_name'] = $account->get_last_name();
-                    $_SESSION['_id'] = $_POST['user'];              //email
+                    $_SESSION['_id'] = $user;              //email
                     echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
                 }
                 else {
