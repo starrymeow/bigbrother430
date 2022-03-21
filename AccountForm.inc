@@ -14,9 +14,7 @@
  */
 
 if ($_SESSION['access_level'] == 0) {
-    echo('<p><strong>Volunteer Service Application</strong><br />');
-    echo('Please provide as much information as you can. ' .
-       '<br>When finished, hit <b>Submit</b> at the bottom of this page, and then <b>logout</b>.');
+    echo('<h1>Create Account</h1>');
 } else if ($_SESSION['access_level'] == 1) {
     if ($_SESSION['_id'] != $account->get_id()) {
         echo("<p id=\"error\">You do not have sufficient permissions to edit this user.</p>");
@@ -45,17 +43,13 @@ if ($_SESSION['access_level'] == 0) {
 		    echo('</div></div></body></html>');
 		    die();
 	    }
-    echo '<br> (<span style="font-size:x-small;color:FF0000">*</span> denotes required information).';
 ?>
 <form method="POST">
-	<fieldset>
-        <legend>Account information:</legend>
-        <label for="email">Email </label>
-        <input type="text" name="email" value=<?PHP echo("\"" . $email . "\""); ?>><br>
-        <label for="pass">Password </label>
-        <input type="password" name="pass" placeholder="**********"><br>
-        <input type="hidden" name="_form_submit" value="1">
-    </fieldset>
+    <label for="email">Email </label><br>
+    <input type="text" name="email" placeholder="example@email.com"><br>
+    <label for="pass">Password </label><br>
+    <input type="password" name="pass" placeholder="*********"><br>
+    <input type="hidden" name="_form_submit" value="1">
     <?php /*<script>
 			$(function(){
 				$( "#birthday" ).datepicker({dateFormat: 'y-mm-dd',changeMonth:true,changeYear:true,yearRange: "1920:+nn"});
@@ -74,14 +68,14 @@ if ($_SESSION['access_level'] == 0) {
 	   	}
 	   	echo "</tr></table><br>";*/
     ?>
-    <fieldset>
-        <legend>Personal information:</legend>
-    <?php
-    	echo '<p>First Name<span style="font-size:x-small;color:FF0000">*</span>: <input type="text" name="first_name" tabindex="1" value="'.$account->get_first_name().'">';
-    ?>  &nbsp;&nbsp;&nbsp;&nbsp;  Last Name<span style="font-size:x-small;color:FF0000">*</span>: <input type="text" name="last_name" tabindex="2" value="<?PHP echo($account->get_last_name()) ?>">
-	<script src="lib/jquery-1.9.1.js"></script>
+    <?php 
+        echo('<label for="first_name">Name</label><br>');
+        echo('<input type="text" name="first_name" placeholder="First Name"/><br>');
+        echo('<input type="text" name="last_name" placeholder="Last Name"/><br>');
+    ?>
+    
+    <script src="lib/jquery-1.9.1.js"></script>
     <script src="lib/jquery-ui.js"></script>
-    </fieldset>
 
 <?php /*
 if ($_SESSION['access_level']==2) {
@@ -118,7 +112,7 @@ echo('</select>');
 <?PHP
 //echo('<input type="hidden" name="password" value="' . $account->get_password() . ')">');
 echo('<input type="hidden" name="_submit_check" value="1"><p>');
-echo('<input type="submit" value="Submit" name="Submit Edits"><br /><br />');
+echo('<input type="submit" value="Submit" name="Submit Edits" class="greenButton"><br /><br />');
 if ($email != 'new' && $_SESSION['access_level'] >= 2) {
     echo ('<input type="checkbox" name="deleteMe" value="DELETE"> Check this box and then hit ' .
     '<input type="submit" value="Delete" name="Delete Entry"> to delete this entry. <br />' .

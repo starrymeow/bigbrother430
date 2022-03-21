@@ -31,7 +31,7 @@ html, body {
 #accountDetails input[type="text"], 
 #accountDetails input[type="password"] {
 	border: none;
-	color: gray;
+	color: black;
 	font-size: 20px;
 	height: 45px;
 	margin: 10px;
@@ -44,6 +44,57 @@ html, body {
 }
 
 #accountDetails input[type="submit"] {
+	border: none;
+	border-radius: 5px;
+	color: black;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 25px;
+	margin: 10px;
+	padding: 6px 18px;
+	width: 250px;
+}
+
+#accountEdit {
+	
+}
+
+#accountEdit h1 {
+	color: Black;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 50px;
+	padding: 0px;
+	text-align: center;
+}
+
+#accountEdit form {
+	display: block;
+    text-align: center;
+}
+
+#accountEdit label {
+	color: Black;
+	font-family: "Helvetica", sans-serif, monospace;
+	font-size: 35px;
+	padding: 0px;
+	text-align: center;
+}
+
+#accountEdit input[type="text"], 
+#accountEdit input[type="password"] {
+	border: none;
+	color: black;
+	font-size: 20px;
+	height: 45px;
+	margin: 10px;
+	padding: 10px;
+	width: 400px;
+}
+
+#accountEdit input[name="namel"] {
+	margin-top: -5px;
+}
+
+#accountEdit input[type="submit"] {
 	border: none;
 	border-radius: 5px;
 	color: black;
@@ -160,6 +211,7 @@ html, body {
 }
 
 #navigationLinks a:not(#logo) {
+	cursor: pointer;
 	color: #00FC87;
 	float: left;
 	font-family: "Helvetica", sans-serif, monospace;
@@ -181,6 +233,7 @@ html, body {
 }
 
 .greenButton {
+	cursor: pointer;
 	background-color: #00FC87 !important;
 }
 
