@@ -67,8 +67,9 @@
         }
         if ($_SESSION['access_level'] >= 1) {
             echo('<a href="' . $path . 'index.php">Home</a>');
-            echo('<a href="' . $path . 'about.php">*About*</a>');
-            echo('<a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">*Help*</a>');
+            echo('<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Match Status</a>');
+            echo('<a href="' . $path . 'accountDetails.php">Account</a>');
+            
         }
 
 //          if ($_SESSION['access_level'] >= 2) {
