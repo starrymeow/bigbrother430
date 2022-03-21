@@ -79,6 +79,9 @@
 //              echo('<a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
 //          }
         echo('<div id="logout"><a href="' . $path . 'logout.php">Logout</a></div><br>');
+    } 
+    else {
+        echo('<div id="logout"><a href="' . $path . 'index.php">Login</a></div><br>');
     }
     
 
