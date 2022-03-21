@@ -73,10 +73,7 @@
             $db_email = $user;
             $account = retrieve_account($db_email);
             if ($account) { //avoids null results
-                echo('B: ' . $_POST['pass'] . '<br>');
-                echo('A: ' . $account->get_password());
                 if (password_verify($_POST['pass'], $account->get_password())) { //if the passwords match, login
-                    echo('B');
                     $_SESSION['logged_in'] = 1;
                     date_default_timezone_set("America/New_York");
                     if ($account->get_status() == "applicant")
