@@ -67,8 +67,9 @@
         }
         if ($_SESSION['access_level'] >= 1) {
             echo('<a href="' . $path . 'index.php">Home</a>');
-            echo('<a href="' . $path . 'about.php">*About*</a>');
-            echo('<a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">*Help*</a>');
+            echo('<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Match Status</a>');
+            echo('<a href="' . $path . 'accountDetails.php">Account</a>');
+            
         }
 
 //          if ($_SESSION['access_level'] >= 2) {
@@ -78,8 +79,12 @@
 // 			          <a href="accountEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
 //              echo('<a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
 //          }
+        echo('<div id="logout"><a href="' . $path . 'logout.php">Logout</a></div><br>');
+    } 
+    else {
+        echo('<div id="logout"><a href="' . $path . 'index.php">Login</a></div><br>');
     }
-    echo('<div id="logout"><a href="' . $path . 'logout.php">Logout</a></div><br>');
+    
 
     ?>
 </div>

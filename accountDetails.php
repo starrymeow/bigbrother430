@@ -32,16 +32,16 @@
 		<div id="container">
 			<?PHP include('header.php');?>
 			<div id="content">
-				<div id="accountDetails">
+				<div class="infoform">
 					<h1>Account Details</h1>
 					<form method="post">
-					<?php //TODO Fill in defaults?>
+					<?php //TODO Fill in default name?>
 						<label for="email">Email</label><br>
-						<input type="text" name="email" value="TEST@TEST.COM"/><br>
+						<input type="text" name="email" value="<?php echo($_SESSION['_id']); ?>"/><br>
 						<label for="namef">Name</label><br>
-						<input type="text" name="namef" value="First Test"/><br>
-						<input type="text" name="namel" value="Last Test"/><br>
-						<input type="submit" name="changedata" value="Confirm Changes"><br>
+						<input type="text" name="namef" value="First Name (TODO)"/><br>
+						<input type="text" name="namel" value="Last Name (TODO)"/><br>
+						<input type="submit" name="changedata" value="Confirm Changes" class="greenButton"><br>
 					</form>
 					
 					<form method="post">
@@ -51,7 +51,7 @@
 						<input type="password" name="newpass" placeholder="**********"/><br>
 						<label for="passcheck">Re-Enter New Pass</label><br>
 						<input type="password" name="passcheck" placeholder="**********"/><br>
-						<input type="submit" name="changepass" value="Change Password"><br>
+						<input type="submit" name="changepass" value="Change Password" class="greenButton"><br>
 					</form>
 				</div>
 			</div>

@@ -15,7 +15,10 @@
  */
 
 function connect() {
-    $host = "localhost";
+    $host = "localhost"; 
+    //$database = "homebasedb";
+    //$user = "homebasedb";
+    //$pass = "homebasedb";
     $database = "bigbrotherdb";
     $user = "bigbrotherdb";
     $pass = "bigbrotherdb";

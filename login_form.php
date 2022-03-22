@@ -15,7 +15,7 @@
  * @version 3/28/2008, revised 7/1/2015
  */
 ?>
-<div id="loginform">
+<div class="infoform">
     <?php
     include_once ('database/dbAccounts.php');
     include_once ('domain/Account.php');
@@ -31,47 +31,49 @@
         echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
         echo ('<label for="pass">Password</label><br>');
         echo ('<input type="password" name="pass" tabindex="2" placeholder="**********"><br>');
-        echo ('<input type="submit" name="Login" value="Log In">');
+        echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
         echo ('</form>');
-
+        
         echo ('<form method="post" action="' . $path . 'accountEdit.php?id=' . 'new' . '">');
         echo ('<br><label for="register">Don\'t have an account yet?</label><br>');
-        echo ('<input type="submit" name="register" value="Create Account">');
+        echo ('<input type="submit" name="register" value="Create Account" class="greenButton">');
         echo ('</form>');
     }
     else {
-        // check if they logged in as a guest:
-        if ($_POST['user'] == "guest" && $_POST['pass'] == "") {
+        // Puts the user input as lowercase
+        // This makes the username case insensitive
+        $user = strtolower($_POST['user']); 
+        // check if they logged in
+        if ($user == "guest" && $_POST['pass'] == "") {
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 0;
             $_SESSION['_id'] = "guest";
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
         }
-        elseif ($_POST['user'] == "user" && $_POST['pass'] == "") {
+        elseif ($user == "user" && $_POST['pass'] == "") {
             // TODO Delete, test only
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 1;
             $_SESSION['f_name'] = "User V";
             $_SESSION['l_name'] = "Test";
-            $_SESSION['_id'] = $_POST['user'];
+            $_SESSION['_id'] = $user;
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
         }
-        elseif ($_POST['user'] == "admin" && $_POST['pass'] == "") {
+        elseif ($user == "admin" && $_POST['pass'] == "") {
             // TODO Delete, test only
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 2;
             $_SESSION['f_name'] = "Admin";
             $_SESSION['l_name'] = "Test";
-            $_SESSION['_id'] = $_POST['user'];
+            $_SESSION['_id'] = $user;
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
         } // otherwise authenticate their password
         else {
-            // TODO
-            $db_pass = md5($_POST['pass']);
-            $db_email = $_POST['user'];
+            // TODO 
+            $db_email = $user;
             $account = retrieve_account($db_email);
             if ($account) { //avoids null results
-                if ($account->get_password() == $db_pass) { //if the passwords match, login
+                if (password_verify($_POST['pass'], $account->get_password())) { //if the passwords match, login
                     $_SESSION['logged_in'] = 1;
                     date_default_timezone_set("America/New_York");
                     if ($account->get_status() == "applicant")
@@ -82,35 +84,43 @@
                         $_SESSION['access_level'] = 1;
                     $_SESSION['f_name'] = $account->get_first_name();
                     $_SESSION['l_name'] = $account->get_last_name();
-                    $_SESSION['_id'] = $_POST['user'];              //email
+                    $_SESSION['_id'] = $user;              //email
                     echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
                 }
                 else {
-                    //TODO fix this error's css
-                    echo ('<div align="left"><p class="error">Error: invalid username/password<br />if you cannot remember your password, ask either the
-        		<a href="mailto:allen@npfi.org"><i>Portland House Manager</i></a>
-        		or the <a href="mailto:allen@npfi.org"><i>Bangor House Manager</i></a>. to reset it for you.</p><p>Access to Homebase requires a Username and a Password. <p>For guest access, enter Username <strong>guest</strong> and no Password.</p>');
                     echo ('<h1>Log In</h1>');
+                    echo ('<h2>Error: Invalid Username or Password,<br>Please Try Again.</h2>');
                     echo ('<form method="post">');
                     echo ('<input type="hidden" name="_submit_check" value="true">');
                     echo ('<label for="user">Email</label><br>');
                     echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
                     echo ('<label for="pass">Password</label><br>');
                     echo ('<input type="password" name="pass" tabindex="2" placeholder="**********"><br>');
-                    echo ('<input type="submit" name="Login" value="Log In">');
+                    echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
+                    echo ('</form>');
+                    
+                    echo ('<form method="post" action="' . $path . 'accountEdit.php?id=' . 'new' . '">');
+                    echo ('<br><label for="register">Don\'t have an account yet?</label><br>');
+                    echo ('<input type="submit" name="register" value="Create Account" class="greenButton">');
                     echo ('</form>');
                 }
-            } else {
+            } 
+            else {
                 // At this point, they failed to authenticate
-                echo ('<div align="left"><p class="error">Error: invalid username/password<br />if you cannot remember your password, ask the House Manager to reset it for you.</p><p>Access to Homebase requires a Username and a Password. <p>For guest access, enter Username <strong>guest</strong> and no Password.</p>');
                 echo ('<h1>Log In</h1>');
+                echo ('<h2>Error: Invalid Username or Password,<br>Please Try Again.</h2>');
                 echo ('<form method="post">');
                 echo ('<input type="hidden" name="_submit_check" value="true">');
                 echo ('<label for="user">Email</label><br>');
                 echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
                 echo ('<label for="pass">Password</label><br>');
                 echo ('<input type="password" name="pass" tabindex="2" placeholder="**********"><br>');
-                echo ('<input type="submit" name="Login" value="Log In">');
+                echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
+                echo ('</form>');
+                
+                echo ('<form method="post" action="' . $path . 'accountEdit.php?id=' . 'new' . '">');
+                echo ('<br><label for="register">Don\'t have an account yet?</label><br>');
+                echo ('<input type="submit" name="register" value="Create Account" class="greenButton">');
                 echo ('</form>');
             }
         }

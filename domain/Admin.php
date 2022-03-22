@@ -8,8 +8,6 @@ Class Admin extends Account {
         $this->is_super = $s;
     }
 
-
-
     function get_is_super() {
         return $this->is_super;
     }
