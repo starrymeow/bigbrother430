@@ -10,6 +10,12 @@
  *  oversees the editing of a account to be added, changed, or deleted from the database
  * 	@author Oliver Radwan, Xun Wang and Allen Tucker
  */
+
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require 'vendor/autoload.php';
+
 session_start();
 session_cache_expire(30);
 include_once('database/dbAccounts.php');
@@ -150,6 +156,29 @@ if ($email == 'new') {
                         if ($dup) {
                             echo('<p class="error">Unable to add ' . $first_name . ' ' . $last_name . ' to the database. <br>An account with the same email already exists.');
                         } else {
+                            try {
+                                $mail = new PHPMailer(true);
+
+                                //$mail->SMTPDebug = 2;                   // Enable verbose debug output
+                                $mail->isSMTP();                        // Set mailer to use SMTP
+                                $mail->Host       = 'smtp.gmail.com;';    // Specify main SMTP server
+                                $mail->SMTPAuth   = true;               // Enable SMTP authentication
+                                $mail->Username   = 'BBBS.Fredericksburg@gmail.com';     // SMTP username
+                                $mail->Password   = 'wsedr67gyuvgf78hi';         // SMTP password
+                                $mail->SMTPSecure = 'tls';              // Enable TLS encryption, 'ssl' also accepted
+                                $mail->Port       = 587;                // TCP port to connect to
+                                $mail->setFrom('BBBS.Fredericksburg@gmail.com', 'BigBrotherBigSister');           // Set sender of the mail
+                                $mail->addAddress($email, $first_name);   // Name is optional
+                                $mail->isHTML(true);
+                                $mail->Subject = 'BigBrotherBigSister email verification';
+                                $mail->Body    = 'HTML message body in <b>bold</b>!';
+                                $mail->AltBody = 'test message';    //Body in plain text for non-HTML mail clients
+                                $mail->send();
+                                echo "Mail has been sent successfully!";
+                            } catch (Exception $e) {
+                                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                            }
+
                         	$newaccount = new Account($first_name, $last_name, $email, $status, md5($_POST['pass']));
                             $result = add_account($newaccount);
                             if (!$result)
