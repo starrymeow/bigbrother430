@@ -89,7 +89,7 @@ if ($email == 'new') {
                         echo('</div></body></html>');
                         die();
                     }
-        
+
                     /**
                      * process_form sanitizes data, concatenates needed data, and enters it all into a database
                      */
@@ -135,13 +135,20 @@ if ($email == 'new') {
                                 }
                             }
                         }
+
+                        // try to reset the account's password
+                        else if ($_POST['reset_pass'] == "RESET") {
+                            $email = $_POST['email'];
+                            $result = remove_account($email);
+                            $pass = $first_name . $last_name;
+                            $newaccount = new Account($first_name, $last_name, $email, $status, $pass);
                             $result = add_account($newaccount);
                             if (!$result)
                                 echo ('<p class="error">Unable to reset ' . $first_name . ' ' . $last_name . "'s password.. <br>Please report this error to the House Manager.");
                             else
                                 echo("<p>You have successfully reset " . $first_name . " " . $last_name . "'s password.</p>");
                         }
-        
+
                         // try to add a new account to the database
                         else if ($account->get_email() == "new") {
                             //check if there's already an entry
@@ -182,7 +189,7 @@ if ($email == 'new') {
                                     echo('<p>You have successfully added <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> to the database.</p>');
                             }
                         }
-        
+
                         // try to replace an existing account in the database by removing and adding
                         else {
                             $email = $_POST['email'];
