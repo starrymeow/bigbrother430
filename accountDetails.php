@@ -37,7 +37,7 @@
 					<form method="post">
 					<?php //TODO Fill in default name?>
 						<label for="email">Email</label><br>
-						<input type="text" name="email" value="<?php echo($_SESSION['_id']); ?>"/><br>
+						<input type="text" name="email" value="<?php echo($_SESSION['_id']); ?>" style="color: black; background-color: #A1A1A1;" readonly/><br>
 						<label for="namef">Name</label><br>
 						<input type="text" name="namef" value="First Name (TODO)"/><br>
 						<input type="text" name="namel" value="Last Name (TODO)"/><br>
