@@ -24,6 +24,7 @@ include_once('database/dbAdmins.php');
 include_once('database/dbApplicantScreenings.php');
 include_once('domain/ApplicantScreening.php');
 include_once('database/dbLog.php');
+include_once('database/dbinfo.php');
 $defaultAdmin = "example@example.com";
 //$email = str_replace("_"," ",$_GET["id"]);
 $email = $_GET["id"];
@@ -88,6 +89,16 @@ if ($email == 'new') {
                         include('footer.inc');
                         echo('</div></body></html>');
                         die();
+                    }
+
+                    function generateRandomString($length = 10) {
+                        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                        $charactersLength = strlen($characters);
+                        $randomString = '';
+                        for ($i = 0; $i < $length; $i++) {
+                            $randomString .= $characters[rand(0, $charactersLength - 1)];
+                        }
+                        return $randomString;
                     }
 
                     /**
@@ -164,29 +175,34 @@ if ($email == 'new') {
                                     $mail->isSMTP();                        // Set mailer to use SMTP
                                     $mail->Host       = 'smtp.gmail.com;';    // Specify main SMTP server
                                     $mail->SMTPAuth   = true;               // Enable SMTP authentication
-                                    $mail->Username   = 'BBBS.Fredericksburg@gmail.com';     // SMTP username
-                                    $mail->Password   = 'wsedr67gyuvgf78hi';         // SMTP password
+                                    $mail->Username   = 'Fredericksburg.BBBS@gmail.com';     // SMTP username
+                                    $mail->Password   = get_pass();         // SMTP password
                                     $mail->SMTPSecure = 'tls';              // Enable TLS encryption, 'ssl' also accepted
                                     $mail->Port       = 587;                // TCP port to connect to
-                                    $mail->setFrom('BBBS.Fredericksburg@gmail.com', 'BigBrotherBigSister');           // Set sender of the mail
+                                    $mail->setFrom('Fredericksburg.BBBS@gmail.com', 'BigBrotherBigSister');           // Set sender of the mail
                                     $mail->addAddress($email, $first_name);   // Name is optional
                                     $mail->isHTML(true);
+
+                                    $tempPass = generateRandomString();
+
                                     $mail->Subject = 'BigBrotherBigSister email verification';
-                                    $mail->Body    = 'HTML message body in <b>bold</b>!';
-                                    $mail->AltBody = 'test message';    //Body in plain text for non-HTML mail clients
+                                    $mail->Body    = '<p>HTML message body in <b>bold</b></p><p>Your temporary password:' . $tempPass . '</p>';
+                                    $mail->AltBody = '<p>Your temporary password:' . $tempPass . '</p>';    //Body in plain text for non-HTML mail clients
                                     $mail->send();
                                     echo "Mail has been sent successfully!";
+
+                                	  $newaccount = new Account($first_name, $last_name, $email, $status, password_hash($tempPass, PASSWORD_DEFAULT));
+                                    $result = add_account($newaccount);
+                                    if (!$result)
+                                        echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the House Manager.');
+                                    else if ($_SESSION['access_level'] == 0) {
+                                        echo("<p>Your account has been successfully created.<br>");
+                                    } else
+                                        echo('<p>You have successfully added <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> to the database.</p>');
                                 } catch (Exception $e) {
                                     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-                                }
-                            	  $newaccount = new Account($first_name, $last_name, $email, $status, password_hash($_POST['pass'], PASSWORD_DEFAULT));
-                                $result = add_account($newaccount);
-                                if (!$result)
                                     echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the House Manager.');
-                                else if ($_SESSION['access_level'] == 0) {
-                                    echo("<p>Your account has been successfully created.<br>");
-                                } else
-                                    echo('<p>You have successfully added <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> to the database.</p>');
+                                }
                             }
                         }
 
