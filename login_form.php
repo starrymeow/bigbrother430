@@ -72,6 +72,7 @@
             // TODO 
             $db_email = $user;
             $account = retrieve_account($db_email);
+            echo ('hello ' . $account->get_email() . '.' )
             if ($account) { //avoids null results
                 if (password_verify($_POST['pass'], $account->get_password())) { //if the passwords match, login
                     $_SESSION['logged_in'] = 1;
@@ -90,6 +91,8 @@
                 else {
                     echo ('<h1>Log In</h1>');
                     echo ('<h2>Error: Invalid Username or Password,<br>Please Try Again.</h2>');
+                    echo ('hello ' . $account->get_email() . '.' )
+                    
                     echo ('<form method="post">');
                     echo ('<input type="hidden" name="_submit_check" value="true">');
                     echo ('<label for="user">Email</label><br>');
