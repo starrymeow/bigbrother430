@@ -30,6 +30,8 @@
 
          $this->assertTrue($myAccount->get_password()=="password2");
          $this->assertTrue($myAccount->get_status()=="status2");
+
+         echo("AccountTest complete\n");
       }
  }
 ?>
