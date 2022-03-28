@@ -43,14 +43,14 @@ session_cache_expire(30);
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Check Match Status</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Submit Application</a>'); // TODO
 				}
-				if ($_SESSION['access_level'] >= 1) {
-				    echo ('<a href="' . $path . 'accountDetails.php" class="greenButton">Account Details</a>'); // TODO
+// 				if ($_SESSION['access_level'] >= 1) {
+// 				    echo ('<a href="' . $path . 'accountDetails.php" class="greenButton">Account Details</a>'); // TODO
 
-				}
+// 				}
 				if ($_SESSION['access_level'] >= 2) {
 				    echo('<h2>Enter the email of the admin</h2>');
 				    echo ('<form method="post">');
-				    echo ('<input type="hidden" name="_submit_check" value="true">');
+				    echo ('<input type="hidden" name="_submit_check" value="true"><br>');
 				    echo ('<label for="user">Email</label><br>');
 				    echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
 				    echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
