@@ -43,3 +43,7 @@ session_cache_expire(30);
 				goto end;
 				?>
 				</div>
+			</div>
+		</div>
+	</body>
+</html>
