@@ -55,7 +55,6 @@ session_cache_expire(30);
 				    echo ('<a href="http://localhost/bigbrother430/PromoteAdmin.php" class="greenButton">Promote New Admin</a>'); // TODO
 				    
 				}
-				goto end;
 				?>
 				</div>
 			</div>
