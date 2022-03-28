@@ -24,7 +24,6 @@ session_cache_expire(30);
                 include_once('domain/Account.php');
                 include_once('database/dbLog.php');
                 date_default_timezone_set('America/New_York');
-            //    fix_all_birthdays();
                 ?>
 				<!-- BBBS Code -->
 				<div id="homeoptions">
