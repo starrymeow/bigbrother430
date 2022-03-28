@@ -17,24 +17,19 @@
  include_once(dirname(__FILE__).'/../domain/Account.php');
  class AccountTest extends TestCase {
       function testAccount() {
-         $myAccount = new Account("Susan","L","portland","928 SU","Portland", "ME",04011,
-              2074415902,"home",2072654046,"cell", "susanl@aol.com", "volunteer",
-              "","","active", "USM","student",3,"semester","I like helping out","cooking","",
-              "Mon:9-12:portland,Sun:evening:portland", "", "", "89-02-19", "08-03-14", "internet",
-              "this is a note","");
+         $myAccount = new Account("Susan","Last", "susanl@aol.com", "status", "password");
 
          $this->assertTrue($myAccount->get_first_name()=="Susan");
-         $this->assertTrue($myAccount->get_type()==array("volunteer"));
-         $this->assertTrue($myAccount->get_status()=="active");
-         $this->assertTrue($myAccount->get_city()=="Portland");
-         $this->assertTrue($myAccount->get_phone1()==2074415902);
-         $this->assertTrue($myAccount->get_employer()=="USM");
-         $this->assertEquals($myAccount->get_availability(),array("Mon:9-12:portland","Sun:evening:portland"));
-         $this->assertTrue($myAccount->get_last_name() !== "notMyLastName");
-         $this->assertTrue($myAccount->get_phone1type()!=="work");
-         $this->assertTrue($myAccount->get_howdidyouhear()=="internet");
-         $this->assertTrue($myAccount->get_birthday()=="89-02-19");
+         $this->assertTrue($myAccount->get_last_name()=="Last");
+         $this->assertTrue($myAccount->get_email()=="susan@aol.com");
+         $this->assertTrue($myAccount->get_status()=="status");
+         $this->assertTrue($myAccount->get_password()=="password");
+
+         $myAccount->set_password("password2");
+         $myAccount->set_status("status2");
+
+         $this->assertTrue($myAccount->get_password()=="password2");
+         $this->assertTrue($myAccount->get_status()=="status2");
       }
  }
-
 ?>
