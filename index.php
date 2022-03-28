@@ -28,8 +28,6 @@ session_cache_expire(30);
                 include_once('database/dbAccounts.php');
                 include_once('domain/Account.php');
                 include_once('database/dbLog.php');
-                //include_once('domain/Shift.php');
-                //include_once('database/dbShifts.php');
                 date_default_timezone_set('America/New_York');
             //    fix_all_birthdays();
                 ?>
@@ -54,6 +52,8 @@ session_cache_expire(30);
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Generate Matches</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Generate Report</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Create New Admin</a>'); // TODO
+				    echo ('<a href="http://localhost/bigbrother430/PromoteAdmin.php" class="greenButton">Promote New Admin</a>'); // TODO
+				    
 				}
 				goto end;
 				?>
