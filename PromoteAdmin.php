@@ -48,15 +48,36 @@ session_cache_expire(30);
 
 				}
 				if ($_SESSION['access_level'] >= 2) {
-				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Person Search</a>'); // TODO
-				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Checklist</a>'); // TODO
-				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Submissions</a>'); // TODO
-				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Generate Matches</a>'); // TODO
-				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Generate Report</a>'); // TODO
-				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Create New Admin</a>'); // TODO
+				    echo('<h2>Enter the email of the admin</h2>');
+				    echo ('<form method="post">');
+				    echo ('<input type="hidden" name="_submit_check" value="true">');
+				    echo ('<label for="user">Email</label><br>');
+				    echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
+				    echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
+				    echo ('</form>');
+// 				    echo ('<h2> Is this person an already existing admin?</h2>');
+// 				    if (array_key_exists('Yes', $POST)) {
+// 				        search_admin();
+// 				    }
+// 				    else if(array_key_exists('No', $POST)) {
+// 				        add_new_account();
+// 				    }
+// 				    function search_admin() {
+				        
+// 				    }
+// 				    function add_new_account() {
+				        
+// 				    }
 				}
 				goto end;
 				?>
+				<form method="POST">
+        			<input type="submit" name="Yes"
+                		class="button" value="Yes" />
+          
+        			<input type="submit" name="No"
+                		class="button" value="No" />
+    			</form>
 				</div>
                 <!-- your main page data goes here. This is the place to enter content -->
                 <p>
