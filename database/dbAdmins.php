@@ -18,7 +18,6 @@ function add_admin($admin) {
         mysqli_query($con,'INSERT INTO dbAdmins VALUES("' .
             $admin->get_email() . '","' .
             $admin->get_password() . '","' .
-            $admin->get_applications() . '","' .
             $admin->get_first_name() . '","' .
             $admin->get_last_name() . '","' .
             $admin->get_status() . '","' .
@@ -75,14 +74,14 @@ function change_admin_password($email, $newPass) {
 }
 
 function make_an_admin($result_row) {
-    $account = retrieve_account($result_row['email']);
+    $account = retrieve_admin($result_row['email']);
     $theAdmin = new Admin(
         $account->get_firstname(),
         $account->get_lastname(),
-        $result_row['email'],
+        $account->get_email(),
         $account->get_status(),
         $account->get_password(),
-        $result_row['is_super']);
+        $account->get_is_super());
     return $theAdmin;
 }
 

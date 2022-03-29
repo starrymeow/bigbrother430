@@ -15,6 +15,7 @@ function add_application($app) {
     //if there's no entry for this id, add it
     if ($result == null || mysqli_num_rows($result) == 0) {
         mysqli_query($con,'INSERT INTO dbApplications VALUES("' .
+            $app->get_email() . '","' .
             $app->get_id() . '","' .
             $app->get_first_name() . '","' .
             $app->get_last_name() . '","' .

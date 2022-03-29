@@ -7,7 +7,6 @@
  class Account {
 	private $email;   // email address as a string
 	private $password;     // password for account access: default = $email
-	//private $applications;     // array of applications acosiated with this account: key=id
 	private $first_name;       //first name of account holder as a string
 	private $last_name;        //last name of account holder as a string
 	private $status;     // an account may be ...
@@ -19,7 +18,6 @@
 		$this->first_name = $first;
 		$this->last_name = $last;
 		$this->status = $status;  // default password == md5($email)
-		//$this->applications = array();
 	}
 
 	function get_email() {
