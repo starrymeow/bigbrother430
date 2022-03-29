@@ -77,37 +77,6 @@ if ($_SESSION['access_level'] == 0) {
     <script src="lib/jquery-1.9.1.js"></script>
     <script src="lib/jquery-ui.js"></script>
 
-<?php /*
-if ($_SESSION['access_level']==2) {
-	echo('<p>Manager Notes:<br />');
-	echo('<textarea name="notes" rows="2" cols="75">');
-	echo($account->get_notes().'</textarea>');
-}
-
-echo ('<p>Status:');
-echo('<span style="font-size:x-small;color:FF0000">*</span>&nbsp;&nbsp;');
-echo('<select name="status">');
-if ($_SESSION['access_level'] == 0) {
-	echo ('<option value="applicant"');
-    echo (' SELECTED');
-    echo('>applicant</option>');
-}
-else {
-	echo ('<option value="applicant"');
-	if ($account->get_status() == 'applicant')
-    	echo (' SELECTED');
-    echo('>applicant</option>'); echo ('<option value="active"');
-	if ($account->get_status() == 'active')
-	    echo (' SELECTED'); echo('>active</option>');
-	echo ('<option value="LOA"');
-	if ($account->get_status() == 'LOA')
-	    echo (' SELECTED'); echo('>on leave</option>');
-	echo ('<option value="former"');
-	if ($account->get_status() == 'former')
-	    echo (' SELECTED'); echo('>former</option>');
-}
-echo('</select>');
-*/?>
 <p>
 <?PHP
 //echo('<input type="hidden" name="password" value="' . $account->get_password() . ')">');
