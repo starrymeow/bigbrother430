@@ -88,38 +88,6 @@ session_cache_expire(30);
                             $shifts = selectScheduled_dbShifts($person->get_id());
 
                             $scheduled_shifts = array();
-                            foreach ($shifts as $shift) {
-                                $shift_month = get_shift_month($shift);
-                                $shift_day = get_shift_day($shift);
-                                $shift_year = get_shift_year($shift);
-
-                                $shift_time_s = get_shift_start($shift);
-                                $shift_time_e = get_shift_end($shift);
-
-                                $cur_month = date("m");
-                                $cur_day = date("d");
-                                $cur_year = date("y");
-
-                                if ($shift_year > $cur_year)
-                                    $upcoming_shifts[] = $shift;
-                                else if ($shift_year == $cur_year) {
-                                    if ($cur_month < $shift_month)
-                                        $upcoming_shifts[] = $shift;
-                                    else if ($shift_month == $cur_month) {
-                                        if ($cur_day <= $shift_day) {
-                                            $upcoming_shifts[] = $shift;
-                                        }
-                                    }
-                                }
-                            }
-                            if ($upcoming_shifts) {
-                                echo('<div class="scheduleBox"><p><strong>Your Upcoming Schedule:</strong><br /></p><ul>');
-                                foreach ($upcoming_shifts as $tableId) {
-                                    echo('<li type="circle">' . get_shift_name_from_id($tableId)) . '</li>';
-                                }
-                                echo('</ul><p>If you need to cancel an upcoming shift, please contact the <a href="mailto:allen@npfi.org">House Manager</a>.</p></div>');
-                            }
-
                             // link to personal profile for editing
                             echo('<br><div class="scheduleBox"><p><strong>Your Personal Profile:</strong><br /></p><ul>');
                                 echo('</ul><p>Go <strong><a href="personEdit.php?id='.$person->get_id()
@@ -151,16 +119,6 @@ session_cache_expire(30);
                         	//    }
                         	mysqli_close($con);
 
-                            //log box
-                            echo('<div class="logBox"><p><strong>Recent Schedule Changes:</strong><br />');
-                            echo('<table class="searchResults">');
-                            echo('<tr><td class="searchResults"><u>Time</u></td><td class="searchResults"><u>Message</u></td></tr>');
-                            $log = get_last_log_entries(5);
-                            foreach ($log as $lo) {
-                                echo('<tr><td class="searchResults">' . $lo[1] . '</td>' .
-                                '<td class="searchResults">' . $lo[2] . '</td></tr>');
-                            }
-                            echo ('</table><br><a href="' . $path . 'log.php">View full log</a></p></div><br>');
                         }
                         //DEFAULT PASSWORD CHECK
                         if (md5($person->get_id()) == $person->get_password()) {

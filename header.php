@@ -33,7 +33,6 @@
         //pages guests are allowed to view
         $permission_array['index.php'] = 0;
         $permission_array['about.php'] = 0;
-        $permission_array['apply.php'] = 0;		//doesn't exist
         //pages volunteers can view
         $permission_array['help.php'] = 1;
         $permission_array['calendar.php'] = 1;
