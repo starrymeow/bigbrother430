@@ -1,15 +1,4 @@
 <?php
-/*
- * Copyright 2015 by Allen Tucker. This program is part of RMHC-Homebase, which is free
- * software.  It comes with absolutely no warranty. You can redistribute and/or
- * modify it under the terms of the GNU General Public License as published by the
- * Free Software Foundation (see <http://www.gnu.org/licenses/ for more information).
- */
-/*
- * 	accountEdit.php
- *  oversees the editing of a account to be added, changed, or deleted from the database
- * 	@author Oliver Radwan, Xun Wang and Allen Tucker
- */
 
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -48,14 +37,6 @@ if ($email == 'new') {
         <link rel="stylesheet" href="styles.css" type="text/css" />
         <script src="lib/jquery-1.9.1.js"></script>
 		<script src="lib/jquery-ui.js"></script>
-		<?php /*<script>
-			$(function(){
-				$( "#birthday" ).datepicker({dateFormat: 'y-mm-dd',changeMonth:true,changeYear:true,yearRange: "1920:+nn"});
-				$( "#start_date" ).datepicker({dateFormat: 'y-mm-dd',changeMonth:true,changeYear:true,yearRange: "1920:+nn"});
-				$( "#end_date" ).datepicker({dateFormat: 'y-mm-dd',changeMonth:true,changeYear:true,yearRange: "1920:+nn"});
-				$( "#screening_status[]" ).datepicker({dateFormat: 'y-mm-dd',changeMonth:true,changeYear:true,yearRange: "1920:+nn"});
-			})
-		</script>*/?>
     </head>
     <body>
         <div id="container">
