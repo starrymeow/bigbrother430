@@ -63,8 +63,8 @@ function retrieve_account($email) {
     $result_row = mysqli_fetch_assoc($result);
     //var_dump($result_row);
     $theAccount = make_an_account($result_row);
-    //var_dump($theAccount);
-    //    mysqli_close($con);
+    var_dump($theAccount);
+        mysqli_close($con);
     return $theAccount;
 }
 

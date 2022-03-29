@@ -44,7 +44,6 @@
         // This makes the username case insensitive
         $user = strtolower($_POST['user']); 
         // check if they logged in
-        var_dump($user);
         if ($user == "guest" && $_POST['pass'] == "") {
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 0;
@@ -92,8 +91,7 @@
                     echo ('<h1>Log In</h1>');
                     echo ('<h2>Error: Invalid Username or Password,<br>Please Try Again.</h2>');
                     //echo ('<h1> ' . $user . '</h1>');
-                    print_r($user);
-                    var_dump($user);
+                    var_dump($account);
                     echo ('<form method="post">');
                     echo ('<input type="hidden" name="_submit_check" value="true">');
                     echo ('<label for="user">Email</label><br>');
