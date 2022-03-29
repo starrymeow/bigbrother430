@@ -81,7 +81,7 @@
                     date_default_timezone_set("America/New_York");
                     //if ($account->get_status() == "applicant")
                     //   $_SESSION['access_level'] = 0;
-                    else if (get_class($account) == 'admin')
+                    if (get_class($account) == 'admin')
                         $_SESSION['access_level'] = 2;
                     else
                         $_SESSION['access_level'] = 1;
