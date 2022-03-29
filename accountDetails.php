@@ -12,7 +12,9 @@
 
 	session_start();
 	session_cache_expire(30);
-	
+	include_once('database/dbAccounts.php');
+	include_once('domain/Account.php');
+	include_once('database/dbAdmins.php');
 	// Tests if user can access page
 	if (!($_SESSION['access_level'] >= 1)) {
 	    header("Location: index.php");
@@ -33,9 +35,7 @@
 		<?PHP include('header.php');?>
 			<div id="content">
 				<div class="infoform">
-					<h1>Account Details</h1>
-					
-					<form method="post">
+					<h1>Account Details</h1>					
 					<?php //TODO Fill in default name
         				echo ('<form method="post">');
         				echo ('<label for="email">Email</label><br>');
@@ -45,7 +45,7 @@
        				 	echo ('<label for="namel">Last Name</label><br>');
         				echo ('<input type="text" name="namel" value="' . $_SESSION['l_name'] . '"><br>');
         				echo ('<label for="old_password">Old Password</label><br>');
-        				echo ('<input type="text" name="old_password" value="' . $_SESSION['pass'] . '"><br>');
+        				echo ('<input type="text" name="old_password" value="' . $_POST['pass'] . '"><br>');
         				echo ('<label for="new_password">New Password</label><br>');
         				echo ('<input type="text" name="new_password" placeholder="********"><br>');
         				echo ('<label for="confirm_password">Confirm Password</label><br>');
@@ -53,8 +53,23 @@
         				echo ('<input type="submit" name="changedata" value="Log In" class="greenButton">');
         				echo ('</form>');
         
-        			?>
-<!-- 						<label for="email">Email</label><br> -->
+					$new_first = $_POST['namef'];
+					var_dump($new_first);
+					$new_last = $_POST['namel'];
+ 					$account = change_first($_SESSION['_id'], $_POST['namef']);
+ 					var_dump($account);
+ 					$account = change_last($_SESSION['_id'], $_POST['namel']);
+// 					var_dump($account);
+					
+// 					$account = change_account_password($_SESSION['_id'], $_POST['newpass']);
+// 					var_dump($account);
+					
+					
+// 					?>
+				</div>
+			</div>
+		<?PHP include('footer.inc');?>
+		<!-- 						<label for="email">Email</label><br> -->
 							<!--<input type="text" name="email" value="<?php echo($_SESSION['_id']); ?>" style="color: black; background-color: #A1A1A1;" readonly/><br> -->
 <!-- 						<label for="namef">Name</label><br> -->
 							<!--<input type="text" name="namef" value="<?php echo($_SESSION['f_name']); ?>" style="color: black; background-color: white;"/><br> -->
@@ -69,23 +84,6 @@
 <!-- 						<input type="submit" name="changedata" value="Confirm Changes" class="greenButton"><br> -->
 						<!--<input type="submit" name="changepass" value="Change Password" class="greenButton"><br> -->
 <!-- 					</form> -->
-					<?php
-					$new_first = $_POST['f_name'];
-					var_dump($new_first);
-					$new_last = $_POST['l_name']
-// 					$account = change_first($_SESSION['_id'], $_POST['namef']);
-// 					var_dump($account);
-// 					$account = change_last($_SESSION['_id'], $_POST['namel']);
-// 					var_dump($account);
-					
-// 					$account = change_account_password($_SESSION['_id'], $_POST['newpass']);
-// 					var_dump($account);
-					
-					
-// 					?>
-				</div>
-			</div>
-		<?PHP include('footer.inc');?>
 		</div>
 	</body>
 </html>
