@@ -36,33 +36,51 @@
 					<h1>Account Details</h1>
 					
 					<form method="post">
-					<?php //TODO Fill in default name?>
-						<label for="email">Email</label><br>
-						<input type="text" name="email" value="<?php echo($_SESSION['_id']); ?>" style="color: black; background-color: #A1A1A1;" readonly/><br>
-						<label for="namef">Name</label><br>
-						<input type="text" name="namef" value="<?php echo($_SESSION['f_name']); ?>" style="color: black; background-color: white;"/><br>
-						<input type="text" name="namel" value="<?php echo($_SESSION['l_name']); ?>" style="color: black; background-color: white;"/><br>
+					<?php //TODO Fill in default name
+        				echo ('<form method="post">');
+        				echo ('<label for="email">Email</label><br>');
+       					echo ('<input type="text" name="email" value="' . $_SESSION['_id'] . '" style="color: black; background-color: #A1A1A1;">');
+        				echo ('<label for="user">Email</label><br>');
+        				echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
+       				 	echo ('<label for="pass">Password</label><br>');
+        				echo ('<input type="password" name="pass" tabindex="2" placeholder="**********"><br>');
+        				echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
+        				echo ('</form>');
+        
+        				echo ('<form method="post" action="' . $path . 'accountEdit.php?id=' . 'new' . '">');
+        				echo ('<br><label for="register">Don\'t have an account yet?</label><br>');
+       					echo ('<input type="submit" name="register" value="Create Account" class="greenButton">');
+        				echo ('</form>');
+        			?>
+<!-- 						<label for="email">Email</label><br> -->
+							<input type="text" name="email" value="<?php echo($_SESSION['_id']); ?>" style="color: black; background-color: #A1A1A1;" readonly/><br>
+<!-- 						<label for="namef">Name</label><br> -->
+							<input type="text" name="namef" value="<?php echo($_SESSION['f_name']); ?>" style="color: black; background-color: white;"/><br>
+							<input type="text" name="namel" value="<?php echo($_SESSION['l_name']); ?>" style="color: black; background-color: white;"/><br>
 		
-						<label for="oldpass">Old Password</label><br>
-						<input type="password" name="oldpass" placeholder="**********"/><br>
-						<label for="newpass">New Password</label><br>
-						<input type="password" name="newpass" placeholder="**********"/><br>
-						<label for="passcheck">Re-Enter New Pass</label><br>
-						<input type="password" name="passcheck" placeholder="**********"/><br>
-						<input type="submit" name="changedata" value="Confirm Changes" class="greenButton"><br>
+<!-- 						<label for="oldpass">Old Password</label><br> -->
+<!-- 						<input type="password" name="oldpass" placeholder="**********"/><br> -->
+<!-- 						<label for="newpass">New Password</label><br> -->
+<!-- 						<input type="password" name="newpass" placeholder="**********"/><br> -->
+<!-- 						<label for="passcheck">Re-Enter New Pass</label><br> -->
+<!-- 						<input type="password" name="passcheck" placeholder="**********"/><br> -->
+<!-- 						<input type="submit" name="changedata" value="Confirm Changes" class="greenButton"><br> -->
 						<!--<input type="submit" name="changepass" value="Change Password" class="greenButton"><br> -->
-					</form>
+<!-- 					</form> -->
 					<?php
-					$account = change_first($_SESSION['_id'], $_POST['namef']);
-					var_dump($account);
-					$account = change_last($_SESSION['_id'], $_POST['namel']);
-					var_dump($account);
+					$new_first = $_POST['f_name'];
+					var_dump($new_first);
+					$new_last = $_POST['l_name']
+// 					$account = change_first($_SESSION['_id'], $_POST['namef']);
+// 					var_dump($account);
+// 					$account = change_last($_SESSION['_id'], $_POST['namel']);
+// 					var_dump($account);
 					
-					$account = change_account_password($_SESSION['_id'], $_POST['newpass']);
-					var_dump($account);
+// 					$account = change_account_password($_SESSION['_id'], $_POST['newpass']);
+// 					var_dump($account);
 					
 					
-					?>
+// 					?>
 				</div>
 			</div>
 		<?PHP include('footer.inc');?>
