@@ -30,28 +30,30 @@
     </head>
 	<body>
 		<div id="container">
-			<?PHP include('header.php');?>
+		<?PHP include('header.php');?>
 			<div id="content">
 				<div class="infoform">
 					<h1>Account Details</h1>
+					
 					<form method="post">
 					<?php //TODO Fill in default name?>
 						<label for="email">Email</label><br>
 						<input type="text" name="email" value="<?php echo($_SESSION['_id']); ?>" style="color: black; background-color: #A1A1A1;" readonly/><br>
 						<label for="namef">Name</label><br>
-						<input type="text" name="namef" value="First Name (TODO)"/><br>
+						<?php
+						 $account = retrieve_account($_SESSION['_id']);
+						?>
+						<input type="text" name="namef" value="<?php echo($account->get_first_name()); ?>" /><br>
 						<input type="text" name="namel" value="Last Name (TODO)"/><br>
-						<input type="submit" name="changedata" value="Confirm Changes" class="greenButton"><br>
-					</form>
-					
-					<form method="post">
+		
 						<label for="oldpass">Old Password</label><br>
 						<input type="password" name="oldpass" placeholder="**********"/><br>
 						<label for="newpass">New Password</label><br>
 						<input type="password" name="newpass" placeholder="**********"/><br>
 						<label for="passcheck">Re-Enter New Pass</label><br>
 						<input type="password" name="passcheck" placeholder="**********"/><br>
-						<input type="submit" name="changepass" value="Change Password" class="greenButton"><br>
+						<input type="submit" name="changedata" value="Confirm Changes" class="greenButton"><br>
+						<!--<input type="submit" name="changepass" value="Change Password" class="greenButton"><br> -->
 					</form>
 				</div>
 			</div>
