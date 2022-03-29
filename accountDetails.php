@@ -58,9 +58,9 @@
 					$new_first = $_POST['namef'];
 					var_dump($new_first);
 					$new_last = $_POST['namel'];
- 					//$account = change_first($_SESSION['_id'], $_POST['namef']);
+ 					change_first($_SESSION['_id'], $_POST['namef']);
  					//var_dump($account);
- 					//$account = change_last($_SESSION['_id'], $_POST['namel']);
+ 					change_last($_SESSION['_id'], $_POST['namel']);
 // 					var_dump($account);
 					
 // 					$account = change_account_password($_SESSION['_id'], $_POST['newpass']);
