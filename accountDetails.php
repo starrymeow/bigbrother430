@@ -39,24 +39,26 @@
 					<?php //TODO Fill in default name
         				echo ('<form method="post">');
         				echo ('<label for="email">Email</label><br>');
-       					echo ('<input type="text" name="email" value="' . $_SESSION['_id'] . '" style="color: black; background-color: #A1A1A1;">');
-        				echo ('<label for="user">Email</label><br>');
-        				echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
-       				 	echo ('<label for="pass">Password</label><br>');
-        				echo ('<input type="password" name="pass" tabindex="2" placeholder="**********"><br>');
-        				echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
+       					echo ('<input type="text" name="email" value="' . $_SESSION['_id'] . '" style="color: black; background-color: #A1A1A1;" readonly><br>');
+        				echo ('<label for="namef">First Name</label><br>');
+        				echo ('<input type="text" name="namef" value="' . $_SESSION['f_name'] . '"><br>');
+       				 	echo ('<label for="namel">Last Name</label><br>');
+        				echo ('<input type="text" name="namel" value="' . $_SESSION['l_name'] . '"><br>');
+        				echo ('<label for="old_password">Old Password</label><br>');
+        				echo ('<input type="text" name="old_password" value="' . $_SESSION['pass'] . '"><br>');
+        				echo ('<label for="new_password">New Password</label><br>');
+        				echo ('<input type="text" name="new_password" placeholder="********"><br>');
+        				echo ('<label for="confirm_password">Confirm Password</label><br>');
+        				echo ('<input type="text" name="confirm_password" placeholder="********"><br>');
+        				echo ('<input type="submit" name="changedata" value="Log In" class="greenButton">');
         				echo ('</form>');
         
-        				echo ('<form method="post" action="' . $path . 'accountEdit.php?id=' . 'new' . '">');
-        				echo ('<br><label for="register">Don\'t have an account yet?</label><br>');
-       					echo ('<input type="submit" name="register" value="Create Account" class="greenButton">');
-        				echo ('</form>');
         			?>
 <!-- 						<label for="email">Email</label><br> -->
-							<input type="text" name="email" value="<?php echo($_SESSION['_id']); ?>" style="color: black; background-color: #A1A1A1;" readonly/><br>
+							<!--<input type="text" name="email" value="<?php echo($_SESSION['_id']); ?>" style="color: black; background-color: #A1A1A1;" readonly/><br> -->
 <!-- 						<label for="namef">Name</label><br> -->
-							<input type="text" name="namef" value="<?php echo($_SESSION['f_name']); ?>" style="color: black; background-color: white;"/><br>
-							<input type="text" name="namel" value="<?php echo($_SESSION['l_name']); ?>" style="color: black; background-color: white;"/><br>
+							<!--<input type="text" name="namef" value="<?php echo($_SESSION['f_name']); ?>" style="color: black; background-color: white;"/><br> -->
+							<!--<input type="text" name="namel" value="<?php echo($_SESSION['l_name']); ?>" style="color: black; background-color: white;"/><br> -->
 		
 <!-- 						<label for="oldpass">Old Password</label><br> -->
 <!-- 						<input type="password" name="oldpass" placeholder="**********"/><br> -->
