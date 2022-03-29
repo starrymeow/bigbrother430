@@ -38,7 +38,7 @@
 					<h1>Account Details</h1>					
 					<?php //TODO Fill in default name
                         $account = retrieve_account($_SESSION['_id']);
-                        var_dump($account;)
+                        var_dump($account);
         				echo ('<form method="post">');
         				echo ('<label for="email">Email</label><br>');
        					echo ('<input type="text" name="email" value="' . $account->get_email() . '" style="color: black; background-color: #A1A1A1;" readonly><br>');
