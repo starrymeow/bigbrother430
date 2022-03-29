@@ -111,6 +111,7 @@
                 // At this point, they failed to authenticate
                 echo ('<h1>Log In</h1>');
                 echo ('<h2>Error: Invalid Username or Password,<br>Please Try Again.</h2>');
+                print_r($user);
                 echo ('<form method="post">');
                 echo ('<input type="hidden" name="_submit_check" value="true">');
                 echo ('<label for="user">E mail</label><br>');
