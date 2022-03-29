@@ -53,9 +53,14 @@
 						<!--<input type="submit" name="changepass" value="Change Password" class="greenButton"><br> -->
 					</form>
 					<?php
-					change_first($_SESSION['_id'], $_POST['namef']);
-					change_last($_SESSION['_id'], $_POST['namel']);
-					change_account_password($_SESSION['_id'], $_POST['newpass']);
+					$account = change_first($_SESSION['_id'], $_POST['namef']);
+					var_dump($account);
+					$account = change_last($_SESSION['_id'], $_POST['namel']);
+					var_dump($account);
+					
+					$account = change_account_password($_SESSION['_id'], $_POST['newpass']);
+					var_dump($account);
+					
 					
 					?>
 				</div>
