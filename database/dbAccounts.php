@@ -77,6 +77,14 @@ function change_accout_password($email, $newPass) {
     return $result;
 }
 
+function change_first($email, $newFirst) {
+    $con = connect();
+    $query = 'UPDATE dbAccounts SET first_name = "' . $newFirst . '" WHERE email = "' . $email . '"';
+    $result = mysqli_query($con, $query);
+    mysqli_close($con);
+    return $result;
+}
+
 function make_an_account($result_row) {
     $theAccount = new Account(
         $result_row["email"],

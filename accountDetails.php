@@ -40,10 +40,7 @@
 						<label for="email">Email</label><br>
 						<input type="text" name="email" value="<?php echo($_SESSION['_id']); ?>" style="color: black; background-color: #A1A1A1;" readonly/><br>
 						<label for="namef">Name</label><br>
-						<?php
-						 $account = retrieve_account($_SESSION['_id']);
-						?>
-						<input type="text" name="namef" value="<?php echo($account->get_first_name()); ?>" /><br>
+						<input type="text" name="namef" value="<?php echo($_SESSION['f_name']); ?>" style="color: black; background-color: #A1A1A1;"/><br>
 						<input type="text" name="namel" value="Last Name (TODO)"/><br>
 		
 						<label for="oldpass">Old Password</label><br>
