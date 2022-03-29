@@ -69,7 +69,7 @@ function retrieve_account($email) {
 }
 
 
-function change_accout_password($email, $newPass) {
+function change_account_password($email, $newPass) {
     $con=connect();
     $query = 'UPDATE dbAccounts SET password = "' . $newPass . '" WHERE email = "' . $email . '"';
     $result = mysqli_query($con,$query);
@@ -84,6 +84,15 @@ function change_first($email, $newFirst) {
     mysqli_close($con);
     return $result;
 }
+
+function change_last($email, $newLast) {
+    $con = connect();
+    $query = 'UPDATE dbAccounts SET last_name = "' . $newLast . '" WHERE email = "' . $email . '"';
+    $result = mysqli_query($con, $query);
+    mysqli_close($con);
+    return $result;
+}
+
 
 function make_an_account($result_row) {
     $theAccount = new Account(

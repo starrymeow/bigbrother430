@@ -40,8 +40,8 @@
 						<label for="email">Email</label><br>
 						<input type="text" name="email" value="<?php echo($_SESSION['_id']); ?>" style="color: black; background-color: #A1A1A1;" readonly/><br>
 						<label for="namef">Name</label><br>
-						<input type="text" name="namef" value="<?php echo($_SESSION['f_name']); ?>" style="color: black; background-color: #A1A1A1;"/><br>
-						<input type="text" name="namel" value="Last Name (TODO)"/><br>
+						<input type="text" name="namef" value="<?php echo($_SESSION['f_name']); ?>" style="color: black; background-color: white;"/><br>
+						<input type="text" name="namel" value="<?php echo($_SESSION['l_name']); ?>" style="color: black; background-color: white;"/><br>
 		
 						<label for="oldpass">Old Password</label><br>
 						<input type="password" name="oldpass" placeholder="**********"/><br>
@@ -52,6 +52,12 @@
 						<input type="submit" name="changedata" value="Confirm Changes" class="greenButton"><br>
 						<!--<input type="submit" name="changepass" value="Change Password" class="greenButton"><br> -->
 					</form>
+					<?php
+					change_first($_SESSION['_id'], $_POST['namef']);
+					change_last($_SESSION['_id'], $_POST['namel']);
+					change_account_password($_SESSION['_id'], $_POST['newpass']);
+					
+					?>
 				</div>
 			</div>
 		<?PHP include('footer.inc');?>
