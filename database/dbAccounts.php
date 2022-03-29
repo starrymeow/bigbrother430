@@ -54,7 +54,7 @@ function remove_account($email) {
 
 function retrieve_account($email) {
     $con=connect();
-    $query = "SELECT * FROM dbAccounts WHERE lower(email) = '" . strtolower($email) . "'";
+    $query = 'SELECT * FROM dbAccounts WHERE lower(email) = "' . strtolower($email) . '"';
     $result = mysqli_query($con,$query);
     if (mysqli_num_rows($result) !== 1) {
         mysqli_close($con);
@@ -79,11 +79,11 @@ function change_accout_password($email, $newPass) {
 
 function make_an_account($result_row) {
     $theAccount = new Account(
+        $result_row["email"],
+        $result_row["password"],
         $result_row["first_name"],
         $result_row["last_name"],
-        $result_row["email"],
-        $result_row["status"],
-        $result_row["password"]);
+        $result_row["status"]);
     return $theAccount;
 }
 ?>

@@ -61,7 +61,7 @@ function retrieve_admin($email) {
     }
     $result_row = mysqli_fetch_assoc($result);
     // var_dump($result_row);
-    $theAdmin = make_a_person($result_row);
+    $theAdmin = make_a_admin($result_row);
     //    mysqli_close($con);
     return $theAdmin;
 }

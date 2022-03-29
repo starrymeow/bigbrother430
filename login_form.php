@@ -89,9 +89,7 @@
                 }
                 else {
                     echo ('<h1>Log In</h1>');
-                    echo ('<h2>Error: Invalid Username or Password,<br>Please Try Again.</h2>');
-                    echo ('<p>hello ' . $account->get_email() . '.</p>');
-                    
+                    echo ('<h2>Error: Invalid Username or Password,<br>Please Try Again.</h2>');                    
                     echo ('<form method="post">');
                     echo ('<input type="hidden" name="_submit_check" value="true">');
                     echo ('<label for="user">Email</label><br>');
@@ -111,7 +109,6 @@
                 // At this point, they failed to authenticate
                 echo ('<h1>Log In</h1>');
                 echo ('<h2>Error: Invalid Username or Password,<br>Please Try Again.</h2>');
-                echo ('<p>hello ' . $account->get_email() . '.</p>');
                 echo ('<form method="post">');
                 echo ('<input type="hidden" name="_submit_check" value="true">');
                 echo ('<label for="user">E mail</label><br>');
