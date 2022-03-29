@@ -13,12 +13,12 @@
 	private $status;     // an account may be ...
 
 
-	function __construct($first, $last, $e, $s, $pass) {
-	    $this->first_name = $first;
-	    $this->last_name = $last;
-		$this->email = $e;
-		$this->status = $s;
-		$this->password = $pass;  // default password == md5($email)
+	function __construct($email, $pass, $first, $last, $status) {
+	    $this->email = $email;
+	    $this->password = $pass;
+		$this->first_name = $first;
+		$this->last_name = $last;
+		$this->status = $status;  // default password == md5($email)
 		//$this->applications = array();
 	}
 
