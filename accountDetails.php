@@ -37,15 +37,16 @@
 				<div class="infoform">
 					<h1>Account Details</h1>					
 					<?php //TODO Fill in default name
+                        $account = retrieve_account($_SESSION['_id']);
         				echo ('<form method="post">');
         				echo ('<label for="email">Email</label><br>');
-       					echo ('<input type="text" name="email" value="' . $_SESSION['_id'] . '" style="color: black; background-color: #A1A1A1;" readonly><br>');
+       					echo ('<input type="text" name="email" value="' . $account->get_email() . '" style="color: black; background-color: #A1A1A1;" readonly><br>');
         				echo ('<label for="namef">First Name</label><br>');
-        				echo ('<input type="text" name="namef" value="' . $_SESSION['f_name'] . '"><br>');
+        				echo ('<input type="text" name="namef" value="' . $account->get_first_name() . '"><br>');
        				 	echo ('<label for="namel">Last Name</label><br>');
-        				echo ('<input type="text" name="namel" value="' . $_SESSION['l_name'] . '"><br>');
+        				echo ('<input type="text" name="namel" value="' . $account->get_last_name() . '"><br>');
         				echo ('<label for="old_password">Old Password</label><br>');
-        				echo ('<input type="text" name="old_password" value="' . $_POST['pass'] . '"><br>');
+        				echo ('<input type="text" name="old_password" value="' . $account->get_password() . '"><br>');
         				echo ('<label for="new_password">New Password</label><br>');
         				echo ('<input type="text" name="new_password" placeholder="********"><br>');
         				echo ('<label for="confirm_password">Confirm Password</label><br>');
