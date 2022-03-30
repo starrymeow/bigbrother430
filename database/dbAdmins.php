@@ -85,6 +85,14 @@ function make_an_admin($result_row) {
     return $theAdmin;
 }
 
+function promote($email) {
+    $con=connect();
+    $query = 'UPDATE dbAdmins SET is_super = "yes" WHERE email = "' . $email . '"';
+    $result = mysqli_query($con, $query);
+    mysqli_close($con);
+    return $result;
+}
+
 function get_all_admins() {
     $con=connect();
     $query = 'SELECT * FROM dbAdmins NATURAL JOIN dbAccounts';

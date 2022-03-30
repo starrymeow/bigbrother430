@@ -38,7 +38,6 @@
 					<h1>Account Details</h1>					
 					<?php //TODO Fill in default name
                         $account = retrieve_account($_SESSION['_id']);
-                        var_dump($account);
         				echo ('<form method="post">');
         				echo ('<label for="email">Email</label><br>');
        					echo ('<input type="text" name="email" value="' . $account->get_email() . '" style="color: black; background-color: #A1A1A1;" readonly><br>');
@@ -55,13 +54,9 @@
         				echo ('<input type="submit" name="changedata" value="Log In" class="greenButton">');
         				echo ('</form>');
         
-					//$new_first = $_POST['namef'];
-					//var_dump($new_first);
-					//$new_last = $_POST['namel'];
+					
  					change_first($_SESSION['_id'], $_POST['namef']);
- 					//var_dump($account);
  					change_last($_SESSION['_id'], $_POST['namel']);
-// 					var_dump($account);
  					if (strlen($_POST['old_password']) != 0) {
  					    if ($_POST['old_password'] == $account->get_password()) {
  					        if (strlen($_POST['new_password']) && strlen($_POST['confirm_password'] != 0)) {
@@ -79,10 +74,6 @@
  					    }
  					        
  					}
- 					
-					
-// 					$account = change_account_password($_SESSION['_id'], $_POST['newpass']);
-// 					var_dump($account);
 					
 					
 // 					?>

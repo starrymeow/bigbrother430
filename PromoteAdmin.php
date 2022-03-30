@@ -28,10 +28,9 @@ session_cache_expire(30);
                 include_once('database/dbAccounts.php');
                 include_once('domain/Account.php');
                 include_once('database/dbLog.php');
-                //include_once('domain/Shift.php');
-                //include_once('database/dbShifts.php');
+                include_once('domain/Admin.php');
+                include_once('database/dbAdmins.php');
                 date_default_timezone_set('America/New_York');
-            //    fix_all_birthdays();
                 ?>
 				<!-- BBBS Code -->
 				<div id="homeoptions">
@@ -55,19 +54,14 @@ session_cache_expire(30);
 				    echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
 				    echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
 				    echo ('</form>');
-// 				    echo ('<h2> Is this person an already existing admin?</h2>');
-// 				    if (array_key_exists('Yes', $POST)) {
-// 				        search_admin();
-// 				    }
-// 				    else if(array_key_exists('No', $POST)) {
-// 				        add_new_account();
-// 				    }
-// 				    function search_admin() {
-				        
-// 				    }
-// 				    function add_new_account() {
-				        
-// 				    }
+                    $admin = retrieve_admin($_SESSION['_id']);
+                    if ($admin) { //avoid null result
+                        promote($_SESSION['_id']);
+                        echo ('<h2> "' . $_SESSION['_id'] . '" has been promoted to a super admin.</h2>');
+                    }
+                    else {
+                        ('<h2> no record of admin in the database</h2>');
+                    }
 				}
 				goto end;
 				?>
