@@ -12,12 +12,12 @@
 	private $status;     // an account may be ...
 
 
-	function __construct($email, $pass, $first, $last) {
-	    $this->email = $email;
-	    $this->password = $pass;
+	function __construct($email, $pass, $first, $last, $s="active") {
+	  $this->email = $email;
+	  $this->password = $pass;
 		$this->first_name = $first;
 		$this->last_name = $last;
-		$this->status = "active";  // default password == md5($email)
+		$this->status = $s;
 	}
 	
 
@@ -32,14 +32,6 @@
 	function set_password($pass) {
 	    $this->password = $pass;
 	}
-
-	/*function add_application($id, $application) {
-	    $this->applications[$id] = $application;
-	}
-
-	function get_applications() {
-	    return $this->applications;
-	}*/
 
 	function get_first_name() {
 	    return $this->first_name;
@@ -58,4 +50,3 @@
 	}
 }
 ?>
-

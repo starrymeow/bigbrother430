@@ -15,7 +15,7 @@
  */
 
 function connect() {
-    $host = "localhost"; 
+    $host = "localhost";
     //$database = "homebasedb";
     //$user = "homebasedb";
     //$pass = "homebasedb";
@@ -28,6 +28,14 @@ function connect() {
     $selected = mysqli_select_db($con,$database);
     if (!$selected) { echo "database not selected"; return mysqli_error($con); }
     else return $con;
+
+}
+
+function get_pass() {
+    $con = connect();
+    $query = "SELECT * FROM dbInfo";
+    $result = mysqli_query($con,$query);
+    return mysqli_fetch_assoc($result)['storage'];
 
 }
 
