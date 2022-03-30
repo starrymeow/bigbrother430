@@ -19,7 +19,7 @@ if ($email == 'new') {
     $account = new Account('new', 'applicant', "new", null, "new");
 } else {
     $account = retrieve_account($email);
-    if (!$account) { // try again by changing blanks to _ in id
+    if (!$account) { // try again by changing blanks to _ in id;
         //$email = str_replace(" ","_",$_GET["id"]);
         //$account = retrieve_account($email);
         //if (!$account) {

@@ -6,7 +6,6 @@
  * modify it under the terms of the GNU General Public License as published by the
  * Free Software Foundation (see <http://www.gnu.org/licenses/ for more information).
  */
-
 /**
  * Test suite for Account
  * @author Taylor Talmage, Phuong Le, and Allen Tucker
