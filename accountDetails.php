@@ -55,13 +55,31 @@
         				echo ('<input type="submit" name="changedata" value="Log In" class="greenButton">');
         				echo ('</form>');
         
-					$new_first = $_POST['namef'];
-					var_dump($new_first);
-					$new_last = $_POST['namel'];
+					//$new_first = $_POST['namef'];
+					//var_dump($new_first);
+					//$new_last = $_POST['namel'];
  					change_first($_SESSION['_id'], $_POST['namef']);
  					//var_dump($account);
  					change_last($_SESSION['_id'], $_POST['namel']);
 // 					var_dump($account);
+ 					if (strlen($_POST['old_password']) != 0) {
+ 					    if ($_POST['old_password'] == $account->get_password()) {
+ 					        if (strlen($_POST['new_password']) && strlen($_POST['confirm_password'] != 0)) {
+ 					            if ($_POST['new_password'] == $_POST['confirm_password']) {
+ 					                change_account_password($_SESSION['_id'], $_POST['confirm_password']);
+ 					            }
+ 					            else {
+ 					                echo('<h2> Error: the new passwords do not match</h2>');
+ 					            }
+ 					        }
+ 					        
+ 					    }
+ 					    else {
+ 					        echo ('<h2> Error: old password does not match account\'s password</h2>');
+ 					    }
+ 					        
+ 					}
+ 					
 					
 // 					$account = change_account_password($_SESSION['_id'], $_POST['newpass']);
 // 					var_dump($account);
