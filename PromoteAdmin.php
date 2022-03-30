@@ -50,14 +50,14 @@ session_cache_expire(30);
 				    echo('<h2>Enter the email of the admin</h2>');
 				    echo ('<form method="post">');
 				    echo ('<input type="hidden" name="_submit_check" value="true"><br>');
-				    echo ('<label for="user">Email</label><br>');
-				    echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
+				    echo ('<label for="email">Email</label><br>');
+				    echo ('<input type="text" name="email" tabindex="1" placeholder="example@email.com"><br>');
 				    echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
 				    echo ('</form>');
-                    $admin = retrieve_admin($_SESSION['_id']);
+                    $admin = retrieve_admin($_POST['email']);
                     if ($admin) { //avoid null result
-                        promote($_SESSION['_id']);
-                        echo ('<h2> "' . $_SESSION['_id'] . '" has been promoted to a super admin.</h2>');
+                        promote($_POST['email']);
+                        echo ('<h2> "' . $_POST['email'] . '" has been promoted to a super admin.</h2>');
                     }
                     else {
                         ('<h2> no record of admin in the database</h2>');
