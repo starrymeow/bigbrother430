@@ -8,7 +8,6 @@
  *
  */
 ?><?php
-
 /*
  * Created on Mar 28, 2008
  * @author Oliver Radwan <oradwan@bowdoin.edu>, Sam Roberts, Allen Tucker
@@ -33,7 +32,7 @@
         echo ('<input type="password" name="pass" tabindex="2" placeholder="**********"><br>');
         echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
         echo ('</form>');
-        
+
         echo ('<form method="post" action="' . $path . 'accountEdit.php?id=' . 'new' . '">');
         echo ('<br><label for="register">Don\'t have an account yet?</label><br>');
         echo ('<input type="submit" name="register" value="Create Account" class="greenButton">');
@@ -42,7 +41,7 @@
     else {
         // Puts the user input as lowercase
         // This makes the username case insensitive
-        $user = strtolower($_POST['user']); 
+        $user = strtolower($_POST['user']);
         // check if they logged in
         if ($user == "guest" && $_POST['pass'] == "") {
             $_SESSION['logged_in'] = 1;
@@ -69,20 +68,17 @@
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
         } // otherwise authenticate their password
         else {
-            // TODO 
+            // TODO
             $db_email = $user;
             $account = retrieve_account($db_email);
-            //$test = $_POST['pass'];
-            //var_dump($test);
             if ($account) { //avoids null results
-                if ($_POST['pass'] == $account->get_password()) {
-                //if (password_verify($_POST['pass'], $account->get_password())) { //if the passwords match, login
+                if (password_verify($_POST['pass'], $account->get_password())) { //if the passwords match, login
                     $_SESSION['logged_in'] = 1;
                     date_default_timezone_set("America/New_York");
-                    //if ($account->get_status() == "applicant")
-                    //   $_SESSION['access_level'] = 0;
                     if (get_class($account) == 'admin')
                         $_SESSION['access_level'] = 2;
+                    elseif ($account->get_status() == "new")
+                        $_SESSION['access_level'] = 0;
                     else
                         $_SESSION['access_level'] = 1;
                     $_SESSION['f_name'] = $account->get_first_name();
@@ -91,10 +87,11 @@
                     echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
                 }
                 else {
+                    // invalid email
                     echo ('<h1>Log In</h1>');
                     echo ('<h2>Error: Invalid Username or Password,<br>Please Try Again.</h2>');
-                    //echo ('<h1> ' . $user . '</h1>');
-                    //var_dump($account);
+                    //echo ('<h1> ' . $user . '</h1><br>');
+                    //var_dump(account);
                     echo ('<form method="post">');
                     echo ('<input type="hidden" name="_submit_check" value="true">');
                     echo ('<label for="user">Email</label><br>');
@@ -103,28 +100,28 @@
                     echo ('<input type="password" name="pass" tabindex="2" placeholder="**********"><br>');
                     echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
                     echo ('</form>');
-                    
+
                     echo ('<form method="post" action="' . $path . 'accountEdit.php?id=' . 'new' . '">');
                     echo ('<br><label for="register">Don\'t have an account yet?</label><br>');
                     echo ('<input type="submit" name="register" value="Create Account" class="greenButton">');
                     echo ('</form>');
                 }
-            } 
+            }
             else {
                 // At this point, they failed to authenticate
                 echo ('<h1>Log In</h1>');
                 echo ('<h2>Error: Invalid Username or Pass,<br>Please Try Again.</h2>');
-                print_r($user);
-                var_dump($user);
+                //print_r($user);
+                //var_dump($user);
                 echo ('<form method="post">');
                 echo ('<input type="hidden" name="_submit_check" value="true">');
-                echo ('<label for="user">E mail</label><br>');
+                echo ('<label for="user">Email</label><br>');
                 echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
                 echo ('<label for="pass">Password</label><br>');
                 echo ('<input type="password" name="pass" tabindex="2" placeholder="**********"><br>');
                 echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
                 echo ('</form>');
-                
+
                 echo ('<form method="post" action="' . $path . 'accountEdit.php?id=' . 'new' . '">');
                 echo ('<br><label for="register">Don\'t have an account yet?</label><br>');
                 echo ('<input type="submit" name="register" value="Create Account" class="greenButton">');

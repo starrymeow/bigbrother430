@@ -9,7 +9,6 @@
  * (see <http://www.gnu.org/licenses/ for more information).
  *
  */
-
 /*
  * Modified March 2012
  * @Author Taylor and Allen
@@ -22,10 +21,10 @@ class dbAccountsTest extends TestCase {
       function testdbAccounts() {
       	// add two accounts to the database
 
-        $m = new Account("Gabrielle","Booth","ted@bowdoin.edu","status1","password1");
+          $m = new Account("ted@bowdoin.edu","password1","Gabrielle","Booth","status1");
 		$this->assertTrue(add_account($m));
 
-		$m2 = new Account("Fred", "Wilson", "alfred@whitman.edu","status2", "password2");
+		$m2 = new Account("alfred@whitman.edu", "password2", "Fred", "Wilson","status2");
 		$this->assertTrue(add_account($m2));
 
 		// retrieve the Account and test the fields

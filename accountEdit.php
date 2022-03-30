@@ -16,10 +16,10 @@ $defaultAdmin = "example@example.com";
 $email = $_GET["id"];
 
 if ($email == 'new') {
-    $account = new Account('new', 'applicant', "new", null, "");
+    $account = new Account('new', 'applicant', "new", null, "new");
 } else {
     $account = retrieve_account($email);
-    if (!$account) { // try again by changing blanks to _ in id
+    if (!$account) { // try again by changing blanks to _ in id;
         //$email = str_replace(" ","_",$_GET["id"]);
         //$account = retrieve_account($email);
         //if (!$account) {
@@ -43,7 +43,7 @@ if ($email == 'new') {
         <div id="container">
             <?php include('header.php'); ?>
             <div id="content">
-            <div class="infoform">
+         		<div class="infoform">
                     <?php
                     echo('<h1>Create Account</h1>');
                     include('accountValidate.inc');
@@ -52,12 +52,12 @@ if ($email == 'new') {
                         include('accountForm.inc');
                     else {
                         //in this case, the form has been submitted, so validate it
-                        $errors = validate_form($account);  //step one is validation.
+                        $errors = validate_account($account);  //step one is validation.
                         // errors array lists problems on the form submitted
                         if ($errors) {
                             // display the errors and the form to fix
                             show_errors($errors);
-                            $account = new Account($_POST['first_name'], $_POST['last_name'], $account->get_email(), null, $_POST['pass']);
+                            $account = new Account($account->get_email(), $_POST['pass'], $_POST['first_name'], $_POST['last_name'], "new");
                             include('accountForm.inc');
                         }
                         // this was a successful form submission; update the database and exit
@@ -69,7 +69,7 @@ if ($email == 'new') {
                         die();
                     }
 
-                    function generateRandomString($length = 10) {
+                    function generateRandomString($length = 20) {
                         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                         $charactersLength = strlen($characters);
                         $randomString = '';
@@ -126,11 +126,12 @@ if ($email == 'new') {
                         }
 
                         // try to reset the account's password
+                        //TODO use random string for reset password
                         else if ($_POST['reset_pass'] == "RESET") {
                             $email = $_POST['email'];
                             $result = remove_account($email);
                             $pass = $first_name . $last_name;
-                            $newaccount = new Account($first_name, $last_name, $email, $status, $pass);
+                            $newaccount = new Account($email, $pass, $first_name, $last_name, $status);
                             $result = add_account($newaccount);
                             if (!$result)
                                 echo ('<p class="error">Unable to reset ' . $first_name . ' ' . $last_name . "'s password.. <br>Please report this error to the House Manager.");
@@ -164,21 +165,21 @@ if ($email == 'new') {
                                     $tempPass = generateRandomString();
 
                                     $mail->Subject = 'BigBrotherBigSister email verification';
-                                    $mail->Body    = '<p>HTML message body in <b>bold</b></p><p>Your temporary password:' . $tempPass . '</p>';
-                                    $mail->AltBody = '<p>Your temporary password:' . $tempPass . '</p>';    //Body in plain text for non-HTML mail clients
+                                    $mail->Body    = '<p>Your temporary password: ' . $tempPass . '</p>';
+                                    $mail->AltBody = 'Your temporary password: ' . $tempPass;    //Body in plain text for non-HTML mail clients
                                     $mail->send();
-                                    echo "Mail has been sent successfully!";
+                                    echo ("<p>Mail has been sent successfully!<p>");
 
-                                	  $newaccount = new Account($first_name, $last_name, $email, $status, password_hash($tempPass, PASSWORD_DEFAULT));
+                                    $newaccount = new Account($email,  password_hash($tempPass, PASSWORD_DEFAULT), $first_name, $last_name, "new");
                                     $result = add_account($newaccount);
                                     if (!$result)
-                                        echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the House Manager.');
+                                        echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the Manager.</p>');
                                     else if ($_SESSION['access_level'] == 0) {
-                                        echo("<p>Your account has been successfully created.<br>");
+                                        echo("<p>Your account has been successfully created.</p><br>");
                                     } else
                                         echo('<p>You have successfully added <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> to the database.</p>');
                                 } catch (Exception $e) {
-                                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                                    echo ("<p class='error'>Message could not be sent. Mailer Error: {$mail->ErrorInfo}</p>");
                                     echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the House Manager.');
                                 }
                             }
@@ -188,11 +189,12 @@ if ($email == 'new') {
                         else {
                             $email = $_POST['email'];
                             $pass = $_POST['pass'];
+                            $status = $_POST['status'];
                             $result = remove_account($email);
                             if (!$result)
-                                echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the House Manager.');
+                                echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the Manager.</p>');
                             else {
-                                $newaccount = new Account($first_name, $last_name, $email, $status, $pass);
+                                $newaccount = new Account($email, $pass, $first_name, $last_name, $status);
                                 $result = add_account($newaccount);
                                 if (!$result)
                                     echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the House Manager.');

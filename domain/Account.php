@@ -13,13 +13,13 @@
 
 
 	function __construct($email, $pass, $first, $last, $s="active") {
-	  $this->email = $email;
-	  $this->password = $pass;
-		$this->first_name = $first;
+        $this->email = $email;
+        $this->password = $pass;
+        $this->first_name = $first;
 		$this->last_name = $last;
 		$this->status = $s;
 	}
-	
+
 
 	function get_email() {
 		return $this->email;

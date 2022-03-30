@@ -6,7 +6,6 @@
  * modify it under the terms of the GNU General Public License as published by the
  * Free Software Foundation (see <http://www.gnu.org/licenses/ for more information).
  */
-
 /**
  * Test suite for Account
  * @author Taylor Talmage, Phuong Le, and Allen Tucker
@@ -17,7 +16,7 @@
  include_once(dirname(__FILE__).'/../domain/Account.php');
  class AccountTest extends TestCase {
       function testAccount() {
-         $myAccount = new Account("Susan","Last", "susanl@aol.com", "status", "password");
+          $myAccount = new Account("susanl@aol.com", "password", "Susan","Last", "status");
 
          $this->assertTrue($myAccount->get_first_name()=="Susan");
          $this->assertTrue($myAccount->get_last_name()=="Last");

@@ -2,7 +2,7 @@
 
 
 if ($_SESSION['access_level'] == 0) {
-    
+
 } else if ($_SESSION['access_level'] == 1) {
     if ($_SESSION['_id'] != $account->get_id()) {
         echo("<p id=\"error\">You do not have sufficient permissions to edit this user.</p>");
@@ -35,16 +35,12 @@ if ($_SESSION['access_level'] == 0) {
 <form method="POST">
     <label for="email">Email </label><br>
     <input type="text" name="email" placeholder="example@email.com"><br>
-    <label for="pass">Password </label><br>
-    <input type="password" name="pass" placeholder="*********"><br>
     <input type="hidden" name="_form_submit" value="1">
-    
-    <?php 
+    <?php
         echo('<label for="first_name">Name</label><br>');
         echo('<input type="text" name="first_name" placeholder="First Name"/><br>');
         echo('<input type="text" name="last_name" placeholder="Last Name"/><br>');
     ?>
-    
     <script src="lib/jquery-1.9.1.js"></script>
     <script src="lib/jquery-ui.js"></script>
 

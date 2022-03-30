@@ -36,6 +36,7 @@
         //pages volunteers can view
         $permission_array['help.php'] = 1;
         $permission_array['calendar.php'] = 1;
+        $permission_array['accountDetails.php'] = 1;
         //pages only managers can view
         $permission_array['accountsearch.php'] = 2;
         $permission_array['accountedit.php'] = 0;	//create account as well, needed for guests
@@ -48,7 +49,7 @@
         $current_page = strtolower(substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'],"/")+1));
         $current_page = substr($current_page, strpos($current_page,"/")+1);
 
-        if($permission_array[$current_page]>$_SESSION['access_level']){
+        if($permission_array[$current_page] > $_SESSION['access_level']){
             //in this case, the user doesn't have permission to view this page.
             //we redirect them to the index page.
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
@@ -61,14 +62,14 @@
 
 
         //they're logged in and session variables are set.
-        if ($_SESSION['access_level'] == 0) {
-        	  echo(' <a href="' . $path . 'accountEdit.php?id=' . 'new' . '">Apply</a>');
-        }
+//         if ($_SESSION['access_level'] == 0) {
+//         	  echo(' <a href="' . $path . 'accountEdit.php?id=' . 'new' . '">Apply</a>');
+//         }
         if ($_SESSION['access_level'] >= 1) {
             echo('<a href="' . $path . 'index.php">Home</a>');
             echo('<a href="' . $path . 'index.php">Match Status</a>');
             echo('<a href="' . $path . 'accountDetails.php">Account</a>');
-            
+
         }
 
 //          if ($_SESSION['access_level'] >= 2) {
@@ -79,11 +80,11 @@
 //              echo('<a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
 //          }
         echo('<div id="logout"><a href="' . $path . 'logout.php">Logout</a></div><br>');
-    } 
+    }
     else {
         echo('<div id="logout"><a href="' . $path . 'index.php">Login</a></div><br>');
     }
-    
+
 
     ?>
 </div>
