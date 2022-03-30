@@ -1,22 +1,11 @@
 <?php
-/*
- * Copyright 2013 by Jerrick Hoang, Ivy Xing, Sam Roberts, James Cook,
- * Johnny Coster, Judy Yang, Jackson Moniaga, Oliver Radwan,
- * Maxwell Palmer, Nolan McNair, Taylor Talmage, and Allen Tucker.
- * This program is part of RMH Homebase, which is free software.  It comes with
- * absolutely no warranty. You can redistribute and/or modify it under the terms
- * of the GNU General Public License as published by the Free Software Foundation
- * (see <http://www.gnu.org/licenses/ for more information).
- *
- */
-
 
 /**
- * validate_form validates the form data, checking all legality.
+ * validate_account validates the data, checking all legality.
  * it returns an array of the errors with the form (string warnings)
  * this array is null (aka false) if there are no errors
  */
-function validate_form($account) {
+function validate_account($account) {
     if ($account->get_first_name()=="new" && ($_POST['first_name'] == NULL || $_POST['first_name'] == 'new'))
         $errors[] = 'Please enter a first name';
     if ($_POST['last_name'] == null)

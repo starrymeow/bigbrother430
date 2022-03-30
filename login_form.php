@@ -72,13 +72,16 @@
             // TODO 
             $db_email = $user;
             $account = retrieve_account($db_email);
+            //$test = $_POST['pass'];
+            //var_dump($test);
             if ($account) { //avoids null results
-                if (password_verify($_POST['pass'], $account->get_password())) { //if the passwords match, login
+                if ($_POST['pass'] == $account->get_password()) {
+                //if (password_verify($_POST['pass'], $account->get_password())) { //if the passwords match, login
                     $_SESSION['logged_in'] = 1;
                     date_default_timezone_set("America/New_York");
-                    if ($account->get_status() == "applicant")
-                        $_SESSION['access_level'] = 0;
-                    else if (get_class($account) == 'admin')
+                    //if ($account->get_status() == "applicant")
+                    //   $_SESSION['access_level'] = 0;
+                    if (get_class($account) == 'admin')
                         $_SESSION['access_level'] = 2;
                     else
                         $_SESSION['access_level'] = 1;
@@ -90,6 +93,8 @@
                 else {
                     echo ('<h1>Log In</h1>');
                     echo ('<h2>Error: Invalid Username or Password,<br>Please Try Again.</h2>');
+                    //echo ('<h1> ' . $user . '</h1>');
+                    //var_dump($account);
                     echo ('<form method="post">');
                     echo ('<input type="hidden" name="_submit_check" value="true">');
                     echo ('<label for="user">Email</label><br>');
@@ -108,10 +113,12 @@
             else {
                 // At this point, they failed to authenticate
                 echo ('<h1>Log In</h1>');
-                echo ('<h2>Error: Invalid Username or Password,<br>Please Try Again.</h2>');
+                echo ('<h2>Error: Invalid Username or Pass,<br>Please Try Again.</h2>');
+                print_r($user);
+                var_dump($user);
                 echo ('<form method="post">');
                 echo ('<input type="hidden" name="_submit_check" value="true">');
-                echo ('<label for="user">Email</label><br>');
+                echo ('<label for="user">E mail</label><br>');
                 echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
                 echo ('<label for="pass">Password</label><br>');
                 echo ('<input type="password" name="pass" tabindex="2" placeholder="**********"><br>');
