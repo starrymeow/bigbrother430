@@ -41,16 +41,15 @@ session_cache_expire(30);
 				<!-- BBBS Code -->
 				<div id="homeoptions">
 				<?php
-				if ($_SESSION['access_level'] == 0) {
-				    echo ('<a href="' . $path . 'accountEdit.php?id=' . 'new' . '" class="greenButton">Apply</a>'); // TODO
-				}
+// 				if ($_SESSION['access_level'] == 0) {
+// 				    echo ('<a href="' . $path . 'accountEdit.php?id=' . 'new' . '" class="greenButton">Apply</a>'); // TODO
+// 				}
 				if ($_SESSION['access_level'] == 1) {
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Check Match Status</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Submit Application</a>'); // TODO
 				}
 				if ($_SESSION['access_level'] >= 1) {
 				    echo ('<a href="' . $path . 'accountDetails.php" class="greenButton">Account Details</a>'); // TODO
-
 				}
 				if ($_SESSION['access_level'] >= 2) {
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Person Search</a>'); // TODO

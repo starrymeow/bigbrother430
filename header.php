@@ -36,6 +36,7 @@
         //pages volunteers can view
         $permission_array['help.php'] = 1;
         $permission_array['calendar.php'] = 1;
+        $permission_array['accountDetails.php'] = 1;
         //pages only managers can view
         $permission_array['accountsearch.php'] = 2;
         $permission_array['accountedit.php'] = 0;	//create account as well, needed for guests
@@ -48,7 +49,7 @@
         $current_page = strtolower(substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'],"/")+1));
         $current_page = substr($current_page, strpos($current_page,"/")+1);
 
-        if($permission_array[$current_page]>$_SESSION['access_level']){
+        if($permission_array[$current_page] > $_SESSION['access_level']){
             //in this case, the user doesn't have permission to view this page.
             //we redirect them to the index page.
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";

@@ -43,7 +43,7 @@ if ($email == 'new') {
         <div id="container">
             <?php include('header.php'); ?>
             <div id="content">
-            <div class="infoform">
+         		<div class="infoform">
                     <?php
                     echo('<h1>Create Account</h1>');
                     include('accountValidate.inc');
