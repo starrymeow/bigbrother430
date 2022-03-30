@@ -168,18 +168,18 @@ if ($email == 'new') {
                                     $mail->Body    = '<p>Your temporary password: ' . $tempPass . '</p>';
                                     $mail->AltBody = 'Your temporary password: ' . $tempPass;    //Body in plain text for non-HTML mail clients
                                     $mail->send();
-                                    echo "Mail has been sent successfully!";
+                                    echo ("<p>Mail has been sent successfully!<p>");
 
                                     $newaccount = new Account($email,  password_hash($tempPass, PASSWORD_DEFAULT), $first_name, $last_name, "new");
                                     $result = add_account($newaccount);
                                     if (!$result)
-                                        echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the House Manager.');
+                                        echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the Manager.</p>');
                                     else if ($_SESSION['access_level'] == 0) {
-                                        echo("<p>Your account has been successfully created.<br>");
+                                        echo("<p>Your account has been successfully created.</p><br>");
                                     } else
                                         echo('<p>You have successfully added <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> to the database.</p>');
                                 } catch (Exception $e) {
-                                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                                    echo ("<p class='error'>Message could not be sent. Mailer Error: {$mail->ErrorInfo}</p>");
                                     echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the House Manager.');
                                 }
                             }
@@ -192,7 +192,7 @@ if ($email == 'new') {
                             $status = $_POST['status'];
                             $result = remove_account($email);
                             if (!$result)
-                                echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the Manager.');
+                                echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the Manager.</p>');
                             else {
                                 $newaccount = new Account($email, $pass, $first_name, $last_name, $status);
                                 $result = add_account($newaccount);

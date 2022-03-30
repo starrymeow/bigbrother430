@@ -21,15 +21,15 @@
         $newPass = $_POST['newpassword'];
         $repass = $_POST['repass'];
         if ($newPass == $repass) {
-            $account = retrieve_account($_SESSION['_id']);
-            $result = remove_account($account->get_email());
-            if (!$result) {
+            $email = $_SESSION['_id'];
+            if (!change_account_password($email, $newPass)) {
                 echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the House Manager.');
                 goto end;
             }
-            $account->set_status('active');
-            $account->set_password(password_hash($newPass, PASSWORD_DEFAULT));
-            add_account($account);
+            if (!change_status($email, 'active')) {
+                echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the House Manager.');
+                goto end;
+            }
 
             echo ('<h2>Account password successfully changed.</h2>');
             goto end;

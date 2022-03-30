@@ -44,7 +44,7 @@ function remove_account($email) {
     $query = 'DELETE FROM dbAccounts WHERE email = "' . $email . '"';
     $result = mysqli_query($con,$query);
     mysqli_close($con);
-    return true;
+    return $result;
 }
 
 /*
@@ -64,14 +64,14 @@ function retrieve_account($email) {
     //var_dump($result_row);
     $theAccount = make_an_account($result_row);
     //var_dump($theAccount);
-        mysqli_close($con);
+    mysqli_close($con);
     return $theAccount;
 }
 
 
 function change_account_password($email, $newPass) {
     $con=connect();
-    $query = 'UPDATE dbAccounts SET password = "' . $newPass . '" WHERE email = "' . $email . '"';
+    $query = 'UPDATE dbAccounts SET password = "' . password_hash($newPass, PASSWORD_DEFAULT) . '" WHERE email = "' . $email . '"';
     $result = mysqli_query($con,$query);
     mysqli_close($con);
     return $result;
@@ -93,6 +93,13 @@ function change_last($email, $newLast) {
     return $result;
 }
 
+function change_status($email, $status) {
+    $con = connect();
+    $query = 'UPDATE dbAccounts SET status = "' . $status . '" WHERE email = "' . $email . '"';
+    $result = mysqli_query($con, $query);
+    mysqli_close($con);
+    return $result;
+}
 
 function make_an_account($result_row) {
     $theAccount = new Account(
