@@ -61,7 +61,7 @@ function retrieve_admin($email) {
     $result_row = mysqli_fetch_assoc($result);
     // var_dump($result_row);
     $theAdmin = make_a_admin($result_row);
-    //    mysqli_close($con);
+    mysqli_close($con);
     return $theAdmin;
 }
 
@@ -76,11 +76,7 @@ function change_admin_password($email, $newPass) {
 function make_an_admin($result_row) {
     $account = retrieve_admin($result_row['email']);
     $theAdmin = new Admin(
-        $account->get_firstname(),
-        $account->get_lastname(),
         $account->get_email(),
-        $account->get_status(),
-        $account->get_password(),
         $account->get_is_super());
     return $theAdmin;
 }
