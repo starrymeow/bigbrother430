@@ -17,7 +17,7 @@
  include_once(dirname(__FILE__).'/../domain/Account.php');
  class AccountTest extends TestCase {
       function testAccount() {
-         $myAccount = new Account("Susan","Last", "susanl@aol.com", "status", "password");
+          $myAccount = new Account("susanl@aol.com", "password", "Susan","Last", "status");
 
          $this->assertTrue($myAccount->get_first_name()=="Susan");
          $this->assertTrue($myAccount->get_last_name()=="Last");

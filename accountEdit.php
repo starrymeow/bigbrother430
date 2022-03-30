@@ -30,7 +30,7 @@ $defaultAdmin = "example@example.com";
 $email = $_GET["id"];
 
 if ($email == 'new') {
-    $account = new Account('new', 'applicant', "new", null, "");
+    $account = new Account('new', 'applicant', "new", null, "new");
 } else {
     $account = retrieve_account($email);
     if (!$account) { // try again by changing blanks to _ in id
@@ -79,7 +79,7 @@ if ($email == 'new') {
                         if ($errors) {
                             // display the errors and the form to fix
                             show_errors($errors);
-                            $account = new Account($_POST['first_name'], $_POST['last_name'], $account->get_email(), null, $_POST['pass']);
+                            $account = new Account($account->get_email(), $_POST['pass'], $_POST['first_name'], $_POST['last_name']);
                             include('accountForm.inc');
                         }
                         // this was a successful form submission; update the database and exit
@@ -152,7 +152,7 @@ if ($email == 'new') {
                             $email = $_POST['email'];
                             $result = remove_account($email);
                             $pass = $first_name . $last_name;
-                            $newaccount = new Account($first_name, $last_name, $email, $status, $pass);
+                            $newaccount = new Account($email, $pass, $first_name, $last_name);
                             $result = add_account($newaccount);
                             if (!$result)
                                 echo ('<p class="error">Unable to reset ' . $first_name . ' ' . $last_name . "'s password.. <br>Please report this error to the House Manager.");
@@ -191,7 +191,7 @@ if ($email == 'new') {
                                     $mail->send();
                                     echo "Mail has been sent successfully!";
 
-                                	  $newaccount = new Account($first_name, $last_name, $email, $status, password_hash($tempPass, PASSWORD_DEFAULT));
+                                    $newaccount = new Account($email,  password_hash($tempPass, PASSWORD_DEFAULT), $first_name, $last_name);
                                     $result = add_account($newaccount);
                                     if (!$result)
                                         echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the House Manager.');
@@ -214,7 +214,7 @@ if ($email == 'new') {
                             if (!$result)
                                 echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the House Manager.');
                             else {
-                                $newaccount = new Account($first_name, $last_name, $email, $status, $pass);
+                                $newaccount = new Account($email, $pass, $first_name, $last_name);
                                 $result = add_account($newaccount);
                                 if (!$result)
                                     echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the House Manager.');
