@@ -45,6 +45,15 @@ html, body {
 	width: 900px;
 }
 
+.infoform p {
+	color: white;
+	font-size: 15px;
+	margin: 0px;
+	margin-bottom: 25px;
+	padding: 0px;
+	text-align: left;
+}
+
 .infoform h1 {
 	color: #00FC87;
 	font-size: 50px;
@@ -74,7 +83,7 @@ html, body {
     text-align: center;
 }
 
-.infoform input[type="text"], 
+.infoform input[type="text"],
 .infoform input[type="password"] {
 	font-size: 20px;
 	margin: 10px;
