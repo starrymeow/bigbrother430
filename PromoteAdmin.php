@@ -52,16 +52,15 @@ session_cache_expire(30);
 				    echo ('<input type="hidden" name="_submit_check" value="true"><br>');
 				    echo ('<label for="email">Email</label><br>');
 				    echo ('<input type="text" name="email" tabindex="1" placeholder="example@email.com"><br>');
-				    echo ('<input type="submit" name="promote" value="Log In" class="greenButton">');
+				    echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
 				    echo ('</form>');
                     $admin = retrieve_admin($_POST['email']);
-                    var_dump($admin);
                     if ($admin) { //avoid null result
                         promote($_POST['email']);
                         echo ('<h2> "' . $_POST['email'] . '" has been promoted to a super admin.</h2>');
                     }
                     else {
-                        echo ('<h2> no record of admin in the database</h2>');
+                        ('<h2> no record of admin in the database</h2>');
                     }
 				}
 				goto end;
@@ -78,7 +77,8 @@ session_cache_expire(30);
                 <p>
                     <?PHP
                     if ($_SESSION['access_level'] == 0)
-                       
+                        echo('<p> To apply for volunteering at the Portland or Bangor Ronald McDonald House, '.
+                        		'please select <b>apply</b>.');
                     if ($person) {
                         /*
                          * Check type of person, and display home page based on that.
@@ -98,11 +98,83 @@ session_cache_expire(30);
                         //VOLUNTEER CHECK
                         if ($_SESSION['access_level'] == 1) {
 
+                        	// display upcoming schedule
+                            $shifts = selectScheduled_dbShifts($person->get_id());
+
+                            $scheduled_shifts = array();
+                            foreach ($shifts as $shift) {
+                                $shift_month = get_shift_month($shift);
+                                $shift_day = get_shift_day($shift);
+                                $shift_year = get_shift_year($shift);
+
+                                $shift_time_s = get_shift_start($shift);
+                                $shift_time_e = get_shift_end($shift);
+
+                                $cur_month = date("m");
+                                $cur_day = date("d");
+                                $cur_year = date("y");
+
+                                if ($shift_year > $cur_year)
+                                    $upcoming_shifts[] = $shift;
+                                else if ($shift_year == $cur_year) {
+                                    if ($cur_month < $shift_month)
+                                        $upcoming_shifts[] = $shift;
+                                    else if ($shift_month == $cur_month) {
+                                        if ($cur_day <= $shift_day) {
+                                            $upcoming_shifts[] = $shift;
+                                        }
+                                    }
+                                }
+                            }
+                            if ($upcoming_shifts) {
+                                echo('<div class="scheduleBox"><p><strong>Your Upcoming Schedule:</strong><br /></p><ul>');
+                                foreach ($upcoming_shifts as $tableId) {
+                                    echo('<li type="circle">' . get_shift_name_from_id($tableId)) . '</li>';
+                                }
+                                echo('</ul><p>If you need to cancel an upcoming shift, please contact the <a href="mailto:allen@npfi.org">House Manager</a>.</p></div>');
+                            }
+
+                            // link to personal profile for editing
+                            echo('<br><div class="scheduleBox"><p><strong>Your Personal Profile:</strong><br /></p><ul>');
+                                echo('</ul><p>Go <strong><a href="personEdit.php?id='.$person->get_id()
+                        	   .'">here</a></strong> to view or update your contact information.</p></div>');
+                            // link to personal log sheet
+                            echo('<br><div class="scheduleBox"><p><strong>Your Log Sheet:</strong><br /></p><ul>');
+                                echo('</ul><p>Go <strong><a href="volunteerLog.php?id='.$person->get_id()
+                        	   .'">here</a></strong> to view or enter your recent volunteering hours.</p></div>');
 
                         }
 
                         if ($_SESSION['access_level'] == 2) {
-                            
+                            //We have a manager authenticated
+
+                        	//active applicants box
+                        	$con=connect();
+                        	$app_query = "SELECT first_name,last_name,id,start_date FROM dbPersons WHERE status LIKE '%applicant%'  AND venue='".
+                        			$_SESSION['venue']."'order by start_date desc";
+                        	$applicants_tab = mysqli_query($con,$app_query);
+                        	$numLines = 0;
+                        	//   if (mysqli_num_rows($applicants_tab) > 0) {
+                        	echo('<div class="applicantsBox"><p><strong>Open Applications / Dates:</strong><ul>');
+                        	while ($thisRow = mysqli_fetch_array($applicants_tab, MYSQLI_ASSOC)) {
+                        		echo('<li type="circle"><a href="' . $path . 'personEdit.php?id=' . $thisRow['id'] .'" id = "appLink">' .
+                        				$thisRow['last_name'] . ', ' . $thisRow['first_name'] . '</a> / '.
+                        				$thisRow['start_date'] . '</li>');
+                        	}
+                        	echo('</ul></p></div><br>');
+                        	//    }
+                        	mysqli_close($con);
+
+                            //log box
+                            echo('<div class="logBox"><p><strong>Recent Schedule Changes:</strong><br />');
+                            echo('<table class="searchResults">');
+                            echo('<tr><td class="searchResults"><u>Time</u></td><td class="searchResults"><u>Message</u></td></tr>');
+                            $log = get_last_log_entries(5);
+                            foreach ($log as $lo) {
+                                echo('<tr><td class="searchResults">' . $lo[1] . '</td>' .
+                                '<td class="searchResults">' . $lo[2] . '</td></tr>');
+                            }
+                            echo ('</table><br><a href="' . $path . 'log.php">View full log</a></p></div><br>');
                         }
                         //DEFAULT PASSWORD CHECK
                         if (md5($person->get_id()) == $person->get_password()) {
