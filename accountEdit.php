@@ -79,6 +79,16 @@ if ($email == 'new') {
                         return $randomString;
                     }
 
+                    function execInBackground($cmd){
+                        if (substr(php_uname(), 0, 7) == "Windows"){
+                            $p = popen("start /B ". $cmd, "r");
+                            sleep(1);
+                            pclose($p);
+                        }else{
+                            exec($cmd . " > /dev/null &");
+                        }
+                    }
+
                     /**
                      * process_form sanitizes data, concatenates needed data, and enters it all into a database
                      */
@@ -165,17 +175,20 @@ if ($email == 'new') {
                                     $tempPass = generateRandomString();
 
                                     $mail->Subject = 'BigBrotherBigSister email verification';
-                                    $mail->Body    = '<p>Your temporary password: ' . $tempPass . '</p>';
-                                    $mail->AltBody = 'Your temporary password: ' . $tempPass;    //Body in plain text for non-HTML mail clients
+                                    $mail->Body    = '<p>Your temporary password: ' . $tempPass . '</p><p>This account will be deleted one hour after creation if you do not log in for th first time before then.</p>';
+                                    $mail->AltBody = 'This account will be deleted one hour after creation if you do not log in for th first time before then. \nYour temporary password: ' . $tempPass;    //Body in plain text for non-HTML mail clients
                                     $mail->send();
                                     echo ("<p>Mail has been sent successfully!<p>");
 
                                     $newaccount = new Account($email,  password_hash($tempPass, PASSWORD_DEFAULT), $first_name, $last_name, "new");
                                     $result = add_account($newaccount);
                                     if (!$result)
-                                        echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the Manager.</p>');
+                                        echo ('<p class="error">Unable to add '.$first_name.' '.$last_name.' in the database. <br>Please report this error to the Manager.</p>');
                                     else if ($_SESSION['access_level'] == 0) {
                                         echo("<p>Your account has been successfully created.</p><br>");
+                                        //delete account if it hasn't been loged into
+                                        //this requires that there is an ini file in the listed directory
+                                        execInBackground('C:\\MAMP\\bin\\php\\php8.0.1\\php.exe removeTemporaryAccount.php '.$newaccount->get_email());
                                     } else
                                         echo('<p>You have successfully added <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> to the database.</p>');
                                 } catch (Exception $e) {
