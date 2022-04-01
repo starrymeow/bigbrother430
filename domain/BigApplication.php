@@ -57,7 +57,8 @@ class BigApplication extends Application {
         $this->prev_add_3_date = $prevadd3date;
         $this->prev_add_3_add = $prevadd3add;
         $this->military_experience = $mil;              //: boolean
-        $this->military_branch = $branch;               //:string
+        $this->military_branch = $branch;               //: string
+        $this->date_of_service = $dos;                  //: string
         $this->military_status = $milstatus;            //: string
         $this->military_character = $milchar;           //: string
         $this->significant_name = $signame;             //: string
@@ -75,22 +76,26 @@ class BigApplication extends Application {
         $this->personal_reference_email =  $perrefemail;
         $this->personal_reference_relationship = $perrefrel;
         $this->personal_reference_years_known = $perrefyears;
-        $this->work_with_youth = $workyouth;            //: int
+        $this->worked_with_youth = $workyouth;          //: int
+        $this->organization_1 = $org1;                  //organization name: string
         $this->orginization_1_manager = $org1manager;   //name: string
         $this->orginization_1_number = $org1num;        //manager phone number: string
         $this->orginization_1_email = $org1email;       //manager email: string
         $this->orginization_1_dates = $org1dates;       //dates of involvment: string
         $this->orginization_1_reason = $org1reason;     //reason for leaving: string
+        $this->organization_2 = $org2;
         $this->orginization_2_manager = $org2manager;
         $this->orginization_2_number = $org2num;
         $this->orginization_2_email = $org2email;
         $this->orginization_2_dates = $org2dates;
         $this->orginization_2_reason = $org2reason;
+        $this->organization_3 = $org3;
         $this->orginization_3_manager = $org3manager;
         $this->orginization_3_number = $org3num;
         $this->orginization_3_email = $org3email;
         $this->orginization_3_dates = $org3dates;
         $this->orginization_3_reason = $org3reason;
+        $this->organization_4 = $org4;
         $this->orginization_4_manager = $org4manager;
         $this->orginization_4_number = $org4num;
         $this->orginization_4_email = $org4email;
@@ -204,6 +209,466 @@ class BigApplication extends Application {
     // returns the relationship between the emergency contact and applicant
     function get_EC_relation() {
         return $this->EC_relation;
+    }
+
+    function get_job_title() {
+        return $this->job_title;
+    }
+
+    function get_employer() {
+        return $this->employer;
+    }
+
+    function get_employer_address() {
+        return $this->employer_address;
+    }
+
+    function get_employer_city() {
+        return $this->employer_city;
+    }
+
+    function get_employer_state() {
+        return $this->employer_state;
+    }
+
+    function get_employer_zip() {
+        return $this->employer_zip;
+    }
+
+    function get_can_cotact_work() {
+        return $this->can_cotact_work;
+    }
+
+    function get_work_length() {
+        return $this->work_length;
+    }
+
+    function get_work_hours() {
+        return $this->work_hours;
+    }
+
+    function get_highest_education() {
+         return $this->highest_education;
+    }
+
+    function get_years_completed() {
+         return $this->years_completed;
+    }
+
+    function get_graduation_year() {
+        return $this->graduation_year;
+    }
+
+    function get_ohio() {
+        return $this->ohio;
+    }
+
+    function get_prev_add_1_date() {
+        return $this->prev_add_1_date;
+    }
+
+    function get_prev_add_1_add() {
+        return $this->prev_add_1_add;
+    }
+
+    function get_prev_add_2_date() {
+        return $this->prev_add_2_date;
+    }
+
+    function get_prev_add_2_add() {
+        return $this->prev_add_2_add;
+    }
+
+    function get_prev_add_3_date() {
+        return $this->prev_add_3_date;
+    }
+
+    function get_prev_add_3_add() {
+        return $this->prev_add_3_add;
+    }
+
+    function get_military_experiece() {
+        return $this->military_experiece;
+    }
+
+    function get_military_branch() {
+        return $this->military_branch;
+    }
+
+    function get_date_of_service() {
+       return $this->date_of_service;
+    }
+
+    function get_military_status() {
+       return $this->military_status;
+    }
+
+    function get_military_character() {
+        return $this->military_character;
+    }
+
+    function get_significant_name() {
+        return $this->significant_name;
+    }
+
+    function get_significant_number() {
+        return $this->significant_number;
+    }
+
+    function get_significant_email() {
+        return $this->significant_email;
+    }
+
+    function get_significant_relationship() {
+        return $this->significant_relationship;
+    }
+
+    function get_significant_years_known() {
+       return $this->significant_years_known;
+    }
+
+    function get_professional_reference_name() {
+        return $this->professional_reference_name;
+    }
+
+    function get_professional_reference_number() {
+        return $this->professional_reference_number;
+    }
+
+    function get_professional_reference_email() {
+        return $this->professional_reference_email;
+    }
+
+    function get_professional_reference_relationship() {
+        return $this->professional_reference_relationship;
+    }
+
+    function get_professional_reference_years_known() {
+        return $this->professional_reference_years_known;
+    }
+
+    function get_personal_reference_name() {
+        return $this->personal_reference_name;
+    }
+
+    function get_personal_reference_number() {
+        return $this->personal_reference_number;
+    }
+
+    function get_personal_reference_email() {
+        return $this->personal_reference_email;
+    }
+
+    function get_personal_reference_relationship() {
+        return $this->personal_reference_relationship;
+    }
+
+    function get_personal_reference_years_known() {
+        return $this->personal_reference_years_known;
+    }
+
+    function get_worked_with_youth() {
+        return $this->worked_with_youth;
+    }
+
+    function get_organization_1() {
+        return $this->organization_1;
+    }
+
+    function get_organization_1_manager() {
+        return $this->organization_1_manager;
+    }
+
+    function get_organization_1_number() {
+        return $this->organization_1_number;
+    }
+
+    function get_organization_1_email() {
+        return $this->organization_1_email;
+    }
+
+    function get_organization_1_dates() {
+        return $this->organization_1_dates;
+    }
+
+    function get_organization_1_reason() {
+        return $this->organization_1_reason;
+    }
+
+    function get_organization_2() {
+        return $this->organization_2;
+    }
+
+    function get_organization_2_manager() {
+        return $this->organization_2_manager;
+    }
+
+    function get_organization_2_number() {
+        return $this->organization_2_number;
+    }
+
+    function get_organization_2_email() {
+        return $this->organization_2_email;
+    }
+
+    function get_organization_2_dates() {
+        return $this->organization_2_dates;
+    }
+
+    function get_organization_2_reason() {
+        return $this->organization_2_reason;
+    }
+
+    function get_organization_3() {
+        return $this->organization_3;
+    }
+
+    function get_organization_3_manager() {
+        return $this->organization_3_manager;
+    }
+
+    function get_organization_3_number() {
+        return $this->organization_3_number;
+    }
+
+    function get_organization_3_email() {
+        return $this->organization_3_email;
+    }
+
+    function get_organization_3_dates() {
+        return $this->organization_3_dates;
+    }
+
+    function get_organization_3_reason() {
+        return $this->organization_3_reason;
+    }
+
+    function get_organization_4() {
+        return $this->organization_4;
+    }
+
+    function get_organization_4_manager() {
+        return $this->organization_4_manager;
+    }
+
+    function get_organization_4_number() {
+        return $this->organization_4_number;
+    }
+
+    function get_organization_4_email() {
+        return $this->organization_4_email;
+    }
+
+    function get_organization_4_dates() {
+        return $this->organization_4_dates;
+    }
+
+    function get_organization_4_reason() {
+        return $this->organization_4_reason;
+    }
+
+    function get_community_mentor() {
+        return $this->community_mentor;
+    }
+
+    function get_community_couple() {
+        return $this->community_couple;
+    }
+
+    function get_school_mentor() {
+        return $this->school_mentor;
+    }
+
+    function get_commitment_concerns() {
+        return $this->commitment_concerns;
+    }
+
+    function get_iterest_in_children() {
+        return $this->iterest_in_children;
+    }
+
+    function get_comfortable_driving_distance() {
+        return $this->comfortable_driving_distance;
+    }
+
+    function get_iterview_availability() {
+        return $this->iterview_availability;
+    }
+
+    function get_uncomfortale_traits() {
+        return $this->uncomfortale_traits;
+    }
+
+    function get_big_sister_with_little_brother() {
+        return $this->big_sister_with_little_brother;
+    }
+
+    function get_weapons_at_home() {
+        return $this->weapons_at_home;
+    }
+
+    function get_concealed_permit() {
+        return $this->concealed_permit;
+    }
+
+    function get_pets() {
+        return $this->pets;
+    }
+
+    function get_other_people() {
+        return $this->other_people;
+    }
+
+    function get_other_1_name() {
+        return $this->other_1_name;
+    }
+
+    function get_other_1_age() {
+        return $this->other_1_age;
+    }
+
+    function get_other_1_relationship() {
+        return $this->other_1_relationship;
+    }
+
+    function get_other_2_name() {
+        return $this->other_2_name;
+    }
+
+    function get_other_2_age() {
+        return $this->other_2_age;
+    }
+
+    function get_other_2_relationship() {
+        return $this->other_2_relationship;
+    }
+
+    function get_other_3_name() {
+        return $this->other_3_name;
+    }
+
+    function get_other_3_age() {
+        return $this->other_3_age;
+    }
+
+    function get_other_3_relationship() {
+        return $this->other_3_relationship;
+    }
+
+    function get_other_4_name() {
+        return $this->other_4_name;
+    }
+
+    function get_other_4_age() {
+        return $this->other_4_age;
+    }
+
+    function get_other_4_relationship() {
+        return $this->other_4_relationship;
+    }
+
+    function get_other_5_name() {
+        return $this->other_5_name;
+    }
+
+    function get_other_5_age() {
+        return $this->other_5_age;
+    }
+
+    function get_other_5_relationship() {
+        return $this->other_5_relationship;
+    }
+
+    function get_commets_or_questions() {
+        return $this->commets_or_questions;
+    }
+
+    function get_convicted_felon() {
+        return $this->convicted_felon;
+    }
+
+    function get_driving_citations() {
+        return $this->driving_citations;
+    }
+
+    function get_coflicting_convictions() {
+        return $this->coflicting_convictions;
+    }
+
+    function get_fail_to_care() {
+        return $this->fail_to_care;
+    }
+
+    function get_chraged_with_abuse() {
+        return $this->chraged_with_abuse;
+    }
+
+    function get_health_limitations() {
+        return $this->health_limitations;
+    }
+
+    function get_mental_help() {
+        return $this->mental_help;
+    }
+
+    function get_substance_abuse_history() {
+        return $this->substance_abuse_history;
+    }
+
+    function get_sober_two_years() {
+        return $this->sober_two_years;
+    }
+
+    function get_illegal_drugs() {
+        return $this->illegal_drugs;
+    }
+
+    function get_auto_insurance() {
+        return $this->auto_insurance;
+    }
+
+    function get_can_submit_insurance_copy() {
+        return $this->can_submit_insurance_copy;
+    }
+
+    function get_sports_activities() {
+        return $this->sports_activities;
+    }
+
+    function get_stem_activites() {
+        return $this->stem_activites;
+    }
+
+    function get_arts_crafts_activities() {
+        return $this->arts_crafts_activities;
+    }
+
+    function get_outdoor_activites() {
+        return $this->outdoor_activites;
+    }
+
+    function get_games_activites() {
+        return $this->games_activites;
+    }
+
+    function get_misc_activites() {
+        return $this->misc_activites;
+    }
+
+    function get_quiet_talkitive() {
+        return $this->quiet_talkitive;
+    }
+
+    function get_outdoor_indoor() {
+        return $this->outdoor_indoor;
+    }
+
+    function get_watch_do() {
+        return $this->watch_do;
+    }
+
+    function get_other_interests() {
+        return $this->other_interests;
     }
 }
 ?>
