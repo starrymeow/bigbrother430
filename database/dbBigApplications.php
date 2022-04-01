@@ -1,15 +1,13 @@
 <?php
-
-
 include_once('dbinfo.php');
 include_once(dirname(__FILE__).'/../domain/BigApplication.php');
 
 /*
  * add a person to dbPersons table: if already there, return false
  */
-function add_big($big) {
+function add_big_application($big) {
     if (!$big instanceof BigApplication)
-        die("Error: add_big type mismatch");
+        die("Error: add_big_application type mismatch");
     $con=connect();
     $query = "SELECT * FROM dbBigApplications WHERE id = '" . $big->get_id() . "'";
     $result = mysqli_query($con,$query);
@@ -46,7 +44,31 @@ function add_big($big) {
             $big->get_DL_expiration() . '","' .
             $big->get_emergency_contact() . '","' .
             $big->get_EC_number() . '","' .
-            $big->get_EC_relation() .
+            $big->get_EC_relation() . '","' .
+            $big->get_other_5_relationship() . '","' .
+            $big->get_commets_or_questions() . '","' .
+            $big->get_convicted_felon() . '","' .
+            $big->get_driving_citations() . '","' .
+            $big->get_coflicting_convictions() . '","' .
+            $big->get_fail_to_care() . '","' .
+            $big->get_chraged_with_abuse() . '","' .
+            $big->get_health_limitations() . '","' .
+            $big->get_mental_help() . '","' .
+            $big->get_substance_abuse_history() . '","' .
+            $big->get_sober_two_years() . '","' .
+            $big->get_illegal_drugs() . '","' .
+            $big->get_auto_insurance() . '","' .
+            $big->get_can_submit_insurance_copy() . '","' .
+            $big->get_sports_activities() . '","' .
+            $big->get_stem_activites() . '","' .
+            $big->get_arts_crafts_activities() . '","' .
+            $big->get_outdoor_activites() . '","' .
+            $big->get_games_activites() . '","' .
+            $big->get_misc_activites() . '","' .
+            $big->get_quiet_talkitive() . '","' .
+            $big->get_outdoor_indoor() . '","' .
+            $big->get_watch_do() . '","' .
+            $big->get_other_interests() .
             '");');
             mysqli_close($con);
             return true;
@@ -54,3 +76,6 @@ function add_big($big) {
     mysqli_close($con);
     return false;
 }
+
+
+?>
