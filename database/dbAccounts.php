@@ -51,7 +51,6 @@ function remove_account($email) {
  * @return an Account from dbAccounts table matching a particular email.
  * if not in table, return false
  */
-
 function retrieve_account($email) {
     $con=connect();
     $query = 'SELECT * FROM dbAccounts WHERE lower(email) = "' . strtolower($email) . '"';
