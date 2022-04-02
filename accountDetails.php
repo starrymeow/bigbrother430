@@ -37,6 +37,45 @@ if (!($_SESSION['access_level'] >= 1)) {
 					<h1>Account Details</h1>
 					<?php //TODO Fill in default name
                     $account = retrieve_account($_SESSION['_id']);
+//                     echo ('<form method="post">');
+//                     echo ('<label for="email">Email</label><br>');
+//                     echo ('<input type="text" name="email" value="' . $account->get_email() . '" style="color: black; background-color: #A1A1A1;" readonly><br>');
+//                     echo ('<label for="namef">First Name</label><br>');
+//                     echo ('<input type="text" name="namef" value="' . $account->get_first_name() . '"><br>');
+//                     echo ('<label for="namel">Last Name</label><br>');
+//                     echo ('<input type="text" name="namel" value="' . $account->get_last_name() . '"><br>');
+//                     echo ('<label for="old_password">Old Password</label><br>');
+//                     echo ('<input type="text" name="old_password" value="' . $account->get_password() . '"><br>');
+//                     echo ('<label for="new_password">New Password</label><br>');
+//                     echo ('<input type="text" name="new_password" placeholder="********"><br>');
+//                     echo ('<label for="confirm_password">Confirm Password</label><br>');
+//                     echo ('<input type="text" name="confirm_password" placeholder="********"><br>');
+//                     echo ('<input type="submit" name="changedata" value="Log In" class="greenButton">');
+//                     echo ('</form>');
+                    
+                    
+//                     change_first($_SESSION['_id'], $_POST['namef']);
+//                     change_last($_SESSION['_id'], $_POST['namel']);
+//                     if (strlen($_POST['old_password']) != 0) {
+//                         if ($_POST['old_password'] == $account->get_password()) {
+//                             if (strlen($_POST['new_password']) && strlen($_POST['confirm_password'] != 0)) {
+//                                 if ($_POST['new_password'] == $_POST['confirm_password']) {
+//                                     change_account_password($_SESSION['_id'], $_POST['confirm_password']);
+//                                 }
+//                                 else {
+//                                     echo('<h2> Error: the new passwords do not match</h2>');
+//                                 }
+//                             }
+                            
+//                         }
+//                         else {
+//                             echo ('<h2> Error: old password does not match account\'s password</h2>');
+//                         }
+                        
+//                     }
+                    
+                    
+                    
                     if (! array_key_exists('_submit_check', $_POST)) {
         				echo ('<form method="post">');
         				echo ('<input type="hidden" name="_submit_check" value="true">');
