@@ -1,6 +1,5 @@
 <?php
 class BigApplication extends Application {
-
     private $secondary_email; // if applicant has a second email we can reach them by
     private $ssn; // applicant's social security number
     private $relationship_status; // what is applicant's relationship status (i.e., married or single)

@@ -339,7 +339,8 @@ function make_a_big_application($result_row) {
         $result_row['quiet_talkitive'],
         $result_row['outdoor_indoor'],
         $result_row['watch_do'],
-        $result_row['get_other_interests']);
+        $result_row['get_other_interests']
+    );
     return $theApp;
 }
 ?>
