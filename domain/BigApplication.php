@@ -16,7 +16,7 @@ class BigApplication extends Application {
     function __construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life,
         $se, $ssn, $relation, $o, $faith, $number, $state, $exp, $emerg, $EC_number, $EC_relation,
         $jt, $emp, $empadd, $empcity, $empstate, $empzip, $work_contact, $work_length, $work_hours, $high_edu, $years, $grad, $ohio,
-        $prevadd1date, $prevadd1add, $prevadd2date, $prevadd2add, $prevadd3date, $prevadd3add, $mil, $branch, $dos, $milstatus, $milchar,
+        $prevadd1date, $prevadd1add, $prevadd2date, $prevadd2add, $prevadd3date, $prevadd3add, $mil, $branch, $dos, $milstatus, $mildis,
         $signame, $signum, $sigemail, $sigrel, $sigyears, $prorefname, $prorefnum, $prorefemail, $prorefrel, $prorefyears, $perrefname,
         $perrefnum, $perrefemail, $perrefrel, $perrefyears, $workyouth,  $org1, $org1manager, $org1num, $org1email, $org1dates, $org1reason,
         $org2, $org2manager, $org2num, $org2email, $org2dates, $org2reason, $org3, $org3manager, $org3num, $org3email, $org3dates, $org3reason,
@@ -45,7 +45,7 @@ class BigApplication extends Application {
         $this->employer_zip = $empzip;                  //: int
         $this->can_contact_work = $work_contact;        //: boolean
         $this->work_length = $work_length;              //duration of employment: string
-        $this->work_hours = $work_hours;                //: int
+        $this->work_hours = $work_hours;                //: string
         $this->highest_education = $high_edu;           //: string
         $this->years_completed = $years;                //: int
         $this->graduation_year = $grad;                 //: int
@@ -58,21 +58,21 @@ class BigApplication extends Application {
         $this->prev_add_3_add = $prevadd3add;
         $this->military_experience = $mil;              //: boolean
         $this->military_branch = $branch;               //: string
-        $this->date_of_service = $dos;                  //: string
+        $this->date_of_service = $dos;                  //the range of time: string
         $this->military_status = $milstatus;            //: string
-        $this->military_character = $milchar;           //: string
+        $this->military_discharge = $mildis;            //: string
         $this->significant_name = $signame;             //: string
         $this->significant_number = $signum;            //phone number: string
         $this->sigificant_email = $sigemail;            //: string
         $this->signnificant_relationship = $sigrel;     //: string
-        $this->significant_years_known = $sigyears;
+        $this->significant_years_known = $sigyears;     //: int
         $this->profesional_reference_name = $prorefname;
         $this->profesional_reference_number = $prorefnum;
         $this->profesional_reference_email = $prorefemail;
         $this->profesional_reference_relationship = $prorefrel;
         $this->profesional_reference_years_known = $prorefyears;
         $this->personal_reference_name = $perrefname;
-        $this->personal_reference_num = $perrefnum;
+        $this->personal_reference_number = $perrefnum;
         $this->personal_reference_email =  $perrefemail;
         $this->personal_reference_relationship = $perrefrel;
         $this->personal_reference_years_known = $perrefyears;
@@ -109,7 +109,7 @@ class BigApplication extends Application {
         $this->interest_in_children = $interest;        //: string
         $this->comfortable_drivig_distace = $comfortdriving;    //: string
         $this->interview_availability = $interview;     //: string
-        $this->uncomfortable_traits = $uncomforttraits; //: array
+        $this->uncomfortable_traits = $uncomforttraits; //formatted as an array: string
         $this->big_sister_with_little_brother = $bigsislittlebro;   //: boolean
         $this->weapons_at_home = $weapons;              //: boolean
         $this->concealed_permit = $concealed;           //: boolean
@@ -141,15 +141,15 @@ class BigApplication extends Application {
         $this->substance_abuse_history = $substance;    //: boolean
         $this->sober_two_years = $sober;                //: boolean
         $this->illegal_drugs = $drugs;                  //: boolean
-        $this->auto_isurace = $auto;                    //: boolean
-        $this->can_submit_isurance_copy = $copy;        //: boolean
+        $this->auto_insurance = $auto;                    //: boolean
+        $this->can_submit_insurance_copy = $copy;        //: boolean
         //interests
-        $this->sports_activities = $sports;             //: array
-        $this->stem_activities = $stem;                 //: array
-        $this->arts_crafts_activities = $crafts;        //: array
-        $this->outdoor_activities = $outdooract;        //: array
-        $this->games_activities = $games;               //: array
-        $this->misc_activities = $misc;                 //preference: boolean or both=null
+        $this->sports_activities = $sports;             //formatted as an array: string
+        $this->stem_activities = $stem;                 //formatted as an array: string
+        $this->arts_crafts_activities = $crafts;        //formatted as an array: string
+        $this->outdoor_activities = $outdooract;        //formatted as an array: string
+        $this->games_activities = $games;               //formatted as an array: string
+        $this->misc_activities = $misc;                 //formatted as an array: string
         $this->quiet_talkitive = $quiet;                //preference: boolean or both=null
         $this->outdoor_indoor = $outdoor;               //preference: boolean or both=null
         $this->watch_do = $watch;                       //preference: boolean or both=null
@@ -303,8 +303,8 @@ class BigApplication extends Application {
        return $this->military_status;
     }
 
-    function get_military_character() {
-        return $this->military_character;
+    function get_military_discharge() {
+        return $this->military_discharge;
     }
 
     function get_significant_name() {

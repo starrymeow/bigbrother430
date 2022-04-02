@@ -246,7 +246,7 @@ function make_a_big_application($result_row) {
         $result_row['military_branch'],
         $result_row['date_of_service'],
         $result_row['military_status'],
-        $result_row['military_character'],
+        $result_row['military_discharge'],
         $result_row['significant_name'],
         $result_row['significant_number'],
         $result_row['significant_email'],
