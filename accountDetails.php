@@ -15,6 +15,8 @@ session_cache_expire(30);
 include_once('database/dbAccounts.php');
 include_once('domain/Account.php');
 include_once('database/dbAdmins.php');
+include_once('domain/Admin.php');
+include_once('database/dbinfo.php');
 // Tests if user can access page
 if (!($_SESSION['access_level'] >= 1)) {
     header("Location: index.php");
@@ -76,7 +78,7 @@ if (!($_SESSION['access_level'] >= 1)) {
                     
                     
                     
-                    if (! array_key_exists('_submit_check', $_POST)) {
+                    if (!array_key_exists('_submit_check', $_POST)) {
         				echo ('<form method="post">');
         				echo ('<input type="hidden" name="_submit_check" value="true">');
         				echo ('<label for="email">Email</label><br>');
@@ -141,21 +143,6 @@ if (!($_SESSION['access_level'] >= 1)) {
 				</div>
 			</div>
 		<?PHP include('footer.inc');?>
-		<!-- 						<label for="email">Email</label><br> -->
-							<!--<input type="text" name="email" value="<?php //echo($_SESSION['_id']); ?>" style="color: black; background-color: #A1A1A1;" readonly/><br> -->
-<!-- 						<label for="namef">Name</label><br> -->
-							<!--<input type="text" name="namef" value="<?php //echo($_SESSION['f_name']); ?>" style="color: black; background-color: white;"/><br> -->
-							<!--<input type="text" name="namel" value="<?php //echo($_SESSION['l_name']); ?>" style="color: black; background-color: white;"/><br> -->
-
-<!-- 						<label for="oldpass">Old Password</label><br> -->
-<!-- 						<input type="password" name="oldpass" placeholder="**********"/><br> -->
-<!-- 						<label for="newpass">New Password</label><br> -->
-<!-- 						<input type="password" name="newpass" placeholder="**********"/><br> -->
-<!-- 						<label for="passcheck">Re-Enter New Pass</label><br> -->
-<!-- 						<input type="password" name="passcheck" placeholder="**********"/><br> -->
-<!-- 						<input type="submit" name="changedata" value="Confirm Changes" class="greenButton"><br> -->
-						<!--<input type="submit" name="changepass" value="Change Password" class="greenButton"><br> -->
-<!-- 					</form> -->
 		</div>
 	</body>
 </html>
