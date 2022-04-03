@@ -188,8 +188,8 @@ if ($email == 'new') {
                                         echo("<p>Your account has been successfully created.</p><br>");
                                         //delete account if it hasn't been loged into
                                         //this requires that there is an ini file in the listed directory
-                                        //execInBackground('C:\\MAMP\\bin\\php\\php8.0.1\\php.exe removeTemporaryAccount.php '.$newaccount->get_email());
-                                        execInBackground('C:\MAMP\bin\php\php8.0.1\php.exe removeTemporaryAccount.php '.$newaccount->get_email());
+                                        execInBackground('C:\\MAMP\\bin\\php\\php8.0.1\\php.exe removeTemporaryAccount.php '.$newaccount->get_email());
+                                       // execInBackground('C:\MAMP\bin\php\php8.0.1\php.exe removeTemporaryAccount.php '.$newaccount->get_email());
                                     } else
                                         echo('<p>You have successfully added <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> to the database.</p>');
                                 } catch (Exception $e) {
