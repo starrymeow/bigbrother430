@@ -143,6 +143,7 @@ if ($email == 'new') {
                             $pass = $first_name . $last_name;
                             $newaccount = new Account($email, $pass, $first_name, $last_name, $status);
                             $result = add_account($newaccount);
+                            var_dump($result);
                             if (!$result)
                                 echo ('<p class="error">Unable to reset ' . $first_name . ' ' . $last_name . "'s password.. <br>Please report this error to the House Manager.");
                             else
