@@ -40,6 +40,8 @@ if ($_SESSION['access_level'] == 0) {
         echo('<label for="first_name">Name</label><br>');
         echo('<input type="text" name="first_name" placeholder="First Name"/><br>');
         echo('<input type="text" name="last_name" placeholder="Last Name"/><br>');
+        echo('<input type="hidden" name="_submit_check" value="1">');
+        echo('<input type="submit" value="Submit" name="Submit Edits" class="greenButton"><br/>');
     ?>
     <script src="lib/jquery-1.9.1.js"></script>
     <script src="lib/jquery-ui.js"></script>
@@ -47,8 +49,7 @@ if ($_SESSION['access_level'] == 0) {
 <p>
 <?PHP
 //echo('<input type="hidden" name="password" value="' . $account->get_password() . ')">');
-echo('<input type="hidden" name="_submit_check" value="1"><p>');
-echo('<input type="submit" value="Submit" name="Submit Edits" class="greenButton"><br /><br />');
+
 if ($email != 'new' && $_SESSION['access_level'] >= 2) {
     echo ('<input type="checkbox" name="deleteMe" value="DELETE"> Check this box and then hit ' .
     '<input type="submit" value="Delete" name="Delete Entry"> to delete this entry. <br />' .
