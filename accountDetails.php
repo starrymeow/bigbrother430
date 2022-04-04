@@ -37,7 +37,10 @@ if (!($_SESSION['access_level'] >= 1)) {
 					<h1>Account Details</h1>
 					<?php //TODO Fill in default name
                     $account = retrieve_account($_SESSION['_id']);
-                    if (! array_key_exists('_submit_check', $_POST)) {
+                    if ($accout == false) {
+                        echo  ('<p>Account not in database.</p>');
+                    }
+                    elseif (! array_key_exists('_submit_check', $_POST)) {
         				echo ('<form method="post">');
         				echo ('<input type="hidden" name="_submit_check" value="true">');
         				echo ('<label for="email">Email</label><br>');
