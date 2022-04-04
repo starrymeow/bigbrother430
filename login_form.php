@@ -71,6 +71,7 @@
             // TODO
             $db_email = $user;
             $account = retrieve_account($db_email);
+            var_dump($account);
             if ($account) { //avoids null results
                 //if (password_verify($_POST['pass'], $account->get_password())) { //if the passwords match, login
                 if ($_POST['pass'] == $account->get_password()) {
