@@ -89,7 +89,6 @@ session_cache_expire(30);
 //                     else {
 //                         ('<h2> no record of admin in the database</h2>');
 //                     }
-				}
 				goto end;
 				?>
 				<form method="POST">
