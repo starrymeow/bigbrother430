@@ -27,7 +27,7 @@ session_cache_expire(30);
                 }
                 include_once ('database/dbAccounts.php');
                 $account = retrieve_account($_SESSION['_id']);
-                if ($account->get_status() == "new") {
+                if ($account != false && $account->get_status() == "new") {
                     include('Forced_password_change.php');
                     goto end;
                 }
