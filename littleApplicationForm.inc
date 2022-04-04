@@ -19,6 +19,8 @@
     		<label for="other_phone">Phone</label>
     		<input type="tel" name="other_phone"><br>
 		</div>
+		<label for="first_name">Child&apos;s First Name:</label>
+		<input type="text" name="first_name"/>
 		
 	</form>
 	<script type="text/javascript">
