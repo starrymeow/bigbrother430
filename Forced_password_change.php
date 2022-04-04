@@ -22,7 +22,7 @@
         $repass = $_POST['repass'];
         if ($newPass == $repass) {
             $email = $_SESSION['_id'];
-            if (!change_account_password($email, $newPass)) {
+            if (!change_account_password($email, password_hash($newPass, PASSWORD_DEFAULT))) {
                 echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the House Manager.');
                 goto end;
             }
