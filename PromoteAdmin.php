@@ -11,7 +11,7 @@ session_cache_expire(30);
 <html>
     <head>
         <title>
-            BBBS Fredericksburg
+            BBBS Fredericksburg Promote Admin
         </title>
         <link rel="icon" href="http://www.bbbsfred.org/wp-content/uploads/sites/17/2018/12/cropped-10.25.18-Favico-512x512-white-background-192x192.jpg" sizes="192x192" />
         <link rel="stylesheet" href="styles.css" type="text/css" />
@@ -52,7 +52,7 @@ session_cache_expire(30);
 				    echo ('<input type="hidden" name="_submit_check" value="true"><br>');
 				    echo ('<label for="email">Email</label><br>');
 				    echo ('<input type="text" name="email" tabindex="1" placeholder="example@email.com"><br>');
-				    echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
+				    echo ('<input type="submit" name="promote" value="promote" class="greenButton">');
 				    echo ('</form>');
                     $admin = retrieve_admin($_POST['email']);
                     var_dump($admin);
@@ -61,7 +61,7 @@ session_cache_expire(30);
                         echo ('<h2> "' . $_POST['email'] . '" has been promoted to a super admin.</h2>');
                     }
                     else {
-                        ('<h2> no record of admin in the database</h2>');
+                        echo ('<h2> no record of admin in the database</h2>');
                     }
 				}
 				goto end;
