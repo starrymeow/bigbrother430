@@ -46,7 +46,7 @@ session_cache_expire(30);
 // 				}
 				if ($_SESSION['access_level'] == 1) {
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Check Match Status</a>'); // TODO
-				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Submit Application</a>'); // TODO
+				    echo ('<a href="'. $path . 'generalApplication.php" class="greenButton">Submit Application</a>'); // TODO
 				}
 				if ($_SESSION['access_level'] >= 1) {
 				    echo ('<a href="' . $path . 'accountDetails.php" class="greenButton">Account Details</a>'); // TODO
