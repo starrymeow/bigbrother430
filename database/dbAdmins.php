@@ -3,6 +3,7 @@
 
 include_once('dbinfo.php');
 include_once(dirname(__FILE__).'/../domain/Admin.php');
+include_once('dbAccounts.php');
 
 /*
  * add a person to dbPersons table: if already there, return false
@@ -15,12 +16,16 @@ function add_admin($admin) {
     $result = mysqli_query($con,$query);
     //if there's no entry for this id, add it
     if ($result == null || mysqli_num_rows($result) == 0) {
+        $acc = add_account($admin);/*new Account($admin->get_email(),
+            $admin->get_password(),
+            $admin->get_first_name(),
+            $admin->get_last_name(),
+            $admin->get_status()
+            ));*/
+        if ($acc == false)
+            return false;
         mysqli_query($con,'INSERT INTO dbAdmins VALUES("' .
             $admin->get_email() . '","' .
-            $admin->get_password() . '","' .
-            $admin->get_first_name() . '","' .
-            $admin->get_last_name() . '","' .
-            $admin->get_status() . '","' .
             $admin->get_is_super() .
             '");');
         mysqli_close($con);
@@ -42,12 +47,11 @@ function remove_admin($email) {
     $query = 'DELETE FROM dbAdmins WHERE email = "' . $email . '"';
     $result = mysqli_query($con,$query);
     mysqli_close($con);
-    return true;
+    return remove_account($email);
 }
 
-
 /*
- * @return a Person from dbPersons table matching a particular id.
+ * @return an Admin from dbAdmins table matching a particular email.
  * if not in table, return false
  */
 function retrieve_admin($email) {
@@ -59,35 +63,39 @@ function retrieve_admin($email) {
         return false;
     }
     $result_row = mysqli_fetch_assoc($result);
-    // var_dump($result_row);
-    $theAdmin = make_a_admin($result_row);
-    //    mysqli_close($con);
+    //var_dump($result_row);
+    $theAdmin = make_an_admin($result_row);
+    //mysqli_close($con);
     return $theAdmin;
 }
 
 function change_admin_password($email, $newPass) {
+    return change_account_password($email, $newPass);
+    /*
     $con=connect();
     $query = 'UPDATE dbAdmins SET password = "' . $newPass . '" WHERE email = "' . $email . '"';
     $result = mysqli_query($con,$query);
     mysqli_close($con);
-    return $result;
+    return $result;*/
 }
 
 function make_an_admin($result_row) {
-    $account = retrieve_admin($result_row['email']);
+    $account = retrieve_account($result_row['email']);
+    if ($account == false)
+        return false;
     $theAdmin = new Admin(
-        $account->get_firstname(),
-        $account->get_lastname(),
         $account->get_email(),
-        $account->get_status(),
         $account->get_password(),
-        $account->get_is_super());
+        $account->get_first_name(),
+        $account->get_last_name(),
+        $result_row['is_super'],
+        $account->get_status());
     return $theAdmin;
 }
 
 function get_all_admins() {
     $con=connect();
-    $query = 'SELECT * FROM dbAdmins NATURAL JOIN dbAccounts';
+    $query = 'SELECT `email` FROM dbAdmins NATURAL JOIN dbAccounts';
     $result = mysqli_query($con,$query);
     mysqli_close($con);
     return $result;

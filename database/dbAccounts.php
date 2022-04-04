@@ -70,7 +70,7 @@ function retrieve_account($email) {
 
 function change_account_password($email, $newPass) {
     $con=connect();
-    $query = 'UPDATE dbAccounts SET password = "' . password_hash($newPass, PASSWORD_DEFAULT) . '" WHERE email = "' . $email . '"';
+    $query = 'UPDATE dbAccounts SET password = "' . $newPass . '" WHERE email = "' . $email . '"';
     $result = mysqli_query($con,$query);
     mysqli_close($con);
     return $result;
