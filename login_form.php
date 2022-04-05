@@ -77,8 +77,17 @@
                 //if ($_POST['pass'] == $account->get_password()) {
                 	$_SESSION['logged_in'] = 1;
                     date_default_timezone_set("America/New_York");
-                    if (get_class($account) == 'admin')
-                        $_SESSION['access_level'] = 2;
+                    //if (get_class($account) == 'admin')
+                    //    $_SESSION['access_level'] = 2;
+                    $admin = retrieve_admin($db_email);
+                    if ($admin) { // email is inside admin database
+                        if ($admin->get_is_super() == "yes") { // admin is a super admin
+                            $_SESSION['access_level'] = 3;
+                        }
+                        else {
+                            $_SESSION['access_level'] = 2; 
+                        } 
+                    }
                     elseif ($account->get_status() == "new")
                         $_SESSION['access_level'] = 0;
                     else
