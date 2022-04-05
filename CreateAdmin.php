@@ -47,6 +47,8 @@ session_cache_expire(30);
 				    echo ('<form method="post"');
 				    echo ('<label for="email">Email</label><br>');
 				    echo ('<input type="text" name="email"<br>');
+				    echo ('<input type="submit" name="checkemail" value="Check Email" class="greenButton">');
+				    
 				    if ($_POST['email'] != "") {
 				        if (valid_email($_POST['email']) == false)
 				            echo ('<h2>Email given is not a valid email</h2>');
