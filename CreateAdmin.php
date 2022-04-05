@@ -54,7 +54,7 @@ session_cache_expire(30);
 				    echo ('</form>');
 				    if ($_POST['new_admin']) {
 				        $account = new Account($_POST['email'], "new", $_POST['first_name'], $_POST['last_name'], "admin");
-				        var_dump($account);
+				        //var_dump($account);
 				        //in this case, the form has been submitted, so validate it
 				        $errors = validate_account($account);  //step one is validation.
 				        // errors array lists problems on the form submitted
@@ -62,12 +62,16 @@ session_cache_expire(30);
 				            // display the errors and the form to fix
 				            show_errors($errors);
 				        }
-				        else
+				        else {
+				            $result = add_admin($_POST['email'], "no");
 				            process_form($_POST['email'],$account);
-				            echo "</div>";
-				            include('footer.inc');
-				            echo('</div></body></html>');
-				            die();
+				            
+				            
+				        }
+				        echo "</div>";
+				        include('footer.inc');
+				        echo('</div></body></html>');
+				        die();
 				            
 				    }
 				}
