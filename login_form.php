@@ -81,6 +81,14 @@
                     //    $_SESSION['access_level'] = 2;
                     if ($account->get_status() == "new")
                         $_SESSION['access_level'] = 0;
+                    else if ($admin) { // email is inside admin database
+                        if ($admin->get_is_super() == "yes") { // admin is a super admin
+                            $_SESSION['access_level'] = 3;
+                        }
+                        else {
+                            $_SESSION['access_level'] = 2;
+                        }
+                    }
                     else
                         $_SESSION['access_level'] = 1;
                     $admin = retrieve_admin($db_email);
