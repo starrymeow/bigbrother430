@@ -59,6 +59,7 @@ session_cache_expire(30);
 				            echo ('<input type="text" name="f_name"<br>');
 				            echo ('<label for="l_name">Last Name</lable><br>');
 				            echo ('<input type="text" name="l_name"<br>');
+				            echo ('<input type="submit" name="checkname" value="Enter" class="greenButton">');
 				            if ($_POST['f_name'] != "" && $_POST['l_name'] != "") {
 				                $account = new Account($_POST['email'], "new", $_POST['f_name'], $_POST['l_name'], "admin");
 				                //in this case, the form has been submitted, so validate it
