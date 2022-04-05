@@ -51,9 +51,10 @@ session_cache_expire(30);
 				    echo ('<label for="l_name">Last Name</lable><br>');
 				    echo ('<input type="text" name="l_name"/><br>');
 				    echo ('<input type="submit" name="new_admin" value="Enter" class="greenButton">');
-				    echo ('</post>');
+				    echo ('</form>');
 				    if ($_POST['new_admin']) {
 				        $account = new Account($_POST['email'], "new", $_POST['f_name'], $_POST['l_name'], "admin");
+				        var_dump($account);
 				        //in this case, the form has been submitted, so validate it
 				        $errors = validate_account($account);  //step one is validation.
 				        // errors array lists problems on the form submitted
