@@ -79,18 +79,6 @@
                     date_default_timezone_set("America/New_York");
                     //if (get_class($account) == 'admin')
                     //    $_SESSION['access_level'] = 2;
-                    if ($account->get_status() == "new")
-                        $_SESSION['access_level'] = 0;
-                    else if ($admin) { // email is inside admin database
-                        if ($admin->get_is_super() == "yes") { // admin is a super admin
-                            $_SESSION['access_level'] = 3;
-                        }
-                        else {
-                            $_SESSION['access_level'] = 2;
-                        }
-                    }
-                    else
-                        $_SESSION['access_level'] = 1;
                     $admin = retrieve_admin($db_email);
                     var_dump($admin);
                     if ($admin) { // email is inside admin database
@@ -98,9 +86,13 @@
                             $_SESSION['access_level'] = 3;
                         }
                         else {
-                            $_SESSION['access_level'] = 2;
-                        }
+                            $_SESSION['access_level'] = 2; 
+                        } 
                     }
+                    if ($account->get_status() == "new")
+                        $_SESSION['access_level'] = 0;
+                    else
+                        $_SESSION['access_level'] = 1;
                     $_SESSION['f_name'] = $account->get_first_name();
                     $_SESSION['l_name'] = $account->get_last_name();
                     $_SESSION['_id'] = $user;              //email
