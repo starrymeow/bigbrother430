@@ -54,8 +54,6 @@ session_cache_expire(30);
 				            echo ('<h2>Email given is not a valid email</h2>');
 				        }
 				        else {
-				            //$account = new Account($_POST['email'], 'admin', "new", null, "new");
-				            var_dump($account);
 				            //include('accountForm.inc');
 				            echo ('<label for="f_name">First Name</lable><br>');
 				            echo ('<input type="text" name="f_name"<br>');
