@@ -55,8 +55,29 @@ session_cache_expire(30);
 				        else {
 				            $account = new Account($_POST['email'], 'admin', "new", null, "new");
 				            var_dump($account);
+				            include('accountForm.inc');
+				               //in this case, the form has been submitted, so validate it
+				               $errors = validate_account($account);  //step one is validation.
+				               // errors array lists problems on the form submitted
+				               if ($errors) {
+				                   // display the errors and the form to fix
+				                   show_errors($errors);
+				                   $account = new Account($account->get_email(), $_POST['pass'], $_POST['first_name'], $_POST['last_name'], "admin");
+				                    
+				                   include('accountForm.inc');
+				               }
+				               // this was a successful form submission; update the database and exit
+				               else
+				                   process_form($_POST['email'],$account);
+				                   $result = add_admin($account->get_email(), "no");
+				                   echo "</div>";
+				                   include('footer.inc');
+				                   echo('</div></body></html>');
+				                   die();
+				          }
+				            
 				          
-				        }
+				      }
 				    }
 				    //include('accountValidate.inc');
 				    if ($_POST['_form_submit'] != 1)
@@ -82,7 +103,7 @@ session_cache_expire(30);
 				                echo('</div></body></html>');
 				                die();
 				        }
-				}
+				    //}
 
 				goto end;
 				?>
