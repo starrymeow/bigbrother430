@@ -50,7 +50,7 @@ session_cache_expire(30);
 				    echo ('<input type="text" name="first_name"/><br>');
 				    echo ('<label for="last_name">Last Name</lable><br>');
 				    echo ('<input type="text" name="last_name"/><br>');
-				    echo ('<input type="submit" name="new_admin" value="Enter" class="greenButton">');
+				    echo ('<input type="submit" name="new_admin" value="Enter" class="greenButton"><br>');
 				    echo ('</form>');
 				    if ($_POST['new_admin']) {
 				        $account = new Account($_POST['email'], "new", $_POST['first_name'], $_POST['last_name'], "admin");
@@ -62,6 +62,12 @@ session_cache_expire(30);
 				            // display the errors and the form to fix
 				            show_errors($errors);
 				        }
+				        else
+				            process_form($_POST['email'],$account);
+				            echo "</div>";
+				            include('footer.inc');
+				            echo('</div></body></html>');
+				            die();
 				            
 				    }
 				}
