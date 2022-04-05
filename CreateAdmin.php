@@ -53,7 +53,7 @@ session_cache_expire(30);
 				    echo ('<input type="submit" name="new_admin" value="Enter" class="greenButton"><br>');
 				    echo ('</form>');
 				    if ($_POST['new_admin']) {
-				        $account = new Account($_POST['email'], "new", $_POST['first_name'], $_POST['last_name'], "admin");
+				        $account = new Account("new", "new", $_POST['first_name'], $_POST['last_name'], "admin", "no");
 				        //var_dump($account);
 				        //in this case, the form has been submitted, so validate it
 				        $errors = validate_account($account);  //step one is validation.
@@ -63,8 +63,16 @@ session_cache_expire(30);
 				            show_errors($errors);
 				        }
 				        else {
-				            $result = add_admin($_POST['email'], "no");
+				            //$result = new Admin($account->get_email(), $account->get_password(),  );
 				            process_form($_POST['email'],$account);
+				            $admin = new Admin($account->get_email(), $account->get_password(), $account->get_first_name(), $account->get_last_name(), "no");
+				            $result = add_admin($admin);
+				            if (!$result) {
+				                echo ('<h2>Admin couldn\'t be added to database. Sorry</h2>');
+				            }
+				            else {
+				                echo ('<h2> Admin added to database</h2>');
+				            }
 				            
 				            
 				        }
