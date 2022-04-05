@@ -22,7 +22,7 @@ session_cache_expire(30);
                 }
                 include_once('database/dbAccounts.php');
                 include_once('domain/Account.php');
-                include_once('database/dbLog.php');
+                include_once('database/dbinfo.php');
                 include_once('domain/Admin.php');
                 include_once('database/dbAdmins.php');
                 date_default_timezone_set('America/New_York');
@@ -53,7 +53,7 @@ session_cache_expire(30);
 				        if (valid_email($_POST['email']) == false)
 				            echo ('<h2>Email given is not a valid email</h2>');
 				        else {
-				            $account = new Account($_POST['email'], 'applicant', "new", null, "admin");
+				            $account = new Account($_POST['email'], 'admin', "new", null, "new");
 				            var_dump($account);
 				          
 				        }
