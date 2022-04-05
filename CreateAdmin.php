@@ -41,7 +41,7 @@ session_cache_expire(30);
 
 // 				}
 				if ($_SESSION['access_level'] >= 2) {
-				    include('accountEdit.php');
+				    //include('accountEdit.php');
 				    include('accountvalidate.inc');
 				    echo ('<h1>Enter email for new admin</h1>');
 				    echo ('<form method="post"');
@@ -80,53 +80,7 @@ session_cache_expire(30);
 				                die();
 				        }
 				}
-// 				    include('accountValidate.inc');
-// 				    if ($_POST['_form_submit'] != 1)
-// 				        //in this case, the form has not been submitted, so show it
-// 				        include('accountForm.inc');
-// 				    else {
-// 				            //in this case, the form has been submitted, so validate it
-// 				          $errors = validate_account($account);  //step one is validation.
-// 				            // errors array lists problems on the form submitted
-// 				          if ($errors) {
-// 				              // display the errors and the form to fix
-// 				              show_errors($errors);
-// 				              $account = new Account($account->get_email(), $_POST['pass'], $_POST['first_name'], $_POST['last_name'], "new");
-// 				              include('accountForm.inc');
-// 				            }
-// 				            // this was a successful form submission; update the database and exit
-// 				            else
-// 				                process_form($email,$account);
-// 				                echo "</div>";
-// 				            include('footer.inc');
-// 				            echo('</div></body></html>');
-// 				            die();
-// 				        }
-//
-// 				    echo('<h2>Create Admin</h2>');
-// 				    echo ('<form method="post">');
-// 				    echo ('<input type="hidden" name="_submit_check" value="true"><br>');
-// 				    echo ('<label for="email">Email</label><br>');
-// 				    echo ('<input type="text" name="email" tabindex="1" placeholder="example@email.com"><br>');
-// 				    echo ('<label for="f_name">First Name</label><br>');
-// 				    echo ('<input type="text" name="f_name"><br>');
-// 				    echo ('<label for="l_name">First Name</label><br>');
-// 				    echo ('<input type="text" name="l_name"><br>');
-// 				    echo ('<input type="submit" name="create_admin" value="Create Admin" class="greenButton">');
-// 				    echo ('</form>');
-// 				    if ($_POST['create_admin']);
-//                         $admin = retrieve_admin($_POST['email']);
-//                         var_dump($admin);
-//                         if ($admin) { //avoid null result
-//                             echo ('<h2>Admin already exists with this email</h2>');
-//                         }
-//                         else {
-                            
-//                         }
-//                     }
-//                     else {
-//                         ('<h2> no record of admin in the database</h2>');
-//                     }
+
 				goto end;
 				?>
 				<form method="POST">
