@@ -45,11 +45,11 @@ session_cache_expire(30);
 				    echo ('<h1>Create new admin</h1>');
 				    echo ('<form method="post"');
 				    echo ('<label for="email">Email</label><br>');
-				    echo ('<input type="text" name="email"<br>');
+				    echo ('<input type="text" name="email"/><br>');
 				    echo ('<label for="f_name">First Name</lable><br>');
-				    echo ('<input type="text" name="f_name"<br>');
+				    echo ('<input type="text" name="f_name"/><br>');
 				    echo ('<label for="l_name">Last Name</lable><br>');
-				    echo ('<input type="text" name="l_name"<br>');
+				    echo ('<input type="text" name="l_name"/><br>');
 				    echo ('<input type="submit" name="new_admin" value="Enter" class="greenButton">');
 				    echo ('</post>');
 				    if ($_POST['new_admin']) {
@@ -74,6 +74,7 @@ session_cache_expire(30);
                     </div>
                     <?PHP include('footer.inc'); ?>
         </div>
+      </div>
     </body>
 </html>
 
