@@ -54,6 +54,7 @@ session_cache_expire(30);
 				            echo ('<h2>Email given is not a valid email</h2>');
 				        else {
 				            $account = new Account($_POST['email'], 'applicant', "new", null, "admin");
+				            var_dump($account);
 				          
 				        }
 				    }
