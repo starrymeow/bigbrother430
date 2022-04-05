@@ -2,6 +2,7 @@ html, body {
 	margin: 0px;
 	background-color: #C8C8C8;
 	font-family: "Helvetica", sans-serif, monospace;
+	text-align: center;
 }
 
 #footer {
@@ -84,7 +85,8 @@ html, body {
 }
 
 .infoform input[type="text"],
-.infoform input[type="password"] {
+.infoform input[type="password"],
+.infoform input[type="tel"] {
 	font-size: 20px;
 	margin: 10px;
 	padding: 5px;
@@ -103,6 +105,11 @@ html, body {
 
 .infoform input[name="register"] {
 	width: 210px;
+}
+
+.infoform input[type="checkbox"] {
+	height: 25px;
+	width: 25px;
 }
 
 #logout {

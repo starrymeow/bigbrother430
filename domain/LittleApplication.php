@@ -18,7 +18,7 @@ class LittleApplication extends Application {
             $altcontactnum, $childaware, $childwant, $bbbsfamily, $meet, $mconditions, $household, $incomeassist, $houseassist, $development,
         $lunch, $income, $military, $branch, $deploy, $retiredmil, $dismil, $wounded, $incarcerated, $juv, $schtroub) {
         
-        Application::construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life);
+        Application ::__construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life);
         $this->middle_name = $m;
         $this->can_text_child = $childtext;
         $this->adult_name = $adult_name;

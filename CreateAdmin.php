@@ -41,30 +41,68 @@ session_cache_expire(30);
 
 // 				}
 				if ($_SESSION['access_level'] >= 2) {
-				    echo('<h1>Create Admin</h1>');
-				    include('accountValidate.inc');
+				    include('accountEdit.php');
+				    include('accountvalidate.inc');
+				    echo ('<h1>Enter email for new admin</h1>');
+				    echo ('<form method="post"');
+				    echo ('<label for="email">Email</label><br>');
+				    echo ('<input type="text" name="email"<br>');
+				    if ($_POST['email'] != "") {
+				        if (valid_email($_POST['email']) == false)
+				            echo ('<h2>Email given is not a valid email</h2>');
+				        else {
+				            $account = new Account($_POST['email'], 'applicant', "new", null, "admin");
+				          
+				        }
+				    }
+				    //include('accountValidate.inc');
 				    if ($_POST['_form_submit'] != 1)
 				        //in this case, the form has not been submitted, so show it
 				        include('accountForm.inc');
-				    else {
+				        else {
 				            //in this case, the form has been submitted, so validate it
-				          $errors = validate_account($account);  //step one is validation.
+				            $errors = validate_account($account);  //step one is validation.
 				            // errors array lists problems on the form submitted
-				          if ($errors) {
-				              // display the errors and the form to fix
-				              show_errors($errors);
-				              $account = new Account($account->get_email(), $_POST['pass'], $_POST['first_name'], $_POST['last_name'], "new");
-				              include('accountForm.inc');
+				            if ($errors) {
+				                // display the errors and the form to fix
+				                show_errors($errors);
+				                $account = new Account($account->get_email(), $_POST['pass'], $_POST['first_name'], $_POST['last_name'], "admin");
+				                
+				                include('accountForm.inc');
 				            }
 				            // this was a successful form submission; update the database and exit
 				            else
-				                process_form($email,$account);
+				                process_form($_POST['email'],$account);
+				                $result = add_admin($account->get_email(), "no");
 				                echo "</div>";
-				            include('footer.inc');
-				            echo('</div></body></html>');
-				            die();
+				                include('footer.inc');
+				                echo('</div></body></html>');
+				                die();
 				        }
 				}
+// 				    include('accountValidate.inc');
+// 				    if ($_POST['_form_submit'] != 1)
+// 				        //in this case, the form has not been submitted, so show it
+// 				        include('accountForm.inc');
+// 				    else {
+// 				            //in this case, the form has been submitted, so validate it
+// 				          $errors = validate_account($account);  //step one is validation.
+// 				            // errors array lists problems on the form submitted
+// 				          if ($errors) {
+// 				              // display the errors and the form to fix
+// 				              show_errors($errors);
+// 				              $account = new Account($account->get_email(), $_POST['pass'], $_POST['first_name'], $_POST['last_name'], "new");
+// 				              include('accountForm.inc');
+// 				            }
+// 				            // this was a successful form submission; update the database and exit
+// 				            else
+// 				                process_form($email,$account);
+// 				                echo "</div>";
+// 				            include('footer.inc');
+// 				            echo('</div></body></html>');
+// 				            die();
+// 				        }
+//
 // 				    echo('<h2>Create Admin</h2>');
 // 				    echo ('<form method="post">');
 // 				    echo ('<input type="hidden" name="_submit_check" value="true"><br>');
