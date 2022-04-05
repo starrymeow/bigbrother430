@@ -50,60 +50,41 @@ session_cache_expire(30);
 				    echo ('<input type="submit" name="checkemail" value="Check Email" class="greenButton">');
 				    
 				    if ($_POST['email'] != "") {
-				        if (valid_email($_POST['email']) == false)
+				        if (valid_email($_POST['email']) == false) {
 				            echo ('<h2>Email given is not a valid email</h2>');
+				        }
 				        else {
-				            $account = new Account($_POST['email'], 'admin', "new", null, "new");
+				            //$account = new Account($_POST['email'], 'admin', "new", null, "new");
 				            var_dump($account);
-				            include('accountForm.inc');
-				               //in this case, the form has been submitted, so validate it
-				               $errors = validate_account($account);  //step one is validation.
-				               // errors array lists problems on the form submitted
-				               if ($errors) {
-				                   // display the errors and the form to fix
-				                   show_errors($errors);
-				                   $account = new Account($account->get_email(), $_POST['pass'], $_POST['first_name'], $_POST['last_name'], "admin");
-				                    
-				                   include('accountForm.inc');
-				               }
-				               // this was a successful form submission; update the database and exit
-				               else
-				                   process_form($_POST['email'],$account);
-				                   $result = add_admin($account->get_email(), "no");
-				                   echo "</div>";
-				                   include('footer.inc');
-				                   echo('</div></body></html>');
-				                   die();
-				          }
-				            
-				          
-				      }
-				    }
-				    //include('accountValidate.inc');
-				    if ($_POST['_form_submit'] != 1)
-				        //in this case, the form has not been submitted, so show it
-				        include('accountForm.inc');
-				        else {
+				            //include('accountForm.inc');
+				            echo ('<label for="f_name">First Name</lable><br>');
+				            echo ('<input type="text" name="f_name"<br>');
+				            echo ('<label for="l_name">Last Name</lable><br>');
+				            echo ('<input type="text" name="l_name"<br>');
+				            if ($_POST['f_name'] != "" && $_POST['l_name'] != "") {
+				                $account = new Account($_POST['email'], "new", $_POST['f_name'], $_POST['l_name'], "admin");
+				                //in this case, the form has been submitted, so validate it
+				                $errors = validate_account($account);  //step one is validation.
+				                // errors array lists problems on the form submitted
+				                if ($errors) {
+				                    // display the errors and the form to fix
+				                    show_errors($errors);
+				                }
+				            }
 				            //in this case, the form has been submitted, so validate it
 				            $errors = validate_account($account);  //step one is validation.
 				            // errors array lists problems on the form submitted
 				            if ($errors) {
-				                // display the errors and the form to fix
-				                show_errors($errors);
-				                $account = new Account($account->get_email(), $_POST['pass'], $_POST['first_name'], $_POST['last_name'], "admin");
-				                
-				                include('accountForm.inc');
+				               // display the errors and the form to fix
+				               show_errors($errors);
 				            }
-				            // this was a successful form submission; update the database and exit
-				            else
-				                process_form($_POST['email'],$account);
-				                $result = add_admin($account->get_email(), "no");
-				                echo "</div>";
-				                include('footer.inc');
-				                echo('</div></body></html>');
-				                die();
-				        }
-				    //}
+				            
+				          
+				      }
+				   
+				        
+				    }
+				}
 
 				goto end;
 				?>
