@@ -69,7 +69,7 @@ session_cache_expire(30);
 				        else {
 				            //$result = new Admin($account->get_email(), $account->get_password(),  );
 				            process_form($_POST['email'],$account);
-				            $admin = new Admin($account->get_email(), $account->get_password(), $account->get_first_name(), $account->get_last_name(), "no");
+				            $admin = new Admin($_POST['email'], $account->get_password(), $account->get_first_name(), $account->get_last_name(), "no");
 				            $result = add_admin($admin);
 				            if (!$result) {
 				                echo ('<h2>Admin couldn\'t be added to database. Sorry</h2>');
