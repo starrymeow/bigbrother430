@@ -65,7 +65,7 @@ class Application {
         return $this->id;
     }
 
-    function get_perfered_name () {
+    function get_prefered_name () {
         return $this->perfered_name;
     }
 

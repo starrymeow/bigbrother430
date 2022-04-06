@@ -94,7 +94,7 @@ function retrieve_application_ids($email) {
         return false;
     }
     //TODO fetch ids from rows
-    $theIds = ($result);
+    $theIds = mysqli_fetch_assoc($result)['id'];
     //var_dump($result);
     //var_dump($theIds);
     //    mysqli_close($con);
