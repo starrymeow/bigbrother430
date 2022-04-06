@@ -62,8 +62,12 @@ session_cache_expire(30);
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Generate Matches</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Generate Report</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/CreateAdmin.php" class="greenButton">Create New Admin</a>'); // TODO
-				    echo ('<a href="http://localhost/bigbrother430/PromoteAdmin.php" class="greenButton">Promote Admin</a>'); // TODO
+				    //echo ('<a href="http://localhost/bigbrother430/PromoteAdmin.php" class="greenButton">Promote Admin</a>'); // TODO
 
+				}
+				if ($_SESSION['access_level'] == 3) {
+				    echo ('<a href="http://localhost/bigbrother430/PromoteAdmin.php" class="greenButton">Promote Admin</a>'); // TODO
+				    
 				}
 				goto end;
 				?>

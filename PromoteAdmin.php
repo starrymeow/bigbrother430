@@ -1,10 +1,5 @@
 <?php
-/*
- * Copyright 2015 by Allen Tucker. This program is part of RMHP-Homebase, which is free
- * software.  It comes with absolutely no warranty. You can redistribute and/or
- * modify it under the terms of the GNU General Public License as published by the
- * Free Software Foundation (see <http://www.gnu.org/licenses/ for more information).
- */
+
 session_start();
 session_cache_expire(30);
 ?>
@@ -41,7 +36,7 @@ session_cache_expire(30);
 
 // 				}
 				if ($_SESSION['access_level'] >= 2) {
-				    echo('<h2>Enter the email of the admin</h2>');
+				    echo('<h2>Enter the email of the admin</h2><br>');
 				    echo ('<form method="post">');
 				    //echo ('<input type="hidden" name="_submit_check" value="true"><br>');
 				    echo ('<label for="email">Email</label><br>');
@@ -49,16 +44,13 @@ session_cache_expire(30);
 				    echo ('<input type="submit" name="promote" value="promote" class="greenButton">');
 				    echo ('</form>');
 				    if ($_POST['promote']) {
-                        $admin = retrieve_admin($_POST['email']);
-                        var_dump($admin);
-                        if ($admin) { //avoid null result
+                        $admin = retrieve_admin($_POST['email']);                        
                             $result = promote($_POST['email']);
                             echo ('<h2> "' . $_POST['email'] . '" has been promoted to a super admin.</h2>');
-                        }
+				    }
                         else {
                             echo ('<h2> no record of admin in the database</h2>');
                         }
-				    }
 				}
 				goto end;
 				?>
