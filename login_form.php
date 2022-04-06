@@ -80,7 +80,10 @@
                     //if (get_class($account) == 'admin')
                     //    $_SESSION['access_level'] = 2;
                     $admin = retrieve_admin($db_email);
-                    if ($admin) { // email is inside admin database
+                    if (!$admin) { // email is inside admin database
+                       
+                    }
+                    else {
                         if ($admin->get_is_super() == "yes") { // admin is a super admin
                             $_SESSION['access_level'] = 3;
                         }
