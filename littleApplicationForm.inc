@@ -105,7 +105,8 @@
 				<option value="o">Other</option>
 			</select><br/>
     		
-    		
+    		<label for="home_phone">Home Phone #</label><br/>
+    		<input type="tel" name="home_phone"/><br/>
     		
     		<input type="submit" name="littlesubmit" class="GreenButton"/>
     	</div>    	
