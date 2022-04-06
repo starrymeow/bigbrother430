@@ -83,24 +83,17 @@
                     if ($account->get_status() == "new") 
                         $_SESSION['access_level'] = 0;
                     else {
-                        $_SESSION['access_level'] = 2;
+                        $_SESSION['access_level'] = 1;
                     }
                     $admin = retrieve_admin($db_email);
-                    if (!$admin) { // email is inside admin database
-                       
-                    }
-                    else {
-                        if ($admin->get_is_super() == "yes") { // admin is a super admin
+                    if ($admin && $admin->get_status() != "new") { // email is inside admin database
+                        if ($admin->get_is_super() == "yes") {
                             $_SESSION['access_level'] = 3;
                         }
                         else {
-                            $_SESSION['access_level'] = 2; 
-                        } 
+                            $_SESSION['access_level'] = 2;
+                        }
                     }
-//                     if ($account->get_status() == "new")
-//                         $_SESSION['access_level'] = 0;
-//                     else
-//                         $_SESSION['access_level'] = 1;
                     $_SESSION['f_name'] = $account->get_first_name();
                     $_SESSION['l_name'] = $account->get_last_name();
                     $_SESSION['_id'] = $user;              //email
