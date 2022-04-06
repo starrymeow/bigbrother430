@@ -28,25 +28,41 @@ session_cache_expire(30);
                 date_default_timezone_set('America/New_York');
                 ?>
 				<!-- BBBS Code -->
-				<div id="homeoptions">
+				<div class="infoform">
 				<?php
-				
-				if ($_SESSION['access_level'] == 3) {
-				    echo('<h2>Enter the email of the admin</h2><br>');
-				    echo ('<form method="post">');
-				    //echo ('<input type="hidden" name="_submit_check" value="true"><br>');
-				    echo ('<label for="email">Email</label><br>');
-				    echo ('<input type="text" name="email" tabindex="1" placeholder="example@email.com"><br>');
-				    echo ('<input type="submit" name="promote" value="promote" class="greenButton">');
+				if ($_SESSION['access_level'] == 0) {
+				    echo ('<a href="' . $path . 'accountEdit.php?id=' . 'new' . '" class="greenButton">Apply</a>'); // TODO
+				}
+				if ($_SESSION['access_level'] == 1) {
+				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Check Match Status</a>'); // TODO
+				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Submit Application</a>'); // TODO
+				}
+// 				if ($_SESSION['access_level'] >= 1) {
+// 				    echo ('<a href="' . $path . 'accountDetails.php" class="greenButton">Account Details</a>'); // TODO
+
+// 				}
+				if ($_SESSION['access_level'] >= 2) {
+				    echo ('<form method="POST">');
+				    echo ('<h1>Promote Admin</h1>');
+				    echo ('<input type="hidden" name="_submit_check" value="true"><br>');
+				    echo ('<label for="user">Email</label><br>');
+				    echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
+				    echo ('<input type="submit" name="Promote" value="Log In" class="greenButton">');
 				    echo ('</form>');
-				    if ($_POST['promote']) {
-                        $admin = retrieve_admin($_POST['email']);                        
-                            $result = promote($_POST['email']);
-                            echo ('<h2> "' . $_POST['email'] . '" has been promoted to a super admin.</h2>');
-				    }
-                        else {
-                            echo ('<h2> no record of admin in the database</h2>');
-                        }
+
+// 				    echo ('<h2> Is this person an already existing admin?</h2>');
+// 				    if (array_key_exists('Yes', $POST)) {
+// 				        search_admin();
+// 				    }
+// 				    else if(array_key_exists('No', $POST)) {
+// 				        add_new_account();
+// 				    }
+// 				    function search_admin() {
+				        
+// 				    }
+// 				    function add_new_account() {
+				        
+// 				    }
 				}
 				goto end;
 				?>
