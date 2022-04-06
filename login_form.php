@@ -80,6 +80,11 @@
                     date_default_timezone_set("America/New_York");
                     //if (get_class($account) == 'admin')
                     //    $_SESSION['access_level'] = 2;
+                    if ($account->get_status() == "new") 
+                        $_SESSION['access_level'] = 0;
+                    else {
+                        $_SESSION['access_level'] = 2;
+                    }
                     $admin = retrieve_admin($db_email);
                     if (!$admin) { // email is inside admin database
                        
