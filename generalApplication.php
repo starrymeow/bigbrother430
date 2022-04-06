@@ -18,7 +18,7 @@ session_cache_expire(30);
     </head>
 	<body>
 		<?PHP include('header.php'); 
-		$tempvar = 1;
+		$tempvar = 0;
 		?>
 		<?php /* Some test if admin, or not big or little*/
 		if ($tempvar == 0){
