@@ -18,6 +18,8 @@
     <?php
     include_once ('database/dbAccounts.php');
     include_once ('domain/Account.php');
+    include_once ('database/dbAdmins.php');
+    include_once ('domain/Admin.php');
     if (($_SERVER['PHP_SELF']) == "/logout.php") {
         // prevents infinite loop of logging in to the page which logs you out...
         echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
@@ -61,7 +63,7 @@
         elseif ($user == "admin" && $_POST['pass'] == "") {
             // TODO Delete, test only
             $_SESSION['logged_in'] = 1;
-            $_SESSION['access_level'] = 2;
+            $_SESSION['access_level'] = 3;
             $_SESSION['f_name'] = "Admin";
             $_SESSION['l_name'] = "Test";
             $_SESSION['_id'] = $user;
@@ -73,17 +75,29 @@
             $account = retrieve_account($db_email);
             if ($account) { //avoids null results
                 if (password_verify($_POST['pass'], $account->get_password())) { //if the passwords match, login
-                    $_SESSION['logged_in'] = 1;
+                //if ($_POST['pass'] == $account->get_password()) {
+                	$_SESSION['logged_in'] = 1;
                     date_default_timezone_set("America/New_York");
-                    if (get_class($account) == 'admin')
-                        $_SESSION['access_level'] = 2;
-                    elseif ($account->get_status() == "new")
+                    //if (get_class($account) == 'admin')
+                    //    $_SESSION['access_level'] = 2;
+                    if ($account->get_status() == "new") 
                         $_SESSION['access_level'] = 0;
-                    else
+                    else {
                         $_SESSION['access_level'] = 1;
+                    }
+                    $admin = retrieve_admin($db_email);
+                    if ($admin && $admin->get_status() != "new") { // email is inside admin database
+                        if ($admin->get_is_super() == "yes") {
+                            $_SESSION['access_level'] = 3;
+                        }
+                        else {
+                            $_SESSION['access_level'] = 2;
+                        }
+                    }
                     $_SESSION['f_name'] = $account->get_first_name();
                     $_SESSION['l_name'] = $account->get_last_name();
                     $_SESSION['_id'] = $user;              //email
+                    print_r($_SESSION['user']);
                     echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
                 }
                 else {

@@ -32,7 +32,8 @@
             }
 
             echo ('<h2>Account password successfully changed.</h2>');
-            goto end;
+            include('index.php');
+            //goto end;
         }
         echo ('<h1>First time login</h1>');
         echo ('<h2>Error: Passwords did not match,<br>Please Try Again.</h2>');

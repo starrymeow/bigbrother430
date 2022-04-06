@@ -63,6 +63,9 @@ function retrieve_admin($email) {
         return false;
     }
     $result_row = mysqli_fetch_assoc($result);
+    // var_dump($result_row);
+//     $theAdmin = make_a_admin($result_row);
+//     mysqli_close($con);
     //var_dump($result_row);
     $theAdmin = make_an_admin($result_row);
     //mysqli_close($con);
@@ -91,6 +94,14 @@ function make_an_admin($result_row) {
         $result_row['is_super'],
         $account->get_status());
     return $theAdmin;
+}
+
+function promote($email) {
+    $con=connect();
+    $query = 'UPDATE dbAdmins SET is_super = "yes" WHERE email = "' . $email . '"';
+    $result = mysqli_query($con, $query);
+    mysqli_close($con);
+    return $result;
 }
 
 function get_all_admins() {

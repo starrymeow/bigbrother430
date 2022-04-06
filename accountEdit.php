@@ -69,25 +69,25 @@ if ($email == 'new') {
                         die();
                     }
 
-                    function generateRandomString($length = 20) {
-                        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                        $charactersLength = strlen($characters);
-                        $randomString = '';
-                        for ($i = 0; $i < $length; $i++) {
-                            $randomString .= $characters[rand(0, $charactersLength - 1)];
-                        }
-                        return $randomString;
-                    }
+                   function generateRandomString($length = 20) {
+                       $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                       $charactersLength = strlen($characters);
+                       $randomString = '';
+                       for ($i = 0; $i < $length; $i++) {
+                           $randomString .= $characters[rand(0, $charactersLength - 1)];
+                       }
+                       return $randomString;
+                   }
 
-                    function execInBackground($cmd){
-                        if (substr(php_uname(), 0, 7) == "Windows"){
-                            $p = popen("start /B ". $cmd, "r");
-                            sleep(1);
-                            pclose($p);
-                        }else{
-                            exec($cmd . " > /dev/null &");
-                        }
-                    }
+                   function execInBackground($cmd){
+                       if (substr(php_uname(), 0, 7) == "Windows"){
+                           $p = popen("start /B ". $cmd, "r");
+                           sleep(1);
+                           pclose($p);
+                       }else{
+                           exec($cmd . " > /dev/null &");
+                       }
+                   }
 
                     /**
                      * process_form sanitizes data, concatenates needed data, and enters it all into a database
@@ -143,6 +143,7 @@ if ($email == 'new') {
                             $pass = $first_name . $last_name;
                             $newaccount = new Account($email, $pass, $first_name, $last_name, $status);
                             $result = add_account($newaccount);
+                            var_dump($result);
                             if (!$result)
                                 echo ('<p class="error">Unable to reset ' . $first_name . ' ' . $last_name . "'s password.. <br>Please report this error to the House Manager.");
                             else
@@ -189,6 +190,7 @@ if ($email == 'new') {
                                         //delete account if it hasn't been loged into
                                         //this requires that there is an ini file in the listed directory
                                         execInBackground('C:\\MAMP\\bin\\php\\php8.0.1\\php.exe removeTemporaryAccount.php '.$newaccount->get_email());
+                                       // execInBackground('C:\MAMP\bin\php\php8.0.1\php.exe removeTemporaryAccount.php '.$newaccount->get_email());
                                     } else
                                         echo('<p>You have successfully added <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> to the database.</p>');
                                 } catch (Exception $e) {
