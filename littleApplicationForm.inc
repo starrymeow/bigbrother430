@@ -3,37 +3,125 @@
 		Little Application
 	</h1>
 	<form method="POST">
-		<label for="adult_name">Parent/Guardian</label>
-		<input type="text" name="adult_name"/><br/>
-		<label for="relation">Relationship to child</label>
-		<input type="text" name="relation"/><br/>
-		<label for="legal_custody">Do you have legal custody of the child?</label>
-		<input type="checkbox" name="legal_custody"><br>
-		<label for="share_custody">Is there a person who shares legal custody of this child?</label>
-		<input type="checkbox" name="share_custody" onclick="show('otherStuff')"/><br/>
-		<div id="otherStuff">
-    		<label for="other_supports_enrollment">If yes, are they aware and supportive of the child&apos;s enrollment in the BBBS program?:</label>
-    		<input type="checkbox" name="other_supports_enrollment"/><br/>
-    		<label for="other_name">Name</label>
-    		<input type="text" name="other_name"/><br/>
-    		<label for="other_phone">Phone</label>
-    		<input type="tel" name="other_phone"><br>
-		</div>
-		<label for="first_name">Child&apos;s First Name:</label>
-		<input type="text" name="first_name"/>
-		
+    	<div id="page1">
+    		<label for="adult_name">Parent/Guardian</label><br/>
+    		<input type="text" name="adult_name"/><br/>
+    		
+    		<label for="relation">Relationship to child</label><br/>
+    		<input type="text" name="relation"/><br/>
+    		
+    		<label>
+    			Do you have legal custody of the child?<br/>
+    			<label for="yes">
+    				<input type="radio" name="legal_custody" value="yes"/>
+    				Yes
+    			</label>
+    			<label for="yes">
+    				<input type="radio" name="legal_custody" value="no"/>
+    				No
+    			</label>
+    		</label><br/>
+    		
+    		<label>
+    			Is there a person who shares legal custody of this child? <br/>
+    			<label for="yes">
+    				<input type="radio" name="share_custody" value="yes" onchange="show('otherStuff')"/>
+    				Yes
+    			</label>
+    			<label for="yes">
+    				<input type="radio" name="share_custody" value="no" onchange="hide('otherStuff')"/>
+    				No
+    			</label>
+    		</label><br/>
+    		
+    		<div id="otherStuff">    		
+        		<label>
+    			Are they aware and supportive of the child&apos;s enrollment in the BBBS program?: <br/>
+    			<label for="yes">
+    				<input type="radio" name="other_supports_enrollment" value="yes"/>
+    				Yes
+    			</label>
+    			<label for="yes">
+    				<input type="radio" name="other_supports_enrollment" value="no"/>
+    				No
+    			</label>
+    		</label><br/>
+        		
+        		<label for="other_name">Name</label><br/>
+           		<input type="text" name="other_name"/><br/>
+        		
+        		<label for="other_phone">Phone</label><br/>
+        		<input type="tel" name="other_phone"><br/>
+        		
+    		</div>
+    		
+    		<label for="first_name">Child&apos;s First Name</label><br/>
+    		<input type="text" name="first_name"/><br/>
+    		
+    		<label for="middle_name">Middle Name</label><br/>
+    		<input type="text" name="middle_name"/><br/>
+    		
+    		<label for="last_name">Last Name</label><br/>
+    		<input type="text" name="last_name"/><br/>
+    		
+    		<label for="preffered_name">Preffered Name/Nickname</label><br/>
+    		<input type="text" name="preffered_name"/><br/>
+    		
+    		<label>
+        		Child&apos;s Gender<br/>
+        		<label for="gender1">
+        			<input type="radio" name="child_gender" id="gender1" value="male" onchange="hide('otherGender')"/>
+        			Male
+        		</label>
+        		
+        		<label for="gender2">
+        			<input type="radio" name="child_gender" id="gender2" value="female" onchange="hide('otherGender')"/>
+        			Female
+        		</label>
+        	
+        		<label for="gender3">
+        			<input type="radio" name="child_gender" id="gender3" value="Other" onchange="show('otherGender')"/>
+        			Other
+        		</label><br/>
+    		</label><br/>
+    		
+    		<div id="otherGender">
+    			<label for="otherGender">Please Specify</label><br/>
+    			<input type="text" name="otherGender"/>
+    		</div>
+    		
+    		<label for="child_dob">Child Date of Birth</label><br/>
+    		<input type="date" name="child_dob"/><br/>
+    		
+    		<label for="living_situation">What is the child&apos;s living situation?</label><br>
+			<select name="living_situation">
+				<option value="" disabled selected>Select</option>
+				<option value="2ph">Two-parent household</option>
+				<option value="1ph">One-parent household</option>
+				<option value="sc">Shared Custody</option>
+				<option value="or">Other relative of child (non-parent)</option>
+				<option value="f">Foster Home</option>
+				<option value="gh">Group Home</option>
+				<option value="o">Other</option>
+			</select><br/>
+    		
+    	</div>    	
 	</form>
 	<script type="text/javascript">
 	document.getElementById('otherStuff').style.display = 'none';
+	document.getElementById('otherGender').style.display = 'none';
+	document.getElementById('page2').style.display = 'none';
 	function show(id) {
 		if (document.getElementById(id).style.display == 'none') {
 			document.getElementById(id).style.display = 'block';
 		} 
 		else {
 			document.getElementById(id).style.display = 'none';
-		}
-			
-		
+		}		
+	}
+	
+	function hide(id) {
+		document.getElementById(id).style.display = 'none';
 	}
 	</script>
 </div>
