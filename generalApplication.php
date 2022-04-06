@@ -16,9 +16,9 @@ session_cache_expire(30);
         <link rel="icon" href="http://www.bbbsfred.org/wp-content/uploads/sites/17/2018/12/cropped-10.25.18-Favico-512x512-white-background-192x192.jpg" sizes="192x192" />
         <link rel="stylesheet" href="styles.css" type="text/css" />
     </head>
-	<body>
+	<body>		
 		<?PHP include('header.php'); 
-		$tempvar = 0;
+		$tempvar = 1;
 		?>
 		<?php /* Some test if admin, or not big or little*/
 		if ($tempvar == 0){
