@@ -39,8 +39,8 @@ class Application {
         $this->race = $r;
         $this->apply_reason = $apply;
         $this->life_changes = $life;
-    }    
-    
+    }
+
     function get_email () {
         return $this->email;
     }
@@ -49,12 +49,12 @@ class Application {
         return $this->id;
     }
 
-    function get_firstname() {
-        return $this->firstname;
+    function get_first_name() {
+        return $this->first_name;
     }
 
-    function get_lastname () {
-        return $this->lastname;
+    function get_last_name () {
+        return $this->last_name;
     }
 
     function get_languages () {
