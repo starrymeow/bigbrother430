@@ -34,7 +34,7 @@ session_cache_expire(30);
             //    fix_all_birthdays();
                 ?>
 				<!-- BBBS Code -->
-				<div id="homeoptions">
+				<div class="infoform">
 				<?php
 				if ($_SESSION['access_level'] == 0) {
 				    echo ('<a href="' . $path . 'accountEdit.php?id=' . 'new' . '" class="greenButton">Apply</a>'); // TODO
@@ -48,13 +48,14 @@ session_cache_expire(30);
 
 // 				}
 				if ($_SESSION['access_level'] >= 2) {
-				    echo('<h2>Enter the email of the admin</h2>');
-				    echo ('<form method="post">');
+				    echo ('<form method="POST">');
+				    echo ('<h1>Promote Admin</h1>');
 				    echo ('<input type="hidden" name="_submit_check" value="true"><br>');
 				    echo ('<label for="user">Email</label><br>');
 				    echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
-				    echo ('<input type="submit" name="Login" value="Log In" class="greenButton">');
+				    echo ('<input type="submit" name="Promote" value="Log In" class="greenButton">');
 				    echo ('</form>');
+
 // 				    echo ('<h2> Is this person an already existing admin?</h2>');
 // 				    if (array_key_exists('Yes', $POST)) {
 // 				        search_admin();
