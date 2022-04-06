@@ -71,7 +71,6 @@
             // TODO
             $db_email = $user;
             $account = retrieve_account($db_email);
-            var_dump($account);
             if ($account) { //avoids null results
                 if (password_verify($_POST['pass'], $account->get_password())) { //if the passwords match, login
                 //if ($_POST['pass'] == $account->get_password()) {
@@ -91,10 +90,10 @@
                             $_SESSION['access_level'] = 2; 
                         } 
                     }
-                    if ($account->get_status() == "new")
-                        $_SESSION['access_level'] = 0;
-                    else
-                        $_SESSION['access_level'] = 1;
+//                     if ($account->get_status() == "new")
+//                         $_SESSION['access_level'] = 0;
+//                     else
+//                         $_SESSION['access_level'] = 1;
                     $_SESSION['f_name'] = $account->get_first_name();
                     $_SESSION['l_name'] = $account->get_last_name();
                     $_SESSION['_id'] = $user;              //email
