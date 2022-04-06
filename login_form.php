@@ -18,6 +18,8 @@
     <?php
     include_once ('database/dbAccounts.php');
     include_once ('domain/Account.php');
+    include_once ('database/dbAdmins.php');
+    include_once ('domain/Admin.php');
     if (($_SERVER['PHP_SELF']) == "/logout.php") {
         // prevents infinite loop of logging in to the page which logs you out...
         echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
