@@ -31,11 +31,7 @@ session_cache_expire(30);
 				<div id="homeoptions">
 				<?php
 				
-// 				if ($_SESSION['access_level'] >= 1) {
-// 				    echo ('<a href="' . $path . 'accountDetails.php" class="greenButton">Account Details</a>'); // TODO
-
-// 				}
-				if ($_SESSION['access_level'] >= 2) {
+				if ($_SESSION['access_level'] == 3) {
 				    echo('<h2>Enter the email of the admin</h2><br>');
 				    echo ('<form method="post">');
 				    //echo ('<input type="hidden" name="_submit_check" value="true"><br>');

@@ -63,7 +63,7 @@
         elseif ($user == "admin" && $_POST['pass'] == "") {
             // TODO Delete, test only
             $_SESSION['logged_in'] = 1;
-            $_SESSION['access_level'] = 2;
+            $_SESSION['access_level'] = 3;
             $_SESSION['f_name'] = "Admin";
             $_SESSION['l_name'] = "Test";
             $_SESSION['_id'] = $user;
