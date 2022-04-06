@@ -50,11 +50,11 @@ session_cache_expire(30);
 				    echo ('<form method="POST">');
 				    echo ('<h1>Create Admin</h1>');
 				    echo ('<label for="email">Email</label><br>');
-				    echo ('<input type="text" name="email"/><br>');
+				    echo ('<input type="text" name="email" placeholder="example@email.com"/><br>');
 				    echo ('<label for="first_name">First Name</label><br>');
-				    echo ('<input type="text" name="first_name"/><br>');
+				    echo ('<input type="text" name="first_name" placeholder="First name"/><br>');
 				    echo ('<label for="last_name">Last Name</label><br>');
-				    echo ('<input type="text" name="last_name"/><br>');
+				    echo ('<input type="text" name="last_name" placeholder="Last name"/><br>');
 				    echo ('<input type="submit" name="new_admin" value="Enter" class="greenButton">');
 				    echo ('</form>');
 				    if ($_POST['new_admin']) {
