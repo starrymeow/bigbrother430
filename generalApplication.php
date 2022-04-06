@@ -23,7 +23,7 @@ session_cache_expire(30);
 		<?php /* Some test if admin, or not big or little*/
 		if ($tempvar == 0){
 		  echo ('<div id="homeoptions">');
-		  echo ('<a href="https://Something.com" class="greenButton">Little Application</a>');
+		  echo ('<a href="littleApp.php" class="greenButton">Little Application</a>');
 		  echo ('<a href="https://Something.com" class="greenButton">Big Application</a>');
 		  echo ('</div>');
 		}

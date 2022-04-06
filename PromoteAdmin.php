@@ -40,9 +40,11 @@ session_cache_expire(30);
 				    echo ('<input type="submit" name="promote" value="promote" class="greenButton">');
 				    echo ('</form>');
 				    if ($_POST['promote']) {
-                        $admin = retrieve_admin($_POST['email']);                        
+                        $admin = retrieve_admin($_POST['email']);
+                        if ($admin) {
                             $result = promote($_POST['email']);
                             echo ('<h2> "' . $_POST['email'] . '" has been promoted to a super admin.</h2>');
+                        }
 				    }
                         else {
                             echo ('<h2> no record of admin in the database</h2>');
