@@ -6,7 +6,7 @@ class Application {
     private $last_name;      //last name of the big or little
     private $languages;     //array of strings that are the names of the known languages
     private $primary_language;
-    private $prefered_name;      //nick name if applicable as a string
+    private $preferred_name;      //nick name if applicable as a string
     private $birthday;
     private $cell_phone;      //cell phone number
     private $can_text_cell;     //whether or not the cell; boolean
@@ -27,7 +27,7 @@ class Application {
         $this->last_name = $l;
         $this->languages = $langs;
         $this->primary_language = $prime;
-        $this->perfered_name = $name;
+        $this->preferred_name = $name;
         $this->birthday = $dob;
         $this->cell_phone = $cell;
         $this->can_text_cell = $text;
@@ -63,11 +63,11 @@ class Application {
     }
 
     function get_primary_language () {
-        return $this->id;
+        return $this->primary_language;
     }
 
-    function get_prefered_name () {
-        return $this->perfered_name;
+    function get_preferred_name () {
+        return $this->preferred_name;
     }
 
     function get_birthday () {
@@ -118,12 +118,12 @@ class Application {
         return $this->life_changes;
     }
 
-    function set_firstname($v) {
-        $this->firstname = $v;
+    function set_first_name($v) {
+        $this->first_name = $v;
     }
 
-    function set_lastname($v) {
-        $this->lastname = $v;
+    function set_last_name($v) {
+        $this->last_name = $v;
     }
 
     function set_languages($v) {
@@ -134,8 +134,8 @@ class Application {
         $this->primary_language = $v;
     }
 
-    function set_perfered_name($v) {
-        $this->perfered_name = $v;
+    function set_preferred_name($v) {
+        $this->preferred_name = $v;
     }
 
     function set_birthday($v) {
@@ -147,7 +147,7 @@ class Application {
     }
 
     function set_can_text_cell($v) {
-        $this->firstname = $v;
+        $this->can_text_cell = $v;
     }
 
     function set_home_phone($v) {
@@ -164,6 +164,10 @@ class Application {
 
     function set_city($v) {
         $this->city = $v;
+    }
+
+    function set_state($value) {
+        $this->state = $value;
     }
 
     function set_zip($v) {

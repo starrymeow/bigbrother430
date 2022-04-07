@@ -21,7 +21,7 @@ function add_application($app) {
             $app->get_last_name() . '","' .
             $app->get_languages() . '","' .
             $app->get_primary_language() . '","' .
-            $app->get_prefered_name() . '","' .
+            $app->get_preferred_name() . '","' .
             $app->get_birthday() . '","' .
             $app->get_cell_phone() . '","' .
             $app->get_can_text_cell() . '","' .
@@ -53,7 +53,7 @@ function remove_application($id) {
         mysqli_close($con);
         return false;
     }
-    $query = 'DELETE FROM dbApplications WHERE email = "' . $id . '"';
+    $query = 'DELETE FROM dbApplications WHERE id = "' . $id . '"';
     $result = mysqli_query($con,$query);
     mysqli_close($con);
     return true;
@@ -109,7 +109,7 @@ function make_an_application($result_row) {
         $result_row["last_name"],
         $result_row["languages"],
         $result_row["primary_languages"],
-        $result_row["perfered_name"],
+        $result_row["perferred_name"],
         $result_row["birthday"],
         $result_row["cell_phone"],
         $result_row["can_text_cell"],

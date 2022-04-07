@@ -12,7 +12,7 @@ class dbApplicationsTest extends TestCase {
         $last_name = "Last";
         $languages = "eng";
         $primary_language = "eng";
-        $prefered_name = "Susan";
+        $preferred_name = "Susan";
         $birthday = "01/01/1970";
         $cell_phone = "5401234567";
         $can_text_cell = true;
@@ -26,21 +26,21 @@ class dbApplicationsTest extends TestCase {
         $apply_reason = "example";
         $life_changes = "something";
 
-        $m = new Application($email, $id, $first_name, $last_name, $languages, $primary_language, $prefered_name,
-            $birthday, $cell_phone, $can_text_cell, $home_phone, $gender, $address, $city, $state, $zip, $race,
-            $apply_reason, $life_changes);
+        $m = new Application($email, $id, $first_name, $last_name, $languages, $primary_language, $preferred_name,
+            $birthday, $cell_phone, $can_text_cell, $home_phone, $gender, $address, $city, $state, $zip, $race, $apply_reason,
+            $life_changes);
         $this->assertTrue(add_application($m));
 
         // retrieve the Application and test the fields
         $myApplication = retrieve_application($email);
-        $this->assertTrue($p!==false);
+        $this->assertTrue($myApplication!==false);
         //$this->assertTrue($myApplication->get_email()==$email);
         $this->assertTrue($myApplication->get_id()==$id);
         $this->assertTrue($myApplication->get_first_name()==$first_name);
         $this->assertTrue($myApplication->get_last_name()==$last_name);
         $this->assertTrue($myApplication->get_languages()==$languages);
         $this->assertTrue($myApplication->get_primary_language()==$primary_language);
-        $this->assertTrue($myApplication->get_prefered_name()==$prefered_name);
+        $this->assertTrue($myApplication->get_prefered_name()==$preferred_name);
         $this->assertTrue($myApplication->get_birthday()==$birthday);
         $this->assertTrue($myApplication->get_cell_phone()==$cell_phone);
         $this->assertTrue($myApplication->get_can_text_cell()==$can_text_cell);

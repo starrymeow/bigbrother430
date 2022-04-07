@@ -9,7 +9,7 @@ class ApplicationTest extends TestCase {
         $id = 123456;
         $first_name = "Susan";
         $last_name = "Last";
-        $languages = "eng";
+        $languages = "eng, span";
         $primary_language = "eng";
         $prefered_name = "Susan";
         $birthday = "01/01/1970";
@@ -90,7 +90,7 @@ class ApplicationTest extends TestCase {
         $this->assertTrue($myApplication->get_first_name()==$first_name);
         $this->assertTrue($myApplication->get_last_name()==$last_name);
         $this->assertTrue($myApplication->get_languages()==$languages);
-        $this->assertTrue($myApplication->get_primary_languages()==$primary_languages);
+        $this->assertTrue($myApplication->get_primary_language()==$primary_language);
         $this->assertTrue($myApplication->get_prefered_name()==$prefered_name);
         $this->assertTrue($myApplication->get_birthday()==$birthday);
         $this->assertTrue($myApplication->get_cell_phone()==$cell_phone);
