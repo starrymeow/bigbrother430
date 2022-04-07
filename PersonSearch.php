@@ -49,29 +49,42 @@ if (!($_SESSION['access_level'] >= 2)) {
 					echo ('<tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Status</th></tr>');
 					if ($_POST['search']) {
 					    if ($_POST['email']) {
-					        $account = retrieve_account($_POST['email']);
-					        if (!$account) {
+					        $acc = retrieve_account($_POST['email']);
+					        if (!$acc) {
 					            echo ('<h2>There is no person in the database with this email</h2>');
 					            $accounts = getall_dbAccounts("A", "Z");
-					            foreach($accounts as $account) {
+					            if (is_array($accounts)) {
+    					            foreach($accounts as $account) {
+    					                echo ('
+                                        <tr>
+                                        <td> ' . $account->get_email() . '</td>
+                                        <td> ' . $account->get_first_name() . '</td>
+                                        <td> ' . $account->get_last_name() . '</td>
+                                        <td> ' . $account->get_status() . '
+                                        </td>
+                                        </tr>
+                                            ');
+					               }
+					            }
+					            else {
 					                echo ('
                                     <tr>
-                                    <td> ' . $account->get_email() . '</td>
-                                    <td> ' . $account->get_first_name() . '</td>
-                                    <td> ' . $account->get_last_name() . '</td>
-                                    <td> ' . $account->get_status() . '
+                                    <td> ' . $accounts->get_email() . '</td>
+                                    <td> ' . $accounts->get_first_name() . '</td>
+                                    <td> ' . $accounts->get_last_name() . '</td>
+                                    <td> ' . $accounts->get_status() . '
                                     </td>
                                     </tr>
-                                        ');
+                                         ');
 					            }
 					        }
 					        else {
 					            echo('
                                 <tr>
-                                <td> ' . $account->get_email() . '</td>
-                                <td> ' . $account->get_first_name() . '</td>
-                                <td> ' . $account->get_last_name() . '</td>
-                                <td> ' . $account->get_status() . '
+                                <td> ' . $acc->get_email() . '</td>
+                                <td> ' . $acc->get_first_name() . '</td>
+                                <td> ' . $acc->get_last_name() . '</td>
+                                <td> ' . $acc->get_status() . '
                                 </td>
                                 </tr>
                                     ');
@@ -79,101 +92,134 @@ if (!($_SESSION['access_level'] >= 2)) {
 					        goto end;
 					    }
 					    if ($_POST['first_name']) {
-					        $account = getall_firstdbAccounts($_POST['first_name']);
-					        if (!$account) {
-					            echo ('<h2>There is no one in the database with this first name</h2>');
+					        $acc = getall_firstdbAccounts($_POST['first_name']);
+					        if (!$acc) {
+					            echo ('<h2>There is no person in the database with this first name</h2>');
 					            $accounts = getall_dbAccounts("A", "Z");
-					            foreach($accounts as $account) {
+					            if (is_array($accounts)) {
+					                foreach($accounts as $account) {
+					                    echo ('
+                                        <tr>
+                                        <td> ' . $account->get_email() . '</td>
+                                        <td> ' . $account->get_first_name() . '</td>
+                                        <td> ' . $account->get_last_name() . '</td>
+                                        <td> ' . $account->get_status() . '
+                                        </td>
+                                        </tr>
+                                            ');
+					                }
+					            }
+					            else {
 					                echo ('
                                     <tr>
-                                    <td> ' . $account->get_email() . '</td>
-                                    <td> ' . $account->get_first_name() . '</td>
-                                    <td> ' . $account->get_last_name() . '</td>
-                                    <td> ' . $account->get_status() . '
+                                    <td> ' . $accounts->get_email() . '</td>
+                                    <td> ' . $accounts->get_first_name() . '</td>
+                                    <td> ' . $accounts->get_last_name() . '</td>
+                                    <td> ' . $accounts->get_status() . '
                                     </td>
                                     </tr>
-                                        ');
+                                         ');
 					            }
 					        }
 					        else {
-					            foreach($accounts as $account) {
-					                echo ('
-                                    <tr>
-                                    <td> ' . $account->get_email() . '</td>
-                                    <td> ' . $account->get_first_name() . '</td>
-                                    <td> ' . $account->get_last_name() . '</td>
-                                    <td> ' . $account->get_status() . '
-                                    </td>
-                                    </tr>
-                                        ');
-					            }
+					            echo('
+                                <tr>
+                                <td> ' . $acc->get_email() . '</td>
+                                <td> ' . $acc->get_first_name() . '</td>
+                                <td> ' . $acc->get_last_name() . '</td>
+                                <td> ' . $acc->get_status() . '
+                                </td>
+                                </tr>
+                                    ');
 					        }
 					        goto end;
 					    }
 					    if ($_POST['last_name']) {
-					        $account = getall_lastdbAccounts($_POST['last_name']);
-					        if (!$account) {
-					            echo ('<h2>There is no one in the database with this last name</h2>');
+					        $acc = getall_lastdbAccounts($_POST['last_name']);
+					        if (!$acc) {
+					            echo ('<h2>There is no person in the database with this email</h2>');
 					            $accounts = getall_dbAccounts("A", "Z");
-					            foreach($accounts as $account) {
+					            if (is_array($accounts)) {
+					                foreach($accounts as $account) {
+					                    echo ('
+                                        <tr>
+                                        <td> ' . $account->get_email() . '</td>
+                                        <td> ' . $account->get_first_name() . '</td>
+                                        <td> ' . $account->get_last_name() . '</td>
+                                        <td> ' . $account->get_status() . '
+                                        </td>
+                                        </tr>
+                                            ');
+					                }
+					            }
+					            else {
 					                echo ('
                                     <tr>
-                                    <td> ' . $account->get_email() . '</td>
-                                    <td> ' . $account->get_first_name() . '</td>
-                                    <td> ' . $account->get_last_name() . '</td>
-                                    <td> ' . $account->get_status() . '
+                                    <td> ' . $accounts->get_email() . '</td>
+                                    <td> ' . $accounts->get_first_name() . '</td>
+                                    <td> ' . $accounts->get_last_name() . '</td>
+                                    <td> ' . $accounts->get_status() . '
                                     </td>
                                     </tr>
-                                        ');
+                                         ');
 					            }
 					        }
 					        else {
-					            foreach($accounts as $account) {
-					                echo ('
-                                    <tr>
-                                    <td> ' . $account->get_email() . '</td>
-                                    <td> ' . $account->get_first_name() . '</td>
-                                    <td> ' . $account->get_last_name() . '</td>
-                                    <td> ' . $account->get_status() . '
-                                    </td>
-                                    </tr>
-                                        ');
-					            }
+					            echo('
+                                <tr>
+                                <td> ' . $acc->get_email() . '</td>
+                                <td> ' . $acc->get_first_name() . '</td>
+                                <td> ' . $acc->get_last_name() . '</td>
+                                <td> ' . $acc->get_status() . '
+                                </td>
+                                </tr>
+                                    ');
 					        }
-					        goto end;   
+					        goto end;
 					    }
 					    
 					    if ($_POST['status_options'] != "select") {
-					        $account = getall_statusdbAccounts($_POST['status']);
-					        if (!$account) {
-					            echo ('<h2>There is no one in the database with this status</h2>');
+					        $acc = getall_status($_POST['status_options']);
+					        if (!$acc) {
+					            echo ('<h2>There is no person in the database with this email</h2>');
 					            $accounts = getall_dbAccounts("A", "Z");
-					            foreach($accounts as $account) {
+					            if (is_array($accounts)) {
+					                foreach($accounts as $account) {
+					                    echo ('
+                                        <tr>
+                                        <td> ' . $account->get_email() . '</td>
+                                        <td> ' . $account->get_first_name() . '</td>
+                                        <td> ' . $account->get_last_name() . '</td>
+                                        <td> ' . $account->get_status() . '
+                                        </td>
+                                        </tr>
+                                            ');
+					                }
+					            }
+					            else {
 					                echo ('
                                     <tr>
-                                    <td> ' . $account->get_email() . '</td>
-                                    <td> ' . $account->get_first_name() . '</td>
-                                    <td> ' . $account->get_last_name() . '</td>
-                                    <td> ' . $account->get_status() . '
+                                    <td> ' . $accounts->get_email() . '</td>
+                                    <td> ' . $accounts->get_first_name() . '</td>
+                                    <td> ' . $accounts->get_last_name() . '</td>
+                                    <td> ' . $accounts->get_status() . '
                                     </td>
                                     </tr>
-                                        ');
+                                         ');
 					            }
 					        }
 					        else {
-					            foreach($accounts as $account) {
-					                echo ('
-                                    <tr>
-                                    <td> ' . $account->get_email() . '</td>
-                                    <td> ' . $account->get_first_name() . '</td>
-                                    <td> ' . $account->get_last_name() . '</td>
-                                    <td> ' . $account->get_status() . '
-                                    </td>
-                                    </tr>
-                                        ');
-					            }
+					            echo('
+                                <tr>
+                                <td> ' . $acc->get_email() . '</td>
+                                <td> ' . $acc->get_first_name() . '</td>
+                                <td> ' . $acc->get_last_name() . '</td>
+                                <td> ' . $acc->get_status() . '
+                                </td>
+                                </tr>
+                                    ');
 					        }
-					        goto end; 
+					        goto end;
 					    }
 					    
 					       
