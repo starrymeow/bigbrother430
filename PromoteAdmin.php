@@ -41,10 +41,9 @@ session_cache_expire(30);
 				if ($_SESSION['access_level'] >= 2) {
 				    echo ('<form method="POST">');
 				    echo ('<h1>Promote Admin</h1>');
-				    echo ('<input type="hidden" name="_submit_check" value="true"><br>');
 				    echo ('<label for="user">Email</label><br>');
 				    echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
-				    echo ('<input type="submit" name="Promote" value="Log In" class="greenButton">');
+				    echo ('<input type="submit" name="promote" value="Promote" class="greenButton">');
 				    echo ('</form>');
 				    if ($_POST['promote']) {
                         $admin = retrieve_admin($_POST['email']);
