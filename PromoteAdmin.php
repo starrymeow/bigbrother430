@@ -52,10 +52,10 @@ session_cache_expire(30);
                             $result = promote($_POST['email']);
                             echo ('<h2> "' . $_POST['email'] . '" has been promoted to a super admin.</h2>');
                         }
-				    }
                         else {
                             echo ('<h2> no record of admin in the database</h2>');
                         }
+				    }
 				}
 
 				goto end;
