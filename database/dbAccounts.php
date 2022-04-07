@@ -124,8 +124,8 @@ function getall_dbAccounts($name_from, $name_to) {
     $result = mysqli_query($con,$query);
     $theAccounts = array();
     while ($result_row = mysqli_fetch_assoc($result)) {
-        $theAccounts = make_an_account($result_row);
-        $theAccounts[] = $theAccounts;
+        $theAccount = make_an_account($result_row);
+        $theAccounts[] = $theAccount;
     }
     
     return $theAccounts;
