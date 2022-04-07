@@ -110,15 +110,72 @@ function make_an_account($result_row) {
         $result_row["status"]);
     return $theAccount;
 }
- // make_an_account but without returning the password
-// function return_an_account($result_row) {
-//     $theAccount = new Account()
-// }
+
 
 function getall_dbAccounts($name_from, $name_to) {
     $con=connect();
     $query = "SELECT * FROM dbAccounts";
     $query.= " WHERE last_name BETWEEN '" .$name_from. "' AND '" .$name_to. "'";
+    $query.= " ORDER BY last_name,first_name";
+    $result = mysqli_query($con,$query);
+    if ($result == null || mysqli_num_rows($result) == 0) {
+        mysqli_close($con);
+        return false;
+    }
+    $result = mysqli_query($con,$query);
+    $theAccounts = array();
+    while ($result_row = mysqli_fetch_assoc($result)) {
+        $theAccount = make_an_account($result_row);
+        $theAccounts[] = $theAccount;
+    }
+    
+    return $theAccounts;
+}
+
+function getall_firstdbAccounts($firstname) {
+    $con=connect();
+    $query = "SELECT * FROM dbAccounts";
+    $query.= " WHERE first_name = '" .$firstname. "'";
+    $query.= " ORDER BY last_name,first_name";
+    $result = mysqli_query($con,$query);
+    if ($result == null || mysqli_num_rows($result) == 0) {
+        mysqli_close($con);
+        return false;
+    }
+    $result = mysqli_query($con,$query);
+    $theAccounts = array();
+    while ($result_row = mysqli_fetch_assoc($result)) {
+        $theAccount = make_an_account($result_row);
+        $theAccounts[] = $theAccount;
+    }
+    
+    return $theAccounts;
+}
+
+function getall_lastdbAccounts($lastname) {
+    $con=connect();
+    $query = "SELECT * FROM dbAccounts";
+    $query.= " WHERE last_name = '" .$lastname. "'";
+    $query.= " ORDER BY last_name,first_name";
+    $result = mysqli_query($con,$query);
+    if ($result == null || mysqli_num_rows($result) == 0) {
+        mysqli_close($con);
+        return false;
+    }
+    $result = mysqli_query($con,$query);
+    $theAccounts = array();
+    while ($result_row = mysqli_fetch_assoc($result)) {
+        $theAccount = make_an_account($result_row);
+        $theAccounts[] = $theAccount;
+    }
+    
+    return $theAccounts;
+}
+
+function getall_statusdbAccounts($status) {
+    $con=connect();
+    $query = "SELECT * FROM dbAccounts";
+    $query.= " WHERE status = '" .$status. "'";
     $query.= " ORDER BY last_name,first_name";
     $result = mysqli_query($con,$query);
     if ($result == null || mysqli_num_rows($result) == 0) {

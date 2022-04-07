@@ -27,11 +27,18 @@ if (!($_SESSION['access_level'] >= 2)) {
 			<div id="content">
 				<div class="infoform">
 					<h1>Search for a Person</h1>
-					<?php //TODO Fill in default name
+					<form method="post">
+					<label for="search_options">Search by criteria:</label>
+					<select name="search_options" id="search_options">
+					<option value="email">Email</option>
+					<option value="first_name">First Name</option>
+					<option value="last_name">Last Name</option>
+					<option value="status">Status</option>
+					</select>
+					<input type="submit" name="search" value="Search" class="greenButton">
+					</form>
+					<?php
                     $accounts = getall_dbAccounts("A", "Z");
-                    //$numaccounts = count($accounts);
-                    
-                    //var_dump($accounts);
                     echo ('<table border="1" cellpadding="5" cellspacing="5">');
                     echo ('<tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Status</th></tr>');
                     foreach($accounts as $account) {
