@@ -110,6 +110,10 @@ function make_an_account($result_row) {
         $result_row["status"]);
     return $theAccount;
 }
+ // make_an_account but without returning the password
+// function return_an_account($result_row) {
+//     $theAccount = new Account()
+// }
 
 function getall_dbAccounts($name_from, $name_to) {
     $con=connect();

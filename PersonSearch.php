@@ -29,7 +29,23 @@ if (!($_SESSION['access_level'] >= 2)) {
 					<h1>Search for a Person</h1>
 					<?php //TODO Fill in default name
                     $accounts = getall_dbAccounts("A", "Z");
-                    var_dump($accounts);
+                    //$numaccounts = count($accounts);
+                    
+                    //var_dump($accounts);
+                    echo ('<table border="1" cellpadding="5" cellspacing="5">');
+                    echo ('<tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Status</th></tr>');
+                    foreach($accounts as $account) {
+                        echo ('
+                        <tr>
+                        <td> ' . $account['email'] . '</td>
+                        <td> ' . $account['first_name'] . '</td>
+                        <td> ' . $account['last_name'] . '</td>
+                        <td> ' . $account['status'] . '
+                        </td>
+                        </tr>
+                             '); 
+                    }
+                    echo ('</table>');
                     
                     
    					?>
