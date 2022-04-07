@@ -20,7 +20,7 @@ class Application {
     private $apply_reason;      //reason for applying
     private $life_changes;      //recent major life changes
 
-    function __construct ($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life) {
+    function __construct ($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $state, $z, $r, $apply, $life) {
         $this->email = $e;
         $this->id = $i;
         $this->first_name = $f;
@@ -35,6 +35,7 @@ class Application {
         $this->gender = $g;
         $this->address = $a;
         $this->city = $c;
+        $this->state = $state;
         $this->zip = $z;
         $this->race = $r;
         $this->apply_reason = $apply;
@@ -95,6 +96,10 @@ class Application {
 
     function get_city () {
         return $this->city;
+    }
+
+    function get_state() {
+        return $this->state;
     }
 
     function get_zip () {

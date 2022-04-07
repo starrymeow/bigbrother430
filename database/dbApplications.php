@@ -117,6 +117,7 @@ function make_an_application($result_row) {
         $result_row["gender"],
         $result_row["address"],
         $result_row["city"],
+        $result_row['state'],
         $result_row["zip"],
         $result_row["race"],
         $result_row["apply_reason"],
