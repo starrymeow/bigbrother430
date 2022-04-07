@@ -143,7 +143,7 @@ if (!($_SESSION['access_level'] >= 2)) {
 					        goto end;   
 					    }
 					    
-					    if ($_POST['status'] != "select") {
+					    if ($_POST['status_options'] != "select") {
 					        $account = getall_statusdbAccounts($_POST['status']);
 					        if (!$account) {
 					            echo ('<h2>There is no one in the database with this status</h2>');

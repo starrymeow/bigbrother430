@@ -135,7 +135,7 @@ function getall_dbAccounts($name_from, $name_to) {
 function getall_firstdbAccounts($firstname) {
     $con=connect();
     $query = "SELECT * FROM dbAccounts";
-    $query.= " WHERE first_name = '" .$firstname. "'";
+    $query.= " WHERE first_name = '" . $firstname . "'";
     $query.= " ORDER BY last_name,first_name";
     $result = mysqli_query($con,$query);
     if ($result == null || mysqli_num_rows($result) == 0) {
@@ -155,7 +155,7 @@ function getall_firstdbAccounts($firstname) {
 function getall_lastdbAccounts($lastname) {
     $con=connect();
     $query = "SELECT * FROM dbAccounts";
-    $query.= " WHERE last_name = '" .$lastname. "'";
+    $query.= " WHERE last_name = '" . $lastname . "'";
     $query.= " ORDER BY last_name,first_name";
     $result = mysqli_query($con,$query);
     if ($result == null || mysqli_num_rows($result) == 0) {
@@ -175,7 +175,7 @@ function getall_lastdbAccounts($lastname) {
 function getall_statusdbAccounts($status) {
     $con=connect();
     $query = "SELECT * FROM dbAccounts";
-    $query.= " WHERE status = '" .$status. "'";
+    $query.= " WHERE status = '" . $status . "'";
     $query.= " ORDER BY last_name,first_name";
     $result = mysqli_query($con,$query);
     if ($result == null || mysqli_num_rows($result) == 0) {
