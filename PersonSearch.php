@@ -122,15 +122,30 @@ if (!($_SESSION['access_level'] >= 2)) {
 					            }
 					        }
 					        else {
-					            echo('
-                                <tr>
-                                <td> ' . $acc->get_email() . '</td>
-                                <td> ' . $acc->get_first_name() . '</td>
-                                <td> ' . $acc->get_last_name() . '</td>
-                                <td> ' . $acc->get_status() . '
-                                </td>
-                                </tr>
-                                    ');
+					            if (is_array($acc)) {
+					                foreach($acc as $accs) {
+					                    echo ('
+                                        <tr>
+                                        <td> ' . $accs->get_email() . '</td>
+                                        <td> ' . $accs->get_first_name() . '</td>
+                                        <td> ' . $accs->get_last_name() . '</td>
+                                        <td> ' . $accs->get_status() . '
+                                        </td>
+                                        </tr>
+                                            ');
+					                }
+					            }
+					            else {
+					                echo ('
+                                    <tr>
+                                    <td> ' . $acc->get_email() . '</td>
+                                    <td> ' . $acc->get_first_name() . '</td>
+                                    <td> ' . $acc->get_last_name() . '</td>
+                                    <td> ' . $acc->get_status() . '
+                                    </td>
+                                    </tr>
+                                         ');
+					            }
 					        }
 					        goto end;
 					    }
@@ -165,15 +180,30 @@ if (!($_SESSION['access_level'] >= 2)) {
 					            }
 					        }
 					        else {
-					            echo('
-                                <tr>
-                                <td> ' . $acc->get_email() . '</td>
-                                <td> ' . $acc->get_first_name() . '</td>
-                                <td> ' . $acc->get_last_name() . '</td>
-                                <td> ' . $acc->get_status() . '
-                                </td>
-                                </tr>
-                                    ');
+					            if (is_array($acc)) {
+					                foreach($acc as $accs) {
+					                    echo ('
+                                        <tr>
+                                        <td> ' . $accs->get_email() . '</td>
+                                        <td> ' . $accs->get_first_name() . '</td>
+                                        <td> ' . $accs->get_last_name() . '</td>
+                                        <td> ' . $accs->get_status() . '
+                                        </td>
+                                        </tr>
+                                            ');
+					                }
+					            }
+					            else {
+					                echo ('
+                                    <tr>
+                                    <td> ' . $acc->get_email() . '</td>
+                                    <td> ' . $acc->get_first_name() . '</td>
+                                    <td> ' . $acc->get_last_name() . '</td>
+                                    <td> ' . $acc->get_status() . '
+                                    </td>
+                                    </tr>
+                                         ');
+					            }
 					        }
 					        goto end;
 					    }
@@ -209,15 +239,30 @@ if (!($_SESSION['access_level'] >= 2)) {
 					            }
 					        }
 					        else {
-					            echo('
-                                <tr>
-                                <td> ' . $acc->get_email() . '</td>
-                                <td> ' . $acc->get_first_name() . '</td>
-                                <td> ' . $acc->get_last_name() . '</td>
-                                <td> ' . $acc->get_status() . '
-                                </td>
-                                </tr>
-                                    ');
+					            if (is_array($acc)) {
+					                foreach($acc as $accs) {
+					                    echo ('
+                                        <tr>
+                                        <td> ' . $accs->get_email() . '</td>
+                                        <td> ' . $accs->get_first_name() . '</td>
+                                        <td> ' . $accs->get_last_name() . '</td>
+                                        <td> ' . $accs->get_status() . '
+                                        </td>
+                                        </tr>
+                                            ');
+					                }
+					            }
+					            else {
+					                echo ('
+                                    <tr>
+                                    <td> ' . $acc->get_email() . '</td>
+                                    <td> ' . $acc->get_first_name() . '</td>
+                                    <td> ' . $acc->get_last_name() . '</td>
+                                    <td> ' . $acc->get_status() . '
+                                    </td>
+                                    </tr>
+                                         ');
+					            }
 					        }
 					        goto end;
 					    }
