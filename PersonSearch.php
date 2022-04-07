@@ -209,7 +209,7 @@ if (!($_SESSION['access_level'] >= 2)) {
 					    }
 					    
 					    elseif ($_POST['status_options'] != "select") {
-					        $acc = getall_status($_POST['status_options']);
+					        $acc = getall_statusdbAccounts($_POST['status_options']);
 					        if (!$acc) {
 					            echo ('<h2>There is no person in the database with this email</h2>');
 					            $accounts = getall_dbAccounts("A", "Z");
