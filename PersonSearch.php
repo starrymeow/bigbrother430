@@ -35,7 +35,6 @@ if (!($_SESSION['access_level'] >= 2)) {
                     echo ('<table border="1" cellpadding="5" cellspacing="5">');
                     echo ('<tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Status</th></tr>');
                     foreach($accounts as $account) {
-                        var_dump($account);
                         echo ('
                         <tr>
                         <td> ' . $account->get_email() . '</td>
