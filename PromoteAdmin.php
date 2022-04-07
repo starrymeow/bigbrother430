@@ -41,8 +41,8 @@ session_cache_expire(30);
 				if ($_SESSION['access_level'] >= 2) {
 				    echo ('<form method="POST">');
 				    echo ('<h1>Promote Admin</h1>');
-				    echo ('<label for="user">Email</label><br>');
-				    echo ('<input type="text" name="user" tabindex="1" placeholder="example@email.com"><br>');
+				    echo ('<label for="email">Email</label><br>');
+				    echo ('<input type="text" name="email" tabindex="1" placeholder="example@email.com"><br>');
 				    echo ('<input type="submit" name="promote" value="Promote" class="greenButton">');
 				    echo ('</form>');
 				    if ($_POST['promote']) {
