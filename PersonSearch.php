@@ -44,24 +44,44 @@ if (!($_SESSION['access_level'] >= 2)) {
 					<input type="submit" name="search" value="Search" class="greenButton">
 					</form>
 					<?php
+					echo ('<table border="1" cellpadding="5" cellspacing="5">');
+					echo ('<tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Status</th></tr>');
 					if ($_POST['search']) {
-					    //if ($_POST['search_options'] == )
+					    if ($_POST['email']) {
+					        $account = retrieve_account($_POST['email']);
+					        if (!$account) {
+					            echo ('<h2>There is no person in the database with this email</h2>');
+					        }
+					        else {
+					            echo('
+                                <tr>
+                                <td> ' . $account->get_email() . '</td>
+                                <td> ' . $account->get_first_name() . '</td>
+                                <td> ' . $account->get_last_name() . '</td>
+                                <td> ' . $account->get_status() . '
+                                </td>
+                                </tr>
+                                    ');
+					        }
+					    }
 					       
 					}
-                    $accounts = getall_dbAccounts("A", "Z");
-                    echo ('<table border="1" cellpadding="5" cellspacing="5">');
-                    echo ('<tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Status</th></tr>');
-                    foreach($accounts as $account) {
-                        echo ('
-                        <tr>
-                        <td> ' . $account->get_email() . '</td>
-                        <td> ' . $account->get_first_name() . '</td>
-                        <td> ' . $account->get_last_name() . '</td>
-                        <td> ' . $account->get_status() . '
-                        </td>
-                        </tr>
-                             '); 
-                    }
+					else {
+                        $accounts = getall_dbAccounts("A", "Z");
+                        //echo ('<table border="1" cellpadding="5" cellspacing="5">');
+                        //echo ('<tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Status</th></tr>');
+                        foreach($accounts as $account) {
+                            echo ('
+                            <tr>
+                            <td> ' . $account->get_email() . '</td>
+                            <td> ' . $account->get_first_name() . '</td>
+                            <td> ' . $account->get_last_name() . '</td>
+                            <td> ' . $account->get_status() . '
+                            </td>
+                            </tr>
+                                 '); 
+                        }
+					}
                     echo ('</table>');
                     
                     
