@@ -55,7 +55,7 @@ session_cache_expire(30);
 				    echo ('<a href="' . $path . 'accountDetails.php" class="greenButton">Account Details</a>'); // TODO
 				}
 				if ($_SESSION['access_level'] >= 2) {
-				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Person Search</a>'); // TODO
+				    echo ('<a href="http://localhost/bigbrother430/PersonSearch.php" class="greenButton">Person Search</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Checklist</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Submissions</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Generate Matches</a>'); // TODO

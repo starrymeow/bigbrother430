@@ -110,4 +110,24 @@ function make_an_account($result_row) {
         $result_row["status"]);
     return $theAccount;
 }
+
+function getall_dbAccounts($name_from, $name_to) {
+    $con=connect();
+    $query = "SELECT * FROM dbAccounts";
+    $query.= " WHERE last_name BETWEEN '" .$name_from. "' AND '" .$name_to. "'";
+    $query.= " ORDER BY last_name,first_name";
+    $result = mysqli_query($con,$query);
+    if ($result == null || mysqli_num_rows($result) == 0) {
+        mysqli_close($con);
+        return false;
+    }
+    $result = mysqli_query($con,$query);
+    $theAccounts = array();
+    while ($result_row = mysqli_fetch_assoc($result)) {
+        $theAccounts = make_an_account($result_row);
+        $theAccounts[] = $theAccounts;
+    }
+    
+    return $theAccounts;
+}
 ?>

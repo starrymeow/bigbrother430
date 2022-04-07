@@ -15,12 +15,18 @@ if (!($_SESSION['access_level'] >= 1)) {
 ?>
 <html>
 	<head>
-	<title>
+		<title>
             BBBS Fredericksburg
         </title>
         <link rel="icon" href="http://www.bbbsfred.org/wp-content/uploads/sites/17/2018/12/cropped-10.25.18-Favico-512x512-white-background-192x192.jpg" sizes="192x192" />
         <link rel="stylesheet" href="styles.css" type="text/css" />
 	</head>
+	<body>
+	<body>
+		<div id="container">
+		<?PHP include('header.php');?>
+		</div>
+	</body>
 
 
 </html>
