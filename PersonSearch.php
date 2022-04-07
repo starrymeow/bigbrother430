@@ -38,10 +38,10 @@ if (!($_SESSION['access_level'] >= 2)) {
                         var_dump($account);
                         echo ('
                         <tr>
-                        <td> ' . $account['email'] . '</td>
-                        <td> ' . $account['first_name'] . '</td>
-                        <td> ' . $account['last_name'] . '</td>
-                        <td> ' . $account['status'] . '
+                        <td> ' . $account->get_email() . '</td>
+                        <td> ' . $account->get_first_name() . '</td>
+                        <td> ' . $account->get_last_name() . '</td>
+                        <td> ' . $account->get_status() . '
                         </td>
                         </tr>
                              '); 
