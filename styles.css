@@ -44,7 +44,7 @@ html, body {
 	margin-bottom: 40px;
 	max-width: 50%;
 	padding: 20px;
-	width: 900px;
+	width: 900px; 
 }
 
 .infoform p {
@@ -83,6 +83,19 @@ html, body {
 .infoform form {
 	display: block;
     text-align: center;
+}
+
+.infoform table, td, tr, th {
+	border: 1px solid;
+	color: white;
+	
+}
+
+.infoform th {
+	background-color: #00FC87;
+	font-size: 20px;
+	margin-bottom: 15px;
+	text-align: center;
 }
 
 .infoform input[type="text"],
