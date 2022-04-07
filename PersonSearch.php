@@ -36,6 +36,7 @@ if (!($_SESSION['access_level'] >= 2)) {
 					<input type="text" name="last_name" placeholder="last name"><br>
 					<label for="search_options">Search by Status:</label>
 					<select name="status_options" id="status_options">
+					<option value="select">Select</option>
 					<option value="new">New</option>
 					<option value="active">Active</option>
 					<option value="applicant">Applicant</option>
@@ -79,7 +80,7 @@ if (!($_SESSION['access_level'] >= 2)) {
 					    }
 					    if ($_POST['first_name']) {
 					        $account = getall_firstdbAccounts($_POST['first_name']);
-					        if (!$accounts) {
+					        if (!$account) {
 					            echo ('<h2>There is no one in the database with this first name</h2>');
 					            $accounts = getall_dbAccounts("A", "Z");
 					            foreach($accounts as $account) {
@@ -111,7 +112,7 @@ if (!($_SESSION['access_level'] >= 2)) {
 					    }
 					    if ($_POST['last_name']) {
 					        $account = getall_lastdbAccounts($_POST['last_name']);
-					        if (!$accounts) {
+					        if (!$account) {
 					            echo ('<h2>There is no one in the database with this last name</h2>');
 					            $accounts = getall_dbAccounts("A", "Z");
 					            foreach($accounts as $account) {
@@ -142,9 +143,9 @@ if (!($_SESSION['access_level'] >= 2)) {
 					        goto end;   
 					    }
 					    
-					    if ($_POST['status']) {
+					    if ($_POST['status'] != "select") {
 					        $account = getall_statusdbAccounts($_POST['last_name']);
-					        if (!$accounts) {
+					        if (!$account) {
 					            echo ('<h2>There is no one in the database with this status</h2>');
 					            $accounts = getall_dbAccounts("A", "Z");
 					            foreach($accounts as $account) {
