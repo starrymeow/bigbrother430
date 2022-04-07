@@ -48,7 +48,7 @@ if (!($_SESSION['access_level'] >= 2)) {
 					echo ('<table border="1" cellpadding="5" cellspacing="5">');
 					echo ('<tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Status</th></tr>');
 					if ($_POST['search']) {
-					    if ($_POST['email']) {
+					    if ($_POST['email'] != "") {
 					        $acc = retrieve_account($_POST['email']);
 					        if (!$acc) {
 					            echo ('<h2>There is no person in the database with this email</h2>');
@@ -91,7 +91,7 @@ if (!($_SESSION['access_level'] >= 2)) {
 					        }
 					        goto end;
 					    }
-					    if ($_POST['first_name']) {
+					    elseif ($_POST['first_name'] != "") {
 					        $acc = getall_firstdbAccounts($_POST['first_name']);
 					        if (!$acc) {
 					            echo ('<h2>There is no person in the database with this first name</h2>');
@@ -134,7 +134,7 @@ if (!($_SESSION['access_level'] >= 2)) {
 					        }
 					        goto end;
 					    }
-					    if ($_POST['last_name']) {
+					    elseif ($_POST['last_name'] != "") {
 					        $acc = getall_lastdbAccounts($_POST['last_name']);
 					        if (!$acc) {
 					            echo ('<h2>There is no person in the database with this email</h2>');
@@ -178,7 +178,7 @@ if (!($_SESSION['access_level'] >= 2)) {
 					        goto end;
 					    }
 					    
-					    if ($_POST['status_options'] != "select") {
+					    elseif ($_POST['status_options'] != "select") {
 					        $acc = getall_status($_POST['status_options']);
 					        if (!$acc) {
 					            echo ('<h2>There is no person in the database with this email</h2>');
@@ -220,6 +220,21 @@ if (!($_SESSION['access_level'] >= 2)) {
                                     ');
 					        }
 					        goto end;
+					    }
+					    else {
+					        $accounts = getall_dbAccounts("A", "Z");
+					        
+					        foreach($accounts as $account) {
+					            echo ('
+                            <tr>
+                            <td> ' . $account->get_email() . '</td>
+                            <td> ' . $account->get_first_name() . '</td>
+                            <td> ' . $account->get_last_name() . '</td>
+                            <td> ' . $account->get_status() . '
+                            </td>
+                            </tr>
+                                 '); 
+					       }
 					    }
 					    
 					       
