@@ -31,7 +31,7 @@ session_cache_expire(30);
                 include_once('database/dbAdmins.php');
                 date_default_timezone_set('America/New_York');
                 ?>
-				<div id="homeoptions">
+				<div class="infoform">
 				<?php
 				if ($_SESSION['access_level'] == 0) {
 				    echo ('<a href="' . $path . 'accountEdit.php?id=' . 'new' . '" class="greenButton">Apply</a>'); // TODO
@@ -46,15 +46,16 @@ session_cache_expire(30);
 // 				}
 				if ($_SESSION['access_level'] >= 2) {
 				    include('accountValidate.inc');
-				    echo ('<h1>Create new admin</h1>');
-				    echo ('<form method="post"');
+				    
+				    echo ('<form method="POST">');
+				    echo ('<h1>Create Admin</h1>');
 				    echo ('<label for="email">Email</label><br>');
-				    echo ('<input type="text" name="email"/><br>');
-				    echo ('<label for="first_name">First Name</lable><br>');
-				    echo ('<input type="text" name="first_name"/><br>');
-				    echo ('<label for="last_name">Last Name</lable><br>');
-				    echo ('<input type="text" name="last_name"/><br>');
-				    echo ('<input type="submit" name="new_admin" value="Enter" class="greenButton"><br>');
+				    echo ('<input type="text" name="email" placeholder="example@email.com"/><br>');
+				    echo ('<label for="first_name">First Name</label><br>');
+				    echo ('<input type="text" name="first_name" placeholder="First name"/><br>');
+				    echo ('<label for="last_name">Last Name</label><br>');
+				    echo ('<input type="text" name="last_name" placeholder="Last name"/><br>');
+				    echo ('<input type="submit" name="new_admin" value="Enter" class="greenButton">');
 				    echo ('</form>');
 				    if ($_POST['new_admin']) {
 				        $account = new Account("new", "new", $_POST['first_name'], $_POST['last_name'], "admin", "no");

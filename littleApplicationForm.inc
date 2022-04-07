@@ -105,6 +105,16 @@
 				<option value="o">Other</option>
 			</select><br/>
     		
+    		<label for="home_phone">Home Phone #</label><br/>
+    		<input type="tel" name="home_phone"/><br/>
+    		
+    		<label for="parent_phone">Parent Phone #</label><br/>
+    		<input type="tel" name="parent_phone"/><br/>
+    		
+    		<label for="child_phone">Child Phone #</label><br/>
+    		<input type="tel" name="child_phone"/><br/>
+    		
+    		<input type="submit" name="littlesubmit" class="GreenButton"/>
     	</div>    	
 	</form>
 	<script type="text/javascript">

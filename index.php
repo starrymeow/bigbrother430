@@ -47,8 +47,6 @@ session_cache_expire(30);
  				}
 				if ($_SESSION['access_level'] == 1) {
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Check Match Status</a>'); // TODO
-				    //echo ('<a href="http://Localhost/bigbrother430/littleform.php" class="greenButton">Submit Little Application</a>'); // TODO
-				    //echo ('<a href="http://localhost/bigbrother430/bigform.php" class="greenbutton">Submit Big Application</a>'); // TODO
 				    echo ('<a href="'. $path . 'generalApplication.php" class="greenButton">Submit Application</a>'); // TODO
 				}
 				if ($_SESSION['access_level'] >= 1) {
@@ -56,6 +54,8 @@ session_cache_expire(30);
 				}
 				if ($_SESSION['access_level'] >= 2) {
 				    echo ('<a href="http://localhost/bigbrother430/PersonSearch.php" class="greenButton">Person Search</a>'); // TODO
+				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Person Search</a>'); // TODO
+				    echo ('<a href="'. $path . 'generalApplication.php" class="greenButton">Submit Application</a>');
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Checklist</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Submissions</a>'); // TODO
 				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Generate Matches</a>'); // TODO
