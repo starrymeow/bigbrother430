@@ -28,16 +28,26 @@ if (!($_SESSION['access_level'] >= 2)) {
 				<div class="infoform">
 					<h1>Search for a Person</h1>
 					<form method="post">
-					<label for="search_options">Search by criteria:</label>
-					<select name="search_options" id="search_options">
-					<option value="email">Email</option>
-					<option value="first_name">First Name</option>
-					<option value="last_name">Last Name</option>
-					<option value="status">Status</option>
+					<label for="email">Email</label><br>
+					<input type="text" name="email" placeholder="email"><br>
+					<label for="first_name">First Name</label><br>
+					<input type="text" name="first_name" placeholder="first name"><br>
+					<label for="last_name">Last Name</label><br>
+					<input type="text" name="last_name" placeholder="last name"><br>
+					<label for="search_options">Search by Status:</label>
+					<select name="status_options" id="status_options">
+					<option value="new">New</option>
+					<option value="active">Active</option>
+					<option value="applicant">Applicant</option>
+					<option value="admin">Admin</option>
 					</select>
 					<input type="submit" name="search" value="Search" class="greenButton">
 					</form>
 					<?php
+					if ($_POST['search']) {
+					    //if ($_POST['search_options'] == )
+					       
+					}
                     $accounts = getall_dbAccounts("A", "Z");
                     echo ('<table border="1" cellpadding="5" cellspacing="5">');
                     echo ('<tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Status</th></tr>');

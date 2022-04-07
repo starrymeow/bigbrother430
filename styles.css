@@ -86,6 +86,7 @@ html, body {
 }
 
 .infoform table, td, tr, th {
+	background-color: white;
 	border: 1px solid;
 	color: black;
 	
