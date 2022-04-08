@@ -11,7 +11,6 @@ class LittleApplication extends Application {
     private $grade_level; // what grade is the child currently in (ex. 5th grade)
     private $studentID; // the identification number for the child at their school
     private $nationality; // what nation do they have a citizenship
-    //TODO add the rest of the variables here
 
     function __construct($e, $i, $f, $m, $l, $langs, $prime, $name, $dob, $cell, $text, $childtext, $home, $g, $a, $c, $z, $r, $apply, $life,
             $adult_name, $relation, $legal_custody, $share_custody, $other_supports_enrollment, $living_situation, $child_cell, $child_email,
