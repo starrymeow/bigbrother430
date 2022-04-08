@@ -11,7 +11,7 @@ class ApplicationTest extends TestCase {
         $last_name = "Last";
         $languages = "eng, span";
         $primary_language = "eng";
-        $prefered_name = "Susan";
+        $preferred_name = "Susan";
         $birthday = "01/01/1970";
         $cell_phone = "5401234567";
         $can_text_cell = true;
@@ -25,7 +25,7 @@ class ApplicationTest extends TestCase {
         $apply_reason = "example";
         $life_changes = "something";
 
-        $myApplication = new Application($email, $id, $first_name, $last_name, $languages, $primary_language, $prefered_name,
+        $myApplication = new Application($email, $id, $first_name, $last_name, $languages, $primary_language, $preferred_name,
             $birthday, $cell_phone, $can_text_cell, $home_phone, $gender, $address, $city, $state, $zip, $race, $apply_reason,
             $life_changes);
 
@@ -35,7 +35,7 @@ class ApplicationTest extends TestCase {
         $this->assertTrue($myApplication->get_last_name()==$last_name);
         $this->assertTrue($myApplication->get_languages()==$languages);
         $this->assertTrue($myApplication->get_primary_language()==$primary_language);
-        $this->assertTrue($myApplication->get_prefered_name()==$prefered_name);
+        $this->assertTrue($myApplication->get_preferred_name()==$preferred_name);
         $this->assertTrue($myApplication->get_birthday()==$birthday);
         $this->assertTrue($myApplication->get_cell_phone()==$cell_phone);
         $this->assertTrue($myApplication->get_can_text_cell()==$can_text_cell);
@@ -71,7 +71,7 @@ class ApplicationTest extends TestCase {
         $myApplication->set_last_name($last_name);
         $myApplication->set_languages($languages);
         $myApplication->set_primary_language($primary_language);
-        $myApplication->set_prefered_name($prefered_name);
+        $myApplication->set_preferred_name($preferred_name);
         $myApplication->set_birthday($birthday);
         $myApplication->set_cell_phone($cell_phone);
         $myApplication->set_can_text_cell($can_text_cell);
@@ -91,7 +91,7 @@ class ApplicationTest extends TestCase {
         $this->assertTrue($myApplication->get_last_name()==$last_name);
         $this->assertTrue($myApplication->get_languages()==$languages);
         $this->assertTrue($myApplication->get_primary_language()==$primary_language);
-        $this->assertTrue($myApplication->get_prefered_name()==$prefered_name);
+        $this->assertTrue($myApplication->get_preferred_name()==$preferred_name);
         $this->assertTrue($myApplication->get_birthday()==$birthday);
         $this->assertTrue($myApplication->get_cell_phone()==$cell_phone);
         $this->assertTrue($myApplication->get_can_text_cell()==$can_text_cell);

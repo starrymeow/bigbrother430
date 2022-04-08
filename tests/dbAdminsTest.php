@@ -10,10 +10,10 @@ class dbAdminsTest extends TestCase {
     function testdbAdmins() {
         // add two Admins to the database
 
-        $m = new Admin("ted2@bowdoin.edu", "password1", "Gabrielle", "Booth", false, "status1");
+        $m = new Admin("ted2@bowdoin.edu", "password1", "Gabrielle", "Booth", 0, "status1");
         $this->assertTrue(add_admin($m));
 
-        $m2 = new Admin("alfred2@whitman.edu", "password2", "Fred", "Wilson", false, "status2");
+        $m2 = new Admin("alfred2@whitman.edu", "password2", "Fred", "Wilson", 0, "status2");
         $this->assertTrue(add_admin($m2));
 
         // retrieve the Admins and test the fields

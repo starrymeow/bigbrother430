@@ -16,12 +16,7 @@ function add_admin($admin) {
     $result = mysqli_query($con,$query);
     //if there's no entry for this id, add it
     if ($result == null || mysqli_num_rows($result) == 0) {
-        $acc = add_account($admin);/*new Account($admin->get_email(),
-            $admin->get_password(),
-            $admin->get_first_name(),
-            $admin->get_last_name(),
-            $admin->get_status()
-            ));*/
+        $acc = add_account($admin);
         if ($acc == false)
             return false;
         mysqli_query($con,'INSERT INTO dbAdmins VALUES("' .
@@ -59,6 +54,7 @@ function retrieve_admin($email) {
     $query = "SELECT * FROM dbAdmins WHERE email = '" . $email . "'";
     $result = mysqli_query($con,$query);
     if (mysqli_num_rows($result) !== 1) {
+        //var_dump($result);
         mysqli_close($con);
         return false;
     }

@@ -35,8 +35,8 @@ function add_application($app) {
             $app->get_apply_reason() . '","' .
             $app->get_life_changes() .
             '");');
-            mysqli_close($con);
-            return true;
+        mysqli_close($con);
+        return true;
     }
     mysqli_close($con);
     return false;
@@ -74,7 +74,7 @@ function retrieve_application($id) {
     }
     $result_row = mysqli_fetch_assoc($result);
     //var_dump($result_row);
-    $theApplication = make_an_Application($result_row);
+    $theApplication = make_an_application($result_row);
     //var_dump($theApplication);
     //    mysqli_close($con);
     return $theApplication;
@@ -87,18 +87,16 @@ function retrieve_application($id) {
 
 function retrieve_application_ids($email) {
     $con=connect();
-    $query = "SELECT * FROM dbApplications WHERE id = '" . $email . "'";
+    $query = "SELECT * FROM dbApplications WHERE email = '" . $email . "'";
     $result = mysqli_query($con,$query);
-    if (mysqli_num_rows($result) !== 1) {
+    if (mysqli_num_rows($result) < 1) {
         mysqli_close($con);
         return false;
     }
-    //TODO fetch ids from rows
-    $theIds = mysqli_fetch_assoc($result)['id'];
-    //var_dump($result);
-    //var_dump($theIds);
-    //    mysqli_close($con);
-    return $theIds;
+
+    for ($x=0; $x < mysqli_num_rows($result); $x++)
+        $ids[] = mysqli_fetch_assoc($result)['id'];
+    return $ids;
 }
 
 function make_an_application($result_row) {
@@ -108,8 +106,8 @@ function make_an_application($result_row) {
         $result_row["first_name"],
         $result_row["last_name"],
         $result_row["languages"],
-        $result_row["primary_languages"],
-        $result_row["perferred_name"],
+        $result_row["primary_language"],
+        $result_row["preferred_name"],
         $result_row["birthday"],
         $result_row["cell_phone"],
         $result_row["can_text_cell"],
