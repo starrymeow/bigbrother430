@@ -3,7 +3,7 @@
 Class Admin extends Account {
     private $is_super;
 
-    function __construct($e, $pass, $first, $last, $super, $s=null) {
+    function __construct($e, $pass, $first, $last, $super=false, $s=null) {
         Account::__construct($e, $pass, $first, $last, $s);
         $this->is_super = $super;
     }

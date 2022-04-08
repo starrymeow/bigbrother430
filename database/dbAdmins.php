@@ -92,19 +92,24 @@ function make_an_admin($result_row) {
     return $theAdmin;
 }
 
+//promote on admin given an email
+//return false on fail
 function promote($email) {
     $con=connect();
-    $query = 'UPDATE dbAdmins SET is_super = "yes" WHERE email = "' . $email . '"';
+    $query = 'UPDATE dbAdmins SET is_super = true WHERE email = "' . $email . '"';
     $result = mysqli_query($con, $query);
     mysqli_close($con);
     return $result;
 }
 
+//Return the emails of all the admins
 function get_all_admins() {
     $con=connect();
-    $query = 'SELECT `email` FROM dbAdmins NATURAL JOIN dbAccounts';
+    $query = 'SELECT `email` FROM dbAdmins';
     $result = mysqli_query($con,$query);
+    for ($x=0; $x < mysqli_num_rows($result); $x++)
+        $emails[] = mysqli_fetch_assoc($result)['email'];
     mysqli_close($con);
-    return $result;
+    return $emails;
 }
 ?>
