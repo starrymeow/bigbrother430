@@ -76,7 +76,7 @@ class BigApplication extends Application {
         $this->personal_reference_email =  $perrefemail;
         $this->personal_reference_relationship = $perrefrel;
         $this->personal_reference_years_known = $perrefyears;
-        $this->worked_with_youth = $workyouth;          //: int
+        $this->worked_with_youth = $workyouth;          //: boolean
         $this->organization_1 = $org1;                  //organization name: string
         $this->organization_1_manager = $org1manager;   //name: string
         $this->organization_1_number = $org1num;        //manager phone number: string

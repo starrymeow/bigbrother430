@@ -17,14 +17,16 @@ function add_admin($admin) {
     //if there's no entry for this id, add it
     if ($result == null || mysqli_num_rows($result) == 0) {
         $acc = add_account($admin);
-        if ($acc == false)
+        if ($acc == false) {
+            mysqli_close($con);
             return false;
-        mysqli_query($con,'INSERT INTO dbAdmins VALUES("' .
+        }
+        $result = mysqli_query($con,'INSERT INTO dbAdmins VALUES("' .
             $admin->get_email() . '","' .
             $admin->get_is_super() .
             '");');
         mysqli_close($con);
-        return true;
+        return $result;
     }
     mysqli_close($con);
     return false;
