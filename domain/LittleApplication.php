@@ -13,11 +13,11 @@ class LittleApplication extends Application {
     private $nationality; // what nation do they have a citizenship
 
     function __construct($e, $i, $f, $m, $l, $langs, $prime, $name, $dob, $cell, $text, $childtext, $home, $g, $a, $c, $z, $r, $apply, $life,
-            $adult_name, $relation, $legal_custody, $share_custody, $other_supports_enrollment, $living_situation, $child_cell, $child_email, 
+            $adult_name, $relation, $legal_custody, $share_custody, $other_supports_enrollment, $living_situation, $child_cell, $child_email,
             $school, $grade_level, $student_id, $nationality, $hear, $employer, $worknum, $workcon, $bestnum, $besttime, $altcontact,
             $altcontactnum, $childaware, $childwant, $bbbsfamily, $meet, $mconditions, $household, $incomeassist, $houseassist, $development,
         $lunch, $income, $military, $branch, $deploy, $retiredmil, $dismil, $wounded, $incarcerated, $juv, $schtroub) {
-        
+
         Application ::__construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life);
         $this->middle_name = $m;
         $this->can_text_child = $childtext;
@@ -62,12 +62,12 @@ class LittleApplication extends Application {
         $this->juvenile_record = $juv;
         $this->school_trouble = $schtroub;
     }
-    
+
     // returns child's middle name
     function get_middle_name() {
         return $this->middle_name;
     }
-    
+
     // returns whether BBBS can text the child's cell
     function get_can_text_child() {
         return $this->can_text_child;
@@ -101,7 +101,7 @@ class LittleApplication extends Application {
     function get_lving_situation() {
         return $this->living_situation;
     }
-    
+
     // returns the child's cell phone number (if they have one)
     function get_child_cell() {
         return $this->child_cell;
@@ -111,7 +111,7 @@ class LittleApplication extends Application {
     function get_child_email() {
         return $this->child_email;
     }
-    
+
     // returns the child's school
     function get_school() {
         return $this->school;
@@ -131,143 +131,143 @@ class LittleApplication extends Application {
     function get_nationality() {
         return $this->nationality;
     }
-    
+
     // returns how the guardian heard of BBBS
     function get_how_did_you_hear() {
         return $this->how_did_you_hear;
     }
-    
+
     // returns guardian's employer
     function get_parent_employer() {
         return $this->parent_employer;
     }
-    
+
     // returns guardian's work phone number
     function get_parent_work_num() {
         return $this->parent_work_num;
     }
-    
+
     // returns whether BBBS can contact the guardian at work
     function get_can_contact_work() {
         return $this->can_contact_work;
     }
-    
+
     // returns which number is best for BBBS to contact
     function get_best_num() {
         return $this->best_num;
     }
-    
+
     // returns what time (morning, afternoon, evening) is best
     // to contact the guardian
     function get_best_contact_time() {
         return $this->best_contact_time;
     }
-    
+
     // returns an alternate contact if guardian unavailable
     function get_alt_contact_name() {
         return $this->alt_contact_name;
     }
-    
+
     // returns the phone number for the alterate contact
     function get_alt_contact_num() {
         return $this->alt_contact_num;
     }
-    
+
     // returns whether the child knows guardian is enrolling them
     function get_does_child_know_enrolling() {
         return $this->does_child_know_enrolling;
     }
-    
+
     // returns whether the child wants to join BBBS
     function get_does_child_want_to_join() {
         return $this->does_child_want_to_join;
     }
-    
+
     // returns whether any of the child's family is enrolled in BBBS
     function get_BBBS_family_names() {
         return $this->BBBS_family_names;
     }
-    
+
     // returns whether the child is willing to meet 2-4 times monthly
     function get_will_meet_monthly() {
         return $this->will_meet_monthly;
     }
-    
+
     // returns child's medical conditions (if any)
     function get_medical_conditions() {
         return $this->medical_conditions;
     }
-    
+
     // returns the size of the child's household
     function get_household_size() {
         return $this->household_size;
     }
-    
+
     // returns whether the family is receiving income assistance
     function get_income_assist() {
         return $this->income_assist;
     }
-    
+
     // returns whether the family is receiving any housing assistance
     function get_house_assist() {
         return $this->house_assist;
     }
-    
+
     // returns the housing development where family lives if receiving assistance
     function get_development() {
         return $this->development;
     }
-    
+
     // returns whether the chiild receives lunch assistance at school
     function get_lunch_assist() {
         return $this->lunch_assist;
     }
-    
+
     // returns the annual income of the child's household
     function get_annual_income() {
         return $this->annual_income;
     }
-    
+
     // returns whether any household member serves in the military
     function get_military() {
         return $this->military;
     }
-    
+
     // returns which branch/service the household member serves in if in the military
     function get_service_branch() {
         return $this->service_branch;
     }
-    
+
     // returns which date the household service member deployed, if on deployment
     function get_deployment_date() {
         return $this->deployment_date;
     }
-    
+
     // returns whether any household is a veteran/retired military
     function get_retired_military() {
         return $this->retired_military;
     }
-    
+
     // returns whether any household member was discharged from the military
     function get_dischared_military() {
         return $this->dischared_military;
     }
-    
+
     // returns whether any household member was injured while in the military
     function get_wounded_veteran() {
         return $this->wounded_veteran;
     }
-    
+
     // returns whether any household member is incarcerated
     function get_incarcerated() {
         return $this->incarcerated;
     }
-    
+
     // returns whether the child has a juvenile record and the charges
     function get_juvenile_record() {
         return $this->juvenile_record;
     }
-    
+
     // returns whether the chiild has been in trouble and school and what kind
     function get_school_trouble() {
         return $this->school_trouble;

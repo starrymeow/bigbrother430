@@ -1,16 +1,14 @@
 <?php
-
-
 include_once('dbinfo.php');
 include_once(dirname(__FILE__).'/../domain/Account.php');
+include_once(dirname(__FILE__).'/../domain/Admin.php');
 
-/*
- * add a person to dbPersons table: if already there, return false
- */
-
+//add an account to the dbAccounts table: if already there, return false
 function add_account($account) {
     if (!$account instanceof Account)
+        //var_dump(get_class($account));
         die("Error: add_account type mismatch");
+        //return false;
     $con=connect();
     $query = "SELECT * FROM dbAccounts WHERE email = '" . $account->get_email() . "'";
     $result = mysqli_query($con,$query);

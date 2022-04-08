@@ -12,7 +12,7 @@ class BigApplication extends Application {
     private $EC_number; // the emergency contact's phone number
     private $EC_relation; // what relation does the contact have with the applicant
 
-    function __construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life,
+    function __construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $s, $z, $r, $apply, $life,
         $se, $ssn, $relation, $o, $faith, $number, $state, $exp, $emerg, $EC_number, $EC_relation,
         $jt, $emp, $empadd, $empcity, $empstate, $empzip, $work_contact, $work_length, $work_hours, $high_edu, $years, $grad, $ohio,
         $prevadd1date, $prevadd1add, $prevadd2date, $prevadd2add, $prevadd3date, $prevadd3add, $mil, $branch, $dos, $milstatus, $mildis,
@@ -25,7 +25,7 @@ class BigApplication extends Application {
         $qoc, $felon, $citations, $conflicts, $failtocare, $abuse, $health, $mental, $substance, $sober, $drugs, $auto, $copy, $sports, $stem, $crafts,
         $outdooract, $games, $misc, $quiet, $outdoor, $watch, $other) {
 
-        Application::construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life);
+        Application::__construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $s, $z, $r, $apply, $life);
         $this->secondary_email = $se;                   //: string
         $this->ssn = $ssn;                              //social security number: string
         $this->relationship_status = $relation;         //: string
@@ -35,7 +35,8 @@ class BigApplication extends Application {
         $this->DL_state = $state;                       //: string
         $this->emergency_contact = $emerg;              //name: string
         $this->EC_number = $EC_number;                  //: string
-        $this->EC_relartion = $EC_relation;             //: string
+        $this->DL_expiration = $exp;                           //: String
+        $this->EC_relation = $EC_relation;             //: string
         $this->job_title = $jt;                         //: string
         $this->employer = $emp;                         //name of business: string
         $this->employer_address = $empadd;              //: string
@@ -62,58 +63,58 @@ class BigApplication extends Application {
         $this->military_discharge = $mildis;            //: string
         $this->significant_name = $signame;             //: string
         $this->significant_number = $signum;            //phone number: string
-        $this->sigificant_email = $sigemail;            //: string
-        $this->signnificant_relationship = $sigrel;     //: string
+        $this->significant_email = $sigemail;            //: string
+        $this->significant_relationship = $sigrel;     //: string
         $this->significant_years_known = $sigyears;     //: int
-        $this->profesional_reference_name = $prorefname;
-        $this->profesional_reference_number = $prorefnum;
-        $this->profesional_reference_email = $prorefemail;
-        $this->profesional_reference_relationship = $prorefrel;
-        $this->profesional_reference_years_known = $prorefyears;
+        $this->professional_reference_name = $prorefname;
+        $this->professional_reference_number = $prorefnum;
+        $this->professional_reference_email = $prorefemail;
+        $this->professional_reference_relationship = $prorefrel;
+        $this->professional_reference_years_known = $prorefyears;
         $this->personal_reference_name = $perrefname;
         $this->personal_reference_number = $perrefnum;
         $this->personal_reference_email =  $perrefemail;
         $this->personal_reference_relationship = $perrefrel;
         $this->personal_reference_years_known = $perrefyears;
-        $this->worked_with_youth = $workyouth;          //: int
+        $this->worked_with_youth = $workyouth;          //: boolean
         $this->organization_1 = $org1;                  //organization name: string
-        $this->orginization_1_manager = $org1manager;   //name: string
-        $this->orginization_1_number = $org1num;        //manager phone number: string
-        $this->orginization_1_email = $org1email;       //manager email: string
-        $this->orginization_1_dates = $org1dates;       //dates of involvment: string
-        $this->orginization_1_reason = $org1reason;     //reason for leaving: string
+        $this->organization_1_manager = $org1manager;   //name: string
+        $this->organization_1_number = $org1num;        //manager phone number: string
+        $this->organization_1_email = $org1email;       //manager email: string
+        $this->organization_1_dates = $org1dates;       //dates of involvment: string
+        $this->organization_1_reason = $org1reason;     //reason for leaving: string
         $this->organization_2 = $org2;
-        $this->orginization_2_manager = $org2manager;
-        $this->orginization_2_number = $org2num;
-        $this->orginization_2_email = $org2email;
-        $this->orginization_2_dates = $org2dates;
-        $this->orginization_2_reason = $org2reason;
+        $this->organization_2_manager = $org2manager;
+        $this->organization_2_number = $org2num;
+        $this->organization_2_email = $org2email;
+        $this->organization_2_dates = $org2dates;
+        $this->organization_2_reason = $org2reason;
         $this->organization_3 = $org3;
-        $this->orginization_3_manager = $org3manager;
-        $this->orginization_3_number = $org3num;
-        $this->orginization_3_email = $org3email;
-        $this->orginization_3_dates = $org3dates;
-        $this->orginization_3_reason = $org3reason;
+        $this->organization_3_manager = $org3manager;
+        $this->organization_3_number = $org3num;
+        $this->organization_3_email = $org3email;
+        $this->organization_3_dates = $org3dates;
+        $this->organization_3_reason = $org3reason;
         $this->organization_4 = $org4;
-        $this->orginization_4_manager = $org4manager;
-        $this->orginization_4_number = $org4num;
-        $this->orginization_4_email = $org4email;
-        $this->orginization_4_dates = $org4dates;
-        $this->orginization_4_reason = $org4reason;
+        $this->organization_4_manager = $org4manager;
+        $this->organization_4_number = $org4num;
+        $this->organization_4_email = $org4email;
+        $this->organization_4_dates = $org4dates;
+        $this->organization_4_reason = $org4reason;
         //preinterview questions
         $this->community_mentor = $communitymentor;     //: boolean
         $this->community_couple = $communitycouple;     //: boolean
         $this->school_mentor = $schoolmentor;           //: boolean
         $this->commitment_concerns = $commitmentconcerns;   //if yes explain: string
         $this->interest_in_children = $interest;        //: string
-        $this->comfortable_drivig_distace = $comfortdriving;    //: string
+        $this->comfortable_driving_distance = $comfortdriving;    //: string
         $this->interview_availability = $interview;     //: string
         $this->uncomfortable_traits = $uncomforttraits; //formatted as an array: string
         $this->big_sister_with_little_brother = $bigsislittlebro;   //: boolean
         $this->weapons_at_home = $weapons;              //: boolean
         $this->concealed_permit = $concealed;           //: boolean
         $this->pets = $pets;                            //: string
-        $this->other_opeople_in_house = $otherpeople;   //: boolean
+        $this->other_people_in_house = $otherpeople;   //: boolean
         $this->other_1_name = $other1name;              //: string
         $this->other_1_age = $other1age;                //: int
         $this->other_1_relationship = $other1rel;       //: string
@@ -234,8 +235,8 @@ class BigApplication extends Application {
         return $this->employer_zip;
     }
 
-    function get_can_cotact_work() {
-        return $this->can_cotact_work;
+    function get_can_contact_work() {
+        return $this->can_contact_work;
     }
 
     function get_work_length() {
@@ -286,8 +287,8 @@ class BigApplication extends Application {
         return $this->prev_add_3_add;
     }
 
-    function get_military_experiece() {
-        return $this->military_experiece;
+    function get_military_experience() {
+        return $this->military_experience;
     }
 
     function get_military_branch() {
@@ -482,20 +483,20 @@ class BigApplication extends Application {
         return $this->commitment_concerns;
     }
 
-    function get_iterest_in_children() {
-        return $this->iterest_in_children;
+    function get_interest_in_children() {
+        return $this->interest_in_children;
     }
 
     function get_comfortable_driving_distance() {
         return $this->comfortable_driving_distance;
     }
 
-    function get_iterview_availability() {
-        return $this->iterview_availability;
+    function get_interview_availability() {
+        return $this->interview_availability;
     }
 
-    function get_uncomfortale_traits() {
-        return $this->uncomfortale_traits;
+    function get_uncomfortable_traits() {
+        return $this->uncomfortable_traits;
     }
 
     function get_big_sister_with_little_brother() {
@@ -514,8 +515,8 @@ class BigApplication extends Application {
         return $this->pets;
     }
 
-    function get_other_people() {
-        return $this->other_people;
+    function get_other_people_in_house() {
+        return $this->other_people_in_house;
     }
 
     function get_other_1_name() {
@@ -578,8 +579,8 @@ class BigApplication extends Application {
         return $this->other_5_relationship;
     }
 
-    function get_commets_or_questions() {
-        return $this->commets_or_questions;
+    function get_questions_or_comments() {
+        return $this->questions_or_comments;
     }
 
     function get_convicted_felon() {
@@ -590,16 +591,16 @@ class BigApplication extends Application {
         return $this->driving_citations;
     }
 
-    function get_coflicting_convictions() {
-        return $this->coflicting_convictions;
+    function get_conflicting_convictions() {
+        return $this->conflicting_convictions;
     }
 
     function get_fail_to_care() {
         return $this->fail_to_care;
     }
 
-    function get_chraged_with_abuse() {
-        return $this->chraged_with_abuse;
+    function get_charged_with_abuse() {
+        return $this->charged_with_abuse;
     }
 
     function get_health_limitations() {
@@ -634,24 +635,24 @@ class BigApplication extends Application {
         return $this->sports_activities;
     }
 
-    function get_stem_activites() {
-        return $this->stem_activites;
+    function get_stem_activities() {
+        return $this->stem_activities;
     }
 
     function get_arts_crafts_activities() {
         return $this->arts_crafts_activities;
     }
 
-    function get_outdoor_activites() {
-        return $this->outdoor_activites;
+    function get_outdoor_activities() {
+        return $this->outdoor_activities;
     }
 
-    function get_games_activites() {
-        return $this->games_activites;
+    function get_games_activities() {
+        return $this->games_activities;
     }
 
-    function get_misc_activites() {
-        return $this->misc_activites;
+    function get_misc_activities() {
+        return $this->misc_activities;
     }
 
     function get_quiet_talkitive() {
@@ -668,6 +669,510 @@ class BigApplication extends Application {
 
     function get_other_interests() {
         return $this->other_interests;
+    }
+//Setters ======================================================
+    function set_secondary_email($value) {
+        $this->secondary_email = $value;
+    }
+
+    function set_ssn($value) {
+        $this->ssn = $value;
+    }
+
+    function set_relationship_status($value) {
+        $this->relationship_status = $value;
+    }
+
+    function set_orientation($value) {
+        $this->orientation = $value;
+    }
+
+    function set_faith($value) {
+        $this->faith = $value;
+    }
+
+    function set_DL_number($value) {
+        $this->DL_number = $value;
+    }
+
+    function set_DL_state($value) {
+        $this->DL_state = $value;
+    }
+
+    function set_DL_expiration($value) {
+        $this->DL_expiration = $value;
+    }
+
+    function set_emergency_contact($value) {
+        $this->emergency_contact = $value;
+    }
+
+    function set_EC_number($value) {
+        $this->EC_number = $value;
+    }
+
+    function set_EC_relation($value) {
+        $this->EC_relation = $value;
+    }
+
+    function set_job_title($value) {
+        $this->job_title = $value;
+    }
+
+    function set_employer($value) {
+        $this->employer = $value;
+    }
+
+    function set_employer_address($value) {
+        $this->employer_address = $value;
+    }
+
+    function set_employer_city($value) {
+        $this->employer_city = $value;
+    }
+
+    function set_employer_state($value) {
+        $this->employer_state = $value;
+    }
+
+    function set_employer_zip($value) {
+        $this->employer_zip = $value;
+    }
+
+    function set_can_contact_work($value) {
+        $this->can_contact_work = $value;
+    }
+
+    function set_work_length($value) {
+        $this->work_length = $value;
+    }
+
+    function set_work_hours($value) {
+        $this->work_hours = $value;
+    }
+
+    function set_highest_education($value) {
+        $this->highest_education = $value;
+    }
+
+    function set_years_completed($value) {
+        $this->years_completed = $value;
+    }
+
+    function set_graduation_year($value) {
+        $this->graduation_year = $value;
+    }
+
+    function set_ohio($value) {
+        $this->ohio = $value;
+    }
+
+    function set_prev_add_1_date($value) {
+        $this->prev_add_1_date = $value;
+    }
+
+    function set_prev_add_1_add($value) {
+        $this->prev_add_1_add = $value;
+    }
+
+    function set_prev_add_2_date($value) {
+        $this->prev_add_2_date = $value;
+    }
+
+    function set_prev_add_2_add($value) {
+        $this->prev_add_2_add = $value;
+    }
+
+    function set_prev_add_3_date($value) {
+        $this->prev_add_3_date = $value;
+    }
+
+    function set_prev_add_3_add($value) {
+        $this->prev_add_3_add = $value;
+    }
+
+    function set_military_experience($value) {
+        $this->military_experience = $value;
+    }
+
+    function set_military_branch($value) {
+        $this->military_branch = $value;
+    }
+
+    function set_date_of_service($value) {
+        $this->date_of_service = $value;
+    }
+
+    function set_military_status($value) {
+        $this->military_status = $value;
+    }
+
+    function set_military_discharge($value) {
+        $this->military_discharge = $value;
+    }
+
+    function set_significant_name($value) {
+        $this->significant_name = $value;
+    }
+
+    function set_significant_number($value) {
+        $this->significant_number = $value;
+    }
+
+    function set_significant_email($value) {
+        $this->significant_email = $value;
+    }
+
+    function set_significant_relationship($value) {
+        $this->significant_relationship = $value;
+    }
+
+    function set_significant_years_known($value) {
+        $this->significant_years_known = $value;
+    }
+
+    function set_professional_reference_name($value) {
+        $this->professional_reference_name = $value;
+    }
+
+    function set_professional_reference_number($value) {
+        $this->professional_reference_number = $value;
+    }
+
+    function set_professional_reference_email($value) {
+        $this->professional_reference_email = $value;
+    }
+
+    function set_professional_reference_relationship($value) {
+        $this->professional_reference_relationship = $value;
+    }
+
+    function set_professional_reference_years_known($value) {
+        $this->professional_reference_years_known = $value;
+    }
+
+    function set_personal_reference_name($value) {
+        $this->personal_reference_name = $value;
+    }
+
+    function set_personal_reference_number($value) {
+        $this->personal_reference_number = $value;
+    }
+
+    function set_personal_reference_email($value) {
+        $this->personal_reference_email = $value;
+    }
+
+    function set_personal_reference_relationship($value) {
+        $this->personal_reference_relationship = $value;
+    }
+
+    function set_personal_reference_years_known($value) {
+        $this->personal_reference_years_known = $value;
+    }
+
+    function set_worked_with_youth($value) {
+        $this->worked_with_youth = $value;
+    }
+
+    function set_organization_1($value) {
+        $this->organization_1 = $value;
+    }
+
+    function set_organization_1_manager($value) {
+        $this->organization_1_manager = $value;
+    }
+
+    function set_organization_1_number($value) {
+        $this->organization_1_number = $value;
+    }
+
+    function set_organization_1_email($value) {
+        $this->organization_1_email = $value;
+    }
+
+    function set_organization_1_dates($value) {
+        $this->organization_1_dates = $value;
+    }
+
+    function set_organization_1_reason($value) {
+        $this->organization_1_reason = $value;
+    }
+
+    function set_organization_2($value) {
+        $this->organization_2 = $value;
+    }
+
+    function set_organization_2_manager($value) {
+        $this->organization_2_manager = $value;
+    }
+
+    function set_organization_2_number($value) {
+        $this->organization_2_number = $value;
+    }
+
+    function set_organization_2_email($value) {
+        $this->organization_2_email = $value;
+    }
+
+    function set_organization_2_dates($value) {
+        $this->organization_2_dates = $value;
+    }
+
+    function set_organization_2_reason($value) {
+        $this->organization_2_reason = $value;
+    }
+
+    function set_organization_3($value) {
+        $this->organization_3 = $value;
+    }
+
+    function set_organization_3_manager($value) {
+        $this->organization_3_manager = $value;
+    }
+
+    function set_organization_3_number($value) {
+        $this->organization_3_number = $value;
+    }
+
+    function set_organization_3_email($value) {
+        $this->organization_3_email = $value;
+    }
+
+    function set_organization_3_dates($value) {
+        $this->organization_3_dates = $value;
+    }
+
+    function set_organization_3_reason($value) {
+        $this->organization_3_reason = $value;
+    }
+
+    function set_organization_4($value) {
+        $this->organization_4 = $value;
+    }
+
+    function set_organization_4_manager($value) {
+        $this->organization_4_manager = $value;
+    }
+
+    function set_organization_4_number($value) {
+        $this->organization_4_number = $value;
+    }
+
+    function set_organization_4_email($value) {
+        $this->organization_4_email = $value;
+    }
+
+    function set_organization_4_dates($value) {
+        $this->organization_4_dates = $value;
+    }
+
+    function set_organization_4_reason($value) {
+        $this->organization_4_reason = $value;
+    }
+
+    function set_community_mentor($value) {
+        $this->community_mentor = $value;
+    }
+
+    function set_community_couple($value) {
+        $this->community_couple = $value;
+    }
+
+    function set_school_mentor($value) {
+        $this->school_mentor = $value;
+    }
+
+    function set_commitment_concerns($value) {
+        $this->commitment_concerns = $value;
+    }
+
+    function set_interest_in_children($value) {
+        $this->interest_in_children = $value;
+    }
+
+    function set_comfortable_driving_distance($value) {
+        $this->comfortable_driving_distance = $value;
+    }
+
+    function set_interview_availability($value) {
+        $this->interview_availability = $value;
+    }
+
+    function set_uncomfortable_traits($value) {
+        $this->uncomfortable_traits = $value;
+    }
+
+    function set_big_sister_with_little_brother($value) {
+        $this->big_sister_with_little_brother = $value;
+    }
+
+    function set_weapons_at_home($value) {
+        $this->weapons_at_home = $value;
+    }
+
+    function set_concealed_permit($value) {
+        $this->concealed_permit = $value;
+    }
+
+    function set_pets($value) {
+        $this->pets = $value;
+    }
+
+    function set_other_people_in_house($value) {
+        $this->other_people_in_house = $value;
+    }
+
+    function set_other_1_name($value) {
+        $this->other_1_name = $value;
+    }
+
+    function set_other_1_age($value) {
+        $this->other_1_age = $value;
+    }
+
+    function set_other_1_relationship($value) {
+        $this->other_1_relationship = $value;
+    }
+
+    function set_other_2_name($value) {
+        $this->other_2_name = $value;
+    }
+
+    function set_other_2_age($value) {
+        $this->other_2_age = $value;
+    }
+
+    function set_other_2_relationship($value) {
+        $this->other_2_relationship = $value;
+    }
+
+    function set_other_3_name($value) {
+        $this->other_3_name = $value;
+    }
+
+    function set_other_3_age($value) {
+        $this->other_3_age = $value;
+    }
+
+    function set_other_3_relationship($value) {
+        $this->other_3_relationship = $value;
+    }
+
+    function set_other_4_name($value) {
+        $this->other_4_name = $value;
+    }
+
+    function set_other_4_age($value) {
+        $this->other_4_age = $value;
+    }
+
+    function set_other_4_relationship($value) {
+        $this->other_4_relationship = $value;
+    }
+
+    function set_other_5_name($value) {
+        $this->other_5_name = $value;
+    }
+
+    function set_other_5_age($value) {
+        $this->other_5_age = $value;
+    }
+
+    function set_other_5_relationship($value) {
+        $this->other_5_relationship = $value;
+    }
+
+    function set_questions_or_comments($value) {
+        $this->questions_or_comments = $value;
+    }
+
+    function set_convicted_felon($value) {
+        $this->convicted_felon = $value;
+    }
+
+    function set_driving_citations($value) {
+        $this->driving_citations = $value;
+    }
+
+    function set_conflicting_convictions($value) {
+        $this->conflicting_convictions = $value;
+    }
+
+    function set_fail_to_care($value) {
+        $this->fail_to_care = $value;
+    }
+
+    function set_charged_with_abuse($value) {
+        $this->charged_with_abuse = $value;
+    }
+
+    function set_health_limitations($value) {
+        $this->health_limitations = $value;
+    }
+
+    function set_mental_help($value) {
+        $this->mental_help = $value;
+    }
+
+    function set_substance_abuse_history($value) {
+        $this->substance_abuse_history = $value;
+    }
+
+    function set_sober_two_years($value) {
+        $this->sober_two_years = $value;
+    }
+
+    function set_illegal_drugs($value) {
+        $this->illegal_drugs = $value;
+    }
+
+    function set_auto_insurance($value) {
+        $this->auto_insurance = $value;
+    }
+
+    function set_can_submit_insurance_copy($value) {
+        $this->can_submit_insurance_copy = $value;
+    }
+
+    function set_sports_activities($value) {
+        $this->sports_activities = $value;
+    }
+
+    function set_stem_activities($value) {
+        $this->stem_activities = $value;
+    }
+
+    function set_arts_crafts_activities($value) {
+        $this->arts_crafts_activities = $value;
+    }
+
+    function set_outdoor_activities($value) {
+        $this->outdoor_activities = $value;
+    }
+
+    function set_games_activities($value) {
+        $this->games_activities = $value;
+    }
+
+    function set_misc_activities($value) {
+        $this->misc_activities = $value;
+    }
+
+    function set_quiet_talkitive($value) {
+        $this->quiet_talkitive = $value;
+    }
+
+    function set_outdoor_indoor($value) {
+        $this->outdoor_indoor = $value;
+    }
+
+    function set_watch_do($value) {
+        $this->watch_do = $value;
+    }
+
+    function set_other_interests($value) {
+        $this->other_interests = $value;
     }
 }
 ?>

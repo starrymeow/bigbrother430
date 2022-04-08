@@ -41,6 +41,14 @@ class dbAccountsTest extends TestCase {
         $this->assertTrue($p->get_last_name()=="Testing");
         $this->assertTrue($p->get_status()=="status3");
 
+        $a = array("email"=>"email", "password"=>"password4", "first_name"=>"first", "last_name"=>"last", "status"=>null);
+        $acc = make_an_account($a);
+        $this->assertTrue($acc->get_email() == "email");
+        $this->assertTrue($acc->get_status() == null);
+        $this->assertTrue($acc->get_first_name() == "first");
+        $this->assertTrue($acc->get_last_name() == "last");
+        $this->assertTrue($acc->get_password() == "password4");
+
         // remove the Account
         $this->assertTrue(remove_account("ted@bowdoin.edu"));
         $this->assertTrue(remove_account("alfred@whitman.edu"));

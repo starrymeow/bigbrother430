@@ -14,14 +14,14 @@ function add_application($app) {
     $result = mysqli_query($con,$query);
     //if there's no entry for this id, add it
     if ($result == null || mysqli_num_rows($result) == 0) {
-        mysqli_query($con,'INSERT INTO dbApplications VALUES("' .
+        $result = mysqli_query($con,'INSERT INTO dbApplications VALUES("' .
             $app->get_email() . '","' .
             $app->get_id() . '","' .
             $app->get_first_name() . '","' .
             $app->get_last_name() . '","' .
             $app->get_languages() . '","' .
             $app->get_primary_language() . '","' .
-            $app->get_prefered_name() . '","' .
+            $app->get_preferred_name() . '","' .
             $app->get_birthday() . '","' .
             $app->get_cell_phone() . '","' .
             $app->get_can_text_cell() . '","' .
@@ -35,8 +35,8 @@ function add_application($app) {
             $app->get_apply_reason() . '","' .
             $app->get_life_changes() .
             '");');
-            mysqli_close($con);
-            return true;
+        mysqli_close($con);
+        return $result;
     }
     mysqli_close($con);
     return false;
@@ -53,7 +53,7 @@ function remove_application($id) {
         mysqli_close($con);
         return false;
     }
-    $query = 'DELETE FROM dbApplications WHERE email = "' . $id . '"';
+    $query = 'DELETE FROM dbApplications WHERE id = "' . $id . '"';
     $result = mysqli_query($con,$query);
     mysqli_close($con);
     return true;
@@ -74,7 +74,7 @@ function retrieve_application($id) {
     }
     $result_row = mysqli_fetch_assoc($result);
     //var_dump($result_row);
-    $theApplication = make_an_Application($result_row);
+    $theApplication = make_an_application($result_row);
     //var_dump($theApplication);
     //    mysqli_close($con);
     return $theApplication;
@@ -87,18 +87,16 @@ function retrieve_application($id) {
 
 function retrieve_application_ids($email) {
     $con=connect();
-    $query = "SELECT * FROM dbApplications WHERE id = '" . $email . "'";
+    $query = "SELECT * FROM dbApplications WHERE email = '" . $email . "'";
     $result = mysqli_query($con,$query);
-    if (mysqli_num_rows($result) !== 1) {
+    if (mysqli_num_rows($result) < 1) {
         mysqli_close($con);
         return false;
     }
-    //TODO fetch ids from rows
-    $theIds = ($result);
-    //var_dump($result);
-    //var_dump($theIds);
-    //    mysqli_close($con);
-    return $theIds;
+
+    for ($x=0; $x < mysqli_num_rows($result); $x++)
+        $ids[] = mysqli_fetch_assoc($result)['id'];
+    return $ids;
 }
 
 function make_an_application($result_row) {
@@ -108,8 +106,8 @@ function make_an_application($result_row) {
         $result_row["first_name"],
         $result_row["last_name"],
         $result_row["languages"],
-        $result_row["primary_languages"],
-        $result_row["perfered_name"],
+        $result_row["primary_language"],
+        $result_row["preferred_name"],
         $result_row["birthday"],
         $result_row["cell_phone"],
         $result_row["can_text_cell"],
@@ -117,6 +115,7 @@ function make_an_application($result_row) {
         $result_row["gender"],
         $result_row["address"],
         $result_row["city"],
+        $result_row['state'],
         $result_row["zip"],
         $result_row["race"],
         $result_row["apply_reason"],

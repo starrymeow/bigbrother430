@@ -16,20 +16,17 @@ function add_admin($admin) {
     $result = mysqli_query($con,$query);
     //if there's no entry for this id, add it
     if ($result == null || mysqli_num_rows($result) == 0) {
-        $acc = add_account($admin);/*new Account($admin->get_email(),
-            $admin->get_password(),
-            $admin->get_first_name(),
-            $admin->get_last_name(),
-            $admin->get_status()
-            ));*/
-        if ($acc == false)
+        $acc = add_account($admin);
+        if ($acc == false) {
+            mysqli_close($con);
             return false;
-        mysqli_query($con,'INSERT INTO dbAdmins VALUES("' .
+        }
+        $result = mysqli_query($con,'INSERT INTO dbAdmins VALUES("' .
             $admin->get_email() . '","' .
             $admin->get_is_super() .
             '");');
         mysqli_close($con);
-        return true;
+        return $result;
     }
     mysqli_close($con);
     return false;
@@ -59,6 +56,7 @@ function retrieve_admin($email) {
     $query = "SELECT * FROM dbAdmins WHERE email = '" . $email . "'";
     $result = mysqli_query($con,$query);
     if (mysqli_num_rows($result) !== 1) {
+        //var_dump($result);
         mysqli_close($con);
         return false;
     }
@@ -96,19 +94,24 @@ function make_an_admin($result_row) {
     return $theAdmin;
 }
 
+//promote on admin given an email
+//return false on fail
 function promote($email) {
     $con=connect();
-    $query = 'UPDATE dbAdmins SET is_super = "yes" WHERE email = "' . $email . '"';
+    $query = 'UPDATE dbAdmins SET is_super = true WHERE email = "' . $email . '"';
     $result = mysqli_query($con, $query);
     mysqli_close($con);
     return $result;
 }
 
+//Return the emails of all the admins
 function get_all_admins() {
     $con=connect();
-    $query = 'SELECT `email` FROM dbAdmins NATURAL JOIN dbAccounts';
+    $query = 'SELECT `email` FROM dbAdmins';
     $result = mysqli_query($con,$query);
+    for ($x=0; $x < mysqli_num_rows($result); $x++)
+        $emails[] = mysqli_fetch_assoc($result)['email'];
     mysqli_close($con);
-    return $result;
+    return $emails;
 }
 ?>

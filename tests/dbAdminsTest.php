@@ -10,10 +10,10 @@ class dbAdminsTest extends TestCase {
     function testdbAdmins() {
         // add two Admins to the database
 
-        $m = new Admin("ted2@bowdoin.edu", "password1", "Gabrielle", "Booth", false, "status1");
+        $m = new Admin("ted2@bowdoin.edu", "password1", "Gabrielle", "Booth", 0, "status1");
         $this->assertTrue(add_admin($m));
 
-        $m2 = new Admin("alfred2@whitman.edu", "password2", "Fred", "Wilson", false, "status2");
+        $m2 = new Admin("alfred2@whitman.edu", "password2", "Fred", "Wilson", 0, "status2");
         $this->assertTrue(add_admin($m2));
 
         // retrieve the Admins and test the fields
@@ -54,9 +54,11 @@ class dbAdminsTest extends TestCase {
         $this->assertTrue($admin->get_status()=="status3");
         $this->assertTrue($admin->get_password()=="password5");
 
-        $result = get_all_admins();
-        for ($x=0; $x < mysqli_num_rows($result); $x++)
-            $emails[] = mysqli_fetch_assoc($result)['email'];
+        $this->assertTrue(promote($p->get_email())!==false);
+        $p=retrieve_admin($p->get_email());
+        $this->assertTrue($p->get_is_super()==true);
+
+        $emails = get_all_admins();
         //var_dump($emails);
         $this->assertTrue(in_array("ted2@bowdoin.edu", $emails));
         $this->assertTrue(in_array("alfred2@whitman.edu", $emails));
