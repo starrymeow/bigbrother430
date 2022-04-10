@@ -84,6 +84,9 @@ function remove_little_application($id) {
     }
     $query = 'DELETE FROM dbLittleApplications WHERE id = "' . $id . '"';
     $result = mysqli_query($con,$query);
+    if (!$result)
+        return false;
+    $result = remove_application($id);
     mysqli_close($con);
     return $result;
 }
