@@ -12,11 +12,12 @@ class LittleApplication extends Application {
     private $studentID; // the identification number for the child at their school
     private $nationality; // what nation do they have a citizenship
 
-    function __construct($e, $i, $f, $m, $l, $langs, $prime, $name, $dob, $cell, $text, $childtext, $home, $g, $a, $c, $state, $z, $r, $apply, $life,
-            $adult_name, $relation, $legal_custody, $share_custody, $other_supports_enrollment, $living_situation, $child_cell, $child_email,
-            $school, $grade_level, $student_id, $nationality, $hear, $employer, $worknum, $workcon, $bestnum, $besttime, $altcontact,
-            $altcontactnum, $childaware, $childwant, $bbbsfamily, $meet, $mconditions, $household, $incomeassist, $houseassist, $development,
-        $lunch, $income, $military, $branch, $deploy, $retiredmil, $dismil, $wounded, $incarcerated, $juv, $schtroub) {
+    function __construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $state, $z, $r, $apply, $life,
+        $m, $childtext, $adult_name, $relation, $legal_custody, $share_custody, $other_supports_enrollment, $living_situation, $child_cell,
+        $child_email, $school, $grade_level, $student_id, $nationality, $hear, $employer, $worknum, $workcon, $bestnum,
+        $besttime, $altcontact, $altcontactnum, $childaware, $childwant, $bbbsfamily, $meet, $mconditions, $household,
+        $incomeassist, $houseassist, $development, $lunch, $income, $military, $branch, $deploy, $retiredmil, $dismil, $wounded,
+        $incarcerated, $juv, $schtroub) {
 
         Application ::__construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $state, $z, $r, $apply, $life);
         $this->middle_name = $m;
@@ -56,7 +57,7 @@ class LittleApplication extends Application {
         $this->service_branch = $branch;
         $this->deployment_date = $deploy;
         $this->retired_military = $retiredmil;
-        $this->dischared_military = $dismil;
+        $this->discharged_military = $dismil;
         $this->wounded_veteran = $wounded;
         $this->incarcerated = $incarcerated;
         $this->juvenile_record = $juv;
@@ -93,12 +94,12 @@ class LittleApplication extends Application {
     }
 
     // returns whether the other adult supports the applicant's enrollment
-    function get_other_support() {
+    function get_other_supports_enrollment() {
         return $this->other_supports_enrollment;
     }
 
     // returns the living situation of the applicant
-    function get_lving_situation() {
+    function get_living_situation() {
         return $this->living_situation;
     }
 
@@ -123,7 +124,7 @@ class LittleApplication extends Application {
     }
 
     // returns the student ID of the applicant
-    function get_ID() {
+    function get_studentID() {
         return $this->studentID;
     }
 
@@ -249,8 +250,8 @@ class LittleApplication extends Application {
     }
 
     // returns whether any household member was discharged from the military
-    function get_dischared_military() {
-        return $this->dischared_military;
+    function get_discharged_military() {
+        return $this->discharged_military;
     }
 
     // returns whether any household member was injured while in the military
@@ -297,11 +298,11 @@ class LittleApplication extends Application {
         $this->share_custody = $v;
     }
 
-    function set_other_support($v) {
+    function set_other_supports_enrollment($v) {
         $this->other_supports_enrollment = $v;
     }
 
-    function set_lving_situation($v) {
+    function set_living_situation($v) {
         $this->living_situation = $v;
     }
 
@@ -321,7 +322,7 @@ class LittleApplication extends Application {
         $this->grade_level = $v;
     }
 
-    function set_ID($v) {
+    function set_studentID($v) {
         $this->studentID = $v;
     }
 
@@ -361,7 +362,7 @@ class LittleApplication extends Application {
         $this->alt_contact_num = $v;
     }
 
-    function get_does_child_know_enrolling($v) {
+    function set_does_child_know_enrolling($v) {
         $this->does_child_know_enrolling = $v;
     }
 
@@ -421,8 +422,8 @@ class LittleApplication extends Application {
         $this->retired_military = $v;
     }
 
-    function set_dischared_military($v) {
-        $this->dischared_military = $v;
+    function set_discharged_military($v) {
+        $this->discharged_military = $v;
     }
 
     function set_wounded_veteran($v) {

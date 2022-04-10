@@ -3,10 +3,8 @@
 include_once('dbinfo.php');
 include_once(dirname(__FILE__).'/../domain/LittleApplication.php');
 
-/*
- * add a person to dbPersons table: if already there, return false
- */
-function add_little($little) {
+// add a LittleApplication to dbLittleApplications table: if already there, return false
+function add_little_application($little) {
     if (!$little instanceof LittleApplication)
         die("Error: add_little_application type mismatch");
     $con=connect();
@@ -14,33 +12,20 @@ function add_little($little) {
     $result = mysqli_query($con,$query);
     //if there's no entry for this id, add it
     if ($result == null || mysqli_num_rows($result) == 0) {
-        mysqli_query($con,'INSERT INTO dbLittleApplications VALUES("' .
+        $app = add_application($little);
+        if ($app == false) {
+            mysqli_close($con);
+            return false;
+        }
+        $result = mysqli_query($con,'INSERT INTO dbLittleApplications VALUES("' .
             $little->get_id() . '","' .
-            $little->get_first_name() . '","' .
             $little->get_middle_name() . '","' .
-            $little->get_last_name() . '","' .
-            $little->get_languages() . '","' .
-            $little->get_primary_language() . '","' .
-            $little->get_prefered_name() . '","' .
-            $little->get_birthday() . '","' .
-            $little->get_cell_phone() . '","' .
-            $little->get_email() . '","' .
-            $little->get_can_text_cell() . '","' .
             $little->get_can_text_child() . '","' .
-            $little->get_home_phone() . '","' .
-            $little->get_gender() . '","' .
-            $little->get_address() . '","' .
-            $little->get_city() . '","' .
-            $little->get_state() . '","' .
-            $little->get_zip() . '","' .
-            $little->get_race() . '","' .
-            $little->get_apply_reason() . '","' .
-            $little->get_life_changes() . '","' .
             $little->get_adult_name() . '","' .
             $little->get_relation() . '","' .
             $little->get_legal_custody() . '","' .
             $little->get_share_custody() . '","' .
-            $little->get_others_support_enrollment() . '","' .
+            $little->get_other_supports_enrollment() . '","' .
             $little->get_living_situation() . '","' .
             $little->get_child_cell() . '","' .
             $little->get_child_email() . '","' .
@@ -71,21 +56,22 @@ function add_little($little) {
             $little->get_service_branch() . '","' .
             $little->get_deployment_date() . '","' .
             $little->get_retired_military() . '","' .
-            $little->get_dischared_military() . '","' .
+            $little->get_discharged_military() . '","' .
             $little->get_wounded_veteran() . '","' .
             $little->get_incarcerated() . '","' .
             $little->get_juvenile_record() . '","' .
-            $little->get_school_trouble() . '","' .
+            $little->get_school_trouble() .
             '");');
+            //var_dump(mysqli_error($con));
             mysqli_close($con);
-            return true;
+            return $result;
     }
     mysqli_close($con);
     return false;
 }
 
 /*
- * remove a LittleApplication from dbLittleApplications table.  
+ * remove a LittleApplication from dbLittleApplications table.
  * If not there, return false
  */
 function remove_little_application($id) {
@@ -108,7 +94,7 @@ function remove_little_application($id) {
  */
 function retrieve_little_application($id) {
     $con=connect();
-    $query = 'SELECT * FROM dbLittleApplications WHERE lower(id) = "' . strtolower($id) . '"';
+    $query = 'SELECT * FROM dbLittleApplications WHERE id = "' . $id . '"';
     $result = mysqli_query($con,$query);
     if (mysqli_num_rows($result) !== 1) {
         mysqli_close($con);
@@ -124,20 +110,18 @@ function retrieve_little_application($id) {
 
 function make_a_little_application($result_row) {
     $app = retrieve_application($result_row['id']);
-    
+
     $theApp = new LittleApplication(
         $app->get_email(),
         $result_row['id'],
-        $app->get__first_name(),
-        $result_row['middle_name'],
+        $app->get_first_name(),
         $app->get_last_name(),
         $app->get_languages(),
         $app->get_primary_language(),
-        $app->get_prefered_name(),
+        $app->get_preferred_name(),
         $app->get_birthday(),
         $app->get_cell_phone(),
         $app->get_can_text_cell(),
-        $result_row['can_text_child'],
         $app->get_home_phone(),
         $app->get_gender(),
         $app->get_address(),
@@ -147,11 +131,13 @@ function make_a_little_application($result_row) {
         $app->get_race(),
         $app->get_apply_reason(),
         $app->get_life_changes(),
+        $result_row['middle_name'],
+        $result_row['can_text_child'],
         $result_row['adult_name'],
         $result_row['relation'],
         $result_row['legal_custody'],
         $result_row['share_custody'],
-        $result_row['others_support_enrollment'],
+        $result_row['other_supports_enrollment'],
         $result_row['living_situation'],
         $result_row['child_cell'],
         $result_row['child_email'],
@@ -182,7 +168,7 @@ function make_a_little_application($result_row) {
         $result_row['service_branch'],
         $result_row['deployment_date'],
         $result_row['retired_military'],
-        $result_row['dischared_military'],
+        $result_row['discharged_military'],
         $result_row['wounded_veteran'],
         $result_row['incarcerated'],
         $result_row['juvenile_record'],

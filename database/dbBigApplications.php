@@ -3,9 +3,7 @@ include_once('dbinfo.php');
 include_once(dirname(__FILE__).'/../domain/BigApplication.php');
 include_once('dbApplications.php');
 
-/*
- * add a BigApplication to dbBigApplications table: if already there, return false
- */
+// add a BigApplication to dbBigApplications table: if already there, return false
 function add_big_application($big) {
     if (!$big instanceof BigApplication)
         die("Error: add_big_application type mismatch");
