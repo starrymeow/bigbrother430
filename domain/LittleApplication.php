@@ -12,13 +12,13 @@ class LittleApplication extends Application {
     private $studentID; // the identification number for the child at their school
     private $nationality; // what nation do they have a citizenship
 
-    function __construct($e, $i, $f, $m, $l, $langs, $prime, $name, $dob, $cell, $text, $childtext, $home, $g, $a, $c, $z, $r, $apply, $life,
+    function __construct($e, $i, $f, $m, $l, $langs, $prime, $name, $dob, $cell, $text, $childtext, $home, $g, $a, $c, $state, $z, $r, $apply, $life,
             $adult_name, $relation, $legal_custody, $share_custody, $other_supports_enrollment, $living_situation, $child_cell, $child_email,
             $school, $grade_level, $student_id, $nationality, $hear, $employer, $worknum, $workcon, $bestnum, $besttime, $altcontact,
             $altcontactnum, $childaware, $childwant, $bbbsfamily, $meet, $mconditions, $household, $incomeassist, $houseassist, $development,
         $lunch, $income, $military, $branch, $deploy, $retiredmil, $dismil, $wounded, $incarcerated, $juv, $schtroub) {
 
-        Application ::__construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $z, $r, $apply, $life);
+        Application ::__construct($e, $i, $f, $l, $langs, $prime, $name, $dob, $cell, $text, $home, $g, $a, $c, $state, $z, $r, $apply, $life);
         $this->middle_name = $m;
         $this->can_text_child = $childtext;
         $this->adult_name = $adult_name;
@@ -45,7 +45,7 @@ class LittleApplication extends Application {
         $this->does_child_want_to_join = $childwant;
         $this->BBBS_family_names = $bbbsfamily;
         $this->will_meet_monthly = $meet;
-        $this->medical_conditions - $mconditions;
+        $this->medical_conditions = $mconditions;
         $this->household_size = $household;
         $this->income_assist = $incomeassist;
         $this->house_assist = $houseassist;
@@ -271,6 +271,194 @@ class LittleApplication extends Application {
     // returns whether the chiild has been in trouble and school and what kind
     function get_school_trouble() {
         return $this->school_trouble;
+    }
+
+
+
+
+    function set_middle_name($v) {
+        $this->middle_name = $v;
+    }
+
+
+    function set_can_text_child($v) {
+        $this->can_text_child = $v;
+    }
+
+    function set_adult_name($v) {
+        $this->adult_name = $v;
+    }
+
+
+    function set_relation($v) {
+        $this->relation = $v;
+    }
+
+
+    function set_legal_custody($v) {
+        $this->legal_custody = $v;
+    }
+
+
+    function set_share_custody($v) {
+        $this->share_custody = $v;
+    }
+
+
+    function set_other_support($v) {
+        $this->other_supports_enrollment = $v;
+    }
+
+
+    function set_lving_situation($v) {
+        $this->living_situation = $v;
+    }
+
+
+    function set_child_cell($v) {
+        $this->child_cell = $v;
+    }
+
+
+    function set_child_email($v) {
+        $this->child_email = $v;
+    }
+
+
+    function set_school($v) {
+        $this->school = $v;
+    }
+
+
+    function set_grade_level($v) {
+        $this->grade_level = $v;
+    }
+
+
+    function set_ID($v) {
+        $this->studentID = $v;
+    }
+
+
+    function set_nationality($v) {
+        $this->nationality = $v;
+    }
+
+
+    function set_how_did_you_hear($v) {
+        $this->how_did_you_hear = $v;
+    }
+
+
+    function set_parent_employer($v) {
+        $this->parent_employer = $v;
+    }
+
+
+    function set_parent_work_num($v) {
+        $this->parent_work_num = $v;
+    }
+
+
+    function set_can_contact_work($v) {
+        $this->can_contact_work = $v;
+    }
+
+
+    function set_best_num($v) {
+        $this->best_num = $v;
+    }
+
+    function set_best_contact_time($v) {
+        $this->best_contact_time = $v;
+    }
+
+    function set_alt_contact_name($v) {
+        $this->alt_contact_name = $v;
+    }
+
+    function set_alt_contact_num($v) {
+        $this->alt_contact_num = $v;
+    }
+
+    function get_does_child_know_enrolling($v) {
+        $this->does_child_know_enrolling = $v;
+    }
+
+    function set_does_child_want_to_join($v) {
+        $this->does_child_want_to_join = $v;
+    }
+
+    function set_BBBS_family_names($v) {
+        $this->BBBS_family_names = $v;
+    }
+
+    function set_will_meet_monthly($v) {
+        $this->will_meet_monthly = $v;
+    }
+
+    function set_medical_conditions($v) {
+        $this->medical_conditions = $v;
+    }
+
+    function set_household_size($v) {
+        $this->household_size = $v;
+    }
+
+    function set_income_assist($v) {
+        $this->income_assist = $v;
+    }
+
+    function set_house_assist($v) {
+        $this->house_assist = $v;
+    }
+
+    function set_development($v) {
+        $this->development = $v;
+    }
+
+    function set_lunch_assist($v) {
+        $this->lunch_assist = $v;
+    }
+
+    function set_annual_income($v) {
+        $this->annual_income = $v;
+    }
+
+    function set_military($v) {
+        $this->military = $v;
+    }
+
+    function set_service_branch($v) {
+        $this->service_branch = $v;
+    }
+
+    function set_deployment_date($v) {
+        $this->deployment_date = $v;
+    }
+
+    function set_retired_military($v) {
+        $this->retired_military = $v;
+    }
+
+    function set_dischared_military($v) {
+        $this->dischared_military = $v;
+    }
+
+    function set_wounded_veteran($v) {
+        $this->wounded_veteran = $v;
+    }
+
+    function set_incarcerated($v) {
+        $this->incarcerated = $v;
+    }
+
+    function set_juvenile_record($v) {
+        $this->juvenile_record = $v;
+    }
+
+    function set_school_trouble($v) {
+        $this->school_trouble = $v;
     }
 }
 ?>
