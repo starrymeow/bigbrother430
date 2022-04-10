@@ -1,5 +1,5 @@
 <?php
-// Test suite for dbAccounts
+// Test suite for dbBigApplications
 
 use PHPUnit\Framework\TestCase;
 include_once(dirname(__FILE__).'/../database/dbBigApplications.php');
