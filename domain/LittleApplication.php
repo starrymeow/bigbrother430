@@ -273,13 +273,9 @@ class LittleApplication extends Application {
         return $this->school_trouble;
     }
 
-
-
-
     function set_middle_name($v) {
         $this->middle_name = $v;
     }
-
 
     function set_can_text_child($v) {
         $this->can_text_child = $v;
@@ -289,81 +285,65 @@ class LittleApplication extends Application {
         $this->adult_name = $v;
     }
 
-
     function set_relation($v) {
         $this->relation = $v;
     }
-
 
     function set_legal_custody($v) {
         $this->legal_custody = $v;
     }
 
-
     function set_share_custody($v) {
         $this->share_custody = $v;
     }
-
 
     function set_other_support($v) {
         $this->other_supports_enrollment = $v;
     }
 
-
     function set_lving_situation($v) {
         $this->living_situation = $v;
     }
-
 
     function set_child_cell($v) {
         $this->child_cell = $v;
     }
 
-
     function set_child_email($v) {
         $this->child_email = $v;
     }
-
 
     function set_school($v) {
         $this->school = $v;
     }
 
-
     function set_grade_level($v) {
         $this->grade_level = $v;
     }
-
 
     function set_ID($v) {
         $this->studentID = $v;
     }
 
-
     function set_nationality($v) {
         $this->nationality = $v;
     }
-
 
     function set_how_did_you_hear($v) {
         $this->how_did_you_hear = $v;
     }
 
-
     function set_parent_employer($v) {
         $this->parent_employer = $v;
     }
-
 
     function set_parent_work_num($v) {
         $this->parent_work_num = $v;
     }
 
-
     function set_can_contact_work($v) {
         $this->can_contact_work = $v;
     }
-
 
     function set_best_num($v) {
         $this->best_num = $v;
