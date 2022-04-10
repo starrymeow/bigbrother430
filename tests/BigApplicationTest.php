@@ -1,5 +1,5 @@
 <?php
-// Test suite for Account
+// Test suite for BigApplication
 
 use PHPUnit\Framework\TestCase;
 include_once(dirname(__FILE__).'/../domain/BigApplication.php');
