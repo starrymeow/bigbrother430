@@ -5,9 +5,7 @@ include_once('dbinfo.php');
 include_once(dirname(__FILE__).'/../domain/Admin.php');
 include_once('dbAccounts.php');
 
-/*
- * add a person to dbPersons table: if already there, return false
- */
+// add a person to dbPersons table: if already there, return false
 function add_admin($admin) {
     if (!$admin instanceof Admin)
         die("Error: add_admin type mismatch");
@@ -25,9 +23,12 @@ function add_admin($admin) {
             $admin->get_email() . '","' .
             $admin->get_is_super() .
             '");');
+        //var_dump(mysqli_error($con));
+        //var_dump($result);
         mysqli_close($con);
         return $result;
     }
+    //var_dump(mysqli_error($con));
     mysqli_close($con);
     return false;
 }
@@ -61,12 +62,9 @@ function retrieve_admin($email) {
         return false;
     }
     $result_row = mysqli_fetch_assoc($result);
-    // var_dump($result_row);
-//     $theAdmin = make_a_admin($result_row);
-//     mysqli_close($con);
     //var_dump($result_row);
     $theAdmin = make_an_admin($result_row);
-    //mysqli_close($con);
+    mysqli_close($con);
     return $theAdmin;
 }
 

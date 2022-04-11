@@ -93,7 +93,6 @@ if ($email == 'new') {
                      * process_form sanitizes data, concatenates needed data, and enters it all into a database
                      */
                     function process_form($email,$account) {
-                        //echo($account->get_email() == "new");
                         //step one: sanitize data by replacing HTML entities and escaping the ' character
                         if ($account->get_first_name()=="new")
                        		$first_name = trim(str_replace('\\\'', '', htmlentities(str_replace('&', 'and', $_POST['first_name']))));
@@ -215,7 +214,6 @@ if ($email == 'new') {
                                 //else echo("<p>You have successfully edited " .$first_name." ".$last_name. " in the database.</p>");
                                 else
                                     echo('<p>You have successfully edited <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> in the database.</p>');
-                                add_log_entry('<a href=\"accountEdit.php?id=' . $email . '\">' . $first_name . ' ' . $last_name . '</a>\'s Account Edit Form has been changed.');
                             }
                         }
                     }
