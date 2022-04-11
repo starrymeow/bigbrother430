@@ -65,11 +65,17 @@
 //         if ($_SESSION['access_level'] == 0) {
 //         	  echo(' <a href="' . $path . 'accountEdit.php?id=' . 'new' . '">Apply</a>');
 //         }
-        if ($_SESSION['access_level'] >= 1) {
+        if ($_SESSION['access_level'] == 1) {
             echo('<a href="' . $path . 'index.php">Home</a>');
             echo('<a href="' . $path . 'index.php">Match Status</a>');
             echo('<a href="' . $path . 'accountDetails.php">Account</a>');
 
+        }
+        if ($_SESSION['access_level'] >= 2) {
+            echo('<a href="' . $path . 'index.php">Home</a>');
+            echo('<a href="' . $path . 'index.php">Submissions</a>');
+            echo('<a href="' . $path . 'accountDetails.php">Account</a>');
+            
         }
 
 //          if ($_SESSION['access_level'] >= 2) {
