@@ -1,9 +1,10 @@
 <?php
+include_once('Account.php');
 
 Class Admin extends Account {
     private $is_super;
 
-    function __construct($e, $pass, $first, $last, $super=false, $s=null) {
+    function __construct($e, $pass, $first, $last, $super=false, $s="admin") {
         Account::__construct($e, $pass, $first, $last, $s);
         $this->is_super = $super;
     }
