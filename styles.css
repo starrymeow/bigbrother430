@@ -74,6 +74,15 @@ html, body {
 	text-align: center;
 }
 
+.infoform h3 {
+	color: white;
+	font-size: 25px;
+	margin: 0px;
+	margin-bottom: 25px;
+	padding: 0px;
+	text-align: center;
+}
+
 .infoform label {
 	color: white;
 	font-size: 25px;
