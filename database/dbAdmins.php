@@ -96,10 +96,21 @@ function make_an_admin($result_row) {
 //return false on fail
 function promote($email) {
     $con=connect();
-    $query = 'UPDATE dbAdmins SET is_super = true WHERE email = "' . $email . '"';
-    $result = mysqli_query($con, $query);
-    mysqli_close($con);
-    return $result;
+    $query = "SELECT * FROM dbAdmins WHERE email = '" . $email . "'";
+    $result = mysqli_query($con,$query);
+    $query = "SELECT * FROM dbAdmins WHERE email = '" . $email . "'" . " and is_super = '" . true . "'";
+    $result2 = mysqli_query($con,$query);
+    if (($result != null || mysqli_num_rows($result) == 1) && ($result2 == null || mysqli_num_rows($result2) == 0)) {
+        $query = 'UPDATE dbAdmins SET is_super = true WHERE email = "' . $email . '"';
+        $result = mysqli_query($con, $query);
+        mysqli_close($con);
+        //var_dump($result);
+        return $result;
+    } else {
+        //var_dump($result2);
+        mysqli_close($con);
+        return false;
+    }
 }
 
 //Return the emails of all the admins

@@ -64,15 +64,8 @@ session_cache_expire(30);
 				}
 				if ($_SESSION['access_level'] == 3) {
 				    echo ('<a href="http://localhost/bigbrother430/PromoteAdmin.php" class="greenButton">Promote Admin</a>'); // TODO
-				    
+
 				}
-				goto end;
-				?>
-
-
-                <?PHP
-
-
                 end:
                 ?>
                 </div>
