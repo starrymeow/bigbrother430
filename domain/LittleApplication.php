@@ -1,4 +1,5 @@
 <?php
+include_once("application.php");
 class LittleApplication extends Application {
 
     private $adult_name; // name of adult responsible for the child

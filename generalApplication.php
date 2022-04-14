@@ -16,11 +16,11 @@ session_cache_expire(30);
         <link rel="icon" href="http://www.bbbsfred.org/wp-content/uploads/sites/17/2018/12/cropped-10.25.18-Favico-512x512-white-background-192x192.jpg" sizes="192x192" />
         <link rel="stylesheet" href="styles.css" type="text/css" />
     </head>
-	<body>		
-		<?PHP include('header.php'); 
-		$tempvar = 1;
+	<body>
+		<?PHP include('header.php');
+		$tempvar = 0;
 		?>
-		<?php /* Some test if admin, or not big or little*/
+		<?php // Test if admin, or big or little
 		if ($tempvar == 0){
 		  echo ('<div id="homeoptions">');
 		  echo ('<a href="littleApp.php" class="greenButton">Little Application</a>');
@@ -28,7 +28,7 @@ session_cache_expire(30);
 		  echo ('</div>');
 		}
 		?>
-		<?php /* Some test if little button was pressed, or if little */ 
+		<?php // Test if little button was pressed, or if Big was pressed
 		if ($tempvar == 1){
 		  include('littleApplicationForm.inc');
 		}
