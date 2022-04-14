@@ -128,7 +128,7 @@ session_cache_expire(30);
 
 		                        $tempPass = generateRandomString();
 
-		                        $mail->Subject = 'BigBrotherBigSister email verification';
+		                        $mail->Subject = 'Big Brother Big Sister email verification';
 		                        $mail->Body    = '<p>Your temporary password: ' . $tempPass . '</p><p>This admin will be deleted one hour after creation if you do not log in for th first time before then.</p>';
 		                        $mail->AltBody = 'This admin will be deleted one hour after creation if you do not log in for th first time before then. \nYour temporary password: ' . $tempPass;    //Body in plain text for non-HTML mail clients
 		                        $mail->send();
@@ -178,5 +178,3 @@ session_cache_expire(30);
       </div>
     </body>
 </html>
-
-

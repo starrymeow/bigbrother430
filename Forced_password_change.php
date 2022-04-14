@@ -23,12 +23,19 @@
         if ($newPass == $repass) {
             $email = $_SESSION['_id'];
             if (!change_account_password($email, password_hash($newPass, PASSWORD_DEFAULT))) {
-                echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the House Manager.');
+                echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the Manager.');
                 goto end;
             }
-            if (!change_status($email, 'active')) {
-                echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the House Manager.');
-                goto end;
+            if (retrieve_admin($email)) {
+                if (!change_status($email, 'admin')) {
+                    echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the Manager.');
+                    goto end;
+                }
+            } else {
+                if (!change_status($email, 'active')) {
+                    echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the Manager.');
+                    goto end;
+                }
             }
 
             echo ('<h2>Account password successfully changed.</h2>');
