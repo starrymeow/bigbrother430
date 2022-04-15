@@ -117,7 +117,7 @@
     		<label for="text_parent">Is it okay to text parent?</label>
     		<input type="radio" name="text_parent" id="text_parent" value="yes">
     		<label for="yes_textparent">Yes</label>
-    		<input type="radio" name="no_text_parent" id="text_parent" value="no">
+    		<input type="radio" name="text_parent" id="text_parent" value="no">
     		<label for="no_textparent">No</label>
     		<label for="parent_cell_provider">Cell Provider: </label>
     		<input type="text" name="parent_cell_provider" id="parent_cell_provider">
@@ -193,8 +193,31 @@
     		<input type="button" name="contact_at_work" id="yes_contact_at_work">
     		<label for="contact_at_work">Yes</label>
     		<input type="button" name="contact_at_work" id="no_contact_at_work">
-    		<label for="contact_at_work">No</label>
+    		<label for="contact_at_work">No</label><br>
     		
+    		<label for="best_contact">Please check the best number and time to contact you (the parent/guardian)?</label><br>
+    		<input type="button" name="best_place" id="best_place" value="home">
+    		<label for="best_home">Home</label>
+    		<input type="button" name="best_place" id="best_place" value="cell">
+    		<label for="best_cell">Cell</label>
+    		<input type="button" name="best_place" id="best_place" value="work">
+    		<label for="best_work">Work</label><br>
+    		<input type="button" name="best_time" id="best_time" value="morning">
+    		<label for="best_morning">Morning</label>
+    		<input type="button" name="best_time" id="best_time" value="afternoon">
+    		<label for="best_afternoon">Afternoon</label>
+    		<input type="button" name="best_time" id="best_time" value="evening">
+    		<label for="best_evening">Evening</label><br>
+    		
+    		<p>If we are unable to reach you, who is someone we could call who always knows how to reach you?</p><br>
+    		<label for="unable_name">Name: </label>
+    		<input type="text" name="unable_name" id="unable_name"><br>
+    		<label for="unable_phone">Phone Number: </label>
+    		<input type="text" name="unable_phone" id="unable_phone"><br>
+    		<br>
+    		
+    		<p>1. What is the primary reason for you wanting your child to have a Big Brother or Big Sister?</p>
+    		<input type="text" name="reason" id="reason">
     		
     		<input type="submit" name="littlesubmit" value="Submit App" class="GreenButton"/>
     	</div>    	
