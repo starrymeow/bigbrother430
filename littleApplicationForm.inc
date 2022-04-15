@@ -114,6 +114,41 @@
     		<label for="child_phone">Child Phone #</label><br/>
     		<input type="tel" name="child_phone"/><br/>
     		
+    		<label for="text_parent">Is it okay to text parent?</label>
+    		<input type="radio" name="text_parent" id="text_parent" value="yes">
+    		<input type="radio" name="no_text_parent" id="no_text_parent" value="no">
+    		<label for="parent_cell_provider">Cell Provider: </label>
+    		<input type="text" name="parent_cell_provider" id="parent_cell_provider">
+    		
+    		<label for="text_parent">Is it okay to text child?</label>
+    		<input type="radio" name="text_child" id="text_child" value="yes">
+    		<input type="radio" name="no_text_child" id="no_text_child" value="no">
+    		<label for="child_cell_provider">Cell Provider: </label>
+    		<input type="text" name="child_cell_provider" id="child_cell_provider"><br>
+    		
+    		<label for="home_address">Home Address:</label><br>
+    		<input type="text" name="home_address" id="home_address"><br>
+    		<label for="city">City:</label><br>
+    		<input type="text" name="city" id="city"><br>
+    		<label for="county">County:</label><br>
+    		<input type="text" name="county" id="county"><br>
+    		<label for="state">State:</label><br>
+    		<input type="text" name="state" id="state"><br>
+    		<label for="zip">Zip:</label><br>
+    		<input type="text" name="zip" id="zip"><br>
+    		
+    		<label for="adult_email">Parent/Guardian E-mail:</label><br>
+    		<input type="text" name="adult_email" id="adult_email"><br>
+    		<label for="child_email">Child E-mail:</label><br>
+    		<input type="text" name="child_email" id="child_email"><br>
+    		
+    		<label for="school">Child&apos; School:</label><br>
+    		<input type="text" name="school" id="school"><br>
+    		<label for="grade">Grade:</label><br>
+    		<input type="text" name="grade" id="grade"><br>
+    		<label for="student_id">Student ID Number:</label><br>
+    		<input type="text" name="student_id" id="student_id"><br>
+    		
     		<input type="submit" name="littlesubmit" value="Submit App" class="GreenButton"/>
     	</div>    	
 	</form>
@@ -134,3 +169,4 @@
 		document.getElementById(id).style.display = 'none';
 	}
 	</script>
+</div>
