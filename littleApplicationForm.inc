@@ -114,7 +114,7 @@
     		<label for="child_phone">Child Phone #</label><br/>
     		<input type="tel" name="child_phone"/><br/>
     		
-    		<input type="submit" name="littlesubmit" class="GreenButton"/>
+    		<input type="submit" name="littlesubmit" value="Submit App" class="GreenButton"/>
     	</div>    	
 	</form>
 	<script type="text/javascript">
@@ -134,4 +134,3 @@
 		document.getElementById(id).style.display = 'none';
 	}
 	</script>
-</div>
