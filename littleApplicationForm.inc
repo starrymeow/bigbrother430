@@ -116,15 +116,17 @@
     		
     		<label for="text_parent">Is it okay to text parent?</label>
     		<input type="radio" name="text_parent" id="text_parent" value="yes">
+    		<label for="yes_textparent">Yes</label>
     		<input type="radio" name="no_text_parent" id="no_text_parent" value="no">
+    		<label for="no_textparent">No</label>
     		<label for="parent_cell_provider">Cell Provider: </label>
     		<input type="text" name="parent_cell_provider" id="parent_cell_provider">
     		
     		<label for="text_parent">Is it okay to text child?</label>
     		<input type="radio" name="text_child" id="text_child" value="yes">
-    		<label for="yes_textparent">Yes</label>
-    		<label for="no_textparent">No</label>
+    		<label for="yes_textchild">Yes</label>
     		<input type="radio" name="text_child" id="no_text_child" value="no">
+    		<label for="no_textparent">No</label>
     		<label for="child_cell_provider">Cell Provider: </label>
     		<input type="text" name="child_cell_provider" id="child_cell_provider"><br>
     		
