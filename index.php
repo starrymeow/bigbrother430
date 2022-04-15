@@ -33,7 +33,6 @@ session_cache_expire(30);
                 }
                 include_once('database/dbAccounts.php');
                 include_once('domain/Account.php');
-                include_once('database/dbLog.php');
                 include_once('database/dbinfo.php');
 
                 date_default_timezone_set('America/New_York');
