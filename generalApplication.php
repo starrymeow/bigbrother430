@@ -18,10 +18,10 @@ session_cache_expire(30);
     </head>
 	<body>		
 		<?PHP include('header.php'); 
-		$tempvar = 1;
+		//$tempvar = 1;
 		?>
 		<?php /* Some test if admin, or not big or little*/
-		if ($tempvar == 0){
+		if ($_SESSION['id'] == 1) {
 		  echo ('<div id="homeoptions">');
 		  echo ('<a href="littleApp.php" class="greenButton">Little Application</a>');
 		  echo ('<a href="https://Something.com" class="greenButton">Big Application</a>');
@@ -29,7 +29,7 @@ session_cache_expire(30);
 		}
 		?>
 		<?php /* Some test if little button was pressed, or if little */ 
-		if ($tempvar == 1){
+		if ($_SESSION['id'] >= 2) {
 		  include('littleApplicationForm.inc');
 		}
 		?>
