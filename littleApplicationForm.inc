@@ -11,7 +11,7 @@
     		<input type="text" name="relation"/><br/>
     		
     		<label>
-    			Do you have legal custody of the child?<br/>
+    			Do you have legal custody of the child?</label><br/>
     			<label for="yes">
     				<input type="radio" name="legal_custody" value="yes"/>
     				Yes
@@ -20,10 +20,10 @@
     				<input type="radio" name="legal_custody" value="no"/>
     				No
     			</label>
-    		</label><br/>
+    		<br/>
     		
     		<label>
-    			Is there a person who shares legal custody of this child? <br/>
+    			Is there a person who shares legal custody of this child? </label><br/>
     			<label for="yes">
     				<input type="radio" name="share_custody" value="yes" onchange="show('otherStuff')"/>
     				Yes
@@ -32,11 +32,11 @@
     				<input type="radio" name="share_custody" value="no" onchange="hide('otherStuff')"/>
     				No
     			</label>
-    		</label><br/>
+    		<br/>
     		
     		<div id="otherStuff">    		
         		<label>
-    			Are they aware and supportive of the child&apos;s enrollment in the BBBS program?: <br/>
+    			Are they aware and supportive of the child&apos;s enrollment in the BBBS program?: </label><br/>
     			<label for="yes">
     				<input type="radio" name="other_supports_enrollment" value="yes"/>
     				Yes
@@ -45,7 +45,7 @@
     				<input type="radio" name="other_supports_enrollment" value="no"/>
     				No
     			</label>
-    		</label><br/>
+    		<br/>
         		
         		<label for="other_name">Name</label><br/>
            		<input type="text" name="other_name"/><br/>
@@ -68,7 +68,7 @@
     		<input type="text" name="preffered_name"/><br/>
     		
     		<label>
-        		Child&apos;s Gender<br/>
+        		Child&apos;s Gender</label><br/>
         		<label for="gender1">
         			<input type="radio" name="child_gender" id="gender1" value="male" onchange="hide('otherGender')"/>
         			Male
@@ -83,7 +83,7 @@
         			<input type="radio" name="child_gender" id="gender3" value="Other" onchange="show('otherGender')"/>
         			Other
         		</label><br/>
-    		</label><br/>
+    		<br/>
     		
     		<div id="otherGender">
     			<label for="otherGender">Please Specify</label><br/>
