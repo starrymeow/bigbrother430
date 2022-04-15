@@ -155,19 +155,19 @@
     		
     		<label for="race">Child's Race/Ethnicity:</label><br>
     		<input type="button" name="child_race" id="american">
-    		<label for="child_race">American Indian or Alaska</label><br>
+    		<label for="american">American Indian or Alaska</label><br>
     		<input type="button" name="child_race" id="asian">
-    		<label for="child_race">Native Asian</label><br>
+    		<label for="asian">Native Asian</label><br>
     		<input type="button" name="child_race" id="african">
-    		<label for="child_race">Black or African American</label><br>
+    		<label for="african">Black or African American</label><br>
     		<input type="button" name="child_race" id="latin">
-    		<label for="child_race">Hispanic or latino</label><br>
+    		<label for="latin">Hispanic or latino</label><br>
     		<input type="button" name="child_race" id="pacific">
-    		<label for="child_race">Native Hawaiian or Pacific</label><br>
+    		<label for="pacific">Native Hawaiian or Pacific</label><br>
     		<input type="button" name="child_race" id="white">
-    		<label for="child_race">Islander White</label><br>
+    		<label for="white">Islander White</label><br>
     		<input type="button" name="child_race" id="other">
-    		<label for="child_race">Other</label><br>
+    		<label for="other">Other</label><br>
     		
     		<label for="multi">Multi-race (check all that apply)</label><br>
     		<input type="checkbox" id="american1" name="american1" value="American">
@@ -182,6 +182,18 @@
     		<label for="pacific1">Native Hawaiian or Pacific</label><br>
     		<input type="checkbox" id="white1" name="white1" value="White">
     		<label for="white1">Islander White</label><br>
+    		
+    		<label for="origin">Nationality/Country of Origin:</label>
+    		<input type="text" id="origin" name="origin"><br>
+    		<label for="place_employment">Parent Place of Employment:</label>
+    		<input type="text" id="place_employment" name="place_employment"><br>
+    		<label for="work_phone">Parent Work Phone #:</label>
+    		<input type="text" id="work_phone" name="work_phone"><br>
+    		<label for="contact_at_work">May we contact you(the parent/guardian) at the work number listed above?</label>
+    		<input type="button" name="contact_at_work" id="yes_contact_at_work">
+    		<label for="contact_at_work">Yes</label>
+    		<input type="button" name="contact_at_work" id="no_contact_at_work">
+    		<label for="contact_at_work">No</label>
     		
     		
     		<input type="submit" name="littlesubmit" value="Submit App" class="GreenButton"/>
