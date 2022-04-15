@@ -117,7 +117,7 @@
     		<label for="text_parent">Is it okay to text parent?</label>
     		<input type="radio" name="text_parent" id="text_parent" value="yes">
     		<label for="yes_textparent">Yes</label>
-    		<input type="radio" name="no_text_parent" id="no_text_parent" value="no">
+    		<input type="radio" name="no_text_parent" id="text_parent" value="no">
     		<label for="no_textparent">No</label>
     		<label for="parent_cell_provider">Cell Provider: </label>
     		<input type="text" name="parent_cell_provider" id="parent_cell_provider">
@@ -125,7 +125,7 @@
     		<label for="text_parent">Is it okay to text child?</label>
     		<input type="radio" name="text_child" id="text_child" value="yes">
     		<label for="yes_textchild">Yes</label>
-    		<input type="radio" name="text_child" id="no_text_child" value="no">
+    		<input type="radio" name="text_child" id="text_child" value="no">
     		<label for="no_textparent">No</label>
     		<label for="child_cell_provider">Cell Provider: </label>
     		<input type="text" name="child_cell_provider" id="child_cell_provider"><br>
@@ -152,6 +152,37 @@
     		<input type="text" name="grade" id="grade"><br>
     		<label for="student_id">Student ID Number:</label><br>
     		<input type="text" name="student_id" id="student_id"><br>
+    		
+    		<label for="race">Child's Race/Ethnicity:</label><br>
+    		<input type="button" name="child_race" id="american">
+    		<label for="child_race">American Indian or Alaska</label><br>
+    		<input type="button" name="child_race" id="asian">
+    		<label for="child_race">Native Asian</label><br>
+    		<input type="button" name="child_race" id="african">
+    		<label for="child_race">Black or African American</label><br>
+    		<input type="button" name="child_race" id="latin">
+    		<label for="child_race">Hispanic or latino</label><br>
+    		<input type="button" name="child_race" id="pacific">
+    		<label for="child_race">Native Hawaiian or Pacific</label><br>
+    		<input type="button" name="child_race" id="white">
+    		<label for="child_race">Islander White</label><br>
+    		<input type="button" name="child_race" id="other">
+    		<label for="child_race">Other</label><br>
+    		
+    		<label for="multi">Multi-race (check all that apply)</label><br>
+    		<input type="checkbox" id="american1" name="american1" value="American">
+    		<label for="american1">American Indian or Alaska Native</label><br>
+    		<input type="checkbox" id="asian1" name="asian1" value="Asian">
+    		<label for="asian1">Native Asian</label><br>
+    		<input type="checkbox" id="african1" name="african1" value="African">
+    		<label for="african1">Black or African American</label><br>
+    		<input type="checkbox" id="latin1" name="latin1" value="Latin">
+    		<label for="latin1">Hispanic or Latino</label><br>
+    		<input type="checkbox" id="pacific1" name="pacific1" value="Pacific">
+    		<label for="pacific1">Native Hawaiian or Pacific</label><br>
+    		<input type="checkbox" id="white1" name="white1" value="White">
+    		<label for="white1">Islander White</label><br>
+    		
     		
     		<input type="submit" name="littlesubmit" value="Submit App" class="GreenButton"/>
     	</div>    	
