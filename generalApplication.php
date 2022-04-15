@@ -23,7 +23,7 @@ session_cache_expire(30);
 		<?php /* Some test if admin, or not big or little*/
 		if ($_SESSION['access_level'] == 1) {
 		  echo ('<div id="homeoptions">');
-		  echo ('<a href="littleApplication.inc" class="greenButton">Little Application</a>');
+		  echo ('<a href="littleApplicationForm.inc" class="greenButton">Little Application</a>');
 		  echo ('<a href="bigApp.php" class="greenButton">Big Application</a>');
 		  echo ('</div>');
 		}
