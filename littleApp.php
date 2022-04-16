@@ -8,7 +8,7 @@ include_once('database/dbLittleApplications.php');
 include_once('domain/LittleApplication.php');
 include_once('database/dbinfo.php');
 // Tests if user can access page
-if (!($_SESSION['access_level'] >= 1)) {
+if ($_SESSION['access_level'] < 1) {
     header("Location: index.php");
     die();
 }
@@ -25,9 +25,14 @@ if (!($_SESSION['access_level'] >= 1)) {
 	<body>
 		<div id="container">
 		<?PHP include('header.php');?>
+		<div id="content"> <?php
+		if (! array_key_exists('_submit_check', $_POST)) {
+		    include("littleApplicationForm.inc");
+		} else {
+            //TODO
+		}
+		?>
+		</div>
 		</div>
 	</body>
-
-
 </html>
-

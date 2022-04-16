@@ -20,9 +20,6 @@ session_cache_expire(30);
                     include('login_form.php');
                     goto end;
                 }
-                include_once('database/dbAccounts.php');
-                include_once('domain/Account.php');
-                include_once('database/dbLog.php');
                 include_once('domain/Admin.php');
                 include_once('database/dbAdmins.php');
                 date_default_timezone_set('America/New_York');
@@ -30,14 +27,6 @@ session_cache_expire(30);
 				<!-- BBBS Code -->
 				<div class="infoform">
 				<?php
-				if ($_SESSION['access_level'] == 0) {
-				    echo ('<a href="' . $path . 'accountEdit.php?id=' . 'new' . '" class="greenButton">Apply</a>'); // TODO
-				}
-				if ($_SESSION['access_level'] == 1) {
-				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Check Match Status</a>'); // TODO
-				    echo ('<a href="http://localhost/bigbrother430/index.php" class="greenButton">Submit Application</a>'); // TODO
-				}
-// 				
 				if ($_SESSION['access_level'] >= 2) {
 				    echo ('<form method="POST">');
 				    echo ('<h1>Promote Admin</h1>');
@@ -49,24 +38,26 @@ session_cache_expire(30);
                         $admin = retrieve_admin($_POST['email']);
                         if ($admin) {
                             $result = promote($_POST['email']);
-                            echo ('<h2> "' . $_POST['email'] . '" has been promoted to a super admin.</h2>');
+                            if ($result == false) {
+                                echo("<h2>Admin could not be promoted.<br>Admin may already be a super admin or is not in database.</h2>");
+                            }
+                            else {
+                                echo ('<h2> "' . $_POST['email'] . '" has been promoted to a super admin.</h2>');
+                            }
                         }
                         else {
                             echo ('<h2> no record of admin in the database</h2>');
                         }
 				    }
+				} else {
+				    echo("<h2>User not logged in.<br>Error: site should redirect to login form.</h2>");
 				}
 
-				goto end;
-				?>
-			
-                <?PHP
-                    
                 end:
                 ?>
                 </div>
                 <?PHP include('footer.inc'); ?>
-                </div>
+            </div>
         </div>
     </body>
 </html>
