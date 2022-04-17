@@ -214,8 +214,118 @@
     		<input type="text" name="unable_phone" id="unable_phone"><br>
     		<br>
     		
-    		<p>1. What is the primary reason for you wanting your child to have a Big Brother or Big Sister?</p>
-    		<input type="text" name="reason" id="reason">
+    		<p>1. What is the primary reason for you wanting your child to have a Big Brother or Big Sister?</p><br>
+    		<input type="text" name="reason" id="reason"><br>
+    		
+    		<p>2. Does your child know that you are applying for the program? Does your child want to participate?</p><br>
+    		<input type="text" name="participate" id="participate"><br>
+    		
+    		<p>3. Where did you hear about Big Brothers Big Sisters? Please check all that apply and provide details in space given.</p><br>
+    		<input type="checkbox" name="hear_school" id="hear_school" value="School"><br>
+    		<input type="checkbox" name="hear_relative" id="hear_relative" value="Relative"><br>
+    		<input type="checkbox" name="hear_faith" id="hear_faith" value="Faith Organization"><br>
+    		<input type="checkbox" name="hear_service" id="hear_service" value="Service Organization"><br>
+       		<input type="checkbox" name="hear_website" id="hear_website" value="Website"><br>
+       		<input type="checkbox" name="hear_tv" id="hear_tv" value="TV/Radio"><br>
+       		<input type="checkbox" name="hear_event" id="event" value="Event"><br>
+       		<input type="checkbox" name="hear_other" id="hear_other" value="Other"><br>
+    		
+    		<p>4. Does your child have siblings or relatives who are applying for the BBBS program at this time 
+    		or who are currently in the program?<br>Yes No If yes, please explain:</p><br>
+    		<input type="text" name="siblings" id="siblings"><br>
+    		
+    		<p>5. Do you anticipate any significant life changes over the next year or have you had any in the past year, such as moving?<br>Yes No If yes, please explain:</p><br>
+    		<input type="text" name="sig_changes" id="sig_changes">
+    		
+    		<p>6. Will your child be able to meet with their Big 2-4 timers per month for the next year</p>
+    		<input type="button" name="meet" id="meet" value="yes">
+    		<label for="meet">Yes</label>
+    		<input type="button" name="meet" id="meet" value="no">
+    		<label for="meet">No</label><br>
+    		
+    		<p>7. Does your child have any medical conditions that might affect home or her participating in activities with a Big
+    		Brother/Big Sister?<br>Yes No If yes, please explain:</p><br>
+    		<input type="text" name="medical" id="medical"><br>
+    		
+    		<p>8. Number of people (adults and children) in household: </p>
+    		<input type="text" name="household" id="household">
+    		
+    		<p>9. Is the parent/guardian recieving income assistance at this time?</p><br>
+    		<input type="button" name="income_assist" id="income_assist" value="yes">
+    		<label for="income_assist">Yes</label>
+    		<input type="button" name="income_assist" id="income_assist" value="no">
+    		<label for="income_assist">No</label><br>
+    		
+    		<p>10. Is parent/guardian receiving assistance with housing (e.g. Section 8, residence in public-housing, etc.)? Yes No If living in a housing development, please list the name: </p>
+    		<input type="text" name="housing_assist" id="housing_assist"><br>
+    		
+    		<p>11. Is child eligible for free or reduced lunch? Yes - Free Yes - Reduced No</p>
+    		<input type="text" name="lunch" id="lunch"><br>
+    		
+    		<p>12. Household Annual Income: (total income of the adults the child lives with) 
+0-$10,000 $10,001-$15,000 $15,001-$20,000 $20,001-$30,000 $30,001-$50,000 $50,001+ </p><br>
+			 <select name="income" id="income">
+			 <option value="0-$10,000">0-$10-000</option>
+			 <option value="$10,001-$15,000">$10,001-$15-000</option>
+			 <option value="$15,001-$20,000">$15,001-$20,000</option>
+			 <option value="$20,001-$30,000">$20,001-$30,000</option>
+			 <option value=$30,001-$50,000">30,001-$50,000</option>
+			 <option value="$50,001+">$50,001+</option>
+			 </select>
+			 
+			 <p>13. Does your child have a parent/caregiver with current or past military experience? Yes No If yes, please list dates of service: </p>
+			 <input type="text" name="service_dates" id="service_dates">
+			 <label for="branch">Branch: </label>
+			 <input type="checkbox" name="air_force" id="air_force" value="Air Force">
+ 			 <input type="checkbox" name="army" id="army" value="Army">
+			 <input type="checkbox" name="marine" id="marine" value="Marine Corps">
+			 <input type="checkbox" name="navy" id="navy" value="Navy">
+			 <input type="checkbox" name="coast" id="coast" value="Coast Guard Component">
+			 
+			 <p>Is the parent currently deployed? If yes, please put the date of deployment</p><br>
+			 <input type="text" name="deploy_dates" id="deploy_dates"><br>
+			 <p>Is the parent retired from the military?</p>
+			 <input type="button" name="retired" id="retired" value="yes">
+    		 <label for="retired">Yes</label>
+    		 <input type="button" name="retired" id="retired" value="no">
+    		 <label for="retired">No</label><br>
+    		 
+    		 <p>Is the parent separated/discharged (other than retired)?</p>
+			 <input type="button" name="discharged" id="discharged" value="yes">
+    		 <label for="discharged">Yes</label>
+    		 <input type="button" name="discharged" id="discharged" value="no">
+    		 <label for="discharged">No</label><br>
+    		 
+    		 <p>Does your child have a parent/caregiver that is considered fallen, wounded or disabled</p>
+			 <input type="button" name="disabled" id="disabled" value="yes">
+    		 <label for="disabled">Yes</label>
+    		 <input type="button" name="disabled" id="disabled" value="no">
+    		 <label for="disabled">No</label><br>
+    		 
+    		 <p>14. Does your child have a parent/guardian who is currently incarcerated? Yes No 
+If yes, please explain: </p>
+			 <input type="text" name="incarcerated" id="incarcerated">
+			 <p>15. Has your child ever been arrested or involved in the juvenile justice system?  
+Yes. Please explain: No </p>
+			 <input type="text" name="juvenile" id="juvenile">
+			 
+			 <p>16. Within the last year, has your child been in any trouble at school?</p>
+			 <select name="trouble" id="trouble">
+			 
+			 </select>
+			 
+    		 
+    		
+			 
+			
+			 
+			 
+			
+    		
+    		
+    		
+    		
+    		
     		
     		<input type="submit" name="littlesubmit" value="Submit App" class="GreenButton"/>
     	</div>    	
