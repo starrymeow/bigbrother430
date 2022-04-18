@@ -221,14 +221,22 @@
     		<input type="text" name="participate" id="participate"><br>
     		
     		<p>3. Where did you hear about Big Brothers Big Sisters? Please check all that apply and provide details in space given.</p><br>
-    		<input type="checkbox" name="hear_school" id="hear_school" value="School"><br>
-    		<input type="checkbox" name="hear_relative" id="hear_relative" value="Relative"><br>
-    		<input type="checkbox" name="hear_faith" id="hear_faith" value="Faith Organization"><br>
-    		<input type="checkbox" name="hear_service" id="hear_service" value="Service Organization"><br>
-       		<input type="checkbox" name="hear_website" id="hear_website" value="Website"><br>
-       		<input type="checkbox" name="hear_tv" id="hear_tv" value="TV/Radio"><br>
-       		<input type="checkbox" name="hear_event" id="event" value="Event"><br>
-       		<input type="checkbox" name="hear_other" id="hear_other" value="Other"><br>
+    		<input type="checkbox" name="hear_school" id="hear_school" value="School">
+    		<label for="hear_school">School</label><br>
+    		<input type="checkbox" name="hear_relative" id="hear_relative" value="Relative">
+    		<label for="hear_relative">Relative</label><br>
+    		<input type="checkbox" name="hear_faith" id="hear_faith" value="Faith Organization">
+    		<label for="hear_faith">Faith Organization</label><br>
+    		<input type="checkbox" name="hear_service" id="hear_service" value="Service Organization">
+    		<label for="hear_service">Service Organization</label><br>
+       		<input type="checkbox" name="hear_website" id="hear_website" value="Website">
+       		<label for="hear_website">Website</label><br>
+       		<input type="checkbox" name="hear_tv" id="hear_tv" value="TV/Radio">
+       		<label for="hear_tv">TV/Radio</label><br>
+       		<input type="checkbox" name="hear_event" id="event" value="Event">
+       		<label for="hear_event">Event</label><br>
+       		<input type="checkbox" name="hear_other" id="hear_other" value="Other">
+       		<label for="hear_other">Other</label><br>
     		
     		<p>4. Does your child have siblings or relatives who are applying for the BBBS program at this time 
     		or who are currently in the program?<br>Yes No If yes, please explain:</p><br>
@@ -310,9 +318,47 @@ Yes. Please explain: No </p>
 			 <input type="text" name="juvenile" id="juvenile">
 			 
 			 <p>16. Within the last year, has your child been in any trouble at school?</p>
-			 <select name="trouble" id="trouble">
+			 <label for="poor_grades">Poor Grades</label>
+			 <input type="checkbox" name="poor_grades" id="poor_grades" value="Poor Grades"><br>
+			 <label for="skipping">Skipping school/classes</label>
+			 <input type="checkbox" name="skipping" id="skipping" value="Skipping school/classes"><br>
+			 <label for="truant">Truant</label>
+			 <input type="checkbox" name="truant" id="truant" value="Truant"><br>
+			 <label for="behavior">Behavior problems </label>
+			 <input type="text" name="behavior" id="behavior" value="Describe:"><br>
+			 <label for="suspended">Has been suspended </label>
+			 <input type="text" name="suspended" id="suspended" value="Reason for suspension:"><br>
+			 <label for="expelled">Has been expelled </label>
+			 <input type="text" name="expelled" id="expelled" value="Reason for expulsion:"><br>
+			 <label for="alt_school">Sent to an alternative school </label>
+			 <input type="text" name="alt_school" id="alt_school" value="Reason for school change:"><br>
 			 
-			 </select>
+			 <p>
+			 By signing below, I give permission: 
+1. For my child to participate in the Big Brothers Big Sisters Program;  
+2. For the volunteer matched with my child, who has been screened and approved by Big Brothers Big Sisters, to transport my child to  events and match activities; 
+3. For the school to provide social and academic information about my child to Big Brothers Big Sisters (e.g. report cards, behavior  reports);  
+4. To have my child participate in an in-take interview conducted by Big Brothers Big Sisters staff and complete questionnaires  throughout his/her time in the program containing questions about school, home life, and personal interests;  5. To have my child talk with a Big Brothers Big Sisters staff person about personal safety;  
+6. For BBBS staff to provide contact information for me and my child to the volunteer. 
+I understand that the program is not obligated to match my child with a volunteer and that as part of the enrollment process I will be asked  to provide additional information through an in-person interview. I understand that the information I provide in the enrollment process  will be kept confidential, unless disclosure is required by law and with exceptions noted. I understand that incidents of child abuse or  neglect, past or present, must be reported to proper authorities. I understand that certain relevant information about my child will be  discussed with the volunteer who is a prospective match (i.e. demographic information, information relevant to volunteer preferences, and  information relevant to child-safety and well-being). 
+I certify that all of the information on this form is true and correct and that all income is reported. I understand this information is being  given for the receipt of federal funds, that the information on this application may be verified, and that deliberate misrepresentation of the  information may subject me to prosecution under applicable state and federal laws. I understand this information will not affect my  qualification for the program.  
+I do hereby release the organization and its employees, agents, members, volunteers and all other persons on its behalf from any and all  liability for any damage or injury which such child might sustain while participating in said program and activities, including but not  limited to any liability to any right of action that may occur to such child directly, or to me as his/her guardian. I understand that this  information may be shared with the school or with partnership agencies when applicable. 
+If my child is matched with a Big Brother or Big Sister I agree to support my child’s match by reviewing the program and safety  information given to me by Big Brothers Big Sisters, communicating with Big Brothers Big Sisters staff as outlined in expectations  (which includes communication at least once a month in the first year of the match), and immediately reporting any concerns I might have  to Big Brothers Big Sisters staff. 
+			 </p>
+			 <label for="signature"><b>Parent/Guardian Signature: </b></label>
+			 <input type="text" name="signature" id="signature">
+			 <label for="sig_date"><b>Date: </b></label>
+			 <input type="text" name="sig_date" id="sig_date">
+			 
+			 <h2>ACCIDENT COVERAGE STATEMENT</h2>
+			 <p>
+			 Big Brothers Big Sisters of Central Carolinas provides limited automobile insurance coverage for program participants (Big volunteer/Little-youth). The following sets forth those limitations. 
+In the event that a Little Brother/Little Sister is involved in an automobile accident while transported by an active Big  volunteer, BBBS has a comprehensive insurance program that provides coverage in the event the Big is at fault. If, however,  the Big is not at-fault, the person(s) designated at-fault, or his or her insurance company, would be liable for damages or  injuries as a result of said accident. Should the person(s) at-fault not have insurance or not have sufficient insurance to  compensate for the injury suffered as a result of the accident, BBBS’s insurance will not cover the accident and responsibility  for any expenses resulting from the accident may fall on the parent/child or their insurance company. 
+  
+My signature below acknowledges that I have read and understood the above information regarding insurance coverage and  that I hereby release BBBS from any liability for such incidents not covered by BBBS’s insurance.
+			 </p>
+			 
+			 
 			 
     		 
     		
