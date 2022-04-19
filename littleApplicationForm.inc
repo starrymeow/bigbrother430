@@ -375,10 +375,72 @@ I agree that there will be no compensation whatsoever for this participation or 
 Big Brothers Big Sisters of Central Carolinas unconditionally releases me from all liabilities or claims that may result from the existence  and use of any such materials.  
 			 </p><br>
 			 
-			 <label for="consent_child_sig">Child&apos;s name </label>
-			 <input type="text" name="child_name_print" id="child_name_sig"><br>
-			 <label for="parent_name_print">Parent/Guardian printed name </label>
-			 <input type="text" name="parent_name_print" id="parent_name_sig"><br>
+			 <label for="consent_child_name">Child&apos;s name </label>
+			 <input type="text" name="consent_child_name" id="consent_child_name"><br>
+			 <label for="consent_parent_name">Parent/Guardian printed name </label>
+			 <input type="text" name="consent_parent_name" id="consent_parent_name"><br>
+			 <label for="consent_parent_sig">Signed (Parent of Guardian) </label>
+			 <input type="text" name="consent_parent_sig" id="consent_parent_sig"><br>
+			 <label for="consent_date">Date </label>
+			 <input type="text" name="consent_date" id="consent_date"><br>
+			 <p>First and last names may be used (please check if consent given)</p>
+			 <br><br>
+			 
+			 <p><b>I do not consent to the use of my or my child&apos;s name, image or voice</b></p><br>
+			 <label for="no_consent_child_name">Child&apos;s name </label>
+			 <input type="text" name="no_consent_child_name" id="no_consent_child_name"><br>
+			 <label for="no_consent_parent_name">Parent/Guardian printed name </label>
+			 <input type="text" name="no_consent_parent_name" id="no_consent_parent_name"><br>
+			 <label for="no_consent_parent_sig">Signed (Parent of Guardian) </label>
+			 <input type="text" name="no_consent_parent_sig" id="no_consent_parent_sig"><br>
+			 <label for="no_consent_date">Date </label>
+			 <input type="text" name="no_consent_date" id="no_consent_date"><br>
+			 
+			 <h2>MEDICAL RELEASE FORM</h2><br>
+			 <h2>AUTHORIZATION FOR MEDICAL TREATMENT OF A MINOR</h2><br>
+			 <p>I/we do hereby state that I am (we are) parent/legal guardian of:</p><br>
+			 <label for="medical_child_name">Name of child: </label>
+			 <input type="text" name="medical_child_name" id="medical_child_name">
+			 <label for="medical_dob">Date of Birth: </label>
+			 <input type="text" name="medical_dob" id="medical_dob"><br>
+			 <label for="allergies">Allergies: </label>
+			 <input type="text" name="allergies" id="allergies"><br>
+			 <label for="medications">Current Medications: </label>
+			 <input type="text" name="medications" id="medications"><br>	
+			 <label for="authorize">I do hereby authorize: </label>
+			 <input type="text" name="authorize" id="authorize"><br>
+			 <label for="medical_address">Address: </label>
+			 <input type="text" name="medical_address" id="medical_address"><br>
+			 <label for="medical_number">Number: </label>
+			 <input type="text" name="medical_number" id="medical_number"><br>
+			 
+			 <h3><b>Parent, please read in full before signing!</b></h3><br>
+			 <p>I grant the above mentioned adult to have temporary custody and responsibility for the care of the above-name minor,
+			  to  consent to any X-rays, physical examination, medication, anesthetic, medical or surgical diagnosis or treatment, 
+			  and hospital  care to be rendered to the minor under the general or special supervision and on the advice of any licensed physician
+			   or  surgeon when the need for such treatment is immediate and only after efforts have been made to contact me/us are unsuccessful. 
+			   I/We will not hold the temporary custodian, physician, or hospital providing care responsible for action taken  in good faith in presenting 
+			   the above named child for care or providing examination. This authorization shall be valid when  my child is in the temporary custody and care of 
+			   the Big Brother or Big Sister or any BBBS agency representative or in  attendant at any Big Brothers Big Sisters Group activity.
+			 </p><br>
+			 <input type="text" name="medical_sig" id="medical_sig">
+			 <label for="medical_parent_name">Parent/Guardian Printed Name: </label>
+			 <input type="text" name="medical_parent_name" id="medical_parent_name"><br>
+			 <label for="medical_parent_address">Address: </label>
+			 <input type="text" name="medical_parent_address" id="medical_parent_address"><br>
+			 <label for="medical_emergency_contact">Emergency Contact: </label>
+			 <input type="text" name="medical_emergency_contact" id="medical_emergency_contact"><br>
+			 <label for="medical_emergency_number">Emergency Contact Phone: </label>
+			 <input type="text" name="medical_emergency_number" id="medical_emergency_number"><br>
+			 <label for="medical_physician">Child&apos;s Physician: </label>
+			 <input type="text" name="medical_physician" id="medical_physician"><br>
+			 <label for="medical_insurance">Insurance Company: </label>
+			 <input type="text" name="medical_insurance" id="medical_insurance"><br>
+			 <label for="medical_id">ID/Contract Number: </label>
+			 <input type="text" name="medical_id" id="medical_id"><br>    	 
+			 
+			 
+			 
 			 
 			 
 			 
