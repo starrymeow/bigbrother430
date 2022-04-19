@@ -1,4 +1,5 @@
 <?php
+include_once('Application.php');
 class BigApplication extends Application {
     private $secondary_email; // if applicant has a second email we can reach them by
     private $ssn; // applicant's social security number
