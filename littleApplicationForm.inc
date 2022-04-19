@@ -437,7 +437,7 @@ Big Brothers Big Sisters of Central Carolinas unconditionally releases me from a
 			 <label for="medical_insurance">Insurance Company: </label>
 			 <input type="text" name="medical_insurance" id="medical_insurance"><br>
 			 <label for="medical_id">ID/Contract Number: </label>
-			 <input type="text" name="medical_id" id="medical_id"><br>    	 
+			 <input type="text" name="medical_id" id="medical_id">    	 
 			 
 			 
 			 
