@@ -351,10 +351,10 @@ I certify that all of the information on this form is true and correct and that 
 I do hereby release the organization and its employees, agents, members, volunteers and all other persons on its behalf from any and all  liability for any damage or injury which such child might sustain while participating in said program and activities, including but not  limited to any liability to any right of action that may occur to such child directly, or to me as his/her guardian. I understand that this  information may be shared with the school or with partnership agencies when applicable. 
 If my child is matched with a Big Brother or Big Sister I agree to support my child’s match by reviewing the program and safety  information given to me by Big Brothers Big Sisters, communicating with Big Brothers Big Sisters staff as outlined in expectations  (which includes communication at least once a month in the first year of the match), and immediately reporting any concerns I might have  to Big Brothers Big Sisters staff. 
 			 </p><br>
-			 <label for="signature"><b>Parent/Guardian Signature: </b></label>
-			 <input type="text" name="signature" id="signature"><br>
-			 <label for="sig_date"><b>Date: </b></label>
-			 <input type="text" name="sig_date" id="sig_date"><br>
+			 <label for="permission_sig"><b>Parent/Guardian Signature: </b></label>
+			 <input type="text" name="permission_sig" id="permission_sig"><br>
+			 <label for="permission_sig_date"><b>Date: </b></label>
+			 <input type="text" name="permission_sig_date" id="permission_sig_date"><br>
 			 
 			 <h2>ACCIDENT COVERAGE STATEMENT</h2>
 			 <p>
@@ -364,8 +364,8 @@ In the event that a Little Brother/Little Sister is involved in an automobile ac
 My signature below acknowledges that I have read and understood the above information regarding insurance coverage and  that I hereby release BBBS from any liability for such incidents not covered by BBBS’s insurance.
 			 </p><br>
 			 
-			 <label for="parent_sig">Parent&apos;s Signature</label>
-			 <input type="text" name="parent_sig" id="parent_sig"><br>
+			 <label for="insurance_sig">Parent&apos;s Signature</label>
+			 <input type="text" name="insurance_sig" id="insurance_sig"><br>
 			 
 			 <h1 style="text decoration: underline;"><b>PARENTAL/GUARDIAN PUBLICITY CONSENT FORM</b></h1>
 			 
@@ -373,7 +373,15 @@ My signature below acknowledges that I have read and understood the above inform
 It is my understanding that first names, images/voices may be used by BBBSGC corporate partners. 
 I agree that there will be no compensation whatsoever for this participation or for the use of resulting materials by Big Brothers Big  Sisters. 
 Big Brothers Big Sisters of Central Carolinas unconditionally releases me from all liabilities or claims that may result from the existence  and use of any such materials.  
-			 </p>
+			 </p><br>
+			 
+			 <label for="consent_child_sig">Child&apos;s name </label>
+			 <input type="text" name="child_name_print" id="child_name_sig"><br>
+			 <label for="parent_name_print">Parent/Guardian printed name </label>
+			 <input type="text" name="parent_name_print" id="parent_name_sig"><br>
+			 
+			 
+			 
 			 
 			 
 			 
