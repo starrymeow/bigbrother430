@@ -29,7 +29,7 @@ if ($_SESSION['access_level'] < 1) {
 		if (! array_key_exists('_submit_check', $_POST)) {
 		    include("littleApplicationForm.inc");
 		} else {
-            //TODO
+		    include('littleApplicationForm.inc');
 		}
 		?>
 		</div>
