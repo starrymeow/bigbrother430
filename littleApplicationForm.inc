@@ -359,7 +359,7 @@ If my child is matched with a Big Brother or Big Sister I agree to support my ch
 			 <h2>ACCIDENT COVERAGE STATEMENT</h2>
 			 <p>
 			 Big Brothers Big Sisters of Central Carolinas provides limited automobile insurance coverage for program participants (Big volunteer/Little-youth). The following sets forth those limitations. 
-In the event that a Little Brother/Little Sister is involved in an automobile accident while transported by an active Big  volunteer, BBBS has a comprehensive insurance program that provides coverage in the event the Big is at fault. If, however,  the Big is not at-fault, the person(s) designated at-fault, or his or her insurance company, would be liable for damages or  injuries as a result of said accident. Should the person(s) at-fault not have insurance or not have sufficient insurance to  compensate for the injury suffered as a result of the accident, BBBS’s insurance will not cover the accident and responsibility  for any expenses resulting from the accident may fall on the parent/child or their insurance company. 
+In the event that a Little Brother/Little Sister is involved in an automobile accident while transported by an active Big  volunteer, BBBS has a comprehensive insurance program that provides coverage in the event the Big is at fault. If, however,  the Big is not at-fault, the person(s) designated at-fault, or his or her insurance company, would be liable for damages or  injuries as a result of said accident. Should the person(s) at-fault not have insurance or not have sufficient insurance to  compensate for the injury suffered as a result of the accident, BBBS&apos;s insurance will not cover the accident and responsibility  for any expenses resulting from the accident may fall on the parent/child or their insurance company. 
   
 My signature below acknowledges that I have read and understood the above information regarding insurance coverage and  that I hereby release BBBS from any liability for such incidents not covered by BBBS’s insurance.
 			 </p><br>
@@ -369,7 +369,7 @@ My signature below acknowledges that I have read and understood the above inform
 			 
 			 <h1 style="text decoration: underline;"><b>PARENTAL/GUARDIAN PUBLICITY CONSENT FORM</b></h1>
 			 
-			 <p><b>I do hereby authorize Big Brothers Big Sisters of Central Carolinas</b> to use my or my child’s image and voice, including photos and  videos, for publicity purposes to promote the Big Brothers Big Sisters of Central Carolinas program. The images/voices may be used in  various promotional materials (such as our website), news media publicity, Facebook, and Twitter. 
+			 <p><b>I do hereby authorize Big Brothers Big Sisters of Central Carolinas</b> to use my or my child&apos;s image and voice, including photos and  videos, for publicity purposes to promote the Big Brothers Big Sisters of Central Carolinas program. The images/voices may be used in various promotional materials (such as our website), news media publicity, Facebook, and Twitter. 
 It is my understanding that first names, images/voices may be used by BBBSGC corporate partners. 
 I agree that there will be no compensation whatsoever for this participation or for the use of resulting materials by Big Brothers Big  Sisters. 
 Big Brothers Big Sisters of Central Carolinas unconditionally releases me from all liabilities or claims that may result from the existence  and use of any such materials.  
@@ -418,10 +418,10 @@ Big Brothers Big Sisters of Central Carolinas unconditionally releases me from a
 			 <p>I grant the above mentioned adult to have temporary custody and responsibility for the care of the above-name minor,
 			  to  consent to any X-rays, physical examination, medication, anesthetic, medical or surgical diagnosis or treatment, 
 			  and hospital  care to be rendered to the minor under the general or special supervision and on the advice of any licensed physician
-			   or  surgeon when the need for such treatment is immediate and only after efforts have been made to contact me/us are unsuccessful. 
-			   I/We will not hold the temporary custodian, physician, or hospital providing care responsible for action taken  in good faith in presenting 
-			   the above named child for care or providing examination. This authorization shall be valid when  my child is in the temporary custody and care of 
-			   the Big Brother or Big Sister or any BBBS agency representative or in  attendant at any Big Brothers Big Sisters Group activity.
+			   or surgeon when the need for such treatment is immediate and only after efforts have been made to contact me/us are unsuccessful. 
+			   I/We will not hold the temporary custodian, physician, or hospital providing care responsible for action taken in good faith in presenting 
+			   the above named child for care or providing examination. This authorization shall be valid when my child is in the temporary custody and care of 
+			   the Big Brother or Big Sister or any BBBS agency representative or in attendant at any Big Brothers Big Sisters Group activity.
 			 </p><br>
 			 <input type="text" name="medical_sig" id="medical_sig">
 			 <label for="medical_parent_name">Parent/Guardian Printed Name: </label>
