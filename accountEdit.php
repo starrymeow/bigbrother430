@@ -61,9 +61,10 @@ if ($email == 'new') {
                             include('accountForm.inc');
                         }
                         // this was a successful form submission; update the database and exit
-                        else
+                        else {
                             process_form($email,$account);
-                            echo "</div>";
+                        }
+                        echo "</div>";
                         include('footer.inc');
                         echo('</div></body></html>');
                         die();
