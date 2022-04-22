@@ -202,14 +202,12 @@ if ($email == 'new') {
 
                         // try to replace an existing account in the database by removing and adding
                         else {
-                            $email = $_POST['email'];
-                            $status = $_POST['status'];
                             $result = remove_account($email);
                             if (!$result)
                                 echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the Manager.</p>');
                             else {
                                 try {
-                                    $tempPass = mail();
+                                    $tempPass = mail($email, $first_name);
                                     $newaccount = new Account($email, password_hash($tempPass, PASSWORD_DEFAULT), $first_name, $last_name, $status);
                                     $result = add_account($newaccount);
                                     if (!$result) {
