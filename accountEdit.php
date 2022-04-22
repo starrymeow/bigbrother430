@@ -1,6 +1,4 @@
 <?php
-
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
@@ -61,9 +59,10 @@ if ($email == 'new') {
                             include('accountForm.inc');
                         }
                         // this was a successful form submission; update the database and exit
-                        else
+                        else {
                             process_form($email,$account);
-                            echo "</div>";
+                        }
+                        echo "</div>";
                         include('footer.inc');
                         echo('</div></body></html>');
                         die();
@@ -89,9 +88,32 @@ if ($email == 'new') {
                        }
                    }
 
-                    /**
-                     * process_form sanitizes data, concatenates needed data, and enters it all into a database
-                     */
+                   function mail($email, $first_name) {
+                       $mail = new PHPMailer(true);
+                       //$mail->SMTPDebug = 2;                   // Enable verbose debug output
+                       $mail->isSMTP();                        // Set mailer to use SMTP
+                       $mail->Host       = 'smtp.gmail.com;';    // Specify main SMTP server
+                       $mail->SMTPAuth   = true;               // Enable SMTP authentication
+                       $mail->Username   = 'Fredericksburg.BBBS@gmail.com';     // SMTP username
+                       $mail->Password   = get_pass();         // SMTP password
+                       $mail->SMTPSecure = 'tls';              // Enable TLS encryption, 'ssl' also accepted
+                       $mail->Port       = 587;                // TCP port to connect to
+                       $mail->setFrom('Fredericksburg.BBBS@gmail.com', 'BigBrotherBigSister');           // Set sender of the mail
+                       $mail->addAddress($email, $first_name);   // Name is optional
+                       $mail->isHTML(true);
+
+                       $tempPass = generateRandomString();
+
+                       $mail->Subject = 'BigBrotherBigSister email verification';
+                       $mail->Body    = '<p>Your temporary password: ' . $tempPass . '</p><p>This account will be deleted one hour after creation if you do not log in for th first time before then.</p>';
+                       $mail->AltBody = 'This account will be deleted one hour after creation if you do not log in for th first time before then. \nYour temporary password: ' . $tempPass;    //Body in plain text for non-HTML mail clients
+                       $mail->send();
+                       echo ("<p>Mail has been sent successfully!<p>");
+
+                       return $tempPass;
+                   }
+
+                    // process_form sanitizes data, concatenates needed data, and enters it all into a database
                     function process_form($email,$account) {
                         //step one: sanitize data by replacing HTML entities and escaping the ' character
                         if ($account->get_first_name()=="new")
@@ -106,7 +128,7 @@ if ($email == 'new') {
                         if ($_POST['deleteMe'] == "DELETE") {
                             $result = retrieve_account($email);
                             if (!$result)
-                                echo('<p>Unable to delete. ' . $first_name . ' ' . $last_name . ' is not in the database. <br>Please report this error to the House Manager.');
+                                echo('<p>Unable to delete. ' . $first_name . ' ' . $last_name . ' is not in the database. <br>Please report this error to the Manager.</p>');
                             else {
                                 //What if they're the last remaining manager account?
                                 if (retrieve_admin($result->email)) {
@@ -143,7 +165,7 @@ if ($email == 'new') {
                             $newaccount = new Account($email, $pass, $first_name, $last_name, $status);
                             $result = add_account($newaccount);
                             if (!$result)
-                                echo ('<p class="error">Unable to reset ' . $first_name . ' ' . $last_name . "'s password.. <br>Please report this error to the House Manager.");
+                                echo ('<p class="error">Unable to reset ' . $first_name . ' ' . $last_name . "'s password.. <br>Please report this error to the Manager.");
                             else
                                 echo("<p>You have successfully reset " . $first_name . " " . $last_name . "'s password.</p>");
                         }
@@ -151,69 +173,52 @@ if ($email == 'new') {
                         // try to add a new account to the database
                         else if ($account->get_email() == "new") {
                             //check if there's already an entry
-                            //TODO link to verification page in email body
-                            //TODO enter old password to change to a new one
                             $dup = retrieve_account($email);
                             if ($dup) {
-                                echo('<p class="error">Unable to add ' . $first_name . ' ' . $last_name . ' to the database. <br>An account with the same email already exists.');
+                                echo('<p class="error">Unable to add ' . $first_name . ' ' . $last_name . ' to the database. <br>An account with the same email already exists.</p>');
                             } else {
                                 try {
-                                    $mail = new PHPMailer(true);
-                                    //$mail->SMTPDebug = 2;                   // Enable verbose debug output
-                                    $mail->isSMTP();                        // Set mailer to use SMTP
-                                    $mail->Host       = 'smtp.gmail.com;';    // Specify main SMTP server
-                                    $mail->SMTPAuth   = true;               // Enable SMTP authentication
-                                    $mail->Username   = 'Fredericksburg.BBBS@gmail.com';     // SMTP username
-                                    $mail->Password   = get_pass();         // SMTP password
-                                    $mail->SMTPSecure = 'tls';              // Enable TLS encryption, 'ssl' also accepted
-                                    $mail->Port       = 587;                // TCP port to connect to
-                                    $mail->setFrom('Fredericksburg.BBBS@gmail.com', 'BigBrotherBigSister');           // Set sender of the mail
-                                    $mail->addAddress($email, $first_name);   // Name is optional
-                                    $mail->isHTML(true);
-
-                                    $tempPass = generateRandomString();
-
-                                    $mail->Subject = 'BigBrotherBigSister email verification';
-                                    $mail->Body    = '<p>Your temporary password: ' . $tempPass . '</p><p>This account will be deleted one hour after creation if you do not log in for th first time before then.</p>';
-                                    $mail->AltBody = 'This account will be deleted one hour after creation if you do not log in for th first time before then. \nYour temporary password: ' . $tempPass;    //Body in plain text for non-HTML mail clients
-                                    $mail->send();
-                                    echo ("<p>Mail has been sent successfully!<p>");
+                                    $tepmPass = mail($email, $first_name);
 
                                     $newaccount = new Account($email,  password_hash($tempPass, PASSWORD_DEFAULT), $first_name, $last_name, "new");
                                     $result = add_account($newaccount);
-                                    if (!$result)
+                                    if (!$result) {
                                         echo ('<p class="error">Unable to add '.$first_name.' '.$last_name.' in the database. <br>Please report this error to the Manager.</p>');
-                                    else if ($_SESSION['access_level'] == 0) {
+                                    } else if ($_SESSION['access_level'] == 0) {
                                         echo("<p>Your account has been successfully created.</p><br>");
                                         //delete account if it hasn't been loged into
                                         //this requires that there is an ini file in the listed directory
                                         execInBackground('C:\\MAMP\\bin\\php\\php8.0.1\\php.exe removeTemporaryAccount.php '.$newaccount->get_email());
                                        // execInBackground('C:\MAMP\bin\php\php8.0.1\php.exe removeTemporaryAccount.php '.$newaccount->get_email());
-                                    } else
+                                    } else {
                                         echo('<p>You have successfully added <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> to the database.</p>');
+                                    }
                                 } catch (Exception $e) {
                                     echo ("<p class='error'>Message could not be sent. Mailer Error: {$mail->ErrorInfo}</p>");
-                                    echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the House Manager.');
+                                    echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the Manager.</p>');
                                 }
                             }
                         }
 
                         // try to replace an existing account in the database by removing and adding
                         else {
-                            $email = $_POST['email'];
-                            $pass = $_POST['pass'];
-                            $status = $_POST['status'];
                             $result = remove_account($email);
                             if (!$result)
                                 echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the Manager.</p>');
                             else {
-                                $newaccount = new Account($email, $pass, $first_name, $last_name, $status);
-                                $result = add_account($newaccount);
-                                if (!$result)
-                                    echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the House Manager.');
-                                //else echo("<p>You have successfully edited " .$first_name." ".$last_name. " in the database.</p>");
-                                else
-                                    echo('<p>You have successfully edited <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> in the database.</p>');
+                                try {
+                                    $tempPass = mail($email, $first_name);
+                                    $newaccount = new Account($email, password_hash($tempPass, PASSWORD_DEFAULT), $first_name, $last_name, $status);
+                                    $result = add_account($newaccount);
+                                    if (!$result) {
+                                        echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the Manager.</p>');
+                                    } else {
+                                        echo('<p>You have successfully edited <a href="' . $path . 'accountEdit.php?id=' . $email . '"><b>' . $first_name . ' ' . $last_name . ' </b></a> in the database.</p>');
+                                    }
+                                } catch (Exception $e) {
+                                    echo ("<p class='error'>Message could not be sent. Mailer Error: {$mail->ErrorInfo}</p>");
+                                    echo ('<p class="error">Unable to add " .$first_name." ".$last_name. " in the database. <br>Please report this error to the Manager.</p>');
+                                }
                             }
                         }
                     }

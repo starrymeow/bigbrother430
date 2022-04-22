@@ -11,18 +11,18 @@ session_cache_expire(30);
         <link rel="stylesheet" href="styles.css" type="text/css" />
     </head>
 	<body>
-		<?PHP include('header.php'); 
-		//$tempvar = 1;
-		// Test if admin, or big or little
-		if ($_SESSION['access_level'] == 1) {
-		  echo ('<div id="homeoptions">');
-		  echo ('<a href="littleApp.php" class="greenButton">Little Application</a>');
-		  echo ('<a href="bigApp.php" class="greenButton">Big Application</a>');
-		  echo ('</div>');
-		}
-    // Test if little button was pressed, or if Big was pressed
-		if ($_SESSION['access_level'] >= 2) {
-		  include('littleApplicationForm.inc');
+		<?PHP include('header.php');
+		// Test if user is logged in
+		if ($_SESSION['access_level'] >= 1) {
+		    // Show buttons
+		    echo ('<div id="homeoptions">');
+		    echo ('<a href="littleApp.php?id=new" class="greenButton">Little Application</a>');
+		    echo ('<a href="bigApp.php?id=new" class="greenButton">Big Application</a>');
+		    echo ('</div>');
+		} else {
+		    //user is not logged in
+		    header("Location: index.php");
+		    die();
 		}
 		?>
 	</body>

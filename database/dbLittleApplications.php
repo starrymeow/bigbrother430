@@ -1,6 +1,7 @@
 <?php
 
 include_once('dbinfo.php');
+include_once('dbApplications.php');
 include_once(dirname(__FILE__).'/../domain/LittleApplication.php');
 
 // add a LittleApplication to dbLittleApplications table: if already there, return false
