@@ -1,13 +1,13 @@
 <form method="POST">
-	<div id="page1">
-		<input type="hidden" name="_submit_check" value="true">
-		<label for="adult_name">Parent/Guardian</label><br/>
-		<input type="text" name="adult_name"/><br/>
+<div id="page1">
+    <input type="hidden" name="_submit_check" value="true">
+    <label for="adult_name">Parent/Guardian</label><br/>
+    <input type="text" name="adult_name"/><br/>
 
-		<label for="relation">Relationship to child</label><br/>
-		<input type="text" name="relation"/><br/>
+    <label for="relation">Relationship to child</label><br/>
+    <input type="text" name="relation"/><br/>
 
-		<label>
+    <label>
 			Do you have legal custody of the child?</label><br/>
 			<label for="yes">
 				<input type="radio" name="legal_custody" value="true"/>

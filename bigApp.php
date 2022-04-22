@@ -1,12 +1,11 @@
 <?php
 session_start();
 session_cache_expire(30);
-include_once('database/dbAccounts.php');
+//include_once('database/dbAccounts.php');
 include_once('domain/Account.php');
 include_once('database/dbBigApplications.php');
 include_once('domain/BigApplication.php');
 include_once('database/dbinfo.php');
-
 
 // Tests if user can access page
 if ($_SESSION['access_level'] < 1) {
