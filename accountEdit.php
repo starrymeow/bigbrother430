@@ -1,6 +1,4 @@
 <?php
-
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
@@ -90,9 +88,7 @@ if ($email == 'new') {
                        }
                    }
 
-                    /**
-                     * process_form sanitizes data, concatenates needed data, and enters it all into a database
-                     */
+                    // process_form sanitizes data, concatenates needed data, and enters it all into a database
                     function process_form($email,$account) {
                         //step one: sanitize data by replacing HTML entities and escaping the ' character
                         if ($account->get_first_name()=="new")
@@ -107,7 +103,7 @@ if ($email == 'new') {
                         if ($_POST['deleteMe'] == "DELETE") {
                             $result = retrieve_account($email);
                             if (!$result)
-                                echo('<p>Unable to delete. ' . $first_name . ' ' . $last_name . ' is not in the database. <br>Please report this error to the House Manager.');
+                                echo('<p>Unable to delete. ' . $first_name . ' ' . $last_name . ' is not in the database. <br>Please report this error to the Manager.</p>');
                             else {
                                 //What if they're the last remaining manager account?
                                 if (retrieve_admin($result->email)) {
@@ -144,7 +140,7 @@ if ($email == 'new') {
                             $newaccount = new Account($email, $pass, $first_name, $last_name, $status);
                             $result = add_account($newaccount);
                             if (!$result)
-                                echo ('<p class="error">Unable to reset ' . $first_name . ' ' . $last_name . "'s password.. <br>Please report this error to the House Manager.");
+                                echo ('<p class="error">Unable to reset ' . $first_name . ' ' . $last_name . "'s password.. <br>Please report this error to the Manager.");
                             else
                                 echo("<p>You have successfully reset " . $first_name . " " . $last_name . "'s password.</p>");
                         }
@@ -152,11 +148,9 @@ if ($email == 'new') {
                         // try to add a new account to the database
                         else if ($account->get_email() == "new") {
                             //check if there's already an entry
-                            //TODO link to verification page in email body
-                            //TODO enter old password to change to a new one
                             $dup = retrieve_account($email);
                             if ($dup) {
-                                echo('<p class="error">Unable to add ' . $first_name . ' ' . $last_name . ' to the database. <br>An account with the same email already exists.');
+                                echo('<p class="error">Unable to add ' . $first_name . ' ' . $last_name . ' to the database. <br>An account with the same email already exists.</p>');
                             } else {
                                 try {
                                     $mail = new PHPMailer(true);

@@ -97,7 +97,7 @@
                     $_SESSION['f_name'] = $account->get_first_name();
                     $_SESSION['l_name'] = $account->get_last_name();
                     $_SESSION['_id'] = $user;              //email
-                    print_r($_SESSION['user']);
+                    //print_r($_SESSION['user']);
                     echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
                 }
                 else {
