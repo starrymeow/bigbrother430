@@ -22,7 +22,7 @@ if ($id == 'new') {
 } else {
     $form = retrieve_little_application($id);
     if (!$form) {
-        echo('<p id="error">Error: there\'s no little applications with this id in the database</p>' . $id);
+        echo('<p id="error">Error: there are no little applications with this id in the database</p>' . $id);
         die();
     }
 }
@@ -53,7 +53,6 @@ if ($id == 'new') {
             		    if ($errors) {
             		        show_errors($errors);
             		        include('littleApplicationForm.inc');
-
             		    }
             		    // this was a successful form submission; update the database and exit
             		    else {
