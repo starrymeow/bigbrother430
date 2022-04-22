@@ -111,7 +111,7 @@ if ($id == 'new') {
                             }
                         } else if ($form->get_id() == 'new') { //try to add a new form to the database
                             //check if there's already an entry
-                            $dup = retrieve_little_application($email);
+                            $dup = retrieve_little_application($id);
                             if ($dup) {
                                 echo('<p class="error">Unable to add ' . $email . ':' . $id . ' to the database. <br>A form with the same id already exists. <br>Please report this error to the Manager.</p>');
                             } else {
@@ -124,7 +124,8 @@ if ($id == 'new') {
                                 }
                             }
                         } else { //try to replace an existing form in the database by removing and adding
-                            $result = remove_little_application($email);
+                            $id = $form->get_id();
+                            $result = remove_little_application($id);
                             if (!$result) {
                                 echo ('<p class="error">Unable to update ' . $email . ':' . $id . '. <br>Please report this error to the Manager.</p>');
                             } else {
