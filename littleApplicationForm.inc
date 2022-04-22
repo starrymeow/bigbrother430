@@ -10,22 +10,22 @@
 		<label>
 			Do you have legal custody of the child?</label><br/>
 			<label for="yes">
-				<input type="radio" name="legal_custody" value="yes"/>
+				<input type="radio" name="legal_custody" value="true"/>
 				Yes
 			</label>
-			<label for="yes">
-				<input type="radio" name="legal_custody" value="no"/>
+			<label for="no">
+				<input type="radio" name="legal_custody" value='false'/>
 				No
 			</label>
 		<br/>
 		<label>
 			Is there a person who shares legal custody of this child? </label><br/>
 			<label for="yes">
-				<input type="radio" name="share_custody" value="yes" onchange="show('otherStuff')"/>
+				<input type="radio" name="share_custody" value="true" onchange="show('otherStuff')"/>
 				Yes
 			</label>
-			<label for="yes">
-				<input type="radio" name="share_custody" value="no" onchange="hide('otherStuff')"/>
+			<label for="no">
+				<input type="radio" name="share_custody" value="false" onchange="hide('otherStuff')"/>
 				No
 			</label>
 		<br/>
@@ -34,11 +34,11 @@
     		<label>
 			Are they aware and supportive of the child&apos;s enrollment in the BBBS program?: </label><br/>
 			<label for="yes">
-				<input type="radio" name="other_supports_enrollment" value="yes"/>
+				<input type="radio" name="other_supports_enrollment" value="true"/>
 				Yes
 			</label>
 			<label for="yes">
-				<input type="radio" name="other_supports_enrollment" value="no"/>
+				<input type="radio" name="other_supports_enrollment" value="false"/>
 				No
 			</label>
 		<br/>
@@ -59,8 +59,8 @@
 		<label for="last_name">Last Name</label><br/>
 		<input type="text" name="last_name"/><br/>
 
-		<label for="preffered_name">Preffered Name/Nickname</label><br/>
-		<input type="text" name="preffered_name"/><br/>
+		<label for="preferred_name">Preferred Name/Nickname</label><br/>
+		<input type="text" name="preferred_name"/><br/>
 
 		<label>
     		Child&apos;s Gender</label><br/>
@@ -84,8 +84,8 @@
 			<input type="text" name="otherGender"/>
 		</div>
 
-		<label for="child_dob">Child Date of Birth</label><br/>
-		<input type="date" name="child_dob"/><br/>
+		<label for="birthday">Child Date of Birth</label><br/>
+		<input type="date" name="birthday"/><br/>
 
 		<label for="living_situation">What is the child&apos;s living situation?</label><br>
 		<select name="living_situation">
@@ -109,18 +109,18 @@
 		<input type="tel" name="child_phone"/><br/>
 
 		<label for="text_parent">Is it okay to text parent?</label>
-		<input type="radio" name="text_parent" id="text_parent" value="yes">
+		<input type="radio" name="text_parent" id="text_parent" value="true">
 		<label for="yes_textparent">Yes</label>
-		<input type="radio" name="text_parent" id="text_parent" value="no">
+		<input type="radio" name="text_parent" id="text_parent" value="false">
 		<label for="no_textparent">No</label>
 		<label for="parent_cell_provider">Cell Provider: </label>
 		<input type="text" name="parent_cell_provider" id="parent_cell_provider">
 
-		<label for="text_parent">Is it okay to text child?</label>
-		<input type="radio" name="text_child" id="text_child" value="yes">
+		<label for="text_child">Is it okay to text child?</label>
+		<input type="radio" name="text_child" id="text_child" value="true">
 		<label for="yes_textchild">Yes</label>
-		<input type="radio" name="text_child" id="text_child" value="no">
-		<label for="no_textparent">No</label>
+		<input type="radio" name="text_child" id="text_child" value="false">
+		<label for="no_textchild">No</label>
 		<label for="child_cell_provider">Cell Provider: </label>
 		<input type="text" name="child_cell_provider" id="child_cell_provider"><br>
 
@@ -234,9 +234,9 @@
 		<input type="text" name="sig_changes" id="sig_changes">
 
 		<p>6. Will your child be able to meet with their Big 2-4 timers per month for the next year</p>
-		<input type="button" name="meet" id="meet" value="yes">
+		<input type="button" name="meet" id="meet" value="true">
 		<label for="meet">Yes</label>
-		<input type="button" name="meet" id="meet" value="no">
+		<input type="button" name="meet" id="meet" value="false">
 		<label for="meet">No</label><br>
 
 		<p>7. Does your child have any medical conditions that might affect home or her participating in activities with a Big
@@ -247,9 +247,9 @@
 		<input type="text" name="household" id="household">
 
 		<p>9. Is the parent/guardian recieving income assistance at this time?</p><br>
-		<input type="button" name="income_assist" id="income_assist" value="yes">
+		<input type="button" name="income_assist" id="income_assist" value="true">
 		<label for="income_assist">Yes</label>
-		<input type="button" name="income_assist" id="income_assist" value="no">
+		<input type="button" name="income_assist" id="income_assist" value="false">
 		<label for="income_assist">No</label><br>
 
 		<p>10. Is parent/guardian receiving assistance with housing (e.g. Section 8, residence in public-housing, etc.)? Yes No If living in a housing development, please list the name: </p>
@@ -281,21 +281,21 @@
 		<p>Is the parent currently deployed? If yes, please put the date of deployment</p><br>
 		<input type="text" name="deploy_dates" id="deploy_dates"><br>
 		<p>Is the parent retired from the military?</p>
-		<input type="button" name="retired" id="retired" value="yes">
+		<input type="button" name="retired" id="retired" value="true">
 		<label for="retired">Yes</label>
-		<input type="button" name="retired" id="retired" value="no">
+		<input type="button" name="retired" id="retired" value="false">
 		<label for="retired">No</label><br>
 
 		<p>Is the parent separated/discharged (other than retired)?</p>
-		<input type="button" name="discharged" id="discharged" value="yes">
+		<input type="button" name="discharged" id="discharged" value="true">
 		<label for="discharged">Yes</label>
-		<input type="button" name="discharged" id="discharged" value="no">
+		<input type="button" name="discharged" id="discharged" value="false">
 		<label for="discharged">No</label><br>
 
 		<p>Does your child have a parent/caregiver that is considered fallen, wounded or disabled</p>
-		<input type="button" name="disabled" id="disabled" value="yes">
+		<input type="button" name="disabled" id="disabled" value="true">
 		<label for="disabled">Yes</label>
-		<input type="button" name="disabled" id="disabled" value="no">
+		<input type="button" name="disabled" id="disabled" value="false">
 		<label for="disabled">No</label><br>
 
 		<p>14. Does your child have a parent/guardian who is currently incarcerated? Yes No

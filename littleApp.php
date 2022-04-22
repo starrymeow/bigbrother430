@@ -7,7 +7,6 @@ include_once('database/dbLittleApplications.php');
 include_once('domain/LittleApplication.php');
 include_once('database/dbinfo.php');
 
-
 // Tests if user can access page
 if ($_SESSION['access_level'] < 1) {
     header("Location: index.php");
@@ -49,7 +48,7 @@ if ($id == 'new') {
             		    include("littleApplicationForm.inc");
             		} else {
             		    //in this case, the form has been submitted, so validate it
-            		    $errors = validate_form($form);  //step one is validation.
+            		    $errors = validate_little($form);  //step one is validation.
             		    // errors array lists problems on the form submitted
             		    if ($errors) {
             		        show_errors($errors);
