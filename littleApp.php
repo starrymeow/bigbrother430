@@ -48,7 +48,7 @@ if ($id == 'new') {
             		    include("littleApplicationForm.inc");
             		} else {
             		    //in this case, the form has been submitted, so validate it
-            		    $errors = validate_little($form);  //step one is validation.
+            		    $errors = validate_little();  //step one is validation.
             		    // errors array lists problems on the form submitted
             		    if ($errors) {
             		        show_errors($errors);

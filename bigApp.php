@@ -51,7 +51,7 @@ if ($id == 'new') {
             		    include("bigApplicationForm.inc");
             		} else {
             		    //in this case, the form has been submitted, so validate it
-            		    $errors = validate_big($form);  //step one is validation.
+            		    $errors = validate_big();  //step one is validation.
             		    // errors array lists problems on the form submitted
             		    if ($errors) {
             		        show_errors($errors);

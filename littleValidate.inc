@@ -8,6 +8,7 @@ include_once('generalValidate.inc');
  */
 function validate_little($form) {
     //TODO
+    $errors = validate_general($form);
     /*if ($account->get_first_name()=="new" && ($_POST['first_name'] == NULL || $_POST['first_name'] == 'new'))
         $errors[] = 'Please enter a first name';
     if ($_POST['last_name'] == null)
