@@ -8,15 +8,15 @@
     <input type="text" name="relation"/><br/>
 
     <label>
-			Do you have legal custody of the child?</label><br/>
-			<label for="yes">
-				<input type="radio" name="legal_custody" value="true"/>
-				Yes
-			</label>
-			<label for="no">
-				<input type="radio" name="legal_custody" value='false'/>
-				No
-			</label>
+    	Do you have legal custody of the child?</label><br/>
+    	<label for="yes">
+    		<input type="radio" name="legal_custody" value="true"/>
+    		Yes
+    	</label>
+    	<label for="no">
+    		<input type="radio" name="legal_custody" value='false'/>
+    		No
+		</label>
 		<br/>
 		<label>
 			Is there a person who shares legal custody of this child? </label><br/>
