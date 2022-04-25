@@ -108,19 +108,23 @@
 		<label for="child_phone">Child Phone #</label><br/>
 		<input type="tel" name="child_phone"/><br/>
 
-		<label for="text_parent">Is it okay to text parent?</label>
+		<label for="text_parent">Is it okay to text parent?</label><br/>
+		
 		<input type="radio" name="can_text_cell" id="yes_text_parent" value="true">
 		<label for="yes_text_parent">Yes</label>
 		<input type="radio" name="can_text_cell" id="no_text_parent" value="false">
-		<label for="no_text_parent">No</label>
+		<label for="no_text_parent">No</label><br/>
+		
 		<label for="parent_cell_provider">Cell Provider: </label>
-		<input type="text" name="parent_cell_provider" id="parent_cell_provider">
+		<input type="text" name="parent_cell_provider" id="parent_cell_provider"><br/>
 
-		<label for="text_child">Is it okay to text child?</label>
+		<label for="text_child">Is it okay to text child?</label><br/>
+		
 		<input type="radio" name="text_child" id="text_child" value="true">
 		<label for="yes_textchild">Yes</label>
 		<input type="radio" name="text_child" id="text_child" value="false">
-		<label for="no_textchild">No</label>
+		<label for="no_textchild">No</label><br/>
+		
 		<label for="child_cell_provider">Cell Provider: </label>
 		<input type="text" name="child_cell_provider" id="child_cell_provider"><br>
 
@@ -148,41 +152,26 @@
 		<input type="text" name="student_id" id="student_id"><br>
 
 		<label for="race">Child's Race/Ethnicity:</label><br>
-		<input type="button" name="race" id="american">
-		<label for="american">American Indian or Alaska</label><br>
-		<input type="button" name="race" id="asian">
-		<label for="asian">Native Asian</label><br>
-		<input type="button" name="race" id="african">
-		<label for="african">Black or African American</label><br>
-		<input type="button" name="race" id="latin">
-		<label for="latin">Hispanic or latino</label><br>
-		<input type="button" name="race" id="pacific">
-		<label for="pacific">Native Hawaiian or Pacific Islander</label><br>
-		<input type="button" name="race" id="white">
-		<label for="white">White</label><br>
-		<input type="button" name="race" id="other">
-		<label for="other">Other</label><br>
-
-		<label for="multi">Multi-race (check all that apply)</label><br>
-		<input type="checkbox" id="american1" name="american1" value="American">
-		<label for="american1">American Indian or Alaska Native</label><br>
-		<input type="checkbox" id="asian1" name="asian1" value="Asian">
-		<label for="asian1">Native Asian</label><br>
-		<input type="checkbox" id="african1" name="african1" value="African">
-		<label for="african1">Black or African American</label><br>
-		<input type="checkbox" id="latin1" name="latin1" value="Latin">
-		<label for="latin1">Hispanic or Latino</label><br>
-		<input type="checkbox" id="pacific1" name="pacific1" value="Pacific">
-		<label for="pacific1">Native Hawaiian or Pacific</label><br>
-		<input type="checkbox" id="white1" name="white1" value="White">
-		<label for="white1">Islander White</label><br>
+		<select name="race">
+			<option value="" disabled selected>Select</option>
+			<option value="african">Black or African American</option>
+			<option value="latin">Hispanic or latino</option>
+			<option value="caucasian">Caucasian</option>
+			<option value="asian">Asian</option>
+			<option value="american">Native American or Alaskan</option>
+			<option value="pacific">Native Hawaiian or Pacific Islander</option>
+			<option value="other">Other</option>
+		</select><br/>
 
 		<label for="origin">Nationality/Country of Origin:</label>
 		<input type="text" id="origin" name="origin"><br>
+		
 		<label for="place_employment">Parent Place of Employment:</label>
 		<input type="text" id="place_employment" name="place_employment"><br>
+		
 		<label for="work_phone">Parent Work Phone #:</label>
 		<input type="text" id="work_phone" name="work_phone"><br>
+		
 		<label for="contact_at_work">May we contact you(the parent/guardian) at the work number listed above?</label>
 		<input type="button" name="contact_at_work" id="yes_contact_at_work">
 		<label for="contact_at_work">Yes</label>
