@@ -8,15 +8,15 @@
     <input type="text" name="relation"/><br/>
 
     <label>
-			Do you have legal custody of the child?</label><br/>
-			<label for="yes">
-				<input type="radio" name="legal_custody" value="true"/>
-				Yes
-			</label>
-			<label for="no">
-				<input type="radio" name="legal_custody" value='false'/>
-				No
-			</label>
+    	Do you have legal custody of the child?</label><br/>
+    	<label for="yes">
+    		<input type="radio" name="legal_custody" value="true"/>
+    		Yes
+    	</label>
+    	<label for="no">
+    		<input type="radio" name="legal_custody" value='false'/>
+    		No
+		</label>
 		<br/>
 		<label>
 			Is there a person who shares legal custody of this child? </label><br/>
@@ -65,23 +65,23 @@
 		<label>
     		Child&apos;s Gender</label><br/>
     		<label for="gender1">
-    			<input type="radio" name="child_gender" id="gender1" value="male" onchange="hide('otherGender')"/>
+    			<input type="radio" name="gender" id="gender1" value="male" onchange="hide('otherGender')"/>
     			Male
     		</label>
 
     		<label for="gender2">
-    			<input type="radio" name="child_gender" id="gender2" value="female" onchange="hide('otherGender')"/>
+    			<input type="radio" name="gender" id="gender2" value="female" onchange="hide('otherGender')"/>
     			Female
     		</label>
 
     		<label for="gender3">
-    			<input type="radio" name="child_gender" id="gender3" value="Other" onchange="show('otherGender')"/>
+    			<input type="radio" name="gender" id="gender3" value="Other" onchange="show('otherGender')"/>
     			Other
     		</label><br/>
 		<br/>
 		<div id="otherGender">
 			<label for="otherGender">Please Specify</label><br/>
-			<input type="text" name="otherGender"/>
+			<input type="text" id="otherGender" name="gender"/>
 		</div>
 
 		<label for="birthday">Child Date of Birth</label><br/>
@@ -102,17 +102,17 @@
 		<label for="home_phone">Home Phone #</label><br/>
 		<input type="tel" name="home_phone"/><br/>
 
-		<label for="parent_phone">Parent Phone #</label><br/>
-		<input type="tel" name="parent_phone"/><br/>
+		<label for="cell_phone">Parent Phone #</label><br/>
+		<input type="tel" name="cell_phone"/><br/>
 
 		<label for="child_phone">Child Phone #</label><br/>
 		<input type="tel" name="child_phone"/><br/>
 
 		<label for="text_parent">Is it okay to text parent?</label>
-		<input type="radio" name="text_parent" id="text_parent" value="true">
-		<label for="yes_textparent">Yes</label>
-		<input type="radio" name="text_parent" id="text_parent" value="false">
-		<label for="no_textparent">No</label>
+		<input type="radio" name="can_text_cell" id="yes_text_parent" value="true">
+		<label for="yes_text_parent">Yes</label>
+		<input type="radio" name="can_text_cell" id="no_text_parent" value="false">
+		<label for="no_text_parent">No</label>
 		<label for="parent_cell_provider">Cell Provider: </label>
 		<input type="text" name="parent_cell_provider" id="parent_cell_provider">
 
@@ -125,7 +125,7 @@
 		<input type="text" name="child_cell_provider" id="child_cell_provider"><br>
 
 		<label for="home_address">Home Address:</label><br>
-		<input type="text" name="home_address" id="home_address"><br>
+		<input type="text" name="address" id="home_address"><br>
 		<label for="city">City:</label><br>
 		<input type="text" name="city" id="city"><br>
 		<label for="county">County:</label><br>
@@ -148,19 +148,19 @@
 		<input type="text" name="student_id" id="student_id"><br>
 
 		<label for="race">Child's Race/Ethnicity:</label><br>
-		<input type="button" name="child_race" id="american">
+		<input type="button" name="race" id="american">
 		<label for="american">American Indian or Alaska</label><br>
-		<input type="button" name="child_race" id="asian">
+		<input type="button" name="race" id="asian">
 		<label for="asian">Native Asian</label><br>
-		<input type="button" name="child_race" id="african">
+		<input type="button" name="race" id="african">
 		<label for="african">Black or African American</label><br>
-		<input type="button" name="child_race" id="latin">
+		<input type="button" name="race" id="latin">
 		<label for="latin">Hispanic or latino</label><br>
-		<input type="button" name="child_race" id="pacific">
-		<label for="pacific">Native Hawaiian or Pacific</label><br>
-		<input type="button" name="child_race" id="white">
-		<label for="white">Islander White</label><br>
-		<input type="button" name="child_race" id="other">
+		<input type="button" name="race" id="pacific">
+		<label for="pacific">Native Hawaiian or Pacific Islander</label><br>
+		<input type="button" name="race" id="white">
+		<label for="white">White</label><br>
+		<input type="button" name="race" id="other">
 		<label for="other">Other</label><br>
 
 		<label for="multi">Multi-race (check all that apply)</label><br>
@@ -211,7 +211,7 @@
 		<br>
 
 		<p>1. What is the primary reason for you wanting your child to have a Big Brother or Big Sister?</p><br>
-		<input type="text" name="reason" id="reason"><br>
+		<input type="text" name="apply_reason" id="reason"><br>
 
 		<p>2. Does your child know that you are applying for the program? Does your child want to participate?</p><br>
 		<input type="text" name="participate" id="participate"><br>
@@ -231,7 +231,7 @@
 		<input type="text" name="siblings" id="siblings"><br>
 
 		<p>5. Do you anticipate any significant life changes over the next year or have you had any in the past year, such as moving?<br>Yes No If yes, please explain:</p><br>
-		<input type="text" name="sig_changes" id="sig_changes">
+		<input type="text" name="life_changes" id="sig_changes">
 
 		<p>6. Will your child be able to meet with their Big 2-4 timers per month for the next year</p>
 		<input type="button" name="meet" id="meet" value="true">

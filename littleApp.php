@@ -48,7 +48,7 @@ if ($id == 'new') {
             		    include("littleApplicationForm.inc");
             		} else {
             		    //in this case, the form has been submitted, so validate it
-            		    $errors = validate_little($form);  //step one is validation.
+            		    $errors = validate_little();  //step one is validation.
             		    // errors array lists problems on the form submitted
             		    if ($errors) {
             		        show_errors($errors);
@@ -74,26 +74,26 @@ if ($id == 'new') {
             		}
 
             		function newApp($email, $id) {
-            		    return new LittleApplication($email, $id, $POST['first_name'], $POST['last_name'], $POST['languages'],
-            		        $POST['primary_language'], $POST['preferred_name'], $POST['birthday'], $POST['cell_phone'],
-            		        $POST['can_text_cell'], $POST['home_phone'], $POST['gender'], $POST['address'], $POST['city'],
-            		        $POST['state'], $POST['zip'], $POST['race'], $POST['apply_reasons'], $POST['life_changes'],
-            		        $POST['middle_name'], $POST['can_text_child'], $POST['adult_name'], $POST['relation'], $POST['legal_custody'],
-            		        $POST['share_custody'], $POST['other_supports_enrollment'], $POST['living_situation'], $POST['child_cell'],
-            		        $POST['child_email'], $POST['school'], $POST['grade_level'], $POST['studentID'], $POST['nationality'],
-            		        $POST['how_did_you_hear'], $POST['parent_employer'], $POST['parent_work_num'], $POST['can_contact_work'],
-            		        $POST['best_num'], $POST['best_contact_time'], $POST['alt_contact_name'], $POST['alt_contact_num'],
-            		        $POST['does_child_know_enrolling'], $POST['does_child_want_to_join'], $POST['BBBS_family_names'],
-            		        $POST['will_meet_monthly'], $POST['medical_conditions'], $POST['household_size'], $POST['income_assist'],
-            		        $POST['house_assist'], $POST['development'], $POST['lunch_assist'], $POST['annual_income'],
-            		        $POST['military'], $POST['service_branch'], $POST['deployment_date'], $POST['retired_military'],
-            		        $POST['discharged_military'], $POST['wounded_veteran'], $POST['incarcerated'],
-            		        $POST['juvenile_record'], $POST['schoold_record']);
+            		    return new LittleApplication($email, $id, $_POST['first_name'], $_POST['last_name'], $_POST['languages'],
+            		        $_POST['primary_language'], $_POST['preferred_name'], $_POST['birthday'], $_POST['cell_phone'],
+            		        $_POST['can_text_cell'], $_POST['home_phone'], $_POST['gender'], $_POST['address'], $_POST['city'],
+            		        $_POST['state'], $_POST['zip'], $_POST['race'], $_POST['apply_reasons'], $_POST['life_changes'],
+            		        $_POST['middle_name'], $_POST['can_text_child'], $_POST['adult_name'], $_POST['relation'], $_POST['legal_custody'],
+            		        $_POST['share_custody'], $_POST['other_supports_enrollment'], $_POST['living_situation'], $_POST['child_cell'],
+            		        $_POST['child_email'], $_POST['school'], $_POST['grade_level'], $_POST['studentID'], $_POST['nationality'],
+            		        $_POST['how_did_you_hear'], $_POST['parent_employer'], $_POST['parent_work_num'], $_POST['can_contact_work'],
+            		        $_POST['best_num'], $_POST['best_contact_time'], $_POST['alt_contact_name'], $_POST['alt_contact_num'],
+            		        $_POST['does_child_know_enrolling'], $_POST['does_child_want_to_join'], $_POST['BBBS_family_names'],
+            		        $_POST['will_meet_monthly'], $_POST['medical_conditions'], $_POST['household_size'], $_POST['income_assist'],
+            		        $_POST['house_assist'], $_POST['development'], $_POST['lunch_assist'], $_POST['annual_income'],
+            		        $_POST['military'], $_POST['service_branch'], $_POST['deployment_date'], $_POST['retired_military'],
+            		        $_POST['discharged_military'], $_POST['wounded_veteran'], $_POST['incarcerated'],
+            		        $_POST['juvenile_record'], $_POST['schoold_record']);
             		}
 
             		// process_form sanitizes data, concatenates needed data, and enters it all into a database
             		function process_form($form) {
-                        $email = $POST['email'];
+                        $email = $_POST['email'];
                         $id = generate_id();
                         //step two: try to make the deletion, password change, addition, or change
                         if (array_key_exists('delete', $_POST)) {

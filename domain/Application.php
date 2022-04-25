@@ -10,10 +10,12 @@ class Application {
     private $birthday;
     private $cell_phone;      //cell phone number
     private $can_text_cell;     //whether or not the cell; boolean
+    private $cell_provider;     //TODO
     private $home_phone;        //home phone number
     private $gender;        //male, female, trans, or other (those were what the current site uses)
     private $address;
     private $city;
+    private $county;        //TODO
     private $state;
     private $zip;
     private $race;

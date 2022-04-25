@@ -6,7 +6,7 @@ include_once('generalValidate.inc');
  * it returns an array of the errors with the form (string warnings)
  * this array is null (aka false) if there are no errors
  */
-function validate_big($account) {
+function validate_big() {
     //TODO
     /*if ($account->get_first_name()=="new" && ($_POST['first_name'] == NULL || $_POST['first_name'] == 'new'))
         $errors[] = 'Please enter a first name';
@@ -16,6 +16,6 @@ function validate_big($account) {
         $_POST['status'] = 'applicant';
     if (!valid_email($_POST['email']) && $_POST['email'] != null)
         $errors[] = "Please enter a valid email";*/
-    return $errors;
+    return merge_array($errors, validate_general());
 }
 ?>
