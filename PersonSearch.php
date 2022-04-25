@@ -307,7 +307,6 @@ if (!($_SESSION['access_level'] >= 2)) {
                     
                     end:
                     
-                    
    					?>
 				</div>
 			</div>
