@@ -113,3 +113,20 @@
 		<input type="submit" name="littlesubmit" class="GreenButton"/>
 	</div>
 </form>
+<script type="text/javascript">
+document.getElementById('otherStuff').style.display = 'none';
+document.getElementById('otherGender').style.display = 'none';
+document.getElementById('page2').style.display = 'none';
+function show(id) {
+	if (document.getElementById(id).style.display == 'none') {
+		document.getElementById(id).style.display = 'block';
+	}
+	else {
+		document.getElementById(id).style.display = 'none';
+	}
+}
+
+function hide(id) {
+	document.getElementById(id).style.display = 'none';
+}
+</script>
