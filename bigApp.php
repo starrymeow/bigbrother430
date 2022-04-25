@@ -81,7 +81,7 @@ if ($id == 'new') {
             		        $_POST['primary_language'], $_POST['preferred_name'], $_POST['birthday'], $_POST['cell_phone'],
             		        $_POST['can_text_cell'], $_POST['home_phone'], $_POST['gender'], $_POST['address'], $_POST['city'],
             		        $_POST['state'], $_POST['zip'], $_POST['race'], $_POST['apply_reasons'], $_POST['life_changes'],
-                            $_POST['secondary_email'], $_POST['ssn'], $_POST['relationship_status'], $_POST['orientation'],
+                            $_POST['secondary_email'], $_POST['ssn'], $_POST['relationship_status'], $_POST['orientation'],  //TODO encrypt SSN
             		        $_POST['faith'], $_POST['DL_number'], $_POST['DL_state'], $_POST['emergency_contact'], $_POST['EC_number'],
             		        $_POST['DL_expiration'], $_POST['EC_relation'], $_POST['job_title'], $_POST['employer'],
                             $_POST['employer_address'], $_POST['employer_city'], $_POST['employer_state'], $_POST['employer_zip'],
