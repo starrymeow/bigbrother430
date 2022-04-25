@@ -18,6 +18,9 @@
 			<img src="http://www.bbbsfred.org/wp-content/uploads/sites/17/2018/10/cropped-RGB_Alternate-76-602x124-medium.png"/>
 		</a>
     <?PHP
+    //This line gives us the path to the html pages in question, useful if the server isn't installed @ root.
+    $path = strrev(substr(strrev($_SERVER['SCRIPT_NAME']), strpos(strrev($_SERVER['SCRIPT_NAME']), '/')));
+
     //Log-in security
     //If they aren't logged in, display our log-in form.
     if ($_SESSION['logged_in']) {
@@ -57,9 +60,6 @@
             //so we die().
             die();
         }
-        //This line gives us the path to the html pages in question, useful if the server isn't installed @ root.
-        $path = strrev(substr(strrev($_SERVER['SCRIPT_NAME']), strpos(strrev($_SERVER['SCRIPT_NAME']), '/')));
-
 
         //they're logged in and session variables are set.
 //         if ($_SESSION['access_level'] == 0) {
@@ -75,7 +75,7 @@
             echo('<a href="' . $path . 'index.php">Home</a>');
             echo('<a href="' . $path . 'index.php">Submissions</a>');
             echo('<a href="' . $path . 'accountDetails.php">Account</a>');
-            
+
         }
 
 //          if ($_SESSION['access_level'] >= 2) {
