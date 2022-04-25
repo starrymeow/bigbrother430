@@ -1,7 +1,7 @@
 <form method="POST">
 <div id="page1">
     <input type="hidden" name="_submit_check" value="true">
-    <label for="adult_name">Parent/Guardian</label><br/>
+    <label for="adult_name">Parent/Guardian Name</label><br/>
     <input type="text" name="adult_name"/><br/>
 
     <label for="relation">Relationship to child</label><br/>
@@ -104,19 +104,16 @@
 
 		<label for="cell_phone">Parent Phone #</label><br/>
 		<input type="tel" name="cell_phone"/><br/>
-
-		<label for="child_phone">Child Phone #</label><br/>
-		<input type="tel" name="child_phone"/><br/>
-
+		
 		<label for="text_parent">Is it okay to text parent?</label><br/>
 		
 		<input type="radio" name="can_text_cell" id="yes_text_parent" value="true">
 		<label for="yes_text_parent">Yes</label>
 		<input type="radio" name="can_text_cell" id="no_text_parent" value="false">
 		<label for="no_text_parent">No</label><br/>
-		
-		<label for="parent_cell_provider">Cell Provider: </label>
-		<input type="text" name="parent_cell_provider" id="parent_cell_provider"><br/>
+
+		<label for="child_phone">Child Phone #</label><br/>
+		<input type="tel" name="child_phone"/><br/>
 
 		<label for="text_child">Is it okay to text child?</label><br/>
 		
@@ -125,18 +122,14 @@
 		<input type="radio" name="text_child" id="text_child" value="false">
 		<label for="no_textchild">No</label><br/>
 		
-		<label for="child_cell_provider">Cell Provider: </label>
-		<input type="text" name="child_cell_provider" id="child_cell_provider"><br>
 
 		<label for="home_address">Home Address:</label><br>
 		<input type="text" name="address" id="home_address"><br>
-		<label for="city">City:</label><br>
+		<label for="city">City</label><br>
 		<input type="text" name="city" id="city"><br>
-		<label for="county">County:</label><br>
-		<input type="text" name="county" id="county"><br>
-		<label for="state">State:</label><br>
+		<label for="state">State</label><br>
 		<input type="text" name="state" id="state"><br>
-		<label for="zip">Zip:</label><br>
+		<label for="zip">Zip</label><br>
 		<input type="text" name="zip" id="zip"><br>
 
 		<label for="adult_email">Parent/Guardian E-mail:</label><br>
@@ -145,9 +138,29 @@
 		<input type="text" name="child_email" id="child_email"><br>
 
 		<label for="school">Child&apos; School:</label><br>
+		
 		<input type="text" name="school" id="school"><br>
-		<label for="grade">Grade:</label><br>
-		<input type="text" name="grade" id="grade"><br>
+		
+		<label for="grade">Grade Level:</label><br>
+		
+		<select name="grade">
+			<option value="" disabled selected>Select</option>
+			<option value="prek">Pre-K</option>
+			<option value="kin">Kindergarten</option>
+			<option value="1">1st Grade</option>
+			<option value="2">2nd Grade</option>
+			<option value="3">3rd Grade</option>
+			<option value="4">4th Grade</option>
+			<option value="5">5th Grade</option>
+			<option value="6">6th Grade</option>
+			<option value="7">7th Grade</option>
+			<option value="8">8th Grade</option>
+			<option value="9">9th Grade</option>
+			<option value="10">10th Grade</option>
+			<option value="11">11th Grade</option>
+			<option value="12">12th Grade</option>
+		</select><br/>
+		
 		<label for="student_id">Student ID Number:</label><br>
 		<input type="text" name="student_id" id="student_id"><br>
 
@@ -172,11 +185,12 @@
 		<label for="work_phone">Parent Work Phone #:</label>
 		<input type="text" id="work_phone" name="work_phone"><br>
 		
-		<label for="contact_at_work">May we contact you(the parent/guardian) at the work number listed above?</label>
-		<input type="button" name="contact_at_work" id="yes_contact_at_work">
-		<label for="contact_at_work">Yes</label>
-		<input type="button" name="contact_at_work" id="no_contact_at_work">
-		<label for="contact_at_work">No</label><br>
+		<label for="contact_at_work">May we contact you(the parent/guardian) at the work number listed above?</label><br/>
+		
+		<input type="radio" name="contact_at_work" id="yes_contact_at_work">
+		<label for="yes_textchild">Yes</label>
+		<input type="radio" name="contact_at_work" id="no_contact_at_work">
+		<label for="no_textchild">No</label><br/>
 
 		<label for="best_contact">Please check the best number and time to contact you (the parent/guardian)?</label><br>
 		<input type="button" name="best_place" id="best_place" value="home">

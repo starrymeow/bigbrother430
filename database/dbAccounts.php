@@ -53,6 +53,7 @@ function retrieve_account($email) {
     $con=connect();
     $query = 'SELECT * FROM dbAccounts WHERE lower(email) = "' . strtolower($email) . '"';
     $result = mysqli_query($con,$query);
+    //var_dump(mysqli_error($con));
     if (mysqli_num_rows($result) !== 1) {
         mysqli_close($con);
         return false;
@@ -126,7 +127,7 @@ function getall_dbAccounts($name_from, $name_to) {
         $theAccount = make_an_account($result_row);
         $theAccounts[] = $theAccount;
     }
-    
+
     return $theAccounts;
 }
 
@@ -146,7 +147,7 @@ function getall_firstdbAccounts($firstname) {
         $theAccount = make_an_account($result_row);
         $theAccounts[] = $theAccount;
     }
-    
+
     return $theAccounts;
 }
 
@@ -166,7 +167,7 @@ function getall_lastdbAccounts($lastname) {
         $theAccount = make_an_account($result_row);
         $theAccounts[] = $theAccount;
     }
-    
+
     return $theAccounts;
 }
 
@@ -186,7 +187,7 @@ function getall_statusdbAccounts($status) {
         $theAccount = make_an_account($result_row);
         $theAccounts[] = $theAccount;
     }
-    
+
     return $theAccounts;
 }
 ?>

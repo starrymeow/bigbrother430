@@ -1,14 +1,30 @@
+# NAME: Big Brother Matching Tool
+
+# DESCRIPTION: This tool supports the Big Brothers Big Sisters of America Youth Mentoring organization and allows users to apply to be big brothers/big sisters or little brothers/little sisters within the organization. The tool also allows admin users to manage submissions, matches, and accounts.
+
+# INSTALLATION: Allen Tucker’s instructions for setting up Homebase can be found here: https://github.com/megandalster/homebasedemo2017/wiki/Installation-and-Reuse
 Homebase is a web-based application that provides database and scheduling support
 for the Ronald McDonald Houses in Maine and Rhode Island.
+The table for the updated code is available here:
+https://drive.google.com/file/d/19eA2iTfyJWmsWi_951Bn6-DIa1h4bF-R/view?usp=sharing
+Allen Tucker’s instructions for setting up a MAMP Server can be found here:
+https://github.com/megandalster/homebasedemo2017/wiki/Setting-Up-a-MAMP-Server
+The code repository is located here:
+https://github.com/starrymeow/bigbrother430.git
 
-Installation: Homebase runs on an Apache/MySQL/PHP server.  To install it, visit the
-project Wiki at https://github.com/megandalster/homebasedemo2017/wiki/installation-and-reuse/.
+# USAGE: After following the above installation instructions, the developer should be able to open the MAMP application on their computer, click start. After the MAMP application open the web browser to the associated MAMP website. At that point, the developer should be able to type in http://localhost/bigbrother430/index.php. “bigbrother430” is the folder name within the MAMP folder that holds the associated code.
 
-Credits: Homebase was originally developed in 2008 by Oliver Radwan, Maxwell Palmer, 
+# ROADMAP: Future releases would include a fully functional matching tool. The current iteration does not include the matching component, only the ability to create accounts, verify accounts, change account information, and submit applications.
+
+# AUTHORS AND ACKNOWLEDGEMENT: Allen Tucker provided the base code. The current code is a product of development over the course of UMW’s CPSC 430: Software Engineering Section 1 in Spring 2022 by the Big Brother group, which included James Treutle, Jacob Wilkerson, JD Rutledge, Stephen Haselhorst, and Meghan Cooke.
+
+# PROJECT STATUS: The code available on GitHub represents the state of the code at the end of the Spring 2022 semester and does not include a number of required functions, mainly the generation of preliminary matches and reports.
+
+# CREDITS: Homebase was originally developed in 2008 by Oliver Radwan, Maxwell Palmer, 
 Nolan McNair, Taylor Talmage, and Allen Tucker.  Since then, it has been significantly 
 upgraded by other student teams and is currently maintained by NPFI (https://npfi.org).
 
-License: GNU General Public License v3.0 (https://www.gnu.org/licenses/gpl.txt)
+# LICENSE: GNU General Public License v3.0 (https://www.gnu.org/licenses/gpl.txt)
 
 .
 ..
