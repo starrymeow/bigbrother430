@@ -17,9 +17,12 @@ function validate_little() {
         $errors[] = 'Please answer if you share custody';
     else if (filter_var($_POST['share_custody'], FILTER_VALIDATE_BOOLEAN) == true) {
         $_POST['share_custody'] = filter_var($_POST['share_custody'], FILTER_VALIDATE_BOOLEAN);
-        if ($_POST['other_supports_enrollment'] == null)
+        if ($_POST['other_supports_enrollment'] == null) {
             $errors[] = 'Please answer if your significant other supports the enrollment';
-        //TODO
+            //TODO other_name
+            //TODO other_phone
+        }
+        //TODO The rest
     }
     return merge_array($errors, validate_general());
 }

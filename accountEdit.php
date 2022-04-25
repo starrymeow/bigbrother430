@@ -88,7 +88,7 @@ if ($email == 'new') {
                        }
                    }
 
-                   function mail($email, $first_name) {
+                   function send_mail($email, $first_name) {
                        $mail = new PHPMailer(true);
                        //$mail->SMTPDebug = 2;                   // Enable verbose debug output
                        $mail->isSMTP();                        // Set mailer to use SMTP
@@ -178,7 +178,7 @@ if ($email == 'new') {
                                 echo('<p class="error">Unable to add ' . $first_name . ' ' . $last_name . ' to the database. <br>An account with the same email already exists.</p>');
                             } else {
                                 try {
-                                    $tepmPass = mail($email, $first_name);
+                                    $tepmPass = send_mail($email, $first_name);
 
                                     $newaccount = new Account($email,  password_hash($tempPass, PASSWORD_DEFAULT), $first_name, $last_name, "new");
                                     $result = add_account($newaccount);
@@ -207,7 +207,7 @@ if ($email == 'new') {
                                 echo ('<p class="error">Unable to update ' . $first_name . ' ' . $last_name . '. <br>Please report this error to the Manager.</p>');
                             else {
                                 try {
-                                    $tempPass = mail($email, $first_name);
+                                    $tempPass = send_mail($email, $first_name);
                                     $newaccount = new Account($email, password_hash($tempPass, PASSWORD_DEFAULT), $first_name, $last_name, $status);
                                     $result = add_account($newaccount);
                                     if (!$result) {

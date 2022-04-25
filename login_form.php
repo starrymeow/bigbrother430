@@ -6,9 +6,6 @@
  * of the GNU General Public License as published by the Free Software Foundation
  * (see <http://www.gnu.org/licenses/ for more information).
  *
- */
-?><?php
-/*
  * Created on Mar 28, 2008
  * @author Oliver Radwan <oradwan@bowdoin.edu>, Sam Roberts, Allen Tucker
  * @version 3/28/2008, revised 7/1/2015

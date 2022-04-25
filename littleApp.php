@@ -5,6 +5,7 @@ session_cache_expire(30);
 include_once('domain/Account.php');
 include_once('database/dbLittleApplications.php');
 include_once('domain/LittleApplication.php');
+include_once('littleValidate.inc');
 include_once('database/dbinfo.php');
 
 // Tests if user can access page
