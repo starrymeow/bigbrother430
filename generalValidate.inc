@@ -16,9 +16,8 @@ function validate_general() {
         $errors[] = 'Please enter your primary language';
     if ($_POST['preferred_name'] == null)
         $errors[] = 'Please enter your preferred name';
-    $_POST['birthday'] = str_replace(' ', '-', str_replace('/', '-', $_POST['birthday']));
-    if (!valid_date($_POST['birthday']))
-        $errors[] = 'Please enter a birthday in MM-DD-YYYY format';
+    if ($_POST['birthday'] == null)
+        $errors[] = 'Please enter a birthday';
     $_POST['cell_phone'] = str_replace(' ', '', str_replace('+', '', str_replace('(', '', str_replace('(', '', str_replace('-', '', $_POST['phone'])))));
     if (!valid_phone($_POST['cell_phone']))
         $errors[] = 'Please enter the account owner\'s cell phone';
