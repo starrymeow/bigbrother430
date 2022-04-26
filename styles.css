@@ -112,7 +112,9 @@ html, body {
 .infoform input[type="password"],
 .infoform input[type="tel"],
 .infoform input[type="date"],
-.infoform select {
+.infoform input[type="number"],
+.infoform select,
+.infoform textarea {
 	font-size: 20px;
 	margin: 10px;
 	padding: 5px;

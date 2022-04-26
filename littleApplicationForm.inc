@@ -102,10 +102,10 @@
 		<label for="home_phone">Home Phone #</label><br/>
 		<input type="tel" name="home_phone"/><br/>
 
-		<label for="cell_phone">Parent Phone #</label><br/>
+		<label for="cell_phone">Guardian Phone #</label><br/>
 		<input type="tel" name="cell_phone"/><br/>
 		
-		<label for="text_parent">Is it okay to text parent?</label><br/>
+		<label for="text_parent">Is it okay to text you (the guardian)?</label><br/>
 		
 		<input type="radio" name="can_text_cell" id="yes_text_parent" value="true">
 		<label for="yes_text_parent">Yes</label>
@@ -117,9 +117,9 @@
 
 		<label for="text_child">Is it okay to text child?</label><br/>
 		
-		<input type="radio" name="text_child" id="text_child" value="true">
+		<input type="radio" name="text_child" value="yes_text_child">
 		<label for="yes_textchild">Yes</label>
-		<input type="radio" name="text_child" id="text_child" value="false">
+		<input type="radio" name="text_child" value="no_text_child">
 		<label for="no_textchild">No</label><br/>
 		
 
@@ -132,7 +132,7 @@
 		<label for="zip">Zip</label><br>
 		<input type="text" name="zip" id="zip"><br>
 
-		<label for="adult_email">Parent/Guardian E-mail:</label><br>
+		<label for="adult_email">Guardian E-mail:</label><br>
 		<input type="text" name="adult_email" id="adult_email"><br>
 		<label for="child_email">Child E-mail:</label><br>
 		<input type="text" name="child_email" id="child_email"><br>
@@ -179,176 +179,115 @@
 		<label for="origin">Nationality/Country of Origin:</label>
 		<input type="text" id="origin" name="origin"><br>
 		
-		<label for="place_employment">Parent Place of Employment:</label>
+		<label for="place_employment">Guardian Place of Employment:</label>
 		<input type="text" id="place_employment" name="place_employment"><br>
 		
-		<label for="work_phone">Parent Work Phone #:</label>
-		<input type="text" id="work_phone" name="work_phone"><br>
+		<label for="work_phone">Guardian Work Phone #:</label>
+		<input type="tel" id="work_phone" name="work_phone"><br>
 		
-		<label for="contact_at_work">May we contact you(the parent/guardian) at the work number listed above?</label><br/>
+		<label for="contact_at_work">May we contact you (the guardian) at the work number listed above?</label><br/>
 		
-		<input type="radio" name="contact_at_work" id="yes_contact_at_work">
+		<input type="radio" name="contact_at_work" value="yes_contact_at_work">
 		<label for="yes_textchild">Yes</label>
-		<input type="radio" name="contact_at_work" id="no_contact_at_work">
+		<input type="radio" name="contact_at_work" value="no_contact_at_work">
 		<label for="no_textchild">No</label><br/>
 
-		<label for="best_contact">Please check the best number and time to contact you (the parent/guardian)?</label><br>
-		<input type="button" name="best_place" id="best_place" value="home">
-		<label for="best_home">Home</label>
-		<input type="button" name="best_place" id="best_place" value="cell">
-		<label for="best_cell">Cell</label>
-		<input type="button" name="best_place" id="best_place" value="work">
-		<label for="best_work">Work</label><br>
-		<input type="button" name="best_time" id="best_time" value="morning">
-		<label for="best_morning">Morning</label>
-		<input type="button" name="best_time" id="best_time" value="afternoon">
-		<label for="best_afternoon">Afternoon</label>
-		<input type="button" name="best_time" id="best_time" value="evening">
-		<label for="best_evening">Evening</label><br>
+		<label for="best_contact">Please check the best number and time to contact you (the guardian)?</label><br/>
+		
+		<select name="best_place">
+			<option value="" disabled selected>Select</option>
+			<option value="home">Home</option>
+			<option value="home">Cell</option>
+			<option value="home">Work</option>
+		</select>
+		<select name="best_time">
+			<option value="" disabled selected>Select</option>
+			<option value="morning">Morning</option>
+			<option value="afternoon">Afternoon</option>
+			<option value="evening">Evening</option>
+		</select><br/>
 
-		<p>If we are unable to reach you, who is someone we could call who always knows how to reach you?</p><br>
-		<label for="unable_name">Name: </label>
-		<input type="text" name="unable_name" id="unable_name"><br>
-		<label for="unable_phone">Phone Number: </label>
-		<input type="text" name="unable_phone" id="unable_phone"><br>
+		<label>If we are unable to reach you, who is someone we could call who always knows how to reach you?</label><br>
+		<label for="unable_name">Name</label><br/>
+		<input type="text" name="unable_name" id="unable_name"><br/>
+		<label for="unable_phone">Phone Number</label><br/>
+		<input type="tel" name="unable_phone" id="unable_phone"><br>
 		<br>
 
-		<p>1. What is the primary reason for you wanting your child to have a Big Brother or Big Sister?</p><br>
-		<input type="text" name="apply_reason" id="reason"><br>
+		<label for="apply_reason">What is the primary reason for you wanting your child to have a Big Brother or Big Sister?</label><br>
+		<textarea name="apply_reason" rows="4" cols="30"></textarea><br>
 
-		<p>2. Does your child know that you are applying for the program? Does your child want to participate?</p><br>
-		<input type="text" name="participate" id="participate"><br>
+		<label for="participate">Does your child know that you are applying for the program?</label><br/>		
+		<input type="radio" name="participate" value="yes_participate">
+		<label for="yes_textchild">Yes</label>
+		<input type="radio" name="participate" value="no_participate">
+		<label for="no_textchild">No</label><br/>
 
-		<p>3. Where did you hear about Big Brothers Big Sisters? Please check all that apply and provide details in space given.</p><br>
-		<input type="checkbox" name="hear_school" id="hear_school" value="School">
-		<label for="hear_school">School</label><br>
-		<input type="checkbox" name="hear_relative" id="hear_relative" value="Relative">
-		<label for="hear_relative">Relative</label><br>		
-		<input type="checkbox" name="hear_faith" id="hear_faith" value="Faith Organization">
-		<label for="hear_faith">Faith Organization</label><br>
-		<input type="checkbox" name="hear_service" id="hear_service" value="Service Organization">
-		<label for="hear_service">Service Organization</label><br>		
-   		<input type="checkbox" name="hear_website" id="hear_website" value="Website">
-   		<label for="hear_website">Website</label><br>		
-   		<input type="checkbox" name="hear_tv" id="hear_tv" value="TV/Radio">
-   		<label for="hear_tv">TV/Radio</label><br>		
-   		<input type="checkbox" name="hear_event" id="event" value="Event">
-   		<label for="hear_event">Event</label><br>		
-   		<input type="checkbox" name="hear_other" id="hear_other" value="Other">
-   		<label for="hear_other">Other</label><br>		
+		<label>Where did you hear about Big Brothers Big Sisters? Please check all that apply.</label><br>
+		<input type="checkbox" name="hear_school" value="School">
+		<label for="hear_school">School</label><br/>
+		<input type="checkbox" name="hear_relative" value="Relative">
+		<label for="hear_relative">Friend or Family</label><br/>
+		<input type="checkbox" name="hear_faith" value="Faith Organization">
+		<label for="hear_faith">Religious Organization</label><br/>
+		<input type="checkbox" name="hear_service" value="Service Organization">
+		<label for="hear_service">Service Organization</label><br/>
+   		<input type="checkbox" name="hear_website" value="Website">
+   		<label for="hear_website">Online</label><br/>
+   		<input type="checkbox" name="hear_tv" value="TV/Radio">
+   		<label for="hear_tv">Television</label><br/>
+   		<input type="checkbox" name="hear_event" value="Event">
+   		<label for="hear_event">Event</label><br/>
+   		<input type="checkbox" name="hear_other" value="Other">
+   		<label for="hear_other">Other</label><br/>
 
-		<p>4. Does your child have siblings or relatives who are applying for the BBBS program at this time
-		or who are currently in the program?<br>Yes No If yes, please explain:</p><br>
-		<input type="text" name="siblings" id="siblings"><br>
+		<label for="siblings">Does your child have siblings or relatives who are applying for the BBBS program at this time
+		or who are currently in the program?</label><br/>
+		<input type="radio" name="siblings" value="yes_siblings">
+		<label for="yes_siblings">Yes</label>
+		<input type="radio" name="siblings" value="no_siblings">
+		<label for="no_siblings">No</label><br/>
 
-		<p>5. Do you anticipate any significant life changes over the next year or have you had any in the past year, such as moving?<br>Yes No If yes, please explain:</p><br>
-		<input type="text" name="life_changes" id="sig_changes">
+		<label for="life_changes">Do you anticipate any significant life changes over the next year or have you had any in the past year, such as moving? If yes, please explain:</label><br>
+		<textarea name="life_changes" rows="4" cols="30"></textarea><br/>
 
-		<p>6. Will your child be able to meet with their Big 2-4 timers per month for the next year</p>
-		<input type="button" name="meet" id="meet" value="true">
-		<label for="meet">Yes</label>
-		<input type="button" name="meet" id="meet" value="false">
-		<label for="meet">No</label><br>
+		<label>Will your child be able to meet with their Big 2-4 times per month for the next year</label><br/>
+		<input type="radio" name="meet" value="yes_meet">
+		<label for="yes_meet">Yes</label>
+		<input type="radio" name="meet" value="no_meet">
+		<label for="no_meet">No</label><br/>
 
-		<p>7. Does your child have any medical conditions that might affect home or her participating in activities with a Big
-		Brother/Big Sister?<br>Yes No If yes, please explain:</p><br>
-		<input type="text" name="medical" id="medical"><br>
+		<label for="medical">Does your child have any medical conditions that might affect home or her participating in activities with a Big
+		Brother/Big Sister? If yes, please explain:</label><br>
+		<textarea name="medical" rows="4" cols="30"></textarea><br/>
 
-		<p>8. Number of people (adults and children) in household: </p>
-		<input type="text" name="household" id="household">
+		<label for="household">Number of people (adults and children) in household: </label><br/>
+		<input type="number" name="household"/><br/>
 
-		<p>9. Is the parent/guardian recieving income assistance at this time?</p><br>
-		<input type="button" name="income_assist" id="income_assist" value="true">
-		<label for="income_assist">Yes</label>
-		<input type="button" name="income_assist" id="income_assist" value="false">
-		<label for="income_assist">No</label><br>
+		<label>Is the parent/guardian recieving income assistance at this time?</label><br/>
+		<input type="radio" name="income_assist" value="yes_income_assist">
+		<label for="yes_income_assist">Yes</label>
+		<input type="radio" name="income_assist" value="no_income_assist">
+		<label for="no_income_assist">No</label><br/>
 
-		<p>10. Is parent/guardian receiving assistance with housing (e.g. Section 8, residence in public-housing, etc.)? Yes No If living in a housing development, please list the name: </p>
+		<label for="housing_assist">Is parent/guardian receiving assistance with housing (e.g. Section 8, residence in public-housing, etc.) If living in a housing development, please list the name: </label><br/>
 		<input type="text" name="housing_assist" id="housing_assist"><br>
 
-		<p>11. Is child eligible for free or reduced lunch? Yes - Free Yes - Reduced No</p>
-		<input type="text" name="lunch" id="lunch"><br>
+		<label>Is the child eligible for free or reduced lunch?</label><br/>
+		<input type="radio" name="lunch" value="yes_lunch">
+		<label for="yes_lunch">Yes</label>
+		<input type="radio" name="lunch" value="no_lunch">
+		<label for="no_lunch">No</label><br/>
 
-		<p>12. Household Annual Income: (total income of the adults the child lives with)
-		0-$10,000 $10,001-$15,000 $15,001-$20,000 $20,001-$30,000 $30,001-$50,000 $50,001+ </p><br>
-		<select name="income" id="income">
-		<option value="0-$10,000">0-$10-000</option>
-		<option value="$10,001-$15,000">$10,001-$15-000</option>
-		<option value="$15,001-$20,000">$15,001-$20,000</option>
-		<option value="$20,001-$30,000">$20,001-$30,000</option>
-		<option value=$30,001-$50,000">30,001-$50,000</option>
-		<option value="$50,001+">$50,001+</option>
-		</select>
-
-		<p>13. Does your child have a parent/caregiver with current or past military experience? Yes No If yes, please list dates of service: </p>
-		<input type="text" name="service_dates" id="service_dates"><br>
-		<label for="branch">Branch: </label>
-		<input type="checkbox" name="air_force" id="air_force" value="Air Force">
-		<label for="air_force">Air Force</label><br>
-		<input type="checkbox" name="army" id="army" value="Army">
-		<label for="army">Army</label><br>		
-		<input type="checkbox" name="marine" id="marine" value="Marine Corps">
-		<label for="marine">Marine Corps</label><br>		
-		<input type="checkbox" name="navy" id="navy" value="Navy">
-		<label for="navy">Navy</label><br>		
-		<input type="checkbox" name="coast" id="coast" value="Coast Guard">
-		<label for="coast">Coast Guard</label><br>		
-
-		<p>Is the parent currently deployed? If yes, please put the date of deployment</p><br>
-		<input type="text" name="deploy_dates" id="deploy_dates"><br>
-		<p>Is the parent retired from the military?</p>
-		<input type="button" name="retired" id="retired" value="true">
-		<label for="retired">Yes</label>
-		<input type="button" name="retired" id="retired" value="false">
-		<label for="retired">No</label><br>
-
-		<p>Is the parent separated/discharged (other than retired)?</p>
-		<input type="button" name="discharged" id="discharged" value="true">
-		<label for="discharged">Yes</label>
-		<input type="button" name="discharged" id="discharged" value="false">
-		<label for="discharged">No</label><br>
-
-		<p>Does your child have a parent/caregiver that is considered fallen, wounded or disabled</p>
-		<input type="button" name="disabled" id="disabled" value="true">
-		<label for="disabled">Yes</label>
-		<input type="button" name="disabled" id="disabled" value="false">
-		<label for="disabled">No</label><br>
-
-		<p>14. Does your child have a parent/guardian who is currently incarcerated? Yes No
-		If yes, please explain: </p>
-		<input type="text" name="incarcerated" id="incarcerated">
-		<p>15. Has your child ever been arrested or involved in the juvenile justice system?
-		Yes. Please explain: No </p>
-		<input type="text" name="juvenile" id="juvenile">
-
-		<p>16. Within the last year, has your child been in any trouble at school?</p>
-		<label for="poor_grades">Poor Grades</label>
-		<input type="checkbox" name="poor_grades" id="poor_grades" value="Poor Grades"><br>
-		<label for="skipping">Skipping school/classes</label>
-		<input type="checkbox" name="skipping" id="skipping" value="Skipping school/classes"><br>
-		<label for="truant">Truant</label>
-		<input type="checkbox" name="truant" id="truant" value="Truant"><br>
-		<label for="behavior">Behavior problems </label>
-		<input type="text" name="behavior" id="behavior" placeholder="Describe:"><br>
-		<label for="suspended">Has been suspended </label>
-		<input type="text" name="suspended" id="suspended" placeholder="Reason for suspension:"><br>
-		<label for="expelled">Has been expelled </label>
-		<input type="text" name="expelled" id="expelled" placeholder="Reason for expulsion:"><br>
-		<label for="alt_school">Sent to an alternative school </label>
-		<input type="text" name="alt_school" id="alt_school" placeholder="Reason for school change:"><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
+		<label for="income">Household Annual Income: (total income of the adults the child lives with)</label><br>
+		<select name="income">
+    		<option value="0-$10,000">0-$10,000</option>
+    		<option value="$10,001-$15,000">$10,001 - $15,000</option>
+    		<option value="$15,001-$20,000">$15,001 - $20,000</option>
+    		<option value="$20,001-$30,000">$20,001 - $30,000</option>
+    		<option value="$30,001-$50,000">$30,001 - $50,000</option>
+    		<option value="$50,001+">$50,001+</option>
+		</select><br/>
 
 		<input type="submit" name="littlesubmit" value="Submit App" class="GreenButton"/>
 	</div>
