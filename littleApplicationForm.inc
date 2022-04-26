@@ -183,7 +183,7 @@
 		<input type="text" id="place_employment" name="place_employment"><br>
 		
 		<label for="work_phone">Guardian Work Phone #:</label>
-		<input type="text" id="work_phone" name="work_phone"><br>
+		<input type="tel" id="work_phone" name="work_phone"><br>
 		
 		<label for="contact_at_work">May we contact you (the guardian) at the work number listed above?</label><br/>
 		
@@ -211,7 +211,7 @@
 		<label for="unable_name">Name</label><br/>
 		<input type="text" name="unable_name" id="unable_name"><br/>
 		<label for="unable_phone">Phone Number</label><br/>
-		<input type="text" name="unable_phone" id="unable_phone"><br>
+		<input type="tel" name="unable_phone" id="unable_phone"><br>
 		<br>
 
 		<label for="apply_reason">What is the primary reason for you wanting your child to have a Big Brother or Big Sister?</label><br>
@@ -224,111 +224,70 @@
 		<label for="no_textchild">No</label><br/>
 
 		<label>Where did you hear about Big Brothers Big Sisters? Please check all that apply.</label><br>
-		<input type="checkbox" name="hear_school" value="School"><br>
-		<input type="checkbox" name="hear_relative" value="Relative"><br>
-		<input type="checkbox" name="hear_faith" value="Faith Organization"><br>
-		<input type="checkbox" name="hear_service" value="Service Organization"><br>
-   		<input type="checkbox" name="hear_website" value="Website"><br>
-   		<input type="checkbox" name="hear_tv" value="TV/Radio"><br>
-   		<input type="checkbox" name="hear_event" value="Event"><br>
-   		<input type="checkbox" name="hear_other" value="Other"><br>
+		<input type="checkbox" name="hear_school" value="School">
+		<label for="hear_school">School</label><br/>
+		<input type="checkbox" name="hear_relative" value="Relative">
+		<label for="hear_relative">Friend or Family</label><br/>
+		<input type="checkbox" name="hear_faith" value="Faith Organization">
+		<label for="hear_faith">Religious Organization</label><br/>
+		<input type="checkbox" name="hear_service" value="Service Organization">
+		<label for="hear_service">Service Organization</label><br/>
+   		<input type="checkbox" name="hear_website" value="Website">
+   		<label for="hear_website">Online</label><br/>
+   		<input type="checkbox" name="hear_tv" value="TV/Radio">
+   		<label for="hear_tv">Television</label><br/>
+   		<input type="checkbox" name="hear_event" value="Event">
+   		<label for="hear_event">Event</label><br/>
+   		<input type="checkbox" name="hear_other" value="Other">
+   		<label for="hear_other">Other</label><br/>
 
-		<p>4. Does your child have siblings or relatives who are applying for the BBBS program at this time
-		or who are currently in the program?<br>Yes No If yes, please explain:</p><br>
-		<input type="text" name="siblings" id="siblings"><br>
+		<label for="siblings">Does your child have siblings or relatives who are applying for the BBBS program at this time
+		or who are currently in the program?</label><br/>
+		<input type="radio" name="siblings" value="yes_siblings">
+		<label for="yes_siblings">Yes</label>
+		<input type="radio" name="siblings" value="no_siblings">
+		<label for="no_siblings">No</label><br/>
 
-		<p>5. Do you anticipate any significant life changes over the next year or have you had any in the past year, such as moving?<br>Yes No If yes, please explain:</p><br>
-		<input type="text" name="life_changes" id="sig_changes">
+		<label for="life_changes">Do you anticipate any significant life changes over the next year or have you had any in the past year, such as moving? If yes, please explain:</label><br>
+		<textarea name="life_changes" rows="4" cols="30"></textarea><br/>
 
-		<p>6. Will your child be able to meet with their Big 2-4 timers per month for the next year</p>
-		<input type="button" name="meet" id="meet" value="true">
-		<label for="meet">Yes</label>
-		<input type="button" name="meet" id="meet" value="false">
-		<label for="meet">No</label><br>
+		<label>Will your child be able to meet with their Big 2-4 times per month for the next year</label><br/>
+		<input type="radio" name="meet" value="yes_meet">
+		<label for="yes_meet">Yes</label>
+		<input type="radio" name="meet" value="no_meet">
+		<label for="no_meet">No</label><br/>
 
-		<p>7. Does your child have any medical conditions that might affect home or her participating in activities with a Big
-		Brother/Big Sister?<br>Yes No If yes, please explain:</p><br>
-		<input type="text" name="medical" id="medical"><br>
+		<label for="medical">Does your child have any medical conditions that might affect home or her participating in activities with a Big
+		Brother/Big Sister? If yes, please explain:</label><br>
+		<textarea name="medical" rows="4" cols="30"></textarea><br/>
 
-		<p>8. Number of people (adults and children) in household: </p>
-		<input type="text" name="household" id="household">
+		<label for="household">Number of people (adults and children) in household: </label><br/>
+		<input type="number" name="household"/><br/>
 
-		<p>9. Is the parent/guardian recieving income assistance at this time?</p><br>
-		<input type="button" name="income_assist" id="income_assist" value="true">
-		<label for="income_assist">Yes</label>
-		<input type="button" name="income_assist" id="income_assist" value="false">
-		<label for="income_assist">No</label><br>
+		<label>Is the parent/guardian recieving income assistance at this time?</label><br/>
+		<input type="radio" name="income_assist" value="yes_income_assist">
+		<label for="yes_income_assist">Yes</label>
+		<input type="radio" name="income_assist" value="no_income_assist">
+		<label for="no_income_assist">No</label><br/>
 
-		<p>10. Is parent/guardian receiving assistance with housing (e.g. Section 8, residence in public-housing, etc.)? Yes No If living in a housing development, please list the name: </p>
+		<label for="housing_assist">Is parent/guardian receiving assistance with housing (e.g. Section 8, residence in public-housing, etc.) If living in a housing development, please list the name: </label><br/>
 		<input type="text" name="housing_assist" id="housing_assist"><br>
 
-		<p>11. Is child eligible for free or reduced lunch? Yes - Free Yes - Reduced No</p>
-		<input type="text" name="lunch" id="lunch"><br>
+		<label>Is the child eligible for free or reduced lunch?</label><br/>
+		<input type="radio" name="lunch" value="yes_lunch">
+		<label for="yes_lunch">Yes</label>
+		<input type="radio" name="lunch" value="no_lunch">
+		<label for="no_lunch">No</label><br/>
 
-		<p>12. Household Annual Income: (total income of the adults the child lives with)
-		0-$10,000 $10,001-$15,000 $15,001-$20,000 $20,001-$30,000 $30,001-$50,000 $50,001+ </p><br>
-		<select name="income" id="income">
-		<option value="0-$10,000">0-$10-000</option>
-		<option value="$10,001-$15,000">$10,001-$15-000</option>
-		<option value="$15,001-$20,000">$15,001-$20,000</option>
-		<option value="$20,001-$30,000">$20,001-$30,000</option>
-		<option value=$30,001-$50,000">30,001-$50,000</option>
-		<option value="$50,001+">$50,001+</option>
-		</select>
-
-		<p>13. Does your child have a parent/caregiver with current or past military experience? Yes No If yes, please list dates of service: </p>
-		<input type="text" name="service_dates" id="service_dates">
-		<label for="branch">Branch: </label>
-		<input type="checkbox" name="air_force" id="air_force" value="Air Force">
-		<input type="checkbox" name="army" id="army" value="Army">
-		<input type="checkbox" name="marine" id="marine" value="Marine Corps">
-		<input type="checkbox" name="navy" id="navy" value="Navy">
-		<input type="checkbox" name="coast" id="coast" value="Coast Guard Component">
-
-		<p>Is the parent currently deployed? If yes, please put the date of deployment</p><br>
-		<input type="text" name="deploy_dates" id="deploy_dates"><br>
-		<p>Is the parent retired from the military?</p>
-		<input type="button" name="retired" id="retired" value="true">
-		<label for="retired">Yes</label>
-		<input type="button" name="retired" id="retired" value="false">
-		<label for="retired">No</label><br>
-
-		<p>Is the parent separated/discharged (other than retired)?</p>
-		<input type="button" name="discharged" id="discharged" value="true">
-		<label for="discharged">Yes</label>
-		<input type="button" name="discharged" id="discharged" value="false">
-		<label for="discharged">No</label><br>
-
-		<p>Does your child have a parent/caregiver that is considered fallen, wounded or disabled</p>
-		<input type="button" name="disabled" id="disabled" value="true">
-		<label for="disabled">Yes</label>
-		<input type="button" name="disabled" id="disabled" value="false">
-		<label for="disabled">No</label><br>
-
-		<p>14. Does your child have a parent/guardian who is currently incarcerated? Yes No
-		If yes, please explain: </p>
-		<input type="text" name="incarcerated" id="incarcerated">
-		<p>15. Has your child ever been arrested or involved in the juvenile justice system?
-		Yes. Please explain: No </p>
-		<input type="text" name="juvenile" id="juvenile">
-
-		<p>16. Within the last year, has your child been in any trouble at school?</p>
-		<select name="trouble" id="trouble">
-
-		</select>
-
-
-
-
-
-
-
-
-
-
-
-
-
+		<label for="income">Household Annual Income: (total income of the adults the child lives with)</label><br>
+		<select name="income">
+    		<option value="0-$10,000">0-$10,000</option>
+    		<option value="$10,001-$15,000">$10,001 - $15,000</option>
+    		<option value="$15,001-$20,000">$15,001 - $20,000</option>
+    		<option value="$20,001-$30,000">$20,001 - $30,000</option>
+    		<option value="$30,001-$50,000">$30,001 - $50,000</option>
+    		<option value="$50,001+">$50,001+</option>
+		</select><br/>
 
 		<input type="submit" name="littlesubmit" value="Submit App" class="GreenButton"/>
 	</div>
