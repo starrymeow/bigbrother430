@@ -309,9 +309,20 @@
 		<input type="text" name="juvenile" id="juvenile">
 
 		<p>16. Within the last year, has your child been in any trouble at school?</p>
-		<select name="trouble" id="trouble">
-
-		</select>
+		<label for="poor_grades">Poor Grades</label>
+		<input type="checkbox" name="poor_grades" id="poor_grades" value="Poor Grades"><br>
+		<label for="skipping">Skipping school/classes</label>
+		<input type="checkbox" name="skipping" id="skipping" value="Skipping school/classes"><br>
+		<label for="truant">Truant</label>
+		<input type="checkbox" name="truant" id="truant" value="Truant"><br>
+		<label for="behavior">Behavior problems </label>
+		<input type="text" name="behavior" id="behavior" value="Describe:"><br>
+		<label for="suspended">Has been suspended </label>
+		<input type="text" name="suspended" id="suspended" value="Reason for suspension:"><br>
+		<label for="expelled">Has been expelled </label>
+		<input type="text" name="expelled" id="expelled" value="Reason for expulsion:"><br>
+		<label for="alt_school">Sent to an alternative school </label>
+		<input type="text" name="alt_school" id="alt_school" value="Reason for school change:"><br>
 
 
 

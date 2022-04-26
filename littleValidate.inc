@@ -24,6 +24,7 @@ function validate_little() {
         }
         //TODO The rest
     }
+    
     if ($errors != null)
         return array_merge($errors, validate_general());
     else
