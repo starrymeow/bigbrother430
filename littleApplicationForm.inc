@@ -220,14 +220,22 @@
 		<input type="text" name="participate" id="participate"><br>
 
 		<p>3. Where did you hear about Big Brothers Big Sisters? Please check all that apply and provide details in space given.</p><br>
-		<input type="checkbox" name="hear_school" id="hear_school" value="School"><br>
-		<input type="checkbox" name="hear_relative" id="hear_relative" value="Relative"><br>
-		<input type="checkbox" name="hear_faith" id="hear_faith" value="Faith Organization"><br>
-		<input type="checkbox" name="hear_service" id="hear_service" value="Service Organization"><br>
-   		<input type="checkbox" name="hear_website" id="hear_website" value="Website"><br>
-   		<input type="checkbox" name="hear_tv" id="hear_tv" value="TV/Radio"><br>
-   		<input type="checkbox" name="hear_event" id="event" value="Event"><br>
-   		<input type="checkbox" name="hear_other" id="hear_other" value="Other"><br>
+		<input type="checkbox" name="hear_school" id="hear_school" value="School">
+		<label for="hear_school">School</label><br>
+		<input type="checkbox" name="hear_relative" id="hear_relative" value="Relative">
+		<label for="hear_relative">Relative</label><br>		
+		<input type="checkbox" name="hear_faith" id="hear_faith" value="Faith Organization">
+		<label for="hear_faith">Faith Organization</label><br>
+		<input type="checkbox" name="hear_service" id="hear_service" value="Service Organization">
+		<label for="hear_service">Service Organization</label><br>		
+   		<input type="checkbox" name="hear_website" id="hear_website" value="Website">
+   		<label for="hear_website">Website</label><br>		
+   		<input type="checkbox" name="hear_tv" id="hear_tv" value="TV/Radio">
+   		<label for="hear_tv">TV/Radio</label><br>		
+   		<input type="checkbox" name="hear_event" id="event" value="Event">
+   		<label for="hear_event">Event</label><br>		
+   		<input type="checkbox" name="hear_other" id="hear_other" value="Other">
+   		<label for="hear_other">Other</label><br>		
 
 		<p>4. Does your child have siblings or relatives who are applying for the BBBS program at this time
 		or who are currently in the program?<br>Yes No If yes, please explain:</p><br>
@@ -273,13 +281,18 @@
 		</select>
 
 		<p>13. Does your child have a parent/caregiver with current or past military experience? Yes No If yes, please list dates of service: </p>
-		<input type="text" name="service_dates" id="service_dates">
+		<input type="text" name="service_dates" id="service_dates"><br>
 		<label for="branch">Branch: </label>
 		<input type="checkbox" name="air_force" id="air_force" value="Air Force">
+		<label for="air_force">Air Force</label><br>
 		<input type="checkbox" name="army" id="army" value="Army">
+		<label for="army">Army</label><br>		
 		<input type="checkbox" name="marine" id="marine" value="Marine Corps">
+		<label for="marine">Marine Corps</label><br>		
 		<input type="checkbox" name="navy" id="navy" value="Navy">
-		<input type="checkbox" name="coast" id="coast" value="Coast Guard Component">
+		<label for="navy">Navy</label><br>		
+		<input type="checkbox" name="coast" id="coast" value="Coast Guard">
+		<label for="coast">Coast Guard</label><br>		
 
 		<p>Is the parent currently deployed? If yes, please put the date of deployment</p><br>
 		<input type="text" name="deploy_dates" id="deploy_dates"><br>
@@ -316,13 +329,13 @@
 		<label for="truant">Truant</label>
 		<input type="checkbox" name="truant" id="truant" value="Truant"><br>
 		<label for="behavior">Behavior problems </label>
-		<input type="text" name="behavior" id="behavior" value="Describe:"><br>
+		<input type="text" name="behavior" id="behavior" placeholder="Describe:"><br>
 		<label for="suspended">Has been suspended </label>
-		<input type="text" name="suspended" id="suspended" value="Reason for suspension:"><br>
+		<input type="text" name="suspended" id="suspended" placeholder="Reason for suspension:"><br>
 		<label for="expelled">Has been expelled </label>
-		<input type="text" name="expelled" id="expelled" value="Reason for expulsion:"><br>
+		<input type="text" name="expelled" id="expelled" placeholder="Reason for expulsion:"><br>
 		<label for="alt_school">Sent to an alternative school </label>
-		<input type="text" name="alt_school" id="alt_school" value="Reason for school change:"><br>
+		<input type="text" name="alt_school" id="alt_school" placeholder="Reason for school change:"><br>
 
 
 
