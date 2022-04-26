@@ -40,7 +40,8 @@ function validate_general() {
         $errors[] = 'Please enter a race';
     if ($_POST['apply_reason'] == null)
         $errors[] = 'Please enter the reason that you are applying';
-
+    if ($_POST['life_changes'] == null)
+        $errors[] = 'Please provide if you anticipate big life changes soon';
     return $errors;
 }
 
