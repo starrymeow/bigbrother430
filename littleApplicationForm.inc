@@ -102,10 +102,10 @@
 		<label for="home_phone">Home Phone #</label><br/>
 		<input type="tel" name="home_phone"/><br/>
 
-		<label for="cell_phone">Parent Phone #</label><br/>
+		<label for="cell_phone">Guardian Phone #</label><br/>
 		<input type="tel" name="cell_phone"/><br/>
 		
-		<label for="text_parent">Is it okay to text parent?</label><br/>
+		<label for="text_parent">Is it okay to text you (the guardian)?</label><br/>
 		
 		<input type="radio" name="can_text_cell" id="yes_text_parent" value="true">
 		<label for="yes_text_parent">Yes</label>
@@ -117,9 +117,9 @@
 
 		<label for="text_child">Is it okay to text child?</label><br/>
 		
-		<input type="radio" name="text_child" id="text_child" value="true">
+		<input type="radio" name="text_child" value="yes_text_child">
 		<label for="yes_textchild">Yes</label>
-		<input type="radio" name="text_child" id="text_child" value="false">
+		<input type="radio" name="text_child" value="no_text_child">
 		<label for="no_textchild">No</label><br/>
 		
 
@@ -132,7 +132,7 @@
 		<label for="zip">Zip</label><br>
 		<input type="text" name="zip" id="zip"><br>
 
-		<label for="adult_email">Parent/Guardian E-mail:</label><br>
+		<label for="adult_email">Guardian E-mail:</label><br>
 		<input type="text" name="adult_email" id="adult_email"><br>
 		<label for="child_email">Child E-mail:</label><br>
 		<input type="text" name="child_email" id="child_email"><br>
@@ -179,55 +179,59 @@
 		<label for="origin">Nationality/Country of Origin:</label>
 		<input type="text" id="origin" name="origin"><br>
 		
-		<label for="place_employment">Parent Place of Employment:</label>
+		<label for="place_employment">Guardian Place of Employment:</label>
 		<input type="text" id="place_employment" name="place_employment"><br>
 		
-		<label for="work_phone">Parent Work Phone #:</label>
+		<label for="work_phone">Guardian Work Phone #:</label>
 		<input type="text" id="work_phone" name="work_phone"><br>
 		
-		<label for="contact_at_work">May we contact you(the parent/guardian) at the work number listed above?</label><br/>
+		<label for="contact_at_work">May we contact you (the guardian) at the work number listed above?</label><br/>
 		
-		<input type="radio" name="contact_at_work" id="yes_contact_at_work">
+		<input type="radio" name="contact_at_work" value="yes_contact_at_work">
 		<label for="yes_textchild">Yes</label>
-		<input type="radio" name="contact_at_work" id="no_contact_at_work">
+		<input type="radio" name="contact_at_work" value="no_contact_at_work">
 		<label for="no_textchild">No</label><br/>
 
-		<label for="best_contact">Please check the best number and time to contact you (the parent/guardian)?</label><br>
-		<input type="button" name="best_place" id="best_place" value="home">
-		<label for="best_home">Home</label>
-		<input type="button" name="best_place" id="best_place" value="cell">
-		<label for="best_cell">Cell</label>
-		<input type="button" name="best_place" id="best_place" value="work">
-		<label for="best_work">Work</label><br>
-		<input type="button" name="best_time" id="best_time" value="morning">
-		<label for="best_morning">Morning</label>
-		<input type="button" name="best_time" id="best_time" value="afternoon">
-		<label for="best_afternoon">Afternoon</label>
-		<input type="button" name="best_time" id="best_time" value="evening">
-		<label for="best_evening">Evening</label><br>
+		<label for="best_contact">Please check the best number and time to contact you (the guardian)?</label><br/>
+		
+		<select name="best_place">
+			<option value="" disabled selected>Select</option>
+			<option value="home">Home</option>
+			<option value="home">Cell</option>
+			<option value="home">Work</option>
+		</select>
+		<select name="best_time">
+			<option value="" disabled selected>Select</option>
+			<option value="morning">Morning</option>
+			<option value="afternoon">Afternoon</option>
+			<option value="evening">Evening</option>
+		</select><br/>
 
-		<p>If we are unable to reach you, who is someone we could call who always knows how to reach you?</p><br>
-		<label for="unable_name">Name: </label>
-		<input type="text" name="unable_name" id="unable_name"><br>
-		<label for="unable_phone">Phone Number: </label>
+		<label>If we are unable to reach you, who is someone we could call who always knows how to reach you?</label><br>
+		<label for="unable_name">Name</label><br/>
+		<input type="text" name="unable_name" id="unable_name"><br/>
+		<label for="unable_phone">Phone Number</label><br/>
 		<input type="text" name="unable_phone" id="unable_phone"><br>
 		<br>
 
-		<p>1. What is the primary reason for you wanting your child to have a Big Brother or Big Sister?</p><br>
-		<input type="text" name="apply_reason" id="reason"><br>
+		<label for="apply_reason">What is the primary reason for you wanting your child to have a Big Brother or Big Sister?</label><br>
+		<textarea name="apply_reason" rows="4" cols="30"></textarea><br>
 
-		<p>2. Does your child know that you are applying for the program? Does your child want to participate?</p><br>
-		<input type="text" name="participate" id="participate"><br>
+		<label for="participate">Does your child know that you are applying for the program?</label><br/>		
+		<input type="radio" name="participate" value="yes_participate">
+		<label for="yes_textchild">Yes</label>
+		<input type="radio" name="participate" value="no_participate">
+		<label for="no_textchild">No</label><br/>
 
-		<p>3. Where did you hear about Big Brothers Big Sisters? Please check all that apply and provide details in space given.</p><br>
-		<input type="checkbox" name="hear_school" id="hear_school" value="School"><br>
-		<input type="checkbox" name="hear_relative" id="hear_relative" value="Relative"><br>
-		<input type="checkbox" name="hear_faith" id="hear_faith" value="Faith Organization"><br>
-		<input type="checkbox" name="hear_service" id="hear_service" value="Service Organization"><br>
-   		<input type="checkbox" name="hear_website" id="hear_website" value="Website"><br>
-   		<input type="checkbox" name="hear_tv" id="hear_tv" value="TV/Radio"><br>
-   		<input type="checkbox" name="hear_event" id="event" value="Event"><br>
-   		<input type="checkbox" name="hear_other" id="hear_other" value="Other"><br>
+		<label>Where did you hear about Big Brothers Big Sisters? Please check all that apply.</label><br>
+		<input type="checkbox" name="hear_school" value="School"><br>
+		<input type="checkbox" name="hear_relative" value="Relative"><br>
+		<input type="checkbox" name="hear_faith" value="Faith Organization"><br>
+		<input type="checkbox" name="hear_service" value="Service Organization"><br>
+   		<input type="checkbox" name="hear_website" value="Website"><br>
+   		<input type="checkbox" name="hear_tv" value="TV/Radio"><br>
+   		<input type="checkbox" name="hear_event" value="Event"><br>
+   		<input type="checkbox" name="hear_other" value="Other"><br>
 
 		<p>4. Does your child have siblings or relatives who are applying for the BBBS program at this time
 		or who are currently in the program?<br>Yes No If yes, please explain:</p><br>
