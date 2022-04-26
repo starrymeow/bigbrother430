@@ -36,7 +36,7 @@ session_cache_expire(30);
                 include_once('database/dbinfo.php');
 
                 date_default_timezone_set('America/New_York');
-
+                
                 ?>
 				<!-- BBBS Code -->
 				<div id="homeoptions">

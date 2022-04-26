@@ -27,6 +27,7 @@ if (!($_SESSION['access_level'] >= 2)) {
 			<div id="content">
 				<div class="infoform">
 					<h1>Search for a Person</h1>
+					<h2> Search by One Criteria</h2>
 					<form method="post">
 					<label for="email">Email</label><br>
 					<input type="text" name="email" placeholder="email"><br>
@@ -152,7 +153,7 @@ if (!($_SESSION['access_level'] >= 2)) {
 					    elseif ($_POST['last_name'] != "") {
 					        $acc = getall_lastdbAccounts($_POST['last_name']);
 					        if (!$acc) {
-					            echo ('<h2>There is no person in the database with this email</h2>');
+					            echo ('<h2>There is no person in the database with this last name</h2>');
 					            $accounts = getall_dbAccounts("A", "Z");
 					            if (is_array($accounts)) {
 					                foreach($accounts as $account) {
@@ -211,7 +212,7 @@ if (!($_SESSION['access_level'] >= 2)) {
 					    elseif ($_POST['status_options'] != "select") {
 					        $acc = getall_statusdbAccounts($_POST['status_options']);
 					        if (!$acc) {
-					            echo ('<h2>There is no person in the database with this email</h2>');
+					            echo ('<h2>There is no person in the database with this status</h2>');
 					            $accounts = getall_dbAccounts("A", "Z");
 					            if (is_array($accounts)) {
 					                foreach($accounts as $account) {
@@ -305,7 +306,6 @@ if (!($_SESSION['access_level'] >= 2)) {
                     <?php
                     
                     end:
-                    
                     
    					?>
 				</div>

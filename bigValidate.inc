@@ -16,6 +16,9 @@ function validate_big() {
         $_POST['status'] = 'applicant';
     if (!valid_email($_POST['email']) && $_POST['email'] != null)
         $errors[] = "Please enter a valid email";*/
-    return merge_array($errors, validate_general());
+    if ($errors != null)
+        return array_merge($errors, validate_general());
+    else
+        return validate_general();
 }
 ?>

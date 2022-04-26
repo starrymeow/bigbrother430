@@ -178,7 +178,7 @@ if ($email == 'new') {
                                 echo('<p class="error">Unable to add ' . $first_name . ' ' . $last_name . ' to the database. <br>An account with the same email already exists.</p>');
                             } else {
                                 try {
-                                    $tepmPass = send_mail($email, $first_name);
+                                    $tempPass = send_mail($email, $first_name);
 
                                     $newaccount = new Account($email,  password_hash($tempPass, PASSWORD_DEFAULT), $first_name, $last_name, "new");
                                     $result = add_account($newaccount);
