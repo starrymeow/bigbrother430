@@ -60,8 +60,7 @@ function validate_little() {
         $errors[] = 'Please provide if the child is eligible for free/reduced lunch';
     if ($_POST['income_assist'] == null)
         $errors[] = 'Please provide the household annual income';
-    if ($_POST['participate'] == null)
-        $errors[] = 'Please provide if the child wants to participate';
+  
     if ($errors != null)
         return array_merge($errors, validate_general());
     else
