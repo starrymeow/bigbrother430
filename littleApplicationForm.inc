@@ -64,18 +64,18 @@
 
 		<label>
     		Child&apos;s Gender</label><br/>
-    		<label for="gender1">
-    			<input type="radio" name="gender" id="gender1" value="male" onchange="hide('otherGender')"/>
+    		<label for="gender">
+    			<input type="radio" name="gender" value="male" onchange="hide('otherGender')"/>
     			Male
     		</label>
 
-    		<label for="gender2">
-    			<input type="radio" name="gender" id="gender2" value="female" onchange="hide('otherGender')"/>
+    		<label for="gender">
+    			<input type="radio" name="gender" value="female" onchange="hide('otherGender')"/>
     			Female
     		</label>
 
-    		<label for="gender3">
-    			<input type="radio" name="gender" id="gender3" value="Other" onchange="show('otherGender')"/>
+    		<label for="gender">
+    			<input type="radio" name="gender" value="Other" onchange="show('otherGender')"/>
     			Other
     		</label><br/>
 		<br/>
@@ -137,7 +137,7 @@
 		<label for="child_email">Child E-mail:</label><br>
 		<input type="text" name="child_email" id="child_email"><br>
 
-		<label for="school">Child&apos; School:</label><br>
+		<label for="school">Child&apos;s School:</label><br>
 		
 		<input type="text" name="school" id="school"><br>
 		
