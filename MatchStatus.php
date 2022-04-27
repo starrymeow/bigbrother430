@@ -21,7 +21,6 @@ session_cache_expire(30);
 		?>
 		<div class="infoform">
 			<h1>Match Status</h1>
-			<h3>**(First & Last Name)**</h3>
 			<input type="checkbox" checked disabled/><h2>Submission Reviewed</h2>
 			<input type="checkbox" disabled/><h2>Passed Background Check</h2>
 			<input type="checkbox" disabled/><h2>Recommendations Verified</h2>
