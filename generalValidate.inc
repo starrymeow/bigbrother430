@@ -22,7 +22,7 @@ function validate_general() {
         $errors[] = 'Please enter the cell phone';
     if ($_POST['home_phone'] == null)
         $errors[] = 'Please enter the home phone';
-    if ( isset($_POST['gender']))
+    if ($_POST['gender'] == null)
         $errors[] = 'Please enter a gender';
     if ($_POST['adddress'] == null)  //TODO input validation for an address is apparently crazy hard     https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/
         $errors[] = 'Please enter an address';
