@@ -63,21 +63,20 @@
 		<input type="text" name="preferred_name"/><br/>
 
 		<label>
-    		Child&apos;s Gender</label><br/>
-    		<label for="gender">
-    			<input type="radio" name="gender" value="male" onchange="hide('otherGender')"/>
-    			Male
-    		</label>
-
-    		<label for="gender">
-    			<input type="radio" name="gender" value="female" onchange="hide('otherGender')"/>
-    			Female
-    		</label>
-
-    		<label for="gender">
-    			<input type="radio" name="gender" value="Other" onchange="show('otherGender')"/>
-    			Other
-    		</label><br/>
+    		Child&apos;s Gender
+    	</label><br/>
+    	<input type="radio" name="gender" value="male" onchange="hide('otherGender')"/>
+		<label for="gender">
+			Male
+		</label>
+    	<input type="radio" name="gender" value="female" onchange="hide('otherGender')"/>
+    	<label for="gender">
+			Female
+		</label>
+    	<input type="radio" name="gender" value="Other" onchange="show('otherGender')"/>
+    	<label for="gender">
+			Other
+		</label><br/>
 		<br/>
 		<div id="otherGender">
 			<label for="otherGender">Please Specify</label><br/>
