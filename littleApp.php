@@ -5,7 +5,6 @@ session_cache_expire(30);
 include_once('domain/Account.php');
 include_once('database/dbLittleApplications.php');
 include_once('domain/LittleApplication.php');
-include_once('littleValidate.inc');
 include_once('database/dbinfo.php');
 
 // Tests if user can access page
@@ -27,7 +26,6 @@ if ($id == 'new') {
         die();
     }
 }
-
 ?>
 <html>
 	<head>
@@ -44,7 +42,7 @@ if ($id == 'new') {
 				<div class='infoform'>
 					<?php
 					echo('<h1>Little Application</h1>');
-            		include_once('little_validate.inc');
+            		include_once('littleValidate.inc');
             		if (! array_key_exists('_submit_check', $_POST)) {
             		    include("littleApplicationForm.inc");
             		} else {
@@ -89,12 +87,12 @@ if ($id == 'new') {
             		        $_POST['house_assist'], $_POST['development'], $_POST['lunch_assist'], $_POST['annual_income'],
             		        $_POST['military'], $_POST['service_branch'], $_POST['deployment_date'], $_POST['retired_military'],
             		        $_POST['discharged_military'], $_POST['wounded_veteran'], $_POST['incarcerated'],
-            		        $_POST['juvenile_record'], $_POST['schoold_record']);
+            		        $_POST['juvenile_record'], $_POST['school_record']);
             		}
 
             		// process_form sanitizes data, concatenates needed data, and enters it all into a database
             		function process_form($form) {
-                        $email = $_POST['email'];
+                        $email = $_POST['email'];       //TODO this shouldc only be for admin, use session for other users
                         $id = generate_id();
                         //step two: try to make the deletion, password change, addition, or change
                         if (array_key_exists('delete', $_POST)) {
