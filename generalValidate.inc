@@ -24,7 +24,7 @@ function validate_general() {
         $errors[] = 'Please enter the home phone';
     if ($_POST['gender'] == null)
         $errors[] = 'Please enter a gender';
-    if ($_POST['adddress'] == null)  //TODO input validation for an address is apparently crazy hard     https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/
+    if ($_POST['address'] == null)  //TODO input validation for an address is apparently crazy hard     https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/
         $errors[] = 'Please enter an address';
     if ($_POST['city'] == null)
         $errors[] = 'Please enter a city';
