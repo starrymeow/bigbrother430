@@ -80,11 +80,17 @@
 		<br/>
 		<div id="otherGender">
 			<label for="otherGender">Please Specify</label><br/>
-			<input type="text" id="otherGender" name="gender"/>
+			<input type="text" id="otherGender" name="otherGender"/>
 		</div>
 
 		<label for="birthday">Child Date of Birth</label><br/>
 		<input type="date" name="birthday"/><br/>
+		
+		<label for="primary_language">Primary Language</label><br/>
+		<input type="text" name="primary_language"/><br/>
+		
+		<label for="languages">Other Languages</label><br/>
+		<textarea name="languages" rows="4" cols="30"></textarea><br>
 
 		<label for="living_situation">What is the child&apos;s living situation?</label><br>
 		<select name="living_situation">
@@ -122,8 +128,8 @@
 		<label for="no_textchild">No</label><br/>
 		
 
-		<label for="home_address">Home Address:</label><br>
-		<input type="text" name="address" id="home_address"><br>
+		<label for="address">Home Address:</label><br>
+		<input type="text" name="address"><br>
 		<label for="city">City</label><br>
 		<input type="text" name="city" id="city"><br>
 		<label for="state">State</label><br>
