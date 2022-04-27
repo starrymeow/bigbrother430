@@ -42,7 +42,6 @@ if ($id == 'new') {
 				<div class='infoform'>
 					<?php
 					echo('<h1>Little Application</h1>');
-
             		if (! array_key_exists('_submit_check', $_POST)) {
             		    include("littleApplicationForm.inc");
             		} else {
