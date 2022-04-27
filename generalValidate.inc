@@ -18,13 +18,10 @@ function validate_general() {
         $errors[] = 'Please enter your preferred name';
     if ($_POST['birthday'] == null)
         $errors[] = 'Please enter a birthday';
-    $_POST['cell_phone'] = str_replace(' ', '', str_replace('+', '', str_replace('(', '', str_replace('(', '', str_replace('-', '', $_POST['phone'])))));
-    if (!valid_phone($_POST['cell_phone']))
-        $errors[] = 'Please enter the account owner\'s cell phone';
-    $_POST['can_text_cell'] = filter_var($_POST['can_text_cell'], FILTER_VALIDATE_BOOLEAN);
-    $_POST['home_phone'] = str_replace(' ', '', str_replace('+', '', str_replace('(', '', str_replace('(', '', str_replace('-', '', $_POST['home_phone'])))));
-    if (!valid_phone($_POST['home_phone']) && $_POST['home_phone'] != null)
-        $errors[] = 'Please enter a valid number for your home phone';
+    if ($_POST['cell_phone'] == null)
+        $errors[] = 'Please enter the cell phone';
+    if ($_POST['home_phone'] == null)
+        $errors[] = 'Please enter the home phone';
     if ($_POST['gender'] == null)
         $errors[] = 'Please enter a gender';
     if ($_POST['adddress'] == null)  //TODO input validation for an address is apparently crazy hard     https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/
