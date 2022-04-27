@@ -42,10 +42,11 @@ if ($id == 'new') {
 				<div class='infoform'>
 					<?php
 					echo('<h1>Little Application</h1>');
-            		include_once('littleValidate.inc');
+
             		if (! array_key_exists('_submit_check', $_POST)) {
             		    include("littleApplicationForm.inc");
             		} else {
+            		    include_once('littleValidate.inc');
             		    //in this case, the form has been submitted, so validate it
             		    $errors = validate_little();  //step one is validation.
             		    // errors array lists problems on the form submitted
