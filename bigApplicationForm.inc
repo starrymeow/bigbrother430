@@ -362,4 +362,6 @@
     	</select><br/>
 	</div>
 
+	<input type="submit" name="bigsubmit" value="Submit App" class="GreenButton"/>
+	</div>
 </form>
