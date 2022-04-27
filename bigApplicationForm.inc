@@ -168,7 +168,7 @@
 	<label for="dl">
 		No
 	</label>
-	<input type="radio" name="dl" value="yes" onchange="hide('yes')"/>
+	<input type="radio" name="dl" value="yes" onchange="show('yes')"/>
 	<label for="dl">
 		Yes
 	</label><br/>
@@ -262,9 +262,9 @@
 	<label for="can_contact_work">May we contact you at work?</label><br/>
 	
 	<input type="radio" name="can_contact_work" id="yes_call" value="true">
-	<label for="yes_call">Yes</label>
-	<input type="radio" name="can_call" id="no_call" value="false">
-	<label for="no_call">No</label><br/>
+	<label for="yes_can_contact_work">Yes</label>
+	<input type="radio" name="can_contact_work" id="can_contact_work" value="false">
+	<label for="no_can_contact_work">No</label><br/>
 	
 	<label for="work_length">Length of Employment</label><br/>
 	<input type="text" name="work_length" id="work_length"><br>
@@ -291,36 +291,36 @@
 	<br>
 	
 	<label>
-		Have you lived in Ohio for the last 3 years?
+		Have you lived in Virginia for the last 3 years?
 	</label><br/>
 	<input type="radio" name="ohio" value="yes" onchange="hide('no_ohio')"/>
 	<label for="ohio">
 		Yes
 	</label>
-	<input type="radio" name="ohio" value="no" onchange="hide('no_ohio')"/>
+	<input type="radio" name="ohio" value="no" onchange="show('no_ohio')"/>
 	<label for="ohio">
 		No
 	</label><br/>
 	<br/>
 	<div id="no_ohio">
 		<label for="prev_add_1_date">Dates</label><br/>
-		<input type="text" id="prev_add_1_date" name="prev_add_1_date"/>
+		<input type="text" id="prev_add_1_date" name="prev_add_1_date"/><br/>
 		<label for="prev_add_1_add">Address</label><br/>
-		<input type="text" id="prev_add_1_add" name="prev_add_1_add"/>
+		<input type="text" id="prev_add_1_add" name="prev_add_1_add"/><br/>
 		<label for="prev_add_2_date">Dates</label><br/>
-		<input type="text" id="prev_add_2_date" name="prev_add_2_date"/>
+		<input type="text" id="prev_add_2_date" name="prev_add_2_date"/><br/>
 		<label for="prev_add_2_add">Address</label><br/>
-		<input type="text" id="prev_add_2_add" name="prev_add_2_add"/>
+		<input type="text" id="prev_add_2_add" name="prev_add_2_add"/><br/>
 		<label for="prev_add_3_date">Dates</label><br/>
-		<input type="text" id="prev_add_3_date" name="prev_add_3_date"/>
+		<input type="text" id="prev_add_3_date" name="prev_add_3_date"/><br/>
 		<label for="prev_add_3_add">Address</label><br/>
-		<input type="text" id="prev_add_3_add" name="prev_add_3_add"/>
+		<input type="text" id="prev_add_3_add" name="prev_add_3_add"/><br/>
 	</div>
 	
 	<label>
 		Do you have current or past military experience?
 	</label><br/>
-	<input type="radio" name="military_experience" value="yes" onchange="hide('yes_milit')"/>
+	<input type="radio" name="military_experience" value="yes" onchange="show('yes_milit')"/>
 	<label for="military_experience">
 		Yes
 	</label>
@@ -331,7 +331,7 @@
 	<br/>
 	<div id="yes_milit">
 		<label for="date_of_service">Dates of Service</label><br/>
-		<input type="text" id="date_of_service" name="date_of_service"/>
+		<input type="text" id="date_of_service" name="date_of_service"/><br/>
 		<label for="military_branch">Branch</label><br>
     	<select name="military_branch">
     		<option value="" disabled selected>Select</option>
@@ -365,3 +365,22 @@
 	<input type="submit" name="bigsubmit" value="Submit App" class="GreenButton"/>
 	</div>
 </form>
+<script>
+document.getElementById('yes').style.display = 'none';
+document.getElementById('otherPronouns').style.display = 'none';
+document.getElementById('otherGender').style.display = 'none';
+document.getElementById('yes_milit').style.display = 'none';
+document.getElementById('no_ohio').style.display = 'none';
+function show(id) {
+	if (document.getElementById(id).style.display == 'none') {
+		document.getElementById(id).style.display = 'block';
+	}
+	else {
+		document.getElementById(id).style.display = 'none';
+	}
+}
+
+function hide(id) {
+	document.getElementById(id).style.display = 'none';
+}
+</script>
